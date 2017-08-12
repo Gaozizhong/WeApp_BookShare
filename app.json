@@ -1,12 +1,42 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/home/index",
+    "pages/logs/logs",
+    "pages/launch/launch",
+    "pages/self/self",
+    "pages/detail/detail",
+    "pages/login/login",
+    "pages/register/register"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  }
+    "navigationBarTitleText": "Bookshare",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":"true"
+  },
+  "tabBar": {
+    "selectedColor": "#00c700",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath":"images/index.png",
+        "selectedIconPath":"images/index-selected.png"
+      },
+      {
+        "pagePath": "pages/self/self",
+        "text": "我的",
+        "iconPath": "images/selfCenter.png",
+        "selectedIconPath":"images/selfCenter-selected.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+  
 }

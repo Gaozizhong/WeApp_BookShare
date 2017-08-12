@@ -1,10 +1,113 @@
 <!--index.wxml-->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
+  <!--<view  bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
+  </view>-->
+  <!--头部搜索-->
+  <view class="search-area">
+    <view class="classify" style="height:100%">
+      <text bindtap="togglePtype" id="catselectbtn" style="height:36px"></text>
+    </view>
+    <view style="width:92%;float:right">
+      <view class="search-scanner">
+        <image src="../../images/scanner.png" bindtap="screenISBN"></image>
+        <input type="text" placeholder="请输入书名或者ISBN号" />
+        <icon type="search" size="18" color="#666666" />
+      </view>
+    </view>
+
   </view>
+  <!--头部搜索结束-->
+  <!--筛选开始-->
+  <view class="screen-box">
+    <view class="screen {{activeNum==1?'active':''}}" id="screen1" bindtap="changeTab" data-id="1">综合</view>
+    <view class="screen {{activeNum==2?'active':''}}" id="scanner2" bindtap="changeTab" data-id="2">最新</view>
+    <view class="screen {{activeNum==3?'active':''}}" id="scanner3" bindtap="changeTab" data-id="3">最热</view>
+    <view class="screen {{activeNum==4?'active':''}}" id="scanner4" bindtap="changeTab" data-id="4">发布时间</view>
+    <view class="clear-both"></view>
+  </view>
+  <!--筛选结束-->
+  <!--图书列表-->
+  <view class="book-list">
+    <view class="book-tmp" bindtap="detail">
+      <image src="https://easyreadfs.nosdn.127.net/Q-hut7bp3KfPZNSVTtdRfg==/8796093023470097465?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
+      <view class="book-info">
+        <view class="book-name">心理罪</view>
+        <view class="book-author">雷米</view>
+      </view>
+      <view class="clear-both"></view>
+    </view>
+    <view class="book-tmp">
+      <image src="https://easyreadfs.nosdn.127.net/z_4c_fOpvNhFZ8VFEMTQow==/7917026878732400186?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
+      <view class="book-info">
+        <view class="book-name">三生三世枕上书</view>
+        <view class="book-author">唐七公子</view>
+      </view>
+    </view>
+    <view class="book-tmp">
+      <image src="https://easyreadfs.nosdn.127.net/Db3hCApveVcjggJR1OQZvg==/8796093023495173072?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
+      <view class="book-info">
+        <view class="book-name">流星之绊</view>
+        <view class="book-author">东野圭吾</view>
+      </view>
+    </view>
+    <view class="book-tmp">
+      <image src="https://easyreadfs.nosdn.127.net/MIGXbxv5mc2u4pcVR5q0rg==/7916566183359298676?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
+      <view class="book-info">
+        <view class="book-name">一切都是最好的安排</view>
+        <view class="book-author">加措</view>
+      </view>
+    </view>
+    <view class="book-tmp">
+      <image src="https://easyreadfs.nosdn.127.net/qrtaiJGiZoxjyaApe_Md6g==/8796093022677554736?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
+      <view class="book-info">
+        <view class="book-name">至味在人间</view>
+        <view class="book-author">陈晓卿</view>
+      </view>
+    </view>
+    <view class="book-tmp">
+      <image src="https://easyreadfs.nosdn.127.net/a1T3r-J8Xv1m4ez1B6PNIg==/8796093023500161880?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
+      <view class="book-info">
+        <view class="book-name">穆斯林的葬礼</view>
+        <view class="book-author">霍达</view>
+      </view>
+    </view>
+    <!--<view class="book-tmp">
+      <image src="https://easyread.ph.126.net/gRk-979q4TEezSYPaNnvQQ==/8796093022695011959.png?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
+      <view class="book-info">
+        <view class="book-name">为了你，我愿意热爱整个世界</view>
+        <view class="book-author">唐家三少</view>
+      </view>
+    </view>-->
+    <view class="book-tmp">
+      <image src="../../images/book.png" class="book-image"></image>
+      <view class="book-info">
+        <view class="book-name">白夜行</view>
+        <view class="book-author">东野圭吾</view>
+      </view>
+    </view>
+
+  </view>
+  <!--图书列表 end-->
+  <!--分类 start-->
+  <scroll-view style="height:100%" id="catewrap" scroll-into-view="c2" scroll-y="true" hidden="{{!cateisShow}}">
+    <view class="close" bindtap="togglePtype" id="closecatelist"></view>
+    <view id="cateall"  bindtap="cateselect" class="cl_list ">
+      <text class="cl_ico_checked cl_ico"></text>当前选择：战争</view>
+    <view class="catelist" ><!--id="c{{idx}}" wx:key="{{item}}" wx:for-items="{{catelist.res.categories}}" wx:for-index="idx"-->
+      <view class="cl_list cl_ico">
+        <image src="../../images/cm2_discover_icn_0@2x.png"></image>
+        <text>小说</text>
+      </view>
+      <!--<view class="cl_list {{catelist.checked.name==re.name?'checked':''}} " wx:if="{{re.category==idx}}" bindtap="cateselect" data-catype="{{re}}" data-catname="{{re.name}}" wx:for-items="{{catelist.res.sub}}" wx:key="{{item.name}}" wx:for-item="re">
+        <text class="cl_ico_hot cl_ico" wx:if="{{re.hot}}"></text>
+        <text class="cl_ico_checked cl_ico" wx:if="{{catelist.checked.name==re.name}}"></text>
+        {{re.name}}</view>-->
+    </view>
+  </scroll-view>
+  <!--分类 end-->
 </view>

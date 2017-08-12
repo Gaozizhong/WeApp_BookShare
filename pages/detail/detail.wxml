@@ -1,0 +1,27 @@
+<view class="container" style="padding:0px 0px">
+  <!--<loading hidden="{{ !loading }}">加载中...</loading>-->
+  <image class="background" src="https://easyreadfs.nosdn.127.net/Q-hut7bp3KfPZNSVTtdRfg==/8796093023470097465?imageView&quality=90&thumbnail=114y160" mode="aspectFill" />
+  <!--<{{ movie.images.large }}-->
+  <scroll-view class="container" style="padding:0px 0px">
+    <view class="meta">
+      <image class="poster" src="https://easyreadfs.nosdn.127.net/Q-hut7bp3KfPZNSVTtdRfg==/8796093023470097465?imageView&quality=90&thumbnail=114y160" mode="aspectFit" />
+      <text class="title">心理罪( 2014年 )</text>
+      <text class="info">评分：8.9</text>
+      <text class="info">导演： 刘鑫 高子中 王博 </text>
+      <text class="info">主演： {刘鑫 高子中 王博 </text>
+    </view>
+    <view class="summary">
+      <text class="label">摘要：</text>
+      <text class="content">雷米，警察学校教师，熟悉警方办案流程、精通犯罪心理学。 他将所擅长的犯罪心理专业知识，以及国内外的真实犯罪案例，大量运用在小说之中，使作品富有缜密的逻辑推理，丰富多面的人性挣扎，并自然穿插法学、刑事侦查学、现场勘察学、法医学方面的知识，让故事更具说服力、感染力。 以心理罪系列小说闻名于网络，主要作品： 《第七个读者》《 心理罪之画像》《 心理罪之教化场》</text>
+    </view>
+  </scroll-view>
+  <view class="block" style="width:100%;height:50px;"></view>
+  <view id="footer" style="display:block;bottom:0px;position:fixed;width:100%;height:50px;z-index:1000px;">
+    <button id="atten" type="submit" tapmode="buyhover" style="width:30%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn" onclick="attent()">
+      收藏
+    </button>
+    <button id="signup" type="submit" tapmode="buyhover" style="width:70%;color:#fff;height:50px;background: #75a8f9;text-align: center;float:right;" class="btn" onclick="signup()">
+      借阅
+    </button>
+  </view>
+</view>
