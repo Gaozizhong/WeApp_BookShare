@@ -1,0 +1,94 @@
+body {
+
+}
+li {
+	list-style: none;
+}
+html, body {
+	width: 100%;
+	min-height: 100%;
+	background: #f0f0f0;
+}
+.h10 {
+	height: 10px;
+	background: #f0f0f0;
+}
+.h1 {
+	height: 1px;
+	margin: 0 15px;
+	background: #f0f0f0;
+}
+.fr {
+	float: right;
+}
+.hint {
+	color: #666;
+	font-size: 11px;
+	margin-right: 5px;
+}
+.firstblock, .secondblock, .thirdblock {
+	background-color: #fff;
+}
+/* 头部登陆 */
+.loginbg {
+	width: 100%;
+}
+.login .personal_logo {
+	position: absolute;
+	left: 0;
+	top: 55px;
+	width: 70px;
+	height: 70px;
+	margin-left: 20px;
+}
+.person_arrow {
+	position: absolute;
+	height: 20rpx;
+	right: 10px;
+  width: 30rpx;
+	top: 90px;
+}
+.login .userinfo {
+	position: absolute;
+	top: 60px;
+	margin-left: 100px;
+}
+.login .userinfo .title {
+	font-size: 20px;
+	color: #fff;
+}
+.login .userinfo .subtitle {
+	font-size: 14px;
+	color: #fff;
+	border: 1px solid #fff;
+	display: inline-block;
+	padding: 3px;
+	border-radius: 4px;
+	margin-top: 5px;
+}
+/* 设置条目 */
+.item {
+	height: 50px;
+	line-height: 50px;
+	padding-left: 15px;
+	background-color: #fff;
+}
+.item_ico {
+	float: left;
+	width: 27px;
+	height: 20px;
+	padding: 13px 15px 10px 0;
+}
+.item_arrow {
+	float: right;
+	height: 26px;
+	width: auto;
+	margin: 11px 20px
+}
+.presshover {
+	background-color: #FAFAFA;
+}
+.font_size {
+	font-size: 16px;
+	color: #333;
+}
