@@ -1,11 +1,13 @@
 <view class="login-container container">
-
   <view class="connect" style="text-align:center;">
     <p style="left: 0%;">足下路 自由骑</p>
+<<<<<<< HEAD
 <<<<<<< HEAD
     
 =======
 >>>>>>> c49163472ab5b51d7466238be5bc32359ae2f7d5
+=======
+>>>>>>> 又一次测试
   </view>
   <form action="http://www.jq22.com/demo/jquery-Sharelink20151012/" method="post" id="loginForm" novalidate="novalidate">
     <view style="width:100%;margin-bottom:30rpx">
