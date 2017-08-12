@@ -1,0 +1,56 @@
+<view class="login" style="height:200px;">
+  <image src="../../images/backGround.jpg" style="height: 200px" class="loginbg"></image>
+  <image src="../../images/user_defaulthead@2x.png" style="border-radius: 100px" class="personal_logo" id="personal_logo"></image>
+  <view class="userinfo">
+    <view class="title" id="user_name" bindtap="login">
+      点击请登录
+    </view>
+    <view class="subtitle" id="shenfen">
+      身份:无
+    </view>
+  </view>
+  <!--<image src="../../images/personal_icon_arrow.png" class="person_arrow"></image>-->
+</view>
+<!-- 第一块 -->
+<view class="firstblock">
+  <view class="item" tapmode="presshover">
+    <image src="../../images/myAttention.png" class="item_ico"></image>
+    <span>我的分享</span>
+    <image src="../../images/right.png" class="item_arrow"></image>
+  </view>
+  <view class="h1"></view>
+  <view class="item" tapmode="presshover">
+    <image src="../../images/myCollect.png" class="item_ico"></image>
+    <span>历史记录</span>
+    <image src="../../images/right.png" class="item_arrow"></image>
+  </view>
+  <view class="h1"></view>
+  <view class="item" tapmode="presshover">
+    <image src="../../images/history.png" class="item_ico"></image>
+    <span>我的喜爱</span>
+    <image src="../../images/right.png" class="item_arrow"></image>
+    <span class="fr hint"></span>
+  </view>
+</view>
+<!-- 第三块 -->
+<view class="h10"></view>
+<view class="thirdblock">
+  <view class="item" tapmode="presshover">
+    <image src="../../images/aboutMe.png" class="item_ico"></image>
+    <span>与我相关</span>
+    <image src="../../images/right.png" class="item_arrow"></image>
+  </view>
+  <view class="h1"></view>
+  <view class="item" tapmode="presshover">
+    <image src="../../images/aboutMe.png" class="item_ico"></image>
+    <span>意见反馈</span>
+    <image src="../../images/right.png" class="item_arrow"></image>
+  </view>
+  <view class="h1"></view>
+  <view class="item" tapmode="presshover">
+    <image src="../../images/exit_new.png" class="item_ico"></image>
+    <span>退出登录</span>
+  </view>
+</view>
+<view class="h10"></view>
+<view class="h10"></view>

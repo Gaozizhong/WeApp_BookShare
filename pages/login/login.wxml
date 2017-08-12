@@ -1,0 +1,19 @@
+<view class="login-container container">
+
+  <view class="connect" style="text-align:center;">
+    <p style="left: 0%;">足下路 自由骑</p>
+  </view>
+  <form action="http://www.jq22.com/demo/jquery-Sharelink20151012/" method="post" id="loginForm" novalidate="novalidate">
+    <view style="width:100%;margin-bottom:30rpx">
+      <input type="text" name="username" class="username" placeholder="用户名" style="margin:0 auto"/>
+    </view>
+    <view style="width:100%;">
+      <input type="password" name="password" class="password" placeholder="密码" style="margin:0 auto"/>
+    </view>
+    <button id="submit" type="submit" >登 陆</button>
+  </form>
+  <a href="#" onclick="openRegister()">
+    <button type="button" class="register-tis">还有没有账号？</button>
+  </a>
+  
+</view>
