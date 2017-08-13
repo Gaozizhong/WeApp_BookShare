@@ -1,0 +1,55 @@
+<loading hidden="{{ !loading }}">加载中...</loading>
+<view style="width:98%;margin:10px 1%">
+    <view class="photo item" style="height:120px;text-align:center">
+        <view class="notice">
+            请上传校园卡或教工卡
+        </view>
+        <view class="photo-box" style="width:100px;margin:0 auto;">
+            <image src="{{userInfo.avatarUrl==''?'../../images/user_defaulthead@2x.png':userInfo.avatarUrl}}" style="border-radius: 100px" class="personal_logo" id="personal_logo"></image>
+        </view>
+    </view>
+    <view class="name item">
+        <image src="../../images/myAttention.png" class="item_ico"></image>
+        <text>姓名</text>
+        <span class="value-right">刘鑫</span>
+    </view>
+    <view class="h1"></view>
+    <view class="school item">
+        <image src="../../images/myAttention.png" class="item_ico"></image>
+        <text>学校</text>
+        <picker bindchange="bindPickerSchoolChange" class="value-right" value="{{schoolIndex}}" range="{{school}}">
+            <view class="picker">
+                {{school[schoolIndex]}}
+            </view>
+        </picker>
+    </view>
+    <view class="h1"></view>
+    <view class="major item">
+        <image src="../../images/myAttention.png" class="item_ico"></image>
+        <text>专业</text>
+        <picker bindchange="bindPickerMajorChange" class="value-right" value="{{majorIndex}}" range="{{major}}">
+            <view class="picker">
+                {{major[majorIndex]}}
+            </view>
+        </picker>
+    </view>
+    <view class="h1"></view>
+    <view class="phone item">
+        <image src="../../images/myAttention.png" class="item_ico"></image>
+        <text>联系方式</text>
+        <span class="value-right">13752766442</span>
+    </view>
+    <view class="h1"></view>
+    <view class="status item">
+        <image src="../../images/myAttention.png" class="item_ico"></image>
+        <text>学号/教职工编号</text>
+        <span class="value-right">153289</span>
+    </view>
+    <view class="h1"></view>
+    <view class="block" style="width:100%;height:50px;"></view>
+</view>
+<view id="footer" style="display:block;bottom:0px;position:fixed;width:100%;height:50px;z-index:1000px;">
+        <button bindtap="toAuth" type="submit" style="width:100%;color:#fff;height:50px;background: #33CCFF;text-align: center;">
+            认证
+        </button>
+    </view>

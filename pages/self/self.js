@@ -4,7 +4,9 @@ var app = getApp()
 Page({
     data: {
         motto: '欢 迎 来 到 BookShare！',
-        userInfo: {}
+        userInfo: {},
+        loginStatus : getApp().globalData.loginStatus,
+        auth : 0
     },
     //事件处理函数
     bindViewTap: function () {
@@ -13,22 +15,42 @@ Page({
         })
     },
     onLoad: function () {
-        console.log('onLoad')
         var that = this
         //调用应用实例的方法获取全局数据
         app.getUserInfo(function (userInfo) {
             //更新数据
             that.setData({
-                userInfo: userInfo
+                userInfo: userInfo,
             })
         })
+        console.log(this.data)
     },
     onReady:function(){
         
     },
     login:function(){
+        //登录及个人信息切换
+        if (this.data.loginStatus == true){
+            wx.navigateTo({
+                url: '../selfInfo/selfInfo',
+            })
+            console.log(JSON.stringify(this.data.userInfo))
+        }else{
+            wx.navigateTo({
+                url: '../login/login',
+            })
+        }
+        
+    },
+
+    openBookList:function(event){
+        //打开个人中心列表
+        console.log(event)
+        var index = event.currentTarget.dataset.index;
         wx.navigateTo({
-            url: '../login/login',
+            url: '../bookList/bookList?index=' + index,
         })
+        
+        
     }
 })

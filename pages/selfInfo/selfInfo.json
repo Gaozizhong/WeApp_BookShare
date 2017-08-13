@@ -1,0 +1,291 @@
+{
+    "topCitys": [
+        {
+            "city": "天津大学",
+            "id": 971,
+            "pinyin": "tianjindaxue"
+        },
+        {
+            "city": "南开大学",
+            "id": 970,
+            "pinyin": "nankaidaxue"
+        },
+        {
+            "city": "河北工业大学",
+            "id": 969,
+            "pinyin": "hebeigongyedaxue"
+        }
+    ],
+    "citys": [
+        {
+            "city": "天津大学",
+            "id": 971,
+            "pinyin": "tianjindaxue"
+        },
+        {
+            "city": "南开大学",
+            "id": 970,
+            "pinyin": "nankaidaxue"
+        },
+        {
+            "city": "河北工业大学",
+            "id": 969,
+            "pinyin": "hebeigongyedaxue"
+        },
+        {
+            "city": "中国民航大学",
+            "id": 968,
+            "pinyin": "zhongguominhangdaxue"
+        },
+        {
+            "city": "天津工业大学",
+            "id": 967,
+            "pinyin": "tianjingongyedaxue"
+        },
+        {
+            "city": "天津科技大学",
+            "id": 966,
+            "pinyin": "tianjinkejidaxue"
+        },
+        {
+            "city": "天津理工大学",
+            "id": 965,
+            "pinyin": "tianjinligongdaxue"
+        },
+        {
+            "city": "天津医科大学",
+            "id": 964,
+            "pinyin": "tianjinyikedaxue"
+        },
+        {
+            "city": "天津中医药大学",
+            "id": 963,
+            "pinyin": "tianjinzhongyiyaodaxue"
+        },
+        {
+            "city": "天津师范大学",
+            "id": 962,
+            "pinyin": "tianjinshifandaxue"
+        },
+        {
+            "city": "天津职业技术师范大学",
+            "id": 961,
+            "pinyin": "tianjinzhiyejishushifandaxue"
+        },
+        {
+            "city": "天津外国语大学",
+            "id": 960,
+            "pinyin": "tianjinwaiguoyudaxue"
+        },
+        {
+            "city": "天津财经大学",
+            "id": 959,
+            "pinyin": "tianjincaijindaxue"
+        },
+        {
+            "city": "天津商业大学",
+            "id": 958,
+            "pinyin": "tianjinshangyedaxue"
+        },
+        {
+            "city": "天津天狮学院",
+            "id": 957,
+            "pinyin": "tianjintianshidaxue"
+        },
+        {
+            "city": "天津城市建设学院",
+            "id": 956,
+            "pinyin": "tianjinchengshijianzhuxueyuan"
+        },
+        {
+            "city": "天津农学院",
+            "id": 955,
+            "pinyin": "tianjinnongxueyuan"
+        },
+        {
+            "city": "天津体育学院",
+            "id": 954,
+            "pinyin": "tianjintiyuxueyuan"
+        },
+        {
+            "city": "天津美术学院",
+            "id": 953,
+            "pinyin": "tianjinmeishuxueyuan"
+        },
+        {
+            "city": "天津音乐学院",
+            "id": 952,
+            "pinyin": "tianjinyinyuexueyuan"
+        },
+        {
+            "city": "天津医学高等专科学校",
+            "id": 951,
+            "pinyin": "tianjinyixuegaodengzhuankexueyuan"
+        },
+        {
+            "city": "天津渤海职业技术学院",
+            "id": 950,
+            "pinyin": "tianjinbohaizhiyejishuxueyue"
+        },
+        {
+            "city": "天津公安警官职业学院",
+            "id": 949,
+            "pinyin": "tianjingonganjingguanzhiyexueyuan"
+        },
+        {
+            "city": "天津轻工职业技术学院",
+            "id": 948,
+            "pinyin": "tianjinqingongzhiyejishuxueyuan"
+        },
+        {
+            "city": "天津滨海职业学院",
+            "id": 947,
+            "pinyin": "tianjinbinhaizhiyexueyuan"
+        },
+        {
+            "city": "天津职业大学",
+            "id": 946,
+            "pinyin": "tianjinzhiyedaxue"
+        },
+        {
+            "city": "天津机电职业技术学院",
+            "id": 945,
+            "pinyin": "tianjinjidianzhiyejishuxueyuan"
+        },
+        {
+            "city": "天津工程职业技术学院",
+            "id": 944,
+            "pinyin": "tianjingongchengzhiyejishuxueyuan"
+        },
+        {
+            "city": "天津电子信息职业技术学院",
+            "id": 943,
+            "pinyin": "tianjindianzixinxizhiyejishuxueyuan"
+        },
+        {
+            "city": "天津现代职业技术学院",
+            "id": 942,
+            "pinyin": "tianjinxiandaizhiyejishuxueyuan"
+        },
+        {
+            "city": "天津中德职业技术学院",
+            "id": 941,
+            "pinyin": "tianjinzhongdezhiyejishuxueyuan"
+        },
+        {
+            "city": "天津生物工程职业技术学院",
+            "id": 940,
+            "pinyin": "tianjinshengwugongchengzhiyejishuxueyuan"
+        },
+        {
+            "city": "天津冶金职业技术学院",
+            "id": 939,
+            "pinyin": "tianjinyejinzhiyejishuxueyuan"
+        },
+        {
+            "city": "天津城市职业学院",
+            "id": 938,
+            "pinyin": "tianjinchengshizhiyexueyuan"
+        },
+        {
+            "city": "天津海运职业学院",
+            "id": 937,
+            "pinyin": "tianjinhaiyunzhiyexueyuan"
+        },
+        {
+            "city": "天津城市建设管理职业技术学院",
+            "id": 936,
+            "pinyin": "tianjinchengshijiansheguanlizhiyejishuxueyuan"
+        },
+        {
+            "city": "天津铁道职业技术学院",
+            "id": 935,
+            "pinyin": "tianjintiedaozhiyejishuxueyuan"
+        },
+        {
+            "city": "天津石油职业技术学院",
+            "id": 934,
+            "pinyin": "tianjinshiyouzhiyejishuxueyuan"
+        },
+        {
+            "city": "天津交通职业学院",
+            "id": 933,
+            "pinyin": "tianjinjiaotongzhiyejishuxueyuan"
+        },
+        {
+            "city": "天津青年职业学院",
+            "id": 932,
+            "pinyin": "tianjinqinnianzhiyexueyuan"
+        },
+        {
+            "city": "天津工艺美术职业学院",
+            "id": 931,
+            "pinyin": "tianjingongyemeishuzhiyexueyuan"
+        },
+        {
+            "city": "天津开发区职业技术学院",
+            "id": 930,
+            "pinyin": "tianjinkaifaquzhiyejishuxueyuan"
+        },
+        {
+            "city": "天津艺术职业学院",
+            "id": 929,
+            "pinyin": "tianjinyishuzhiyexueyuan"
+        },
+        {
+            "city": "天津广播影视职业学院",
+            "id": 928,
+            "pinyin": "tianjinguangboyingshizhiyexueyuan"
+        },
+        {
+            "city": "天津商务职业学院",
+            "id": 927,
+            "pinyin": "tianjinshangwuzhiyexueyuan"
+        },
+        {
+            "city": "天津国土资源和房屋职业学院",
+            "id": 926,
+            "pinyin": "tianjinguotuziyuanhefangwuzhiyexueyuan"
+        },
+        {
+            "city": "中国人民解放军军事交通学院",
+            "id": 925,
+            "pinyin": "zhongguorenminjiefangjunjunshijiaotongxueyuan"
+        },
+        {
+            "city": "天津市工会管理干部学院",
+            "id": 924,
+            "pinyin": "tianjinshigonghuiguanliganbuxueyuan"
+        },
+        {
+            "city": "北京科技大学天津学院",
+            "id": 923,
+            "pinyin": "beijingkejidaxuetianjinxueyuan"
+        },
+        {
+            "city": "南开大学滨海学院",
+            "id": 922,
+            "pinyin": "nankaidaxuebinhaixueyuan"
+        },
+        {
+            "city": "天津大学仁爱学院",
+            "id": 921,
+            "pinyin": "tianjindaxuerenaixueyuan"
+        },
+        {
+            "city": "天津理工大学中环信息学院",
+            "id": 920,
+            "pinyin": "tianjinligongdaxuezhonghuanxinxixueyuan"
+        },
+        {
+            "city": "天津外国语学院滨海外事学院",
+            "id": 919,
+            "pinyin": "tianjinwaiguoyuxueyuanbinhaiwaishixueyuan"
+        },
+        {
+            "city": "河北工业大学城市学院",
+            "id": 918,
+            "pinyin": "hebeigongyedaxuechenshixueyuan"
+        }
+    ]
+}

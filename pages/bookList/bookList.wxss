@@ -1,0 +1,34 @@
+/**图书列表**/
+.book-list{
+  margin-top: 10px;
+  width: 98%;
+  padding: 2px 2px;
+}
+.book-tmp{
+  padding:2rpx 15rpx 2rpx 15rpx;
+  background: #f7f7f7;
+  margin-bottom: 10rpx;
+  height: 220rpx;
+}
+.book-image{
+  width: 25%;
+  height: 220rpx;
+  float: left;
+}
+.book-info{
+  width: 75%;
+  float: right;
+  height: 100%;
+  text-align: center;
+}
+.book-name{
+  height: 50%;
+  line-height: 60rpx;
+  display: block!important;
+  margin-top:10px
+}
+.book-author{
+  height: 50%;
+  line-height: 60rpx;
+  display: block!important;
+}

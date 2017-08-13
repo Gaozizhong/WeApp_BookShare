@@ -121,7 +121,7 @@
 
 /**图书列表**/
 .book-list{
-  margin-top: 80px;
+  margin-top: 70px;
   width: 98%;
   padding: 2px 2px;
 }

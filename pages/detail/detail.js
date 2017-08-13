@@ -9,7 +9,9 @@ Page({
     data: {
         title: '',
         loading: true,
-        movie: {}
+        value: [1, 1, 1],
+        owner: new Array("----请选择-----","Saab", "Volvo", "BMW"),
+        index:0,
     },
 
     /**
@@ -61,5 +63,11 @@ Page({
             desc: '自定义分享描述',
             path: '/pages/item?id=' + this.data.id
         }
+    },
+
+    bindPickerChange:function(e){
+        this.setData({
+            index: e.detail.value
+        })
     }
 })
