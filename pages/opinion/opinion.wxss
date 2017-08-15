@@ -1,0 +1,30 @@
+.font_size {
+    font-size: 15px;
+}
+
+.submit {
+    background-color: #FF6600;
+    border-radius: 5px;
+    width: 80%;
+    height: 50px;
+    color: #f9f9f9;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.feedbackText {
+    width: 90%;
+    min-height: 200px;
+    max-height: 500px;
+    _height: 200px;
+    margin: 5px auto 10px auto;
+    padding: 5px;
+    outline: 0;
+    border: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    word-wrap: break-word;
+    overflow-x: hidden;
+    overflow-y: auto;
+    _overflow-y: visible;
+}

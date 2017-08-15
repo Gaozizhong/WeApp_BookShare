@@ -46,6 +46,31 @@ Page({
       wx.scanCode({
           success: (res) => {
               console.log(res)
+              if(res.errMsg == "scanCode:ok"){
+                  //扫描成功
+                  if(res.scanType == "EAN_13"){
+                        //条形码
+                        var isbnCode = res.result;
+                        console.log(isbnCode);
+                        wx.navigateTo({
+                            url: '../share/share?isbn=' + isbnCode,
+                        })
+
+                        // wx.request({
+                        //     url: 'https://api.douban.com/v2/book/isbn/' + isbnCode,
+                        //     header: {
+                        //         'content-type': 'json'
+                        //     },
+                        //     success: function (res) {
+                        //         console.log(res.data)
+                        //     }
+                        // })
+                  }else{
+                        wx.showToast({
+                            title: '条形码有误！',
+                        })
+                  }
+              }
           }
       })
   },

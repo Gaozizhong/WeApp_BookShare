@@ -44,13 +44,25 @@ Page({
     },
 
     openBookList:function(event){
-        //打开个人中心列表
+        //打开个人中心图书列表
         console.log(event)
         var index = event.currentTarget.dataset.index;
         wx.navigateTo({
             url: '../bookList/bookList?index=' + index,
         })
-        
-        
+    },
+
+    openOpinion:function(){
+        //打开意见反馈
+        wx.navigateTo({
+            url: '../opinion/opinion',
+        })
+    },
+
+    aboutUs:function(){
+        //打开关于我们
+        wx.navigateTo({
+            url: '../aboutUs/aboutUs',
+        })
     }
 })

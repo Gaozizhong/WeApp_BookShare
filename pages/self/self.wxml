@@ -1,49 +1,49 @@
 <view class="login" style="height:200px;">
-  <image src="../../images/backGround.jpg" style="height: 200px" class="loginbg"></image>
-  <image src="{{userInfo.avatarUrl==''?'../../images/user_defaulthead@2x.png':userInfo.avatarUrl}}" style="border-radius: 100px" class="personal_logo" id="personal_logo"></image>
-  <view class="userinfo">
-    <view class="title" id="user_name" bindtap="login">
-      {{userInfo.nickName==""?"未登录":userInfo.nickName}}
+    <image src="../../images/backGround.jpg" style="height: 200px" class="loginbg"></image>
+    <image src="{{userInfo.avatarUrl==''?'../../images/user_defaulthead@2x.png':userInfo.avatarUrl}}" style="border-radius: 100px" class="personal_logo" id="personal_logo"></image>
+    <view class="userinfo">
+        <view class="title" id="user_name" bindtap="login">
+            {{userInfo.nickName==""?"未登录":userInfo.nickName}}
+        </view>
+        <view class="subtitle" id="shenfen">
+            {{userInfo.auth == 0?"未认证":"已认证"}}
+        </view>
     </view>
-    <view class="subtitle" id="shenfen">
-      {{userInfo.auth == 0?"未认证":"已认证"}}
-    </view>
-  </view>
-  <!--<image src="../../images/personal_icon_arrow.png" class="person_arrow"></image>-->
+    <!--<image src="../../images/personal_icon_arrow.png" class="person_arrow"></image>-->
 </view>
 <!-- 第一块 -->
 <view class="firstblock">
-  <view class="item" bindtap="openBookList" data-index="1">
-    <image src="../../images/myAttention.png" class="item_ico"></image>
-    <span>我看过的</span>
-    <image src="../../images/right.png" class="item_arrow"></image>
-  </view>
-  <view class="h1"></view>
-  <view class="item" bindtap="openBookList" data-index="2">
-    <image src="../../images/myCollect.png" class="item_ico"></image>
-    <span>我的书单</span>
-    <image src="../../images/right.png" class="item_arrow"></image>
-  </view>
+    <view class="item" bindtap="openBookList" data-index="1">
+        <image src="../../images/myAttention.png" class="item_ico"></image>
+        <span>我看过的</span>
+        <image src="../../images/right.png" class="item_arrow"></image>
+    </view>
+    <view class="h1"></view>
+    <view class="item" bindtap="openBookList" data-index="2">
+        <image src="../../images/myCollect.png" class="item_ico"></image>
+        <span>我的书单</span>
+        <image src="../../images/right.png" class="item_arrow"></image>
+    </view>
 </view>
 <!-- 第三块 -->
 <view class="h10"></view>
 <view class="thirdblock">
-  <view class="item" bindtap="openBookList" data-index="4">
-    <image src="../../images/aboutMe.png" class="item_ico"></image>
-    <span>与我相关</span>
-    <image src="../../images/right.png" class="item_arrow"></image>
-  </view>
-  <view class="h1"></view>
-  <view class="item" bindtap="openBookList" data-index="5">
-    <image src="../../images/aboutMe.png" class="item_ico"></image>
-    <span>意见反馈</span>
-    <image src="../../images/right.png" class="item_arrow"></image>
-  </view>
-  <view class="h1"></view>
-  <view class="item" bindtap="openBookList" data-index="6">
-    <image src="../../images/exit_new.png" class="item_ico"></image>
-    <span>退出登录</span>
-  </view>
+    <view class="item" bindtap="openBookList" data-index="5" bindtap="openOpinion">
+        <image src="../../images/aboutMe.png" class="item_ico"></image>
+        <span>意见反馈</span>
+        <image src="../../images/right.png" class="item_arrow"></image>
+    </view>
+    <view class="h1"></view>
+    <view class="item" bindtap="aboutUs" data-index="4">
+        <image src="../../images/aboutMe.png" class="item_ico"></image>
+        <span>关于我们</span>
+        <image src="../../images/right.png" class="item_arrow"></image>
+    </view>
+    <view class="h1"></view>
+    <view class="item" bindtap="openBookList" data-index="6">
+        <image src="../../images/exit_new.png" class="item_ico"></image>
+        <span>退出登录</span>
+    </view>
 </view>
 <view class="h10"></view>
 <view class="h10"></view>
