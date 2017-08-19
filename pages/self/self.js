@@ -6,28 +6,42 @@ Page({
         motto: '欢 迎 来 到 BookShare！',
         userInfo: {},
         loginStatus : getApp().globalData.loginStatus,
+        appId: getApp().globalData.appId,
+        appSecret: getApp().globalData.appSecret,
         auth : 0
     },
+    
+    onLoad: function () {
+        var that = this
+        //调用应用实例的方法获取全局数据
+        app.getUserInfo(function (userInfo) {
+            console.log(userInfo)
+            //更新数据
+            that.setData({
+                userInfo: userInfo,
+            })
+        })
+    },
+    
+    onReady:function(){
+        var that = this
+        //调用应用实例的方法获取全局数据
+        app.getUserInfo(function (userInfo) {
+            console.log(userInfo)
+            //更新数据
+            that.setData({
+                userInfo: userInfo,
+            })
+        })
+    },
+
     //事件处理函数
     bindViewTap: function () {
         wx.navigateTo({
             url: '../logs/logs'
         })
     },
-    onLoad: function () {
-        var that = this
-        //调用应用实例的方法获取全局数据
-        app.getUserInfo(function (userInfo) {
-            //更新数据
-            that.setData({
-                userInfo: userInfo,
-            })
-        })
-        console.log(this.data)
-    },
-    onReady:function(){
-        
-    },
+
     login:function(){
         //登录及个人信息切换
         if (this.data.loginStatus == true){
@@ -36,8 +50,13 @@ Page({
             })
             console.log(JSON.stringify(this.data.userInfo))
         }else{
-            wx.navigateTo({
-                url: '../login/login',
+            var that = this
+            //调用应用实例的方法获取全局数据
+            app.getUserInfo(function (userInfo) {
+                //更新数据
+                that.setData({
+                    userInfo: userInfo,
+                })
             })
         }
         

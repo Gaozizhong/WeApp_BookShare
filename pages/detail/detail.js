@@ -7,47 +7,55 @@ Page({
      * 页面的初始数据
      */
     data: {
-        title: '',
         loading: true,
-        value: [1, 1, 1],
-        owner: new Array("----请选择-----","Saab", "Volvo", "BMW"),
+        owner: new Array("暂无书主！"),
+        ownersID: null,
+        keepTimes: null,
         index:0,
+        cateisShow: false,
+        bookId:null,
+        can_share_ids:null
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(params) {
-        // this.setData({ title: "心理罪", movie: d, loading: false })
-         wx.setNavigationBarTitle({ title: "心理罪" })
+        var bookId = params.bookId;
+        var that = this;
+        that.setData({
+            bookId: bookId
+        })
+        wx.request({
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookInfo&bookId=' + bookId,
+            method: "GET",
+            header: {
+                'content-type': 'application/json',
+            },
+            success: function (res) {
+                that.setData({
+                    bookInfo:res.data[0],
+                    loading:false
+                })
+                 wx.setNavigationBarTitle({ title: res.data[0].book_name })
+            },
+            fail: function () {
+                wx.showToast({
+                    title: '获取数据失败，请稍后重试！',
+                    icon: 'false',
+                    duration: 2000
+                })
+            }
+        })
+
+         
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
-         wx.setNavigationBarTitle({ title: "心理罪"})
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
-        // TODO: onShow
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-        // TODO: onHide
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
-        // TODO: onUnload
+    togglePtype: function () {
+        //显示分类
+        this.setData({
+            cateisShow: !this.data.cateisShow
+        })
     },
 
     /**
@@ -68,6 +76,95 @@ Page({
     bindPickerChange:function(e){
         this.setData({
             index: e.detail.value
+        })
+    },
+
+    borrowBook:function(){
+        //借书
+        var that = this;
+        wx.request({
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookOwners&bookId=' + that.data.bookId,
+            method: "GET",
+            header: {
+                'content-type': 'application/json',
+            },
+            success: function (res) {
+                if (res.data.result == "noPeople"){
+                    wx.showToast({
+                        title: '暂无书主！',
+                        icon: 'false',
+                        duration: 2000
+                    })
+                }else{
+                    that.setData({
+                        owner: res.data.owners,
+                        ownersID: res.data.ownersID,
+                        keepTimes: res.data.keepTimes,
+                        can_share_ids: res.data.can_share_ids
+                    })
+                    
+                }
+                
+                
+            },
+            fail: function () {
+                wx.showToast({
+                    title: '获取书主失败，请稍后重试！',
+                    icon: 'false',
+                    duration: 2000
+                })
+            }
+        })
+        that.togglePtype();
+    },
+
+    affirmBorrowBook:function(){
+        var that = this;
+        var index = that.data.index;
+        var can_share_ids = that.data.can_share_ids;
+        
+        //判断不能借自己书、是否借出
+        wx.request({
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=affirmBorrowBook&canShareId=' + can_share_ids[index]+'&user_id=' + app.globalData.userId,
+            method: "GET",
+            header: {
+                'content-type': 'application/json',
+            },
+            success: function (res) {
+                console.log(res.data[0].result)
+                if(res.data[0].result == "sharing"){
+                    wx.showToast({
+                        title: '图书已借出，请于2017-8-31日后再试',
+                        icon: 'false',
+                        duration: 2000
+                    })
+                } else if (res.data[0].result == "fail"){
+                    wx.showToast({
+                        title: '借书失败，请稍后重试！',
+                        icon: 'false',
+                        duration: 2000
+                    })
+                } else if (res.data[0].result == "success") {
+                    wx.showToast({
+                        title: '申请成功，等书主确认！',
+                        icon: 'false',
+                        duration: 2000
+                    })
+                } else if (res.data[0].result == "mine") {
+                    wx.showToast({
+                        title: '您不能借自己的书！',
+                        icon: 'false',
+                        duration: 2000
+                    })
+                }
+            },
+            fail: function () {
+                wx.showToast({
+                    title: '借书失败，请稍后重试！',
+                    icon: 'false',
+                    duration: 2000
+                })
+            }
         })
     }
 })

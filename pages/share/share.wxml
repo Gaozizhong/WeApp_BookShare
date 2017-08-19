@@ -1,0 +1,44 @@
+<view class="container" style="padding:0px 0px">
+    <loading hidden="{{ !loading }}">加载中...</loading>
+    <image class="background" src="{{bookInfo.images.large}}" mode="aspectFill" />
+    <!--<{{ movie.images.large }}-->
+    <scroll-view class="container" style="padding:0px 0px">
+        <view class="meta">
+            <image class="poster" src="{{bookInfo.images.large}}" mode="aspectFit" />
+            <text class="title">{{bookInfo.title}}</text>
+            <text class="info">作者： {{bookInfo.author[0]}} </text>
+            <text class="info">ISBN：{{bookInfo.isbn10}}、{{bookInfo.isbn13}}</text>
+            <text class="info">出版社：{{bookInfo.publisher}}</text>
+            <text class="info">出版日期：{{bookInfo.pubdate}}</text>
+        </view>
+        <view class="summary">
+            <text class="label" style="line-height:25px">摘要：{{bookInfo.summary}}</text>
+            <text class="content"></text>
+        </view>
+    </scroll-view>
+    <view class="block" style="width:100%;height:50px;"></view>
+    <view id="footer" style="display:block;bottom:0px;position:fixed;width:100%;height:50px;z-index:1000px;">
+        <button id="atten" type="submit" bindtap="addBookList" style="width:50%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn">
+            添加书单
+        </button>
+        <button id="signup" type="submit" bindtap="uploadBook" style="width:50%;color:#fff;height:50px;background: #75a8f9;text-align: center;float:right;" class="btn">
+            分享图书
+        </button>
+    </view>
+
+    <!--分享 start-->
+    <scroll-view style="height:100%" id="catewrap" scroll-into-view="c2" scroll-y="true" hidden="{{!cateisShow}}">
+        <view class="close" bindtap="togglePtype" id="closecatelist"></view>
+        <view id="cateall" bindtap="cateselect" class="cl_list ">
+            <text class="cl_ico_checked cl_ico"></text> {{bookInfo.title}}
+        </view>
+        <view id="cateall" bindtap="cateselect" class="cl_list ">
+            <text style="float:left;width:100px;line-height:47px">上传天数</text>
+            <input type="text" value="{{uploadDays}}" bindinput="setDays" id="uploadDays" style="float:right;width:200px;height:47px;line-height:47px;text-align:right;margin-right:30px" />
+        </view>
+        <button id="atten" type="submit" bindtap="shareBook" style="width:95%;margin:0 auto;border-radius:5px;height:50px;background: #FE552E;text-align: center;color:#fff;position:fixed;bottom:0px" class="btn">
+            分享
+        </button>
+    </scroll-view>
+    <!--分享 end-->
+</view>

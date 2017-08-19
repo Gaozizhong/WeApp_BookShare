@@ -12,7 +12,8 @@
         "pages/toAuth/toAuth",
         "pages/bookList/bookList",
         "pages/opinion/opinion",
-        "pages/aboutUs/aboutUs"
+        "pages/aboutUs/aboutUs",
+        "pages/share/share"
     ],
     "window": {
         "backgroundTextStyle": "light",

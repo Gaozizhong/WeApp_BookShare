@@ -1,14 +1,14 @@
 <view class="container" style="padding:0px 0px">
-    <!--<loading hidden="{{ !loading }}">加载中...</loading>-->
-    <image class="background" src="https://easyreadfs.nosdn.127.net/Q-hut7bp3KfPZNSVTtdRfg==/8796093023470097465?imageView&quality=90&thumbnail=114y160" mode="aspectFill" />
+    <loading hidden="{{ !loading }}">加载中...</loading>
+    <image class="background" src="{{bookInfo.image_large}}" mode="aspectFill" />
     <!--<{{ movie.images.large }}-->
     <scroll-view class="container" style="padding:0px 0px">
         <view class="meta">
-            <image class="poster" src="https://easyreadfs.nosdn.127.net/Q-hut7bp3KfPZNSVTtdRfg==/8796093023470097465?imageView&quality=90&thumbnail=114y160" mode="aspectFit" />
-            <text class="title">心理罪( 2014年 )</text>
-            <text class="info">作者： 刘鑫 高子中 王博 </text>
-            <text class="info">ISBN：9787508651804</text>
-            <text class="info">时间：30天</text>
+            <image class="poster" src="{{bookInfo.image_large}}" mode="aspectFit" />
+            <text class="title">{{bookInfo.book_name}}</text>
+            <text class="info">作者： {{bookInfo.writer}} </text>
+            <text class="info">ISBN：{{bookInfo.ISBN10}}、{{bookInfo.ISBN13}}</text>
+            <!-- <text class="info">时间：30天</text>
             <view class="info">
                 <text style="float:left">书主：</text>
                 <picker bindchange="bindPickerChange" style="width:100px;float:left" value="{{index}}" range="{{owner}}">
@@ -16,13 +16,13 @@
                         {{owner[index]}}
                     </view>
                 </picker>
-            </view>
-            <text class="info">出版社：大数据战略重点实验室</text>
-            <text class="info">出版日期：2015-05</text>
+            </view> -->
+            <text class="info">出版社：{{bookInfo.book_press}}</text>
+            <text class="info">出版日期：{{bookInfo.publish_date}}</text>
         </view>
         <view class="summary">
             <text class="label">摘要：</text>
-            <text class="content">雷米，警察学校教师，熟悉警方办案流程、精通犯罪心理学。 他将所擅长的犯罪心理专业知识，以及国内外的真实犯罪案例，大量运用在小说之中，使作品富有缜密的逻辑推理，丰富多面的人性挣扎，并自然穿插法学、刑事侦查学、现场勘察学、法医学方面的知识，让故事更具说服力、感染力。 以心理罪系列小说闻名于网络，主要作品： 《第七个读者》《 心理罪之画像》《 心理罪之教化场》</text>
+            <text class="content" style="line-height:25px">{{bookInfo.introduction}}</text>
         </view>
     </scroll-view>
     <view class="block" style="width:100%;height:50px;"></view>
@@ -33,8 +33,31 @@
         <button id="atten" type="submit" style="width:30%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn">
             收藏
         </button>
-        <button id="signup" type="submit" style="width:70%;color:#fff;height:50px;background: #75a8f9;text-align: center;float:right;" class="btn">
+        <button id="signup" type="submit" bindtap="borrowBook" style="width:70%;color:#fff;height:50px;background: #75a8f9;text-align: center;float:right;" class="btn">
             借阅
         </button>
     </view>
 </view>
+<!--分类 start-->
+<scroll-view style="height:100%" id="catewrap" scroll-into-view="c2" scroll-y="true" hidden="{{!cateisShow}}">
+    <view class="close" bindtap="togglePtype" id="closecatelist"></view>
+    <view id="cateall" bindtap="cateselect" class="cl_list ">
+        <text class="cl_ico_checked cl_ico"></text> {{bookInfo.book_name}}
+    </view>
+    <view id="cateall" bindtap="cateselect" class="cl_list ">
+        <text style="float:left;width:100px;line-height:47px">选择书主</text>
+        <picker bindchange="bindPickerChange" style="width:100px;float:right" value="{{index}}" range="{{owner}}">
+            <view class="picker">
+                {{owner[index]}}
+            </view>
+        </picker>
+    </view>
+    <view id="cateall" bindtap="cateselect" class="cl_list ">
+        <text style="float:left;width:100px;line-height:47px">允许借阅</text>
+        <input type="text" value="{{keepTimes[index]}}天" bindinput="setBorrowDays" id="uploadDays" style="float:right;width:200px;height:47px;line-height:47px;text-align:right;margin-right:30px" />
+    </view>
+    <button id="atten" type="submit" bindtap="affirmBorrowBook" style="width:95%;margin:0 auto;border-radius:5px;height:50px;background: #FE552E;text-align: center;color:#fff;position:fixed;bottom:0px" class="btn">
+            确认借阅
+        </button>
+</scroll-view>
+<!--分类 end-->
