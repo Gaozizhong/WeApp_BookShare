@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<loading hidden="{{ !loading }}">加载中...</loading>
+<!-- <loading hidden="{{ !loading }}">加载中...</loading> -->
 <view class="container">
     <!--<view  bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
@@ -16,7 +16,7 @@
         <view style="width:92%;float:right">
             <view class="search-scanner">
                 <image src="../../images/scanner.png" bindtap="screenISBN"></image>
-                <input type="text" placeholder="请输入书名或者ISBN号" />
+                <input type="text" placeholder="请输入书名/ISBN号/作者/关键字" />
                 <icon type="search" size="18" color="#666666" />
             </view>
         </view>

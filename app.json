@@ -13,7 +13,9 @@
         "pages/bookList/bookList",
         "pages/opinion/opinion",
         "pages/aboutUs/aboutUs",
-        "pages/share/share"
+        "pages/share/share",
+        "pages/operate/operate",
+        "pages/borrowApplication/borrowApplication"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -30,6 +32,12 @@
                 "text": "首页",
                 "iconPath": "images/index.png",
                 "selectedIconPath": "images/index-selected.png"
+            },
+            {
+                "pagePath": "pages/operate/operate",
+                "text": "操作",
+                "iconPath": "images/operate.png",
+                "selectedIconPath": "images/operate-selected.png"
             },
             {
                 "pagePath": "pages/self/self",

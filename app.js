@@ -8,15 +8,16 @@ App({
 
         //登录
         var that = this;
-        // wx.checkSession({
-        //     success: function () {
-        //         //session 未过期，并且在本生命周期一直有效
-        //     },
-        //     fail: function () {
-        //         //登录态过期
 
-        //     }
-        // })
+        //定时器获取access_token
+        var timename = setInterval(function(){
+            wx.request({
+                url: 'http://' + that.globalData.apiUrl + '/bookshare?m=home&c=User&a=getAccessToken',
+                success: function (res) {
+                    that.globalData.access_token = res.data.access_token
+                }
+            })
+        }, that.globalData.timer);
 
 
     },
@@ -39,12 +40,14 @@ App({
 
     globalData: {
         userInfo: null,
-        loginStatus: true,
+        authInfo: false,
         appId: 'wxe0a4d0328b2d85cb',
         appSecret: '25f225cee1b8da033ecbd23ac68beb1a',
         session_key: null,
         openId: null,
-        apiUrl: "localhost:8081",//"139.199.171.106:80",//
-        userId:null
+        apiUrl: "localhost:8081",//"www.1949science.cn:80",//
+        userId:null,//用户userId
+        timer: 10000,//定时器设置时间
+        access_token:null
     },
 })

@@ -1,4 +1,4 @@
-<!--launch.wxml-->
+<!-- launch.wxml
 <view class="container">
   <view  bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
@@ -7,4 +7,10 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
-</view>
+</view> -->
+<form name='pushMsgFm' report-submit bindsubmit='orderSign'>  
+enter product:<input type="text" name="product" value='' placeholder="enter your name" />  
+detail: <input type="text" name='detail' placeholder="enter desc" />  
+select sex:<switch type="switch" name='sex' />  
+<button form-type="submit">submit</button>  
+</form>

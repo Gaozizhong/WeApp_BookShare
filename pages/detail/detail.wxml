@@ -56,8 +56,10 @@
         <text style="float:left;width:100px;line-height:47px">允许借阅</text>
         <input type="text" value="{{keepTimes[index]}}天" bindinput="setBorrowDays" id="uploadDays" style="float:right;width:200px;height:47px;line-height:47px;text-align:right;margin-right:30px" />
     </view>
-    <button id="atten" type="submit" bindtap="affirmBorrowBook" style="width:95%;margin:0 auto;border-radius:5px;height:50px;background: #FE552E;text-align: center;color:#fff;position:fixed;bottom:0px" class="btn">
+    <form name='pushMsgFm' report-submit="true" bindsubmit="affirmBorrowBook" >
+        <button form-type="submit" style="width:95%;margin:0 auto;border-radius:5px;height:50px;background: #FE552E;text-align: center;color:#fff;position:fixed;bottom:0px" class="btn">
             确认借阅
         </button>
+    </form>
 </scroll-view>
 <!--分类 end-->

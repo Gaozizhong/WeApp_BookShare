@@ -1,47 +1,60 @@
 /* 设置条目 */
+
 .item {
-	height: 50px;
-	line-height: 50px;
-	padding-left: 15px;
-	background-color: #fff;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 15px;
+    background-color: #fff;
     font-size: 16px;
-	color: #333;
+    color: #333;
 }
+
 .item_ico {
-	float: left;
-	width: 27px;
-	height: 20px;
-	padding: 13px 15px 10px 0;
+    float: left;
+    width: 27px;
+    height: 20px;
+    padding: 13px 15px 10px 0;
 }
-.value-right{
+
+.value-right {
     float: right;
+    width: 200px;
+    height: 47px;
+    line-height: 47px;
+    text-align: right;
     margin-right: 30px;
 }
+
 .item_arrow {
-	float: right;
-	height: 26px;
-	width: auto;
-	margin: 11px 20px
+    float: right;
+    height: 26px;
+    width: auto;
+    margin: 11px 20px;
 }
+
 .presshover {
-	background-color: #FAFAFA;
+    background-color: #fafafa;
 }
+
 .font_size {
-	font-size: 16px;
-	color: #333;
+    font-size: 16px;
+    color: #333;
 }
+
 .h10 {
-	height: 10px;
-	background: #f0f0f0;
+    height: 10px;
+    background: #f0f0f0;
 }
+
 .h1 {
-	height: 3px;
-	margin: 0 15px;
-	background: #f0f0f0;
+    height: 3px;
+    margin: 0 15px;
+    background: #f0f0f0;
 }
 
 /* 头像 */
+
 .personal_logo {
-	width: 70px;
-	height: 70px;
+    width: 70px;
+    height: 70px;
 }

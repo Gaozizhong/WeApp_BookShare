@@ -7,7 +7,7 @@ Page({
         cateisShow: false,
         activeNum: 1,
         loading: true,
-        bookObj:null
+        bookObj:null,
     },
 
     //事件处理函数
@@ -19,6 +19,7 @@ Page({
 
     onPullDownRefresh: function () {
         //监听页面刷新
+        this.onLoad()
         wx.stopPullDownRefresh()
     },
 
@@ -67,12 +68,10 @@ Page({
                 'content-type': 'application/json',
             },
             success: function (res) {
-                
                 that.setData({
                     bookObj: res.data,
                     loading:false
                 })
-                console.log(that.data)
             },
             fail: function () {
                 wx.showToast({

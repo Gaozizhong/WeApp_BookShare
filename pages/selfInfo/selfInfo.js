@@ -11,16 +11,19 @@ Page({
        major:new Array("请选择", "工商管理", "网络工程", "软件工程")
     },
     onLoad: function () {
-        var that = this
-        //调用应用实例的方法获取全局数据
-        app.getUserInfo(function (userInfo) {
-            //更新数据
-            that.setData({
-                userInfo: userInfo,
-            })
+        var that = this;
+        wx.request({
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=User&a=getUserInfo&id=' + app.globalData.userId,
+            header:{
+                'content-type':'application/json'
+            },
+            success: function (res) {
+                that.setData({
+                    userInfo: res.data[0]
+                })
+                console.log(that.data)
+            }
         })
-    },
-    onReady: function () {
         this.setData({
             loading: false
         })

@@ -3,36 +3,43 @@
 var app = getApp()
 Page({
     data: {
-        motto: '欢 迎 来 到 BookShare！',
         userInfo: {},
-        loginStatus : getApp().globalData.loginStatus,
+        authInfo : getApp().globalData.authInfo,
         appId: getApp().globalData.appId,
         appSecret: getApp().globalData.appSecret,
-        auth : 0
     },
     
     onLoad: function () {
         var that = this
         //调用应用实例的方法获取全局数据
         app.getUserInfo(function (userInfo) {
-            console.log(userInfo)
             //更新数据
             that.setData({
                 userInfo: userInfo,
             })
+            app.globalData.userInfo = userInfo;
         })
     },
     
     onReady:function(){
-        var that = this
-        //调用应用实例的方法获取全局数据
-        app.getUserInfo(function (userInfo) {
-            console.log(userInfo)
-            //更新数据
-            that.setData({
-                userInfo: userInfo,
+        var that = this;
+        if(!that.data.authInfo){
+            wx.showModal({
+                title: '认证提醒',
+                content: '您还没有认证',
+                cancelText:"下次再说",
+                cancelColor:"",
+                success: function (res) {
+                    if (res.confirm) {
+                        wx.navigateTo({
+                            url: '../toAuth/toAuth',
+                        })
+                    } else if (res.cancel) {
+                        console.log('用户点击取消')
+                    }
+                }
             })
-        })
+        }
     },
 
     //事件处理函数
@@ -43,20 +50,16 @@ Page({
     },
 
     login:function(){
-        //登录及个人信息切换
-        if (this.data.loginStatus == true){
+        //认证信息及个人信息切换
+        if (this.data.authInfo == true){
+            //个人信息页面
             wx.navigateTo({
                 url: '../selfInfo/selfInfo',
             })
-            console.log(JSON.stringify(this.data.userInfo))
         }else{
-            var that = this
-            //调用应用实例的方法获取全局数据
-            app.getUserInfo(function (userInfo) {
-                //更新数据
-                that.setData({
-                    userInfo: userInfo,
-                })
+            //去认证页面
+            wx.navigateTo({
+                url: '../toAuth/toAuth',
             })
         }
         
@@ -64,7 +67,6 @@ Page({
 
     openBookList:function(event){
         //打开个人中心图书列表
-        console.log(event)
         var index = event.currentTarget.dataset.index;
         wx.navigateTo({
             url: '../bookList/bookList?index=' + index,
