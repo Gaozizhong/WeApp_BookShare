@@ -71,5 +71,14 @@ Page({
         wx.navigateTo({
             url: '../borrowApplication/borrowApplication'
         })
+    },
+
+    /**
+     * 借入
+     */
+    borrowIn: function () {
+        wx.navigateTo({
+            url: '../borrowIn/borrowIn'
+        })
     }
 })

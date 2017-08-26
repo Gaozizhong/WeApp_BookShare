@@ -15,7 +15,8 @@
         "pages/aboutUs/aboutUs",
         "pages/share/share",
         "pages/operate/operate",
-        "pages/borrowApplication/borrowApplication"
+        "pages/borrowApplication/borrowApplication",
+        "pages/borrowIn/borrowIn"
     ],
     "window": {
         "backgroundTextStyle": "light",

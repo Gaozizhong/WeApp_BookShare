@@ -1,0 +1,22 @@
+.bottom{
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    z-index: 99px;
+}
+.bottom-box{
+    width: 100%;
+    background: #fff;
+    text-align: center
+}
+.list-box{
+    width: 31%;
+    margin: 15px 1% 15px 1%;
+    float: left;
+    height: 90px;
+}
+.icon-text{
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px
+}

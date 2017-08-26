@@ -3,27 +3,27 @@
 var app = getApp()
 Page({
     data: {
-        application: null
+        borrowIn: null
     },
 
     onLoad: function () {
         var that = this;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getApplication&ownerId=' + app.globalData.userId,
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBorrowIn&userId=' + app.globalData.userId,
             method: "GET",
             header: {
                 'content-type': 'application/json'
             },
             success: function (res) {
-                if (res.data == "noApplication") {
+                if (res.data == "noBorrowIn") {
                     wx.showToast({
-                        title: '暂无人借书！',
+                        title: '您还没有借过书！',
                         icon: 'false',
                         duration: 2000
                     })
                 } else {
                     that.setData({
-                        application: res.data
+                        borrowIn: res.data
                     })
                 }
             },
@@ -43,10 +43,10 @@ Page({
         var openId = e.currentTarget.dataset.openid;
         var agreeCode = e.currentTarget.dataset.agree;
         var title1; var title2;
-        if (agreeCode == 1){
-            title1 ="借出成功";
+        if (agreeCode == 1) {
+            title1 = "借出成功";
             title2 = "同意失败，请稍后重试";
-        }else{
+        } else {
             title1 = "拒绝成功";
             title2 = "拒绝失败，请稍后重试";
         }
@@ -140,52 +140,6 @@ Page({
                 })
             }
         })
-
-    },
-
-    //确认借出
-    affirmLoan:function(e){
-        var formId = e.detail.formId;
-        var sharingId = e.currentTarget.dataset.sharingid;
-        var openId = e.currentTarget.dataset.openid;
-        
-        wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=affirmLoan&sharingId=' + sharingId,
-            method: "GET",
-            header: {
-                'content-type': 'application/json'
-            },
-            success: function (res) {
-                console.log(res.data)
-                if (res.data == "loaned") {
-                    wx.showToast({
-                        title: '已确认借出，无需重复！',
-                        icon: 'false',
-                        duration: 2000
-                    })
-                }else if (res.data == "success") {
-                    wx.showToast({
-                        title: '借出成功',
-                        icon: 'true',
-                        duration: 2000
-                    })
-                } else if (res.data == "fail") {
-                    wx.showToast({
-                        title: '同意失败，请稍后重试',
-                        icon: 'true',
-                        duration: 2000
-                    })
-                }
-            },
-            fail: function () {
-                wx.showToast({
-                    title: '同意失败，请稍后重试',
-                    icon: 'false',
-                    duration: 2000
-                })
-            }
-        })
-
 
     }
 

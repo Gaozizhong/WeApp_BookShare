@@ -45,9 +45,9 @@ App({
         appSecret: '25f225cee1b8da033ecbd23ac68beb1a',
         session_key: null,
         openId: null,
-        apiUrl: "localhost:8081",//"www.1949science.cn:80",//
+        apiUrl: "www.1949science.cn",//"localhost:8081",//
         userId:null,//用户userId
-        timer: 10000,//定时器设置时间
+        timer: 7000000,//定时器设置时间
         access_token:null
     },
 })
