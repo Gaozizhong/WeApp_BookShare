@@ -36,6 +36,14 @@
             <text style="float:left;width:100px;line-height:47px">上传天数</text>
             <input type="text" value="{{uploadDays}}" bindinput="setDays" id="uploadDays" style="float:right;width:200px;height:47px;line-height:47px;text-align:right;margin-right:30px" />
         </view>
+        <view id="cateall" bindtap="cateselect" class="cl_list ">
+            <text style="float:left;width:100px;line-height:47px">位置</text>
+            <view class="rightText" bindtap="chooseLocation">
+                {{location?location:"请选择位置"}}
+            </view>
+                
+            
+        </view>
         <button id="atten" type="submit" bindtap="shareBook" style="width:95%;margin:0 auto;border-radius:5px;height:50px;background: #FE552E;text-align: center;color:#fff;position:fixed;bottom:0px" class="btn">
             分享
         </button>

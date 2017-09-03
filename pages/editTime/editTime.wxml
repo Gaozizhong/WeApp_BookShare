@@ -1,0 +1,29 @@
+<!--分类 start-->
+<loading hidden="{{ !loading }}">加载中...</loading>
+<scroll-view style="height:100%" id="catewrap" scroll-into-view="c2" scroll-y="true">
+    <view id="cateall" bindtap="cateselect" class="cl_list ">
+        <text class="cl_ico_checked cl_ico"></text> {{bookInfo.book_name}}
+    </view>
+    <view id="cateall" bindtap="cateselect" class="cl_list ">
+        <text style="float:left;width:100px;line-height:47px;">作者</text>
+        <text class="rightText">{{bookInfo.writer}}</text>
+    </view>
+    <view id="cateall" bindtap="cateselect" class="cl_list ">
+        <text style="float:left;width:100px;line-height:47px">ISBN</text>
+        <text class="rightText">{{bookInfo.ISBN13}}</text>
+    </view>
+    <view id="cateall" bindtap="cateselect" class="cl_list ">
+        <text style="float:left;width:100px;line-height:47px">借阅天数</text>
+        <input type="text" value="{{bookInfo.keep_time}}" bindinput="setDays" class="rightText"/>
+    </view>
+    <view id="cateall" bindtap="cateselect" class="cl_list ">
+        <text style="float:left;width:100px;line-height:47px">位置</text>
+        <text class="rightText" style="width:200px">{{bookInfo.keep_time}}</text>
+    </view>
+    <form name='pushMsgFm' report-submit="true" data-canshareid="{{bookInfo.can_share_id}}" bindsubmit="saveKeepTime" >
+        <button form-type="submit" style="width:95%;margin:0 auto;border-radius:5px;height:50px;background: #FE552E;text-align: center;color:#fff;position:fixed;bottom:0px" class="btn">
+            保存修改
+        </button>
+    </form>
+</scroll-view>
+<!--分类 end-->

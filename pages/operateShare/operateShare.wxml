@@ -1,0 +1,47 @@
+<!-- 第一块 -->
+<loading hidden="{{ !loading }}">加载中...</loading>
+<view class="container">
+    <view class="firstblock" style="margin-top:10px">
+        <view class="item">
+            <span>图书</span>
+            <view class="rightText" style="width:200px;height:47px;line-height:47px;" bindtap="screenISBN">
+                <button type="primary" style="background:#33ccff;width:90%;float:right;font-size:12px;margin-top:10px"> 扫描要上传的图书 </button>
+            </view>
+        </view>
+        <view class="h1"></view>
+        <view class="item">
+            <span>位置</span>
+            <view class="rightText" bindtap="chooseLocation">
+                {{location?location:"请选择位置"}}
+            </view>
+        </view>
+        <view class="h1"></view>
+        <view class="item">
+            <span>天数</span>
+            <input type="number" class="rightText" value="{{uploadDays}}" bindinput="setDays"/>
+        </view>
+    </view>
+    <!-- 第二块 -->
+    <view class="h10"></view>
+    <view class="thirdblock">
+        <view class="item">
+            <span>书名</span>
+            <input type="text" class="rightText" value="{{bookInfo.title}}" bindinput="setBorrowDays" placeholder="请输入书名"/>
+        </view>
+        <view class="h1"></view>
+        <view class="item">
+            <span>作者</span>
+            <input type="text" class="rightText" value="{{bookInfo.author[0]}}" bindinput="setBorrowDays" placeholder="请输入作者"/>
+        </view>
+        <view class="h1"></view>
+        <view class="item">
+            <span>ISBN</span>
+            <input type="number" class="rightText" value="{{bookInfo.isbn13}}" bindinput="setBorrowDays" placeholder="请输入ISBN号"/>
+        </view>
+        <view class="h1"></view>
+        <view class="item">
+            <button type="primary" size="mini" style="float:left;font-size:12px;margin-top:10px;background:red" bindtap="continueShare"> 继续分享 </button>
+            <button type="primary" size="mini" style="float:right;font-size:12px;margin-top:10px;margin-right:10px" bindtap="shareBook"> 完成分享 </button>
+        </view>
+    </view>
+</view>

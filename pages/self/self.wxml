@@ -1,12 +1,12 @@
 <view class="login" style="height:200px;">
     <image src="../../images/backGround.jpg" style="height: 200px" class="loginbg"></image>
-    <image src="{{userInfo.avatarUrl==''?'../../images/user_defaulthead@2x.png':userInfo.avatarUrl}}" style="border-radius: 100px" class="personal_logo" id="personal_logo"></image>
+    <image src="{{userInfo.favicon?userInfo.favicon:'../../images/user_defaulthead@2x.png'}}" style="border-radius: 100px" class="personal_logo" id="personal_logo"></image>
     <view class="userinfo">
         <view class="title" id="user_name" bindtap="login">
-            {{userInfo.nickName?userInfo.nickName:"未登录"}}
+            {{userInfo.nickName?userInfo.nickName:"点击授权登录"}}
         </view>
         <view class="subtitle" id="shenfen">
-            {{userInfo.authInfo?"已认证":"未认证"}}
+            {{userInfo.certificationOk == 2?"已认证":"未认证"}}
         </view>
     </view>
     <!--<image src="../../images/personal_icon_arrow.png" class="person_arrow"></image>-->
@@ -40,9 +40,9 @@
         <image src="../../images/right.png" class="item_arrow"></image>
     </view>
     <view class="h1"></view>
-    <view class="item" bindtap="openBookList" data-index="6">
+    <view class="item" bindtap="openSetting">
         <image src="../../images/exit_new.png" class="item_ico"></image>
-        <span>退出登录</span>
+        <span>设置</span>
     </view>
 </view>
 <view class="h10"></view>

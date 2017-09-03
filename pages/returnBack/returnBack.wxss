@@ -1,0 +1,79 @@
+/**图书列表**/
+.book-list{
+  margin-top: 10px;
+  width: 98%;
+  padding: 2px 2px;
+}
+.book-tmp{
+  padding:2rpx 15rpx 2rpx 15rpx;
+  background: #fff;
+  margin-bottom: 15rpx;
+  height: 240rpx;
+  border-radius: 5px;
+}
+.book-image{
+  width: 25%;
+  height: 220rpx;
+  float: left;
+}
+.book-info{
+  width: 75%;
+  float: right;
+  height: 100%;
+}
+.book-name{
+  height: 33%;
+  line-height: 60rpx;
+  display: block!important;
+  margin-top:5px;
+  margin-left: 10px;
+  font-size: 12px
+}
+.book-applier{
+  height: 30%;
+  line-height: 60rpx;
+  display: block!important;
+  margin-left: 10px;
+  font-size: 12px
+}
+.book-applier .left{
+    float:left
+}
+.book-applier .right{
+    float:right;
+    margin-right: 10px
+}
+.operate-box{
+    height: 25%;
+    margin: 2.5% 0 2.5% 0;
+}
+.operate-box button{
+    color: #fff;
+    text-align: center;
+    width:80px;
+    height: 30px;
+    border-radius:5px;
+    line-height: 30px;
+    font-size: 12px
+}
+.operate-box .refuse{
+    background: red;
+    float: left;
+    margin-left: 10px
+}
+.operate-box .agree{
+    background: #3ABE20;
+    float: right;
+    margin-right: 10px
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #3ABE20;
+    border: 1px solid #fff;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 4px;
+    height: 30px;
+    float:right
+}

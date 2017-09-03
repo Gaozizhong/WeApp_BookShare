@@ -11,17 +11,41 @@ Page({
         cateisShow: false,//弹出框
         pictureFiles: null,
         hidden: false,
+        
         //认证信息
         userName:null,
         phoneNumber:null,
         userSchool:null,
         userClass:null,
-        studentCard:null
+        studentCard:null,
+        changePic:false //是否切换了图片
     },
     onLoad: function () {
         var that = this;
+        wx.setNavigationBarTitle({ title: '个人认证' });
 
-        wx.setNavigationBarTitle({ title: '个人认证' })
+        //等待认证获取详情
+        wx.request({
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=User&a=getUserInfo&id=' + app.globalData.userId,
+            header: {
+                'content-type': 'application/json'
+            },
+            success: function (res) {
+                app.globalData.userInfo = res.data[0];
+                that.setData({
+                    userInfo: res.data[0],
+                    pictureFiles: 'http://'+app.globalData.apiUrl+"/bookshare"+res.data[0]["authPic"],
+                    userName: res.data[0]["userName"],
+                    phoneNumber: res.data[0]["phoneNumber"],
+                    userSchool: res.data[0]["userSchool"],
+                    userClass: res.data[0]["userClass"],
+                    studentCard: res.data[0]["studentCard"]
+                })
+                console.log(typeof (that.data.pictureFiles))
+
+            }
+        })
+        
         wx.request({
             url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getSchoolList',
             header: {
@@ -63,7 +87,7 @@ Page({
             success: function (res) {
                 if (res.errMsg == "chooseImage:ok") {
                     that.setData({
-                        pictureFiles: res.tempFilePaths,
+                        pictureFiles: res.tempFilePaths[0],
                         hidden: true
                     })
                 } else {
@@ -100,7 +124,6 @@ Page({
         wx.showActionSheet({
             itemList: ['更改图片', '删除'],
             success: function (res) {
-                console.log(res.tapIndex)
                 if (res.tapIndex == "0") {
                     wx.chooseImage({
                         count: 1,
@@ -108,7 +131,8 @@ Page({
                             if (res.errMsg == "chooseImage:ok") {
                                 that.setData({
                                     pictureFiles: res.tempFilePaths,
-                                    hidden: true
+                                    hidden: true,
+                                    changePic:true,//切换了图片
                                 })
                             } else {
                                 wx.showToast({
@@ -123,7 +147,8 @@ Page({
                 } else if (res.tapIndex == "1") {
                     that.setData({
                         pictureFiles: null,
-                        hidden: false
+                        hidden: false,
+                        changePic: true,//切换了图片
                     })
                 }
             },
@@ -197,8 +222,11 @@ Page({
             return;
         }
         wx.uploadFile({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=User&a=selfAuth',
-            filePath: that.data.pictureFiles[0],
+            url: 'http://' + app.globalData.apiUrl + '/bookshare/index.php/Home/User/selfAuth',
+            header: {
+                'content-type': "multipart/form-data"
+            }, // 设置请求的 header
+            filePath: that.data.pictureFiles,
             name: 'authPic',//app.globalData.userId+
             formData: {
                 "ID": app.globalData.userId,
@@ -208,13 +236,31 @@ Page({
                 'userClass': that.data.userClass,
                 "studentCard": that.data.studentCard
             },
-            header: {
-                'content-type': 'multipart/form-data'
-            }, // 设置请求的 header
+            
             success: function (res) {
                 var data = res.data
-                console.log(res)
-                //do something
+                if (data == "success"){
+                    wx.showToast({
+                        title: '等待管理员审核！',
+                        icon: 'false',
+                        duration: 2000
+                    })
+                    wx.navigateBack({
+                        delta: 1
+                    })
+                }else if(data == "fail"){
+                    wx.showToast({
+                        title: '申请失败,请稍后重试！',
+                        icon: 'false',
+                        duration: 2000
+                    })
+                } else {
+                    wx.showToast({
+                        title: data,
+                        icon: 'false',
+                        duration: 2000
+                    })
+                }
             }
         })
     }

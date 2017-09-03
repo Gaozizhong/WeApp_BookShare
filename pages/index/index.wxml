@@ -1,6 +1,8 @@
+<import src="../templates/templates.wxml"/>
+<import src="../templates/templates.wxss"/>
 <!--index.wxml-->
-<!-- <loading hidden="{{ !loading }}">加载中...</loading> -->
-<view class="container">
+<!-- <loading hidden="{{ !loading }}">加载中...</loading>  -->
+<view class="container" style="background:#f4f4f4">
     <!--<view  bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
@@ -10,10 +12,10 @@
   </view>-->
     <!--头部搜索-->
     <view class="search-area">
-        <view class="classify" style="height:100%">
+        <!-- <view class="classify" style="height:100%">
             <text bindtap="togglePtype" id="catselectbtn" style="height:36px"></text>
-        </view>
-        <view style="width:92%;float:right">
+        </view> -->
+        <view style="width:98%;margin:0 auto">
             <view class="search-scanner">
                 <image src="../../images/scanner.png" bindtap="screenISBN"></image>
                 <input type="text" placeholder="请输入书名/ISBN号/作者/关键字" />
@@ -35,65 +37,8 @@
     <!--图书列表-->
     <view class="book-list">
         <view wx:for="{{bookObj}}" wx:for-index="index" wx:for-item="book">
-            <view class="book-tmp" bindtap="detail" data-bookId="{{book.book_id}}">
-                <image src="{{book.book_image}}" class="book-image"></image>
-                <view class="book-info">
-                    <view class="book-name">{{book.book_name}}</view>
-                    <view class="book-author">{{book.writer}}</view>
-                </view>
-                <view class="clear-both"></view>
-            </view>
+            <template is="indexList" data="{{book}}"/>
         </view>
-        <!-- <view class="book-tmp">
-      <image src="https://easyreadfs.nosdn.127.net/z_4c_fOpvNhFZ8VFEMTQow==/7917026878732400186?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">三生三世枕上书</view>
-        <view class="book-author">唐七公子</view>
-      </view>
-    </view>
-    <view class="book-tmp">
-      <image src="https://easyreadfs.nosdn.127.net/Db3hCApveVcjggJR1OQZvg==/8796093023495173072?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">流星之绊</view>
-        <view class="book-author">东野圭吾</view>
-      </view>
-    </view>
-    <view class="book-tmp">
-      <image src="https://easyreadfs.nosdn.127.net/MIGXbxv5mc2u4pcVR5q0rg==/7916566183359298676?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">一切都是最好的安排</view>
-        <view class="book-author">加措</view>
-      </view>
-    </view>
-    <view class="book-tmp">
-      <image src="https://easyreadfs.nosdn.127.net/qrtaiJGiZoxjyaApe_Md6g==/8796093022677554736?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">至味在人间</view>
-        <view class="book-author">陈晓卿</view>
-      </view>
-    </view>
-    <view class="book-tmp">
-      <image src="https://easyreadfs.nosdn.127.net/a1T3r-J8Xv1m4ez1B6PNIg==/8796093023500161880?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">穆斯林的葬礼</view>
-        <view class="book-author">霍达</view>
-      </view>
-    </view> -->
-        <!--<view class="book-tmp">
-      <image src="https://easyread.ph.126.net/gRk-979q4TEezSYPaNnvQQ==/8796093022695011959.png?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">为了你，我愿意热爱整个世界</view>
-        <view class="book-author">唐家三少</view>
-      </view>
-    </view>-->
-        <!-- <view class="book-tmp">
-      <image src="../../images/book.png" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">白夜行</view>
-        <view class="book-author">东野圭吾</view>
-      </view>
-    </view> -->
-
     </view>
     <!--图书列表 end-->
     <!--分类 start-->

@@ -1,3 +1,4 @@
+var utils = require('../../utils/util.js');
 //share.js 上传图书分享
 //获取应用实例
 var app = getApp()
@@ -7,7 +8,10 @@ Page({
         loading:true,
         bookInfo:{},
         cateisShow:false,
-        uploadDays:10
+        uploadDays:10,//默认上传天数
+        location:null,//地理名称
+        longitude:null,//经度,
+        latitude:null,//纬度
     },
     
     onReady: function () {
@@ -26,10 +30,29 @@ Page({
                 'content-type': 'json'
             },
             success: function (res) {
-                that.setData({
-                    bookInfo: res.data,
-                    loading: false
-                })
+                console.log(res.data)
+                if(res.data.msg == "book_not_found"){
+                    wx.showModal({
+                        title: '提醒',
+                        content: '没有此图书信息，请至手动添加！',
+                        cancelText: "取消",
+                        cancelColor: "",
+                        success: function (res) {
+                            if (res.confirm) {
+                                wx.navigateTo({
+                                    url: '../operateShare/operateShare',
+                                })
+                            } else if (res.cancel) {
+                                
+                            }
+                        }
+                    })
+                }else{
+                    that.setData({
+                        bookInfo: res.data,
+                        loading: false
+                    })
+                }
             },
             fail: function () {
                 that.setData({
@@ -82,28 +105,43 @@ Page({
              
     },
 
-    addBookList: function () {
-        //添加书单
-        var that = this;
-        var bookData = that.data.bookInfo;
-        
-        wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=uploadBookInfo&book_name=' + bookData.title + "&writer=" + bookData.author[0] + "&translator=" + bookData.translator[0] + "&introduction=" + bookData.summary + "&book_image=" + bookData.image + "&book_sort=" + bookData.tags[0].count + "&ISBN10=" + bookData.isbn10 + "&book_press=" + bookData.publisher + "&publish_date=" + bookData.pubdate + "&web_url=" + bookData.url + "&rating=" + bookData.rating.average + "&writer_intro=" + bookData.author_intro + "&image_large=" + bookData.images.large + "&image_medium=" + bookData.images.medium + "&image_small=" + bookData.images.small + "&ISBN13=" + bookData.isbn13 + "&pages=" + bookData.pages + "&price=" + bookData.price + "&rating_max=" + bookData.rating.max + "&rating_min=" + bookData.rating.min + "&raters_num=" + bookData.rating.numRaters + "&subtitle=" + bookData.subtitle,
-            method: "GET",
-            header: {
-                'content-type': 'application/json'
-            },
+    //选择位置
+    chooseLocation: function () {
+        var that = this
+        wx.chooseLocation({
             success: function (res) {
-                console.log(JSON.stringify(res))
-            },
-            fail: function () {
-                wx.showToast({
-                    title: '添加失败，请稍后重试！',
-                    icon: 'false',
-                    duration: 2000
+                console.log(res)
+                that.setData({
+                    latitude: res.latitude,
+                    longitude: res.longitude,
+                    location: res.name
                 })
             }
         })
+    },
+
+    addBookList: function () {
+        //添加书单
+        // var that = this;
+        // var bookData = that.data.bookInfo;
+        
+        // wx.request({
+        //     url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=uploadBookInfo&book_name=' + bookData.title + "&writer=" + bookData.author[0] + "&translator=" + bookData.translator[0] + "&introduction=" + bookData.summary + "&book_image=" + bookData.image + "&book_sort=" + bookData.tags[0].count + "&ISBN10=" + bookData.isbn10 + "&book_press=" + bookData.publisher + "&publish_date=" + bookData.pubdate + "&web_url=" + bookData.url + "&rating=" + bookData.rating.average + "&writer_intro=" + bookData.author_intro + "&image_large=" + bookData.images.large + "&image_medium=" + bookData.images.medium + "&image_small=" + bookData.images.small + "&ISBN13=" + bookData.isbn13 + "&pages=" + bookData.pages + "&price=" + bookData.price + "&rating_max=" + bookData.rating.max + "&rating_min=" + bookData.rating.min + "&raters_num=" + bookData.rating.numRaters + "&subtitle=" + bookData.subtitle,
+        //     method: "GET",
+        //     header: {
+        //         'content-type': 'application/json'
+        //     },
+        //     success: function (res) {
+        //         console.log(JSON.stringify(res))
+        //     },
+        //     fail: function () {
+        //         wx.showToast({
+        //             title: '添加失败，请稍后重试！',
+        //             icon: 'false',
+        //             duration: 2000
+        //         })
+        //     }
+        // })
     },
 
     setDays:function(e){
@@ -115,25 +153,34 @@ Page({
 
     shareBook:function(){
         var that = this;
-
-        wx.getStorage({
-            key: 'userInfo',
-            success: function(res) {
-                console.log(res)
-            },
-        })
+        if (!that.data.location){
+            wx.showToast({
+                title: '您还没有选择地址！',
+                icon: 'success',
+                duration: 2000
+            })
+            return ;
+        }
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=shareBook&ownerId=' + app.globalData.userId + "&bookId=" + that.data.bookId + "&keep_time=" + that.data.uploadDays,
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=shareBook&ownerId=' + app.globalData.userId + "&bookId=" + that.data.bookId + "&keep_time=" + that.data.uploadDays + "&location=" + that.data.location + "&longitude=" + that.data.longitude + "&latitude=" + that.data.latitude,
             method: "GET",
             header: {
                 'content-type': 'application/json'
             },
             success: function (res) {
-                wx.showToast({
-                    title: '分享成功！',
-                    icon: 'success',
-                    duration: 2000
-                })
+                if (res.data == "have shared") {
+                    wx.showToast({
+                        title: '已经分享过，无需再分享！',
+                        icon: 'success',
+                        duration: 2000
+                    })
+                } else {
+                    wx.showToast({
+                        title: '分享成功！',
+                        icon: 'success',
+                        duration: 2000
+                    })
+                }
                 that.togglePtype();
             },
             fail: function () {

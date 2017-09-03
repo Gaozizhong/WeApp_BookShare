@@ -1,15 +1,14 @@
-<view class="container" style="padding:0px 0px">
+<view class="container" style="padding:0px 0px;background:#f4f4f4">
     <loading hidden="{{ !loading }}">加载中...</loading>
     <image class="background" src="{{bookInfo.image_large}}" mode="aspectFill" />
-    <!--<{{ movie.images.large }}-->
-    <scroll-view class="container" style="padding:0px 0px">
+    <image class="poster" src="{{bookInfo.image_large}}" mode="aspectFit" />
+    <view  style="padding:0px 0px">
         <view class="meta">
-            <image class="poster" src="{{bookInfo.image_large}}" mode="aspectFit" />
             <text class="title">{{bookInfo.book_name}}</text>
             <text class="info">作者： {{bookInfo.writer}} </text>
             <text class="info">ISBN：{{bookInfo.ISBN10}}、{{bookInfo.ISBN13}}</text>
-            <!-- <text class="info">时间：30天</text>
-            <view class="info">
+             <!-- <text class="info">时间：30天</text> -->
+            <!-- <view class="info">
                 <text style="float:left">书主：</text>
                 <picker bindchange="bindPickerChange" style="width:100px;float:left" value="{{index}}" range="{{owner}}">
                     <view class="picker">
@@ -17,6 +16,7 @@
                     </view>
                 </picker>
             </view> -->
+            <text class="info">书主：{{bookInfo.userName?bookInfo.userName:bookInfo.nickName}}</text>
             <text class="info">出版社：{{bookInfo.book_press}}</text>
             <text class="info">出版日期：{{bookInfo.publish_date}}</text>
         </view>
@@ -24,16 +24,16 @@
             <text class="label">摘要：</text>
             <text class="content" style="line-height:25px">{{bookInfo.introduction}}</text>
         </view>
-    </scroll-view>
+    </view>
     <view class="block" style="width:100%;height:50px;"></view>
     <view id="footer" style="display:block;bottom:0px;position:fixed;width:100%;height:50px;z-index:1000px;">
         <!-- <button id="atten" type="submit" style="width:20%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn">
             已读
         </button> -->
-        <button id="atten" type="submit" style="width:30%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn">
+        <button type="submit" style="width:30%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn">
             收藏
         </button>
-        <button id="signup" type="submit" bindtap="borrowBook" style="width:70%;color:#fff;height:50px;background: #75a8f9;text-align: center;float:right;" class="btn">
+        <button type="submit" bindtap="borrowBook" style="width:70%;color:#fff;height:50px;background: #75a8f9;text-align: center;float:right;" class="btn">
             借阅
         </button>
     </view>
@@ -45,19 +45,20 @@
         <text class="cl_ico_checked cl_ico"></text> {{bookInfo.book_name}}
     </view>
     <view id="cateall" bindtap="cateselect" class="cl_list ">
-        <text style="float:left;width:100px;line-height:47px">选择书主</text>
-        <picker bindchange="bindPickerChange" style="width:100px;float:right" value="{{index}}" range="{{owner}}">
+        <text style="float:left;width:100px;line-height:47px">书主</text>
+        <!-- <picker bindchange="bindPickerChange" style="width:100px;float:right" value="{{index}}" range="{{owner}}">
             <view class="picker">
                 {{owner[index]}}
             </view>
-        </picker>
+        </picker> -->
+        <text class="rightText">{{bookInfo.userName}}</text>
     </view>
     <view id="cateall" bindtap="cateselect" class="cl_list ">
         <text style="float:left;width:100px;line-height:47px">允许借阅</text>
-        <input type="text" value="{{keepTimes[index]}}天" bindinput="setBorrowDays" id="uploadDays" style="float:right;width:200px;height:47px;line-height:47px;text-align:right;margin-right:30px" />
+        <input type="text" value="{{bookInfo.keep_time}}天" bindinput="setBorrowDays" id="uploadDays" style="float:right;width:200px;height:47px;line-height:47px;text-align:right;margin-right:30px" />
     </view>
     <form name='pushMsgFm' report-submit="true" bindsubmit="affirmBorrowBook" >
-        <button form-type="submit" style="width:95%;margin:0 auto;border-radius:5px;height:50px;background: #FE552E;text-align: center;color:#fff;position:fixed;bottom:0px" class="btn">
+        <button form-type="submit" style="width:95%;margin:0 auto;border-radius:5px;height:50px;background: #FE552E;text-align: center;color:#fff;position:fixed;bottom:0px" class="btn" >
             确认借阅
         </button>
     </form>

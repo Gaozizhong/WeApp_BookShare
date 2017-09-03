@@ -1,6 +1,6 @@
 // 获取全局应用程序实例对象
 const app = getApp()
-
+var utils = require('../../utils/util.js');
 // 创建页面实例对象
 Page({
     /**
@@ -8,13 +8,9 @@ Page({
      */
     data: {
         loading: true,
-        owner: new Array("暂无书主！"),
-        ownersID: null,
         keepTimes: null,
-        index: 0,
         cateisShow: false,
-        bookId: null,
-        can_share_ids: null,
+        canShareId: null,
         openIds:null,
         params:null
     },
@@ -23,14 +19,14 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(params) {
-        var bookId = params.bookId;
+        var canShareId = params.canShareId;
         var that = this;
         that.setData({
-            bookId: bookId,
+            canShareId: canShareId,
             params: params
         })
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookInfo&bookId=' + bookId,
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookInfoByCanShareId&canShareId=' + canShareId,
             method: "GET",
             header: {
                 'content-type': 'application/json',
@@ -50,8 +46,11 @@ Page({
                 })
             }
         })
+        
 
-
+    },
+    onShow:function(){
+        utils.checkSettingStatu();
     },
 
     togglePtype: function () {
@@ -75,75 +74,105 @@ Page({
         return {
             title: this.data.bookInfo.book_name,
             desc: this.data.introduction,
-            path: '/pages/detail/detail?bookId=' + this.data.bookId
+            path: '/pages/detail/detail?canShareId=' + this.data.canShareId
         }
     },
 
-    bindPickerChange: function (e) {
-        this.setData({
-            index: e.detail.value
-        })
-    },
-
-    borrowBook: function () {
+    borrowBook: function (e) {
         //借书
         var that = this;
-        wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookOwners&bookId=' + that.data.bookId,
-            method: "GET",
-            header: {
-                'content-type': 'application/json',
-            },
-            success: function (res) {
-                if (res.data.result == "noPeople") {
+        var canShareId = that.data.canShareId;
+        var checkStatus = that.data.bookInfo.protect;//信息保护
+        if (checkStatus == 1){
+            that.togglePtype();
+        }else{
+            //判断不能借自己书、是否借出
+            wx.request({
+                url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId+"&protect=0",
+                method: "GET",
+                header: {
+                    'content-type': 'application/json',
+                },
+                success: function (res) {
+                    if (res.data[0].result == "sharing") {
+                        wx.showToast({
+                            title: '图书已被借出！',
+                            icon: 'false',
+                            duration: 2000
+                        })
+                    } else if (res.data[0].result == "fail") {
+                        wx.showToast({
+                            title: '借书失败，请稍后重试！',
+                            icon: 'false',
+                            duration: 2000
+                        })
+                    } else if (res.data[0].result == "success") {
+                        wx.showModal({
+                            title: '通知',
+                            content: '书主关闭了借书申请，您可以直接联系他！',
+                            success: function (res) {
+                                if (res.confirm) {
+                                    wx.makePhoneCall({
+                                        phoneNumber: that.data.bookInfo.phoneNumber //仅为示例，并非真实的电话号码
+                                    })
+                                } else if (res.cancel) {
+                                    wx.showModal({
+                                        title: '通知',
+                                        content: '您可以前往借入界面联系书主',
+                                        showCancel: false,
+                                        success: function (res) {
+                                            if (res.confirm) {
+                                                
+                                            } else if (res.cancel) {
+                                                
+                                            }
+                                        }
+                                    })
+                                }
+                            }
+                        })
+
+                    } else if (res.data[0].result == "mine") {
+                        wx.showToast({
+                            title: '您不能借自己的书！',
+                            icon: 'false',
+                            duration: 2000
+                        })
+                    }
+                },
+                fail: function () {
                     wx.showToast({
-                        title: '暂无书主！',
+                        title: '借书失败，请稍后重试！',
                         icon: 'false',
                         duration: 2000
                     })
-                } else {
-                    that.setData({
-                        owner: res.data.owners,
-                        ownersID: res.data.ownersID,
-                        keepTimes: res.data.keepTimes,
-                        can_share_ids: res.data.can_share_ids,
-                        openIds: res.data.openId
-                    })
-
                 }
-
-
-            },
-            fail: function () {
-                wx.showToast({
-                    title: '获取书主失败，请稍后重试！',
-                    icon: 'false',
-                    duration: 2000
-                })
-            }
-        })
-        that.togglePtype();
+            })
+        }
+        
+        
     },
+
+    
 
     affirmBorrowBook: function (e) {
         var that = this;
-        var index = that.data.index;
-        var can_share_ids = that.data.can_share_ids;
+        var canShareId = that.data.canShareId;
         var openIds = that.data.openIds;
         var eventData = e;
-        console.log(eventData)
+        
         //判断不能借自己书、是否借出
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=affirmBorrowBook&canShareId=' + can_share_ids[index] + '&user_id=' + app.globalData.userId,
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId,
             method: "GET",
             header: {
                 'content-type': 'application/json',
             },
             success: function (res) {
-                console.log(res.data[0].result)
                 if (res.data[0].result == "sharing") {
+                    
                     wx.showToast({
-                        title: '图书已借出，请于2017-8-31日后再试',
+                        title: '图书已被借出！',
                         icon: 'false',
                         duration: 2000
                     })
@@ -160,53 +189,6 @@ Page({
                         duration: 2000
                     })
                     
-                    var formId = eventData.detail.formId;
-                    var url = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=' + app.globalData.access_token;
-                    var d = {
-                        touser: openIds[index],
-                        template_id: 'DLInbgS69GSiBD73whDhNBTUnVvwYukCR88V7DD3ngo',//模板消息id，  
-                        page: '/pages/borrowApplication/borrowApplication',
-                        form_id: formId,
-                        value: {
-                            "keyword1": {
-                                "value": "339208499",
-                                "color": "#173177"
-                            },
-                            "keyword2": {
-                                "value": "2015年01月05日 12:30",
-                                "color": "#173177"
-                            },
-                            "keyword3": {
-                                "value": "粤海喜来登酒店",
-                                "color": "#173177"
-                            },
-                            "keyword4": {
-                                "value": "广州市天河区天河路208号",
-                                "color": "#173177"
-                            },
-                            "keyword5": {
-                                "value": "广州市天河区天河路208号",
-                                "color": "#173177"
-                            }
-                             
-                        },
-                        color: '#ccc',
-                        emphasis_keyword: 'keyword1.DATA'
-                    }
-                    wx.request({
-                        url: url,
-                        data: d,
-                        method: 'POST',
-                        success: function (res) {
-                            console.log("push msg");
-                            console.log(res);
-                        },
-                        fail: function (err) {
-                            // fail  
-                            console.log("push err")
-                            console.log(err);
-                        }
-                    });
                 } else if (res.data[0].result == "mine") {
                     wx.showToast({
                         title: '您不能借自己的书！',

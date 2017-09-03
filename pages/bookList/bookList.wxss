@@ -6,9 +6,10 @@
 }
 .book-tmp{
   padding:2rpx 15rpx 2rpx 15rpx;
-  background: #f7f7f7;
-  margin-bottom: 10rpx;
-  height: 220rpx;
+  background: #fff;
+  margin-bottom: 15rpx;
+  height: 240rpx;
+  border-radius: 5px;
 }
 .book-image{
   width: 25%;

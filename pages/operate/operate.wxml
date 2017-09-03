@@ -1,6 +1,6 @@
 <view class="bottom">
     <view class="bottom-box">
-        <view class="list-box">
+        <view class="list-box" bindtap="screenISBN">
             <view class="icon-box">
                 <image src="../../images/share.png" style="width:48px;height:48px;margin: 0 auto"></image>
             </view>
@@ -25,9 +25,17 @@
                 <span>借出</span>
             </view>
         </view>
+        <view class="list-box" bindtap="pilot">
+            <view class="icon-box">
+                <image src="../../images/borrowOut.png" style="width:48px;height:48px;margin: 0 auto"></image>
+            </view>
+            <view class="icon-text">
+                <span>自营点</span>
+            </view>
+        </view>
     </view>
     <view class="bottom-box">
-        <view class="list-box">
+        <view class="list-box" bindtap="returnBack">
             <view class="icon-box">
                 <image src="../../images/giveBack.png" style="width:48px;height:48px;margin: 0 auto"></image>
             </view>
@@ -35,20 +43,28 @@
                 <span>归还</span>
             </view>
         </view>
-        <view class="list-box">
+        <view class="list-box" bindtap="bookMan">
             <view class="icon-box">
                 <image src="../../images/count.png" style="width:48px;height:48px;margin: 0 auto"></image>
             </view>
             <view class="icon-text">
-                <span>统计</span>
+                <span>管理</span>
             </view>
         </view>
-        <view class="list-box">
+        <view class="list-box" bindtap="getBook">
             <view class="icon-box">
                 <image src="../../images/receive.png" style="width:48px;height:48px;margin: 0 auto"></image>
             </view>
             <view class="icon-text">
                 <span>收书</span>
+            </view>
+        </view>
+        <view class="list-box" bindtap="borrowApplication">
+            <view class="icon-box">
+                <image src="../../images/borrowOut.png" style="width:48px;height:48px;margin: 0 auto"></image>
+            </view>
+            <view class="icon-text">
+                <span>书单</span>
             </view>
         </view>
     </view>

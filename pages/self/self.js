@@ -1,47 +1,56 @@
+var utils = require('../../utils/util.js');
 //self.js 个人中心首页
 //获取应用实例
 var app = getApp()
 Page({
     data: {
-        userInfo: {},
-        authInfo : getApp().globalData.authInfo,
-        appId: getApp().globalData.appId,
-        appSecret: getApp().globalData.appSecret,
+        userInfo: null,
+        certificationOk: null,
+    },
+
+    onPullDownRefresh :function(){
+        utils.getUserData();
+        wx.stopPullDownRefresh()
     },
     
-    onLoad: function () {
-        var that = this
-        //调用应用实例的方法获取全局数据
-        app.getUserInfo(function (userInfo) {
-            //更新数据
-            that.setData({
-                userInfo: userInfo,
-            })
-            app.globalData.userInfo = userInfo;
+    onLoad: function (options) {
+        var that = this;
+        utils.getUserData();
+        that.setData({
+            userInfo: app.globalData.userInfo,
+            certificationOk: app.globalData.certificationOk,
         })
+        
     },
     
     onReady:function(){
         var that = this;
-        if(!that.data.authInfo){
-            wx.showModal({
-                title: '认证提醒',
-                content: '您还没有认证',
-                cancelText:"下次再说",
-                cancelColor:"",
-                success: function (res) {
-                    if (res.confirm) {
-                        wx.navigateTo({
-                            url: '../toAuth/toAuth',
-                        })
-                    } else if (res.cancel) {
-                        console.log('用户点击取消')
+        if (that.data.userInfo){
+            if (that.data.certificationOk == 0){
+                wx.showModal({
+                    title: '认证提醒',
+                    content: '您还没有认证',
+                    cancelText: "下次再说",
+                    cancelColor: "",
+                    success: function (res) {
+                        if (res.confirm) {
+                            wx.navigateTo({
+                                url: '../toAuth/toAuth',
+                            })
+                        } else if (res.cancel) {
+                            console.log('用户点击取消')
+                        }
                     }
-                }
-            })
+                })
+            }
+            
         }
     },
-
+    onShow: function () {
+        var that = this;
+        console.log(that+"==================")
+        utils.checkSettingStatu(that);
+    },
     //事件处理函数
     bindViewTap: function () {
         wx.navigateTo({
@@ -51,7 +60,8 @@ Page({
 
     login:function(){
         //认证信息及个人信息切换
-        if (this.data.authInfo == true){
+        var that = this;
+        if (that.data.certificationOk == 2){
             //个人信息页面
             wx.navigateTo({
                 url: '../selfInfo/selfInfo',
@@ -84,6 +94,12 @@ Page({
         //打开关于我们
         wx.navigateTo({
             url: '../aboutUs/aboutUs',
+        })
+    },
+
+    openSetting:function(){
+        wx.navigateTo({
+            url: '../setting/setting',
         })
     }
 })

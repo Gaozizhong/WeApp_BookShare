@@ -1,0 +1,12 @@
+<import src="../templates/templates.wxml" />
+
+<!--图书列表-->
+<view class="book-list">
+    <view wx:for="{{returnBack}}" wx:for-index="index" wx:for-item="book">
+        <!-- 等待归还模板 -->
+        <template is="returnBackContact" data="{{book}}"></template>
+
+        <template is="borrowAffirmReturn" data="{{book}}"></template>
+    </view> 
+</view>
+<!--图书列表 end-->

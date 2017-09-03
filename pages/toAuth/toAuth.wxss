@@ -50,6 +50,64 @@
 	height: 70px;
 }
 
+.page-section{
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+.page-section:last-child{
+  margin-bottom: 0;
+}
+.page-body-info {
+  display: flex;
+  box-sizing: border-box;
+  /* padding: 30rpx; */
+  height: 420rpx;
+  border-top: 1rpx solid #D9D9D9;
+  border-bottom: 1rpx solid #D9D9D9;
+  align-items: center;
+  justify-content: center;
+}
+.page-body-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  width: 100%;
+  /* padding: 50rpx 0 150rpx 0; */
+}
+
+.image-plus {
+  width: 150rpx;
+  height: 150rpx;
+  border: 2rpx solid #D9D9D9;
+  position: relative;
+}
+.image-plus-nb{
+  border: 0;
+}
+.image-plus-horizontal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #d9d9d9;
+  width: 4rpx;
+  height: 80rpx;
+  transform: translate(-50%, -50%);
+}
+.image-plus-vertical {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #d9d9d9;
+  width: 80rpx;
+  height: 4rpx;
+  transform: translate(-50%, -50%);
+}
+.image-plus-text{
+  color: #888888;
+  font-size: 28rpx;
+}
+
 /*图书分类 start*/
 #catselectbtn{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAMAAACecocUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACdQTFRFiIiI+/z9vr6/xcXGnJyd9PX28/T1n5+fnp6ejIyMm5ub7e7v3t/gBUeqYAAAAEBJREFUeNpiYAABZgYI4GZj42LmYmPjBrJZGRlZmFkYGVnR2Bzs7JzMnOzsHAwMTCDAAyZRxHHqRTYfYS9AgAEAaTABl1/qO3QAAAAASUVORK5CYII=);color: #999;padding: 0rpx 40rpx 0rpx 20rpx;background-position: center center;float: right;background-repeat: no-repeat;border-radius: 3rpx;background-size: 40rpx 40rpx;}
 #catewrap{padding:0 15rpx;box-sizing: border-box;position: fixed;width: 100%;height: 100%;z-index: 100;left: 0;top:0;background-color: #fff;}

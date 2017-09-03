@@ -16,14 +16,23 @@
         "pages/share/share",
         "pages/operate/operate",
         "pages/borrowApplication/borrowApplication",
-        "pages/borrowIn/borrowIn"
+        "pages/borrowIn/borrowIn",
+        "pages/returnBack/returnBack",
+        "pages/getBook/getBook",
+        "pages/templates/templates",
+        "pages/bookMan/bookMan",
+        "pages/editTime/editTime",
+        "pages/operateShare/operateShare",
+        "pages/setting/setting",
+        "pages/qrcode/qrcode",
+        "pages/pilot/pilot"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "Bookshare",
         "navigationBarTextStyle": "black",
-        "enablePullDownRefresh": "true"
+        "backgroundColor":"#f4f4f4"
     },
     "tabBar": {
         "selectedColor": "#00c700",

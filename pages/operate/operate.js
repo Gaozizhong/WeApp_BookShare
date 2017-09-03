@@ -1,3 +1,5 @@
+var utils = require('../../utils/util.js');
+
 // pages/home/index.js
 Page({
 
@@ -26,7 +28,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        utils.checkSettingStatu();
     },
 
     /**
@@ -80,5 +82,39 @@ Page({
         wx.navigateTo({
             url: '../borrowIn/borrowIn'
         })
+    },
+
+    //待归还
+    returnBack:function(){
+        wx.navigateTo({
+            url: '../returnBack/returnBack'
+        })
+    },
+
+    //收书
+    getBook:function(){
+        wx.navigateTo({
+            url: '../getBook/getBook'
+        })
+    },
+
+    //图书管理
+    bookMan: function () {
+        wx.navigateTo({
+            url: '../bookMan/bookMan'
+        })
+    },
+    
+    screenISBN: function () {
+        wx.navigateTo({
+            url: '../operateShare/operateShare'
+        })
+    },
+
+    pilot:function(){
+        wx.navigateTo({
+            url: '../pilot/pilot'
+        })
     }
+
 })

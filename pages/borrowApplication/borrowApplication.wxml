@@ -1,138 +1,25 @@
+<import src="../templates/templates.wxml" />
 <!--图书列表-->
 <view class="book-list">
     <view wx:for="{{application}}" wx:for-index="index" wx:for-item="book">
-        <!-- 响应模板 -->
-        <view class="book-tmp" bindtap="detail" wx:if="{{book.if_agree== 0}}">
-            <image src="{{book.book_image}}" class="book-image"></image>
-            <view class="book-info">
-                <view class="book-name">
-                    {{book.book_name}}
-                    <view class="subtitle">
-                        未响应
-                    </view>
-                </view>
-                <view class="book-applier">
-                    <view class="left">
-                        <image src="../../images/applier.png" style="width:15px;height:15px;"></image> {{book.userName?book.userName:book.nickName}}
-                    </view>
-                    <view class="right">
-                        <image src="../../images/time.png" style="width:15px;height:15px;"></image> 08-25 10:20
-                    </view>
-                </view>
-                <view class="operate-box">
-                    <form name='pushMsgFm' report-submit="true" data-agree="2" data-sharingid="{{book.sharing_id}}" data-openid="{{book.openId}}" bindsubmit="agreeApply">
-                        <button form-type="submit" class="refuse">
-                            拒绝
-                        </button>
+        <!-- 等待响应 -->
+        <template is="borrowApplyLoading" data="{{book}}"></template>
 
-                    </form>
-                    <form name='pushMsgFm' report-submit="true" data-agree="1" data-sharingid="{{book.sharing_id}}" data-openid="{{book.openId}}" bindsubmit="agreeApply">
-                        <button form-type="submit" class="agree">
-                            同意
-                        </button>
-                    </form>
-                </view>
-            </view>
-            <view class="clear-both"></view>
-        </view>
-        
         <!-- 已同意 但未借出模板 -->
-        <view class="book-tmp" bindtap="detail" wx:if="{{book.if_agree== 1 && book.if_loan == 0}}">
-            <image src="{{book.book_image}}" class="book-image"></image>
-            <view class="book-info">
-                <view class="book-name">
-                    {{book.book_name}}
-                    <view class="subtitle">
-                        已同意请求
-                    </view>
-                </view>
-                <view class="book-applier">
-                    <view class="left">
-                        <image src="../../images/applier.png" style="width:15px;height:15px;"></image> {{book.userName?book.userName:book.nickName}}
-                    </view>
-                    <view class="right">
-                        <image src="../../images/time.png" style="width:15px;height:15px;"></image> 08-25 10:20
-                    </view>
-                </view>
-                <view class="operate-box">
-                    <!-- <form name='pushMsgFm' report-submit="true" data-agree="2" data-sharingid="{{book.sharing_id}}" data-openid="{{book.openId}}" bindsubmit="agreeApply">
-                        <button form-type="submit" class="refuse">
-                            拒绝1
-                        </button>
-
-                    </form> -->
-                    <form name='pushMsgFm' report-submit="true" data-sharingid="{{book.sharing_id}}" data-openid="{{book.openId}}" bindsubmit="affirmLoan">
-                        <button form-type="submit" class="agree">
-                            确认借出
-                        </button>
-                    </form>
-                </view>
-            </view>
-            <view class="clear-both"></view>
-        </view>
+        <template is="agreeApplyNoLoan" data="{{book}}"></template>
 
         <!-- 已同意 已借出模板 -->
-        <view class="book-tmp" bindtap="detail" wx:if="{{book.if_agree== 1 && book.if_loan == 1}}">
-            <image src="{{book.book_image}}" class="book-image"></image>
-            <view class="book-info">
-                <view class="book-name">
-                    {{book.book_name}}
-                    <view class="subtitle">
-                        已借出
-                    </view>
-                </view>
-                <view class="book-applier">
-                    <view class="left">
-                        <image src="../../images/applier.png" style="width:15px;height:15px;"></image> {{book.userName?book.userName:book.nickName}}
-                    </view>
-                    <view class="right">
-                        <image src="../../images/time.png" style="width:15px;height:15px;"></image> 08-25 10:20
-                    </view>
-                </view>
-                <view class="operate-box">
-                    <!-- <form name='pushMsgFm' report-submit="true" data-agree="2" data-sharingid="{{book.sharing_id}}" data-openid="{{book.openId}}" bindsubmit="agreeApply">
-                        <button form-type="submit" class="refuse">
-                            拒绝1
-                        </button>
-
-                    </form> -->
-                    <form name='pushMsgFm' report-submit="true" data-agree="1" data-sharingid="{{book.sharing_id}}" data-openid="{{book.openId}}">
-                        <button form-type="submit" class="agree">
-                            已经借出
-                        </button>
-                    </form>
-                </view>
-            </view>
-            <view class="clear-both"></view>
-        </view>
-        <!-- 拒绝模板 -->
-        <view class="book-tmp" bindtap="detail" wx:if="{{book.if_agree== 2}}">
-            <image src="{{book.book_image}}" class="book-image"></image>
-            <view class="book-info">
-                <view class="book-name">
-                    {{book.book_name}}
-                    <view class="subtitle" style="color:red">
-                        已拒绝
-                    </view>
-                </view>
-                <view class="book-applier">
-                    <view class="left">
-                        <image src="../../images/applier.png" style="width:15px;height:15px;"></image> {{book.userName?book.userName:book.nickName}}
-                    </view>
-                    <view class="right">
-                        <image src="../../images/time.png" style="width:15px;height:15px;"></image> 08-25 10:20
-                    </view>
-                </view>
-                <view class="operate-box">
-                    <form name='pushMsgFm' report-submit="true" data-agree="1" data-sharingid="{{book.sharing_id}}" data-openid="{{book.openId}}" bindsubmit="agreeApply">
-                        <button form-type="submit" class="agree">
-                            删除记录
-                        </button>
-                    </form>
-                </view>
-            </view>
-            <view class="clear-both"></view>
-        </view>
+        <template is="agreeApplyAndLoan" data="{{book}}"></template>
     </view>
 </view>
 <!--图书列表 end-->
+
+<view class="book-list">
+    <view wx:for="{{record}}" wx:for-index="index" wx:for-item="book">
+        <!-- 拒绝模板 -->
+        <template is="refuseApply" data="{{book}}"></template>
+
+        <!-- 完成模板 -->
+        <template is="finishApply" data="{{book}}"></template>
+    </view>
+</view>

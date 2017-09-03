@@ -10,7 +10,7 @@
     text-align: center
 }
 .list-box{
-    width: 31%;
+    width: 23%;
     margin: 15px 1% 15px 1%;
     float: left;
     height: 90px;
