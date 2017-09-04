@@ -13,35 +13,47 @@
 </view>
 <!-- 第一块 -->
 <view class="firstblock">
+ <view class="item" bindtap="openBookList" data-index="1">
+        <image src="../../images/account.png" class="item_ico"></image>
+        <span>我的账户</span>
+        <image src="../../images/right.png" class="item_arrow"></image>
+    </view>
+    <view class="h1"></view>
     <view class="item" bindtap="openBookList" data-index="1">
-        <image src="../../images/myAttention.png" class="item_ico"></image>
+        <image src="../../images/looked.png" class="item_ico"></image>
         <span>我看过的</span>
         <image src="../../images/right.png" class="item_arrow"></image>
     </view>
     <view class="h1"></view>
     <view class="item" bindtap="openBookList" data-index="2">
-        <image src="../../images/myCollect.png" class="item_ico"></image>
+        <image src="../../images/booklist.png" class="item_ico"></image>
         <span>我的书单</span>
         <image src="../../images/right.png" class="item_arrow"></image>
     </view>
 </view>
 <!-- 第三块 -->
-<view class="h10"></view>
+<view class="h1"></view>
 <view class="thirdblock">
     <view class="item" bindtap="openBookList" data-index="5" bindtap="openOpinion">
-        <image src="../../images/aboutMe.png" class="item_ico"></image>
+        <image src="../../images/suggest.png" class="item_ico"></image>
         <span>意见反馈</span>
         <image src="../../images/right.png" class="item_arrow"></image>
     </view>
     <view class="h1"></view>
     <view class="item" bindtap="aboutUs" data-index="4">
-        <image src="../../images/aboutMe.png" class="item_ico"></image>
+        <image src="../../images/about.png" class="item_ico"></image>
         <span>关于我们</span>
         <image src="../../images/right.png" class="item_arrow"></image>
     </view>
     <view class="h1"></view>
+    <view class="item" bindtap="openBookList" data-index="1">
+        <image src="../../images/join_in.png" class="item_ico"></image>
+        <span>加入共享</span>
+        <image src="../../images/right.png" class="item_arrow"></image>
+    </view>
+    <view class="h1"></view>
     <view class="item" bindtap="openSetting">
-        <image src="../../images/exit_new.png" class="item_ico"></image>
+        <image src="../../images/setting.png" class="item_ico"></image>
         <span>设置</span>
     </view>
 </view>

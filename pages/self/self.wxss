@@ -9,7 +9,7 @@ html, body {
 }
 
 .h10 {
-    height: 10px;
+   
     background: #f0f0f0;
 }
 
