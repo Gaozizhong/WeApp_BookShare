@@ -15,7 +15,7 @@ Page({
     
     onLoad: function (options) {
         var that = this;
-        utils.getUserData();
+        utils.getUserData();  
         that.setData({
             userInfo: app.globalData.userInfo,
             certificationOk: app.globalData.certificationOk,

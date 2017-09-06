@@ -14,7 +14,7 @@ html, body {
 }
 
 .h1 {
-    height: 1px;
+    height: 3px;
     margin: 0 15px;
     background: #f0f0f0;
 }
@@ -28,9 +28,9 @@ html, body {
     font-size: 11px;
     margin-right: 5px;
 }
-
 .firstblock, .secondblock, .thirdblock {
     background-color: #fff;
+    border: 10px solid #f0f0f0;
 }
 
 /* 头部登陆 */
@@ -40,7 +40,9 @@ html, body {
     -webkit-filter: blur(2px);
     filter: blur(2px);
 }
-
+.login{
+   border: 10px solid #f0f0f0;
+}
 .login .personal_logo {
     position: absolute;
     left: 0;

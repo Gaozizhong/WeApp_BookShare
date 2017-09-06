@@ -1,3 +1,4 @@
+<view class="all">
 <view class="login" style="height:200px;">
     <image src="../../images/backGround.jpg" style="height: 200px" class="loginbg"></image>
     <image src="{{userInfo.favicon?userInfo.favicon:'../../images/user_defaulthead@2x.png'}}" style="border-radius: 100px" class="personal_logo" id="personal_logo"></image>
@@ -12,7 +13,7 @@
     <!--<image src="../../images/personal_icon_arrow.png" class="person_arrow"></image>-->
 </view>
 <!-- 第一块 -->
-<view class="firstblock">
+<view class="thirdblock">
  <view class="item" bindtap="openBookList" data-index="1">
         <image src="../../images/account.png" class="item_ico"></image>
         <span>我的账户</span>
@@ -30,10 +31,10 @@
         <span>我的书单</span>
         <image src="../../images/right.png" class="item_arrow"></image>
     </view>
-</view>
-<!-- 第三块 -->
-<view class="h1"></view>
-<view class="thirdblock">
+
+   <!-- 第三块 -->
+   <view class="h1"></view>
+
     <view class="item" bindtap="openBookList" data-index="5" bindtap="openOpinion">
         <image src="../../images/suggest.png" class="item_ico"></image>
         <span>意见反馈</span>
@@ -59,3 +60,4 @@
 </view>
 <view class="h10"></view>
 <view class="h10"></view>
+</view>
