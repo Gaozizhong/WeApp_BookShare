@@ -1,0 +1,154 @@
+/*基本容器*/
+.aui-content {
+	-webkit-overflow-scrolling: touch;
+	margin-bottom: 15px;
+    margin-top: 20px;
+    background:#fff;
+    padding:30px 0;
+}
+aui-timeline {
+    position: relative;
+    padding: 0;
+    list-style: none;
+}
+.aui-timeline:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    width: 2px;
+    background: #ddd;
+    left: 32px;
+    margin: 0;
+    border-radius: 2px;
+    height:160px;
+    margin-top: 60px
+}
+.aui-timeline  li {
+    position: relative;
+    margin-bottom: 15px;
+}
+.aui-timeline  li:before,
+.aui-timeline  li:after {
+    content: " ";
+    display: table;
+}
+.aui-timeline  li:after {
+    clear: both;
+}
+.aui-timeline  li  .aui-timeline-item {
+    margin-top: 0px;
+    background: #fff;
+    color: #444;
+    margin-left: 60px;
+    padding: 0;
+    position: relative;
+    margin-bottom:40px;
+    margin-right: 20px;
+}
+.aui-timeline  li  .aui-timeline-item:after {
+    border-radius: 6px;
+    border: 1px solid #c8c7cc;
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: scale(1);
+    pointer-events: none;
+}
+
+.aui-timeline  li  .aui-timeline-item  .aui-timeline-time {
+    color: #999;
+    float: right;
+    padding: 10px;
+    font-size: 12px;
+}
+.aui-timeline  li  .aui-timeline-item  .aui-timeline-header {
+    margin: 0;
+    color: #555;
+    padding: 10px;
+    font-size: 0.875em;
+    position: relative;
+}
+.aui-timeline  li  .aui-timeline-item  .aui-timeline-header:after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: scale(1);
+    pointer-events: none;
+}
+.aui-timeline  li  .aui-timeline-item  .aui-timeline-body,
+.aui-timeline  li  .aui-timeline-item  .aui-timeline-footer {
+    padding: 10px;
+    font-size: 13px;
+}
+.aui-timeline  li  .aui-timeline-item  .aui-timeline-footer {
+    background-color: #f4f4f4;
+}
+.aui-timeline  li.aui-time-label  span {
+    padding: 5px;
+    display: inline-block;
+    background-color: #d2d6de;
+    border-radius: 4px;
+    color: #ffffff;
+}
+.aui-timeline  li  .aui-time-label {
+    width: 50px;
+    height: 30px;
+    font-size: 0.75em;
+    line-height: 30px;
+    position: absolute;
+    color: #ffffff;
+    background: #d2d6de;
+    text-align: center;
+    left: 8px;
+    /* top: 20px; */
+    border-radius: 4px;
+}
+.aui-timeline  li  .aui-iconfont {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    line-height: 30px;
+    position: absolute;
+    color: #ffffff;
+    background: #d2d6de;
+    border-radius: 50%;
+    text-align: center;
+    left: 18px;
+     top: 4px; 
+}
+.aui-iconfont-small {
+    width: 15px;
+    height: 15px;
+    font-size: 7.5px;
+    line-height: 15px;
+    position: absolute;
+    color: #ffffff;
+    background: #d2d6de;
+    border-radius: 50%;
+    text-align: center;
+    left: 25px;
+     top: 20px; 
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+    .aui-timeline  li  .aui-timeline-item:after,
+    .aui-timeline  li  .aui-timeline-item  .aui-timeline-header:after {
+        right: -100%;
+        bottom: -100%;
+        -webkit-transform: scale(0.5);
+    }
+}
+
+.aui-bg-info {
+	background-color: #3498db !important;
+}

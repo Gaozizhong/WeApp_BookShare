@@ -24,6 +24,12 @@
         <span>我的书单</span>
         <image src="../../images/right.png" class="item_arrow"></image>
     </view>
+    <view class="h1"></view>
+    <view class="item" bindtap="uploadPilot">
+        <image src="../../images/myCollect.png" class="item_ico"></image>
+        <span>加入共享</span>
+        <image src="../../images/right.png" class="item_arrow"></image>
+    </view>
 </view>
 <!-- 第三块 -->
 <view class="h10"></view>

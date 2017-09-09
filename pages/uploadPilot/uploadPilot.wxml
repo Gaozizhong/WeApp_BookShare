@@ -1,0 +1,49 @@
+<view class="aui-content">
+    <ul class="aui-timeline">
+        <li>
+            <view class="aui-iconfont aui-bg-info">1</view>
+            <view class="aui-timeline-item">
+                <!-- <text class="aui-timeline-header"></text> -->
+                <view class="aui-timeline-body">扫码图书后二维码，确认图书。</view>
+                <!-- <view class="aui-timeline-footer">
+					
+				</view> -->
+            </view>
+        </li>
+        <li>
+            <i class="aui-iconfont aui-icon-home aui-bg-warning">2</i>
+            <view class="aui-timeline-item">
+                <!-- <text class="aui-timeline-header"></text> -->
+                <view class="aui-timeline-body">扫描图书所在书柜的二维码，完成借书。</view>
+                <!-- <view class="aui-timeline-footer">
+					
+				</view> -->
+            </view>
+        </li>
+        <li>
+            <i class="aui-iconfont aui-icon-home aui-bg-warning">3</i>
+            <view class="aui-timeline-item">
+                <!-- <text class="aui-timeline-header"></text> -->
+                <view class="aui-timeline-body">到自营点还书，把书放回任意书柜。</view>
+                <!-- <view class="aui-timeline-footer">
+					
+				</view>  -->
+            </view>
+        </li>
+
+    </ul>
+</view>
+<view class="classname">
+    <!-- 扫描ISBN -->
+    <view class="container">
+        <button type="primary" bindtap="screenBook" wx:if="{{hidden == 1}}">扫描ISBN</button>
+
+        <!-- 扫描图书二维码 -->
+        <button type="primary" bindtap="screenQRcode" wx:elif="{{hidden == 2}}">扫描二维码</button>
+
+
+        <!-- 扫描书架 -->
+
+        <button type="primary" bindtap="bookcase" wx:elif="{{hidden == 3}}">扫描书架</button>
+    </view>
+</view>

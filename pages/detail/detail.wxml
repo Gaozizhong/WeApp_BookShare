@@ -16,7 +16,8 @@
                     </view>
                 </picker>
             </view> -->
-            <text class="info">书主：{{bookInfo.userName?bookInfo.userName:bookInfo.nickName}}</text>
+            <text class="info" wx:if="{{book_type == 0}}">书主：{{bookInfo.userName?bookInfo.userName:bookInfo.nickName}}</text>
+            <text class="info" wx:elif="{{book_type == 1}}">自营点：{{bookInfo.pilot_name?bookInfo.pilot_name+'自营点':bookInfo.location}}</text>
             <text class="info">出版社：{{bookInfo.book_press}}</text>
             <text class="info">出版日期：{{bookInfo.publish_date}}</text>
         </view>

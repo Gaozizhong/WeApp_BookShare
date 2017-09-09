@@ -11,8 +11,8 @@ Page({
         keepTimes: null,
         cateisShow: false,
         canShareId: null,
-        openIds:null,
-        params:null
+        openIds: null,
+        params: null
     },
 
     /**
@@ -20,13 +20,15 @@ Page({
      */
     onLoad(params) {
         var canShareId = params.canShareId;
+        var book_type = params.book_type;
         var that = this;
         that.setData({
             canShareId: canShareId,
-            params: params
+            params: params,
+            book_type: book_type
         })
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookInfoByCanShareId&canShareId=' + canShareId,
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookInfoByCanShareId&canShareId=' + canShareId + "&book_type=" + book_type,
             method: "GET",
             header: {
                 'content-type': 'application/json',
@@ -46,10 +48,10 @@ Page({
                 })
             }
         })
-        
+
 
     },
-    onShow:function(){
+    onShow: function () {
         utils.checkSettingStatu();
     },
 
@@ -82,13 +84,17 @@ Page({
         //借书
         var that = this;
         var canShareId = that.data.canShareId;
+        var book_type = that.data.book_type;
         var checkStatus = that.data.bookInfo.protect;//信息保护
-        if (checkStatus == 1){
+
+        //C2C借书
+        if (checkStatus == 1) {
+            //开启信息保护
             that.togglePtype();
-        }else{
+        } else {
             //判断不能借自己书、是否借出
             wx.request({
-                url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId+"&protect=0",
+                url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId + "&protect=0",
                 method: "GET",
                 header: {
                     'content-type': 'application/json',
@@ -107,30 +113,45 @@ Page({
                             duration: 2000
                         })
                     } else if (res.data[0].result == "success") {
-                        wx.showModal({
-                            title: '通知',
-                            content: '书主关闭了借书申请，您可以直接联系他！',
-                            success: function (res) {
-                                if (res.confirm) {
-                                    wx.makePhoneCall({
-                                        phoneNumber: that.data.bookInfo.phoneNumber //仅为示例，并非真实的电话号码
-                                    })
-                                } else if (res.cancel) {
-                                    wx.showModal({
-                                        title: '通知',
-                                        content: '您可以前往借入界面联系书主',
-                                        showCancel: false,
-                                        success: function (res) {
-                                            if (res.confirm) {
-                                                
-                                            } else if (res.cancel) {
-                                                
+                        if (book_type == 0){
+                            wx.showModal({
+                                title: '通知',
+                                content: '书主关闭了借书申请，您可以直接联系他！',
+                                success: function (res) {
+                                    if (res.confirm) {
+                                        wx.makePhoneCall({
+                                            phoneNumber: that.data.bookInfo.phoneNumber //仅为示例，并非真实的电话号码
+                                        })
+                                    } else if (res.cancel) {
+                                        wx.showModal({
+                                            title: '通知',
+                                            content: '您可以前往借入界面联系书主',
+                                            showCancel: false,
+                                            success: function (res) {
+                                                if (res.confirm) {
+
+                                                } else if (res.cancel) {
+
+                                                }
                                             }
-                                        }
-                                    })
+                                        })
+                                    }
                                 }
-                            }
-                        })
+                            })
+                        }else{
+                            //自营点借书成功提示
+                            wx.showModal({
+                                title: '通知',
+                                content: '借入成功，你需要前往此自营点借书！',
+                                success: function (res) {
+                                    if (res.confirm) {
+                                        
+                                    } else if (res.cancel) {
+                                        
+                                    }
+                                }
+                            })
+                        }
 
                     } else if (res.data[0].result == "mine") {
                         wx.showToast({
@@ -149,18 +170,16 @@ Page({
                 }
             })
         }
-        
-        
-    },
+   },
 
-    
+
 
     affirmBorrowBook: function (e) {
         var that = this;
         var canShareId = that.data.canShareId;
         var openIds = that.data.openIds;
         var eventData = e;
-        
+
         //判断不能借自己书、是否借出
         wx.request({
             url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId,
@@ -170,7 +189,7 @@ Page({
             },
             success: function (res) {
                 if (res.data[0].result == "sharing") {
-                    
+
                     wx.showToast({
                         title: '图书已被借出！',
                         icon: 'false',
@@ -188,7 +207,7 @@ Page({
                         icon: 'false',
                         duration: 2000
                     })
-                    
+
                 } else if (res.data[0].result == "mine") {
                     wx.showToast({
                         title: '您不能借自己的书！',

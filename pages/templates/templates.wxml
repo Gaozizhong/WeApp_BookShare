@@ -1,6 +1,6 @@
 <!-- 首页 -->
 <template name="indexList">
-    <view class="book-tmp" bindtap="detail" data-bookId="{{book.book_id}}" data-canShareID ="{{book.can_share_id}}">
+    <view class="book-tmp" bindtap="detail" data-bookId="{{book.book_id}}" data-type="{{book.type}}" data-canShareID ="{{book.can_share_id}}">
         <image src="{{book.book_image}}" class="book-image"></image>
         <view class="book-info">
             <view class="book-name">{{book.book_name}}—{{book.writer}}</view>
@@ -527,3 +527,88 @@
     <!-- 上线模板 -->
 
 <!-- 操作 管理图书页面 -->
+
+<!-- 自营点借入页面 -->
+    <!-- 借出模板 -->
+        <template name="pilotBorrowIn">
+            <view class="book-tmp" bindtap="detail" data-bookId="{{book.book_id}}" data-type="{{book.type}}" data-canShareID ="{{book.can_share_id}}">
+                <image src="{{book.book_image}}" class="book-image"></image>
+                <view class="book-info">
+                    <view class="book-name" style="height:30%" bindtap="pilotBorrowIn">{{book.book_name}}—{{book.writer}}</view>
+                    <view class="book-applier">
+                        <view class="left">
+                            <image src="../../images/applier.png" style="width:15px;height:15px;"></image> {{book.pilot_name?book.pilot_name:'显示失败'}}
+                        </view>
+                        <view class="right">
+                            <image src="../../images/location.png" style="width:15px;height:15px;"></image> {{book.location}}
+                        </view>
+                    </view>
+                    <view class="operate-box">
+                        <form name='pushMsgFm' report-submit="true" data-canshareid="{{book.can_share_id}}" data-sharingid="{{book.sharing_id}}" bindsubmit="cancelBorrow">
+                            <button form-type="submit" class="refuse">
+                                取消借书
+                            </button>
+                        </form>
+                        <form name='pushMsgFm' report-submit="true" data-sharingid="{{book.sharing_id}}" data-phonenum="{{book.phoneNumber}}">
+                            <view class="right" style="line-height:30px;font-size:12px;width:100px;float:right;">
+                                <image src="../../images/time.png" style="width:15px;height:15px;"></image> {{book.agree_at}}
+                            </view>
+                        </form> 
+                    </view>
+                </view>
+                <view class="clear-both"></view>
+            </view>
+        </template>
+    <!-- 借出模板 -->
+
+    <!-- 取消模板 -->
+        <template name="pilotCancelBorrowIn">
+            <view class="book-tmp" bindtap="detail" wx:if="{{book.if_refuse== 1}}">
+                <image src="{{book.book_image}}" class="book-image"></image>
+                <view class="book-info" style="position: relative;">
+                    <view class="book-name" >
+                        {{book.book_name}}—{{book.writer}}
+                    </view>
+                    <view class="seal">
+                        <image src="../../images/cancel.png"></image>
+                    </view>
+                    <view class="book-author">
+                        <view class="left">
+                            <image src="../../images/applier.png" style="width:15px;height:15px;"></image> {{book.pilot_name?book.pilot_name:'显示失败'}}
+                        </view>
+                        <view class="right">
+                            <image src="../../images/location.png" style="width:15px;height:15px;"></image> {{book.location}}
+                        </view>
+                    </view>
+                </view>
+                <view class="clear-both"></view>
+            </view>
+        </template>
+    <!-- 取消模板结束 -->
+
+    <!-- 完成模板 -->
+        <template name="pilotFinishBorrowIn">
+            <view class="book-tmp" bindtap="detail" wx:if="{{book.if_refuse== 0 && book.if_return ==1}}">
+                <image src="{{book.book_image}}" class="book-image"></image>
+                <view class="book-info" style="position: relative;">
+                    <view class="book-name" >
+                        {{book.book_name}}—{{book.writer}}
+                    </view>
+                    <view class="seal">
+                        <image src="../../images/finish.png"></image>
+                    </view>
+                    <view class="book-author">
+                        <view class="left">
+                            <image src="../../images/applier.png" style="width:15px;height:15px;"></image> {{book.pilot_name?book.pilot_name:'显示失败'}}
+                        </view>
+                        <view class="right">
+                            <image src="../../images/location.png" style="width:15px;height:15px;"></image> {{book.location}}
+                        </view>
+                    </view>
+                </view>
+                <view class="clear-both"></view>
+            </view>
+        </template>
+    <!-- 取消模板结束 -->
+
+<!-- 自营点借入页面 -->

@@ -1,0 +1,24 @@
+<import src="../templates/templates.wxml" />
+
+<!--图书列表-->
+<view class="book-list">
+    <view wx:for="{{borrowIn}}" wx:for-index="index" wx:for-item="book">
+        <!-- 借出模板 -->
+        <template is="pilotBorrowIn" data="{{book}}"></template>      
+    </view>
+</view>
+<!--图书列表 end-->
+
+
+<view class="book-list">
+    <view wx:for="{{borrowInRecord}}" wx:for-index="index" wx:for-item="book">
+        <!-- 取消模板  -->
+        <template is="pilotCancelBorrowIn" data="{{book}}"></template>
+        
+        <!-- 完成模板  -->
+        <template is="pilotFinishBorrowIn" data="{{book}}"></template>
+        
+        <view class="clear-both"></view>
+
+    </view>
+</view>

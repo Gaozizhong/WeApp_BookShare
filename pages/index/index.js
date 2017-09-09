@@ -99,9 +99,10 @@ Page({
     detail: function (event) {
         var bookId = event.currentTarget.dataset.bookid;
         var canShareId = event.currentTarget.dataset.canshareid;
+        var book_type = event.currentTarget.dataset.type;//type 为1时自营点 为0时C2C
         //打开详情页
         wx.navigateTo({
-            url: '../detail/detail?bookId=' + bookId + "&canShareId=" + canShareId,
+            url: '../detail/detail?bookId=' + bookId + "&canShareId=" + canShareId + "&book_type=" + book_type,
         })
     },
     

@@ -115,6 +115,7 @@ Page({
         wx.navigateTo({
             url: '../pilot/pilot'
         })
-    }
+    },
+
 
 })

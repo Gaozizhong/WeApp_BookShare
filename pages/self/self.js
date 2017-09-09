@@ -83,6 +83,14 @@ Page({
         })
     },
 
+    //自营点上传图书
+    uploadPilot: function () {
+        wx.navigateTo({
+            url: '../uploadPilot/uploadPilot'
+        })
+    },
+
+
     openOpinion:function(){
         //打开意见反馈
         wx.navigateTo({

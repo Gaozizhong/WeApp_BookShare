@@ -25,7 +25,10 @@
         "pages/operateShare/operateShare",
         "pages/setting/setting",
         "pages/qrcode/qrcode",
-        "pages/pilot/pilot"
+        "pages/pilot/pilot",
+        "pages/uploadPilot/uploadPilot",
+        "pages/cancelReason/cancelReason",
+        "pages/pilotBorrowIn/pilotBorrowIn"
     ],
     "window": {
         "backgroundTextStyle": "light",
