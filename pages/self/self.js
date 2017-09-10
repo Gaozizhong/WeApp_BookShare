@@ -109,5 +109,11 @@ Page({
         wx.navigateTo({
             url: '../setting/setting',
         })
+    },
+
+    openCards:function(){
+        wx.navigateTo({
+            url: '../card/card',
+        })
     }
 })

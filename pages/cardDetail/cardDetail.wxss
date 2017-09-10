@@ -1,0 +1,21 @@
+.book_list{
+    width: 94%;
+    padding: 2px 2px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+.card_content{
+    width:94%;
+    margin: 0 auto;
+    padding: 2px 2px;
+    font-size: 14px;
+    line-height: 30px;
+    height: 330px;
+}
+.operate{
+    width:90%;
+    margin: 0 auto;
+    height: 44px;
+    background: #fff;
+    padding: 12px 12px
+}

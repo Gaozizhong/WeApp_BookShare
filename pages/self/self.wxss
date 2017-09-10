@@ -14,7 +14,7 @@ html, body {
 }
 
 .h1 {
-    height: 3px;
+    height: 1px;
     margin: 0 15px;
     background: #f0f0f0;
 }

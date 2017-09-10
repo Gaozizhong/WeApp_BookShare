@@ -28,7 +28,11 @@
         "pages/pilot/pilot",
         "pages/uploadPilot/uploadPilot",
         "pages/cancelReason/cancelReason",
-        "pages/pilotBorrowIn/pilotBorrowIn"
+        "pages/pilotBorrowIn/pilotBorrowIn",
+        "pages/card/card",
+        "pages/cardDetail/cardDetail"
+        
+        
     ],
     "window": {
         "backgroundTextStyle": "light",

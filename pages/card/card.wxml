@@ -1,0 +1,76 @@
+<view class="wrapper">       
+    <view class="container">        
+        
+        <view class="masonry-container">
+            
+            <view class="card-box col-md-4 col-sm-6" bindtap="openCardDetail">    
+                <view class="card" data-background="image" style="background-image:url('https://img1.doubanio.com/mpic/s27685839.jpg')">
+                    <view class="header">
+                        <view class="category">
+                            <text class="label label-danger">Hipster Tag</text>    
+                        </view>
+                    </view>
+                    
+                    <view class="content">
+                        <text class="title title-uppercase">
+                            <a href="">Here can be your special title for this card</a>
+                        </text>
+                        <p class="description">When selling products it's always a good idea to go with commanding fonts that are good at showing authority and security. I feel like Raleway and Roboto do just that.</p>
+                    </view>                            
+                    <view class="filter">
+                        
+                    </view>
+                </view> <!-- end card -->                    
+            </view>
+            
+            <view class="card-box col-md-4 col-sm-6">               
+                <view class="card card-with-border" data-background="image" style="background-image:url('https://img1.doubanio.com/mpic/s27685839.jpg')">
+                    <view class="header">
+                    </view>
+                    
+                    <view class="content text-center">
+                        <p class="description">When selling products it's always a good idea to go with commanding fonts that are good at showing authority and security. I feel like Raleway and Roboto do just that.</p>
+                    </view>                            
+                    <view class="footer text-center">
+                         <a href="#" class="btn btn-danger btn-fill btn-round">Read article</a>
+                    </view>
+                    <view class="filter"></view>
+                </view> <!-- end card -->
+            </view>
+           
+           
+           
+            <view class="card-box col-md-4 col-sm-6">  
+                <view class="card card-just-text card-with-border" data-background="image" style="background-image:url('https://img1.doubanio.com/mpic/s27685839.jpg')" >
+                    <view class="content">
+                        <text class="title title-modern">"I liked nutella, triangles and outerspace way before hipsters."</text>
+                        <p class="description">- Not A Hipster</p>
+                    </view>
+                    <view class="filter"></view>
+                </view> <!-- end card -->                
+            </view>
+            
+            <view class="card-box col-md-4 col-sm-6">  
+                <view class="card text-center" data-background="image" style="background-image:url('../../images/card/city-1.jpg')">
+                    <text class="title title-modern">Hipster City</text>
+                    
+                    <view class="content">
+                           <view class="price">
+                            <text>From</text>
+                            <text>1.499<b class="currency">$</b></text>
+                        </view>      
+                    </view> 
+                    
+                    <view class="footer btn-center">
+                        <button class="btn btn-neutral btn-round btn-modern">Buy Ticket</button> 
+                    </view>    
+                    
+                    <view class="filter filter-blue"></view>                       
+                </view> <!-- end card -->             
+            </view>
+            
+                              
+        </view>
+        
+    </view> 
+</view>

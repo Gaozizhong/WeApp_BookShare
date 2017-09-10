@@ -5,8 +5,11 @@
         <view class="book-info">
             <view class="book-name">{{book.book_name}}—{{book.writer}}</view>
             <view class="book-applier">
-                <view class="left">
-                    <image src="../../images/applier.png" style="width:15px;height:15px;"></image> {{book.keep_time?book.keep_time+"天":'显示失败'}}
+                <view class="left" wx:if="{{book.type == 0}}">
+                    <image src="../../images/applier.png" style="width:15px;height:15px;"></image> {{book.userName?book.userName:'显示失败'}}
+                </view>
+                <view class="left" wx:elif="{{book.type == 1}}">
+                    <image src="../../images/applier.png" style="width:15px;height:15px;"></image> 自营点
                 </view>
                 <view class="right">
                     <image src="../../images/location.png" style="width:15px;height:15px;"></image> {{book.location}}

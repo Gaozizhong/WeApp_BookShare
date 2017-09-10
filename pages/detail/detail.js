@@ -225,4 +225,12 @@ Page({
             }
         })
     },
+
+    //打开读书卡片页面
+    writeCard:function(){
+        var that = this
+        wx.navigateTo({
+            url: '../cardDetail/cardDetail?book_id=' + that.data.bookInfo.book_id,
+        })
+    }
 })
