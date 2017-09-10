@@ -1,1 +1,18 @@
-<button type="default" bindtap="cancelBorrow">取消</button>
+<view class="txt" style="color:#9e9e9e">
+  取消原因，（至少选择一项）：
+</view>
+<view class='item'>
+  <checkbox-group bindchange="checkboxChange">
+    <view wx:for="{{items}}">
+      <label class="checkbox">
+        <checkbox value="{{item.id}}" checked="{{item.checked}}" color='fff' />{{item.value}}
+      </label>
+    </view>
+  </checkbox-group>
+</view>
+<view class='item'>其他原因
+  <input type='text' bindinput='setRefuseContent' placeholder='此处填写其他原因'></input>
+</view>
+<view class='btn'>
+  <button type="default" bindtap="cancelBorrow" align="center" style="width:100%;color:#fff;height:50px;background: #f00;text-align: center;">取消借书</button>
+</view>
