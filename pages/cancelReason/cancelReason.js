@@ -5,7 +5,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+      items:null,
+      refuse_reason:null,//取消原因ID
+      refuse_content:null,//其他取消原因
     },
 
     /**
@@ -17,7 +19,25 @@ Page({
             sharingId: options.sharingId,
             canShareId: options.canShareId
         })
-        console.log(options)
+        wx.request({
+          url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBorrowCancelReason',
+          method: "GET",
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            that.setData({
+              items: res.data
+            })
+          },
+          fail: function () {
+            wx.showToast({
+              title: '取消失败，请稍后重试',
+              icon: 'false',
+              duration: 2000
+            })
+          }
+        })
     },
 
     /**
@@ -73,7 +93,7 @@ Page({
     cancelBorrow: function () {
         var that = this;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=cancelBorrow&sharingId=' + that.data.sharingId + "&canShareId=" + that.data.canShareId,
+          url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=cancelBorrow&sharingId=' + that.data.sharingId + "&canShareId=" + that.data.canShareId + "&refuse_reason=" + that.data.refuse_reason+"&refuse_content="+that.data.refuse_content,
             method: "GET",
             header: {
                 'content-type': 'application/json'
@@ -107,5 +127,24 @@ Page({
                 })
             }
         })
+    },
+    checkboxChange: function (e) {
+      var that = this;
+      //console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+      var array = e.detail.value,str = '';
+      for(var i = 0;i<array.length;i++){
+        str += array[i]+',';
+      }
+      that.setData({
+        refuse_reason:str
+      })
+    },
+
+    //填写其他原因
+    setRefuseContent:function(e){
+      var that = this;
+      that.setData({
+        refuse_content: e.detail.value
+      })
     }
 })

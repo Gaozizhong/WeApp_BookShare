@@ -1,0 +1,20 @@
+.txt {
+  font-size: 15px;
+  margin: 10px 15px;
+	line-height: 40px;
+	padding: 5px 20px;
+	background-color: #fff;
+}
+.item{
+  font-size: 15px;
+  margin: 10px 15px;
+	line-height: 40px;
+	padding: 5px 15px;
+	background-color: #fff;
+}
+.btn {
+  margin: 10px 15px;
+	line-height: 40px;
+	padding: 15px 15px;
+	background-color: #fff;
+}
