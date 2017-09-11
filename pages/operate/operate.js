@@ -117,5 +117,10 @@ Page({
         })
     },
 
+    openComment: function () {
+      wx.navigateTo({
+        url: '../comment/comment'
+      })
+    },
 
 })
