@@ -59,7 +59,7 @@
                 <span>收书</span>
             </view>
         </view>
-        <view class="list-box" bindtap="">
+        <view class="list-box" bindtap="openComment">
             <view class="icon-box">
                 <image src="../../images/borrowOut.png" style="width:48px;height:48px;margin: 0 auto"></image>
             </view>

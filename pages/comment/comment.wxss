@@ -1,0 +1,53 @@
+.box {
+    margin: 10px 15px;
+}
+.item {
+    font-size: 15px;
+    line-height: 40px;
+    margin-bottom: 15rpx;
+    padding: 2rpx 15rpx;
+    background-color: #fff;
+    /* height: 240rpx; */
+    border-radius: 5px;
+}
+.txt {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.comment1-description{
+    margin-top: 35rpx;
+}
+.comment1-description1{
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #333333;
+    margin-left: 30rpx;
+}
+.star-pos {
+    width: 60%;
+    position: absolute;
+    right: 0px;
+    margin-right: 40rpx;
+}
+.comment1-description .star-pos .hideStar{
+    z-index: 2;
+    /* background-image: url("http://m.dev.vd.cn/static/xcx/v1/goo/star(灰)@1.5x.png"); */
+    background-image: url('../../images/icon-star-default.png');
+    width: 83rpx;
+    height: 43rpx;
+    background-size: 43rpx 43rpx;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.starsM{
+    z-index: 1;
+    width: 83rpx;
+    height: 43rpx;
+      background-image: url("http://m.dev.vd.cn/static/xcx/v1/goo/star@1.5x.png");  
+     /* background-image: url('../../images/icon-star-active.png');  */
+    background-size: 43rpx 43rpx;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
