@@ -534,10 +534,10 @@
 <!-- 自营点借入页面 -->
     <!-- 借出模板 -->
         <template name="pilotBorrowIn">
-            <view class="book-tmp" bindtap="detail" data-bookId="{{book.book_id}}" data-type="{{book.type}}" data-canShareID ="{{book.can_share_id}}">
+            <view class="book-tmp" bindtap="detail">
                 <image src="{{book.book_image}}" class="book-image"></image>
                 <view class="book-info">
-                    <view class="book-name" style="height:30%" bindtap="pilotBorrowIn">{{book.book_name}}—{{book.writer}}</view>
+                    <view class="book-name" style="height:30%" bindtap="pilotBorrowIn" data-sharingId="{{book.sharing_id}}" data-type="{{book.type}}" data-canShareID ="{{book.can_share_id}}">{{book.book_name}}—{{book.writer}}</view>
                     <view class="book-applier">
                         <view class="left">
                             <image src="../../images/applier.png" style="width:15px;height:15px;"></image> {{book.pilot_name?book.pilot_name:'显示失败'}}
@@ -547,7 +547,7 @@
                         </view>
                     </view>
                     <view class="operate-box">
-                        <form name='pushMsgFm' report-submit="true" data-canshareid="{{book.can_share_id}}" data-sharingid="{{book.sharing_id}}" bindsubmit="cancelBorrow">
+                        <form name='pushMsgFm' report-submit="true" data-canshareid="{{book.can_share_id}}" data-sharingid="{{book.sharing_id}}" bindsubmit="cancelBorrow" wx:if="{{book.if_loan == 0}}">
                             <button form-type="submit" class="refuse">
                                 取消借书
                             </button>

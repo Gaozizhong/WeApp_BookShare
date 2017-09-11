@@ -8,7 +8,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        loading:false
     },
 
     /**
@@ -31,8 +31,6 @@ Page({
                         duration: 2000
                     })
                 } else {
-                    console.log(res.data)
-
                     that.setData({
                         borrowIn: res.data[0],
                         borrowInRecord: res.data[1]
@@ -50,31 +48,26 @@ Page({
     },
 
     /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        utils.checkSettingStatu();
+        this.onLoad();
+        wx.hideLoading()
     },
 
     cancelBorrow:function(e){
         var sharingId = e.currentTarget.dataset.sharingid;
         var canShareId = e.currentTarget.dataset.canshareid;
-        console.log(canShareId)
         wx.navigateTo({
             url: '../cancelReason/cancelReason?sharingId=' + sharingId + "&canShareId=" + canShareId,
         })
     },
 
-    pilotBorrowIn:function(){
+    pilotBorrowIn:function(e){
+        var sharingId = e.currentTarget.dataset.sharingid;
+        var canShareId = e.currentTarget.dataset.canshareid;
         wx.navigateTo({
-            url: '../pilotBorrowIn/pilotBorrowIn',
+            url: '../pilotBorrowIn/pilotBorrowIn?sharingId= '+sharingId + "&canShareId=" + canShareId,
         })
     }
 

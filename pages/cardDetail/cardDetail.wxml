@@ -1,13 +1,14 @@
+<loading hidden="{{ loading }}">加载中...</loading>
 <view class="container">
     <view class="book_list" style="background:#fff">
         <view class="book-tmp">
-            <image src="https://img1.doubanio.com/mpic/s27685839.jpg" class="book-image"></image>
+            <image src="{{bookInfo.image_large}}" class="book-image"></image>
             <view class="book-info">
-                <view class="book-name">疯狂java讲义</view>
+                <view class="book-name">{{bookInfo.book_name}}</view>
                 <view class="book-applier">
 
                     <view>
-                         —李刚
+                        {{bookInfo.writer}}
                     </view>
                 </view>
             </view>
@@ -15,12 +16,16 @@
             <view class="clear-both"></view>
         </view>
         <view style="width:96%;margin:0 auto;height:1px;background:#f0f0f0"></view>
-        <textarea auto-focus placeholder="请输入您的感想" maxlength="-1" class="card_content" />
-        <checkbox value="1"/>仅对自己可见
+        <textarea auto-focus placeholder="请输入您的感想" maxlength="-1" class="card_content" bindinput="setContent" />
+        <checkbox-group bindchange="setCanSee">
+            <label class="checkbox">
+                <checkbox value="1" checked="{{item.checked}}"/>仅对自己可见
+            </label>
+        </checkbox-group>
     </view>
     <view class="operate">
         <view class="left">
-            <button type="primary" style="float:left;width:100px">编辑</button>
+            <button type="primary" style="float:left;width:100px" bindtap="makeCard">完成</button>
         </view>
         <view class="right" style="width:150px;float:right">
             <image src="../../images/save.png" style="width:38px;height:38px;margin-right:30px"></image>

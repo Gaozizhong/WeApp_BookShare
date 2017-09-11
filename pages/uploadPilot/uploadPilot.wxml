@@ -4,7 +4,7 @@
             <view class="aui-iconfont aui-bg-info">1</view>
             <view class="aui-timeline-item">
                 <!-- <text class="aui-timeline-header"></text> -->
-                <view class="aui-timeline-body">扫码图书后二维码，确认图书。</view>
+                <view class="aui-timeline-body">扫描相应图书</view>
                 <!-- <view class="aui-timeline-footer">
 					
 				</view> -->
@@ -14,7 +14,7 @@
             <i class="aui-iconfont aui-icon-home aui-bg-warning">2</i>
             <view class="aui-timeline-item">
                 <!-- <text class="aui-timeline-header"></text> -->
-                <view class="aui-timeline-body">扫描图书所在书柜的二维码，完成借书。</view>
+                <view class="aui-timeline-body">扫描要贴的二维码</view>
                 <!-- <view class="aui-timeline-footer">
 					
 				</view> -->
@@ -24,7 +24,27 @@
             <i class="aui-iconfont aui-icon-home aui-bg-warning">3</i>
             <view class="aui-timeline-item">
                 <!-- <text class="aui-timeline-header"></text> -->
-                <view class="aui-timeline-body">到自营点还书，把书放回任意书柜。</view>
+                <view class="aui-timeline-body">把二维码贴到相应的书后</view>
+                <!-- <view class="aui-timeline-footer">
+					
+				</view>  -->
+            </view>
+        </li>
+        <li>
+            <i class="aui-iconfont aui-icon-home aui-bg-warning">4</i>
+            <view class="aui-timeline-item">
+                <!-- <text class="aui-timeline-header"></text> -->
+                <view class="aui-timeline-body">扫描书架二维码</view>
+                <!-- <view class="aui-timeline-footer">
+					
+				</view>  -->
+            </view>
+        </li>
+        <li>
+            <i class="aui-iconfont aui-icon-home aui-bg-warning">5</i>
+            <view class="aui-timeline-item">
+                <!-- <text class="aui-timeline-header"></text> -->
+                <view class="aui-timeline-body">把书放入相应的书架</view>
                 <!-- <view class="aui-timeline-footer">
 					
 				</view>  -->

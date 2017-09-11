@@ -21,7 +21,7 @@ aui-timeline {
     left: 32px;
     margin: 0;
     border-radius: 2px;
-    height:160px;
+    height:320px;
     margin-top: 60px
 }
 .aui-timeline  li {

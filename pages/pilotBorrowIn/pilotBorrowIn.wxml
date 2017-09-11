@@ -11,7 +11,12 @@
             </view>
         </li>
         <li>
-            <i class="aui-iconfont aui-icon-home aui-bg-warning">2</i>
+            <view wx:if="{{step >=2 || sharingInfo.if_loan == 1}}">
+                <i class="aui-iconfont aui-icon-home aui-bg-info">2</i>
+            </view>
+            <view wx:else>
+                <i class="aui-iconfont aui-icon-home aui-bg-warning">2</i>
+            </view>
             <view class="aui-timeline-item">
                 <!-- <text class="aui-timeline-header"></text> -->
                 <view class="aui-timeline-body">扫描图书所在书柜的二维码，完成借书。</view>
@@ -21,7 +26,12 @@
             </view>
         </li>
         <li>
-            <i class="aui-iconfont aui-icon-home aui-bg-warning">3</i>
+            <view wx:if="{{step >=3 || sharingInfo.if_finish == 1}}">
+                <i class="aui-iconfont aui-icon-home aui-bg-info">3</i>
+            </view>
+            <view wx:else>
+                <i class="aui-iconfont aui-icon-home aui-bg-warning">3</i>
+            </view>
             <view class="aui-timeline-item">
                 <!-- <text class="aui-timeline-header"></text> -->
                 <view class="aui-timeline-body">阅读完成</view>
@@ -31,7 +41,12 @@
             </view>
         </li>
         <li>
-            <i class="aui-iconfont aui-icon-home aui-bg-warning">4</i>
+            <view wx:if="{{step >=4 || (sharingInfo.if_finish == 1&& sharingInfo.if_return == 0 && sharingInfo.if_affirm == 0)}}">
+                <i class="aui-iconfont aui-icon-home aui-bg-info">4</i>
+            </view>
+            <view wx:else>
+                <i class="aui-iconfont aui-icon-home aui-bg-warning">4</i>
+            </view>
             <view class="aui-timeline-item">
                 <!-- <text class="aui-timeline-header"></text> -->
                 <view class="aui-timeline-body">到自营点还书，把书放回任意书柜。扫描相应的二维码。</view>
@@ -45,16 +60,27 @@
 </view>
 <view style="width:100%;height:1px;background:#f4f4f4"></view>
 <view class="classname" style="background:#fff;padding:10px 10px">
-    <view wx:if="{{hidden == 1}}">
-        <!-- 扫描图书二维码 -->
-        <button type="primary" bindtap="screenQRcode" style="float:left;margin-left:10px;">扫描二维码</button>
-        <button type="default" bindtap="nextStep" style="float:right;margin-right:10px;">下一步</button>
+    <view wx:if="{{sharingInfo.if_loan == 0}}">
+        <view wx:if="{{step == 1}}">
+            <!-- 扫描图书二维码 -->
+            <button type="primary" bindtap="screenQRcode" style="margin-left:10px;" data-index="2">扫描二维码</button>
+
+        </view>
+        <view wx:if="{{step == 2}}">
+            <!-- 扫描书架 -->
+            <button type="primary" bindtap="bookcase" style="margin-left:10px;" data-index="3">扫描书架</button>
+
+        </view>
+        <view style="clear:both"></view>
     </view>
-    <view wx:if="{{hidden == 2}}">
-        <!-- 扫描书架 -->
-        <button type="primary" bindtap="bookcase">扫描书架</button>
-        <button type="default" bindtap="nextStep" style="float:right;margin-right:10px;">下一步</button>
+    <view wx:if="{{sharingInfo.if_loan == 1 || step>=3}}">
+        <view wx:if="{{(sharingInfo.if_finish == 0 &&step !=4 &&step !=5) || step == 3}}">
+            <button type="primary" bindtap="finishRead" style="margin-right:10px;" data-index="4">阅读完成</button>
+        </view>
+        <view wx:if="{{(sharingInfo.if_finish == 1 && sharingInfo.if_return == 0 && sharingInfo.if_affirm == 0) || step == 4 }}">
+            <!-- 扫描书架 -->
+            <button type="primary" bindtap="bookcaseToReturn" data-index="5">扫描书架</button>
+        </view>
+        <view style="clear:both"></view>
     </view>
-    <view style="clear:both"></view>
-    
 </view>
