@@ -21,14 +21,16 @@ Page({
     onLoad(params) {
         var canShareId = params.canShareId;
         var book_type = params.book_type;
+        var bookId = params.bookId;
         var that = this;
         that.setData({
             canShareId: canShareId,
             params: params,
-            book_type: book_type
+            book_type: book_type,
+            bookId: bookId
         })
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookInfoByCanShareId&canShareId=' + canShareId + "&book_type=" + book_type,
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookInfoByCanShareId&canShareId=' + canShareId + "&book_type=" + book_type + "&userId=" + app.globalData.userId + "&bookId=" + that.data.bookId,
             method: "GET",
             header: {
                 'content-type': 'application/json',
@@ -229,8 +231,72 @@ Page({
     //打开读书卡片页面
     writeCard:function(){
         var that = this
-        wx.navigateTo({
-            url: '../cardDetail/cardDetail?book_id=' + that.data.bookInfo.book_id,
+        //添加至public_booklist 我看过的
+        wx.request({
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=addSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id +"&type=1",
+            method: "GET",
+            header: {
+                'content-type': 'application/json',
+            },
+            success: function (res) {
+                if (res.data == "success") {
+                    wx.navigateTo({
+                        url: '../cardDetail/cardDetail?book_id=' + that.data.bookInfo.book_id,
+                    })
+                    wx.showToast({
+                        title: '添加成功！',
+                        icon: 'false',
+                        duration: 2000
+                    })
+                } else if (res.data == "haveAdded"){
+                    wx.showToast({
+                        title: '您也添加过！',
+                        icon: 'false',
+                        duration: 2000
+                    })
+                }
+            },
+            fail: function () {
+                wx.showToast({
+                    title: '添加失败，请稍后重试！',
+                    icon: 'false',
+                    duration: 2000
+                })
+            }
+        })
+    },
+
+    addLove:function(){
+        var that = this
+        //添加至public_booklist 我看过的
+        wx.request({
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=addSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id + "&type=2",
+            method: "GET",
+            header: {
+                'content-type': 'application/json',
+            },
+            success: function (res) {
+                if (res.data == "success") {
+                    wx.showToast({
+                        title: '成功添加至喜欢！',
+                        icon: 'false',
+                        duration: 2000
+                    })
+                } else if (res.data == "haveAdded") {
+                    wx.showToast({
+                        title: '您已添加过！',
+                        icon: 'false',
+                        duration: 2000
+                    })
+                }
+            },
+            fail: function () {
+                wx.showToast({
+                    title: '添加失败，请稍后重试！',
+                    icon: 'false',
+                    duration: 2000
+                })
+            }
         })
     }
 })

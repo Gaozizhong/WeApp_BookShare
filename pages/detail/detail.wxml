@@ -28,10 +28,16 @@
     </view>
     <view class="block" style="width:100%;height:50px;"></view>
     <view id="footer" style="display:block;bottom:0px;position:fixed;width:100%;height:50px;z-index:1000px;">
-         <button id="atten" type="submit" style="width:20%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn">
-            收藏
-        </button> 
-        <button type="submit" bindtap="writeCard" style="width:30%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn">
+         <button type="submit" bindtap="addLove"  wx:if="{{bookInfo.haveLoved ==1 }}"  style="width:20%;height:50px;background: #f7f7f7;text-align: center;float: left;color:#000" class="btn">
+            已喜欢
+        </button>
+        <button type="submit" bindtap="addLove"  wx:else  style="width:20%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn">
+            喜欢
+        </button>  
+        <button type="submit" bindtap="writeCard" wx:if="{{bookInfo.haveRead ==1 }}" style="width:30%;height:50px;background: #f7f7f7;text-align: center;float: left;color:#000" class="btn">
+            已看过
+        </button>
+        <button type="submit" bindtap="writeCard" wx:else style="width:30%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn">
             看过
         </button>
         <button type="submit" bindtap="borrowBook" style="width:50%;color:#fff;height:50px;background: #75a8f9;text-align: center;float:right;" class="btn">
