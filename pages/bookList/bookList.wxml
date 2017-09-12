@@ -1,62 +1,35 @@
-<!--图书列表-->
-  <view class="book-list">
-    <view class="book-tmp" bindtap="detail">
-      <image src="https://easyreadfs.nosdn.127.net/Q-hut7bp3KfPZNSVTtdRfg==/8796093023470097465?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">心理罪</view>
-        <view class="book-author">雷米</view>
-      </view>
-      <view class="clear-both"></view>
+<view class="list-tmp">
+    <view class="list-info">
+        <view class='item'>
+            <text class="list-name">我分享的</text>
+            <text class='number'>20本书</text>
+        </view>
+        <view class="describe">
+            书中自有黄金屋 书中自有颜如玉 ——某人
+        </view>
     </view>
-    <view class="book-tmp">
-      <image src="https://easyreadfs.nosdn.127.net/z_4c_fOpvNhFZ8VFEMTQow==/7917026878732400186?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">三生三世枕上书</view>
-        <view class="book-author">唐七公子</view>
-      </view>
+    <view class="list-info">
+        <view class='item'>
+            <text class="list-name">我想看的</text>
+            <text class='number'>20本书</text>
+        </view>
+        <view class="describe">
+            纸上觉来终觉浅 绝知此事要躬行 ——某人
+        </view>
     </view>
-    <view class="book-tmp">
-      <image src="https://easyreadfs.nosdn.127.net/Db3hCApveVcjggJR1OQZvg==/8796093023495173072?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">流星之绊</view>
-        <view class="book-author">东野圭吾</view>
-      </view>
+    <view class="list-info">
+        <view class='item'>
+            <text class="list-name">我讨厌的</text>
+            <text class='number'>20本书</text>
+        </view>
+        <view class="describe">
+            书山有路勤为径 学海无涯苦作舟 ——某人
+        </view>
     </view>
-    <view class="book-tmp">
-      <image src="https://easyreadfs.nosdn.127.net/MIGXbxv5mc2u4pcVR5q0rg==/7916566183359298676?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">一切都是最好的安排</view>
-        <view class="book-author">加措</view>
-      </view>
+    <view class="list-info" style='height:60px;'>
+        <view class='new'>
+            <image class='logo' src='../../images/join_in.png'></image> 
+            <text class="list-name" style='margin:40px 20px 40px 20px'>新建书单</text>
+        </view>
     </view>
-    <view class="book-tmp">
-      <image src="https://easyreadfs.nosdn.127.net/qrtaiJGiZoxjyaApe_Md6g==/8796093022677554736?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">至味在人间</view>
-        <view class="book-author">陈晓卿</view>
-      </view>
-    </view>
-    <view class="book-tmp">
-      <image src="https://easyreadfs.nosdn.127.net/a1T3r-J8Xv1m4ez1B6PNIg==/8796093023500161880?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">穆斯林的葬礼</view>
-        <view class="book-author">霍达</view>
-      </view>
-    </view>
-    <!--<view class="book-tmp">
-      <image src="https://easyread.ph.126.net/gRk-979q4TEezSYPaNnvQQ==/8796093022695011959.png?imageView&quality=90&thumbnail=114y160" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">为了你，我愿意热爱整个世界</view>
-        <view class="book-author">唐家三少</view>
-      </view>
-    </view>-->
-    <view class="book-tmp">
-      <image src="../../images/book.png" class="book-image"></image>
-      <view class="book-info">
-        <view class="book-name">白夜行</view>
-        <view class="book-author">东野圭吾</view>
-      </view>
-    </view>
-
-  </view>
-  <!--图书列表 end-->
+</view>
