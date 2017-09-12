@@ -1,35 +1,53 @@
-/**图书列表**/
-.book-list{
-  margin-top: 10px;
-  width: 98%;
-  padding: 2px 2px;
+.list-tmp {
+    padding: 2rpx 15rpx 2rpx 15rpx;
+    background: #f4f4f4;
+    margin-bottom: 10rpx;
+    height: 240rpx;
 }
-.book-tmp{
-  padding:2rpx 15rpx 2rpx 15rpx;
-  background: #fff;
-  margin-bottom: 15rpx;
-  height: 240rpx;
-  border-radius: 5px;
+
+.list-info {
+    background: #fff;
+    float: left;
+    height: 90%;
+    width: 90%;
+    text-align: left;
+    margin: 10px 10px;
+    padding: 5px;
 }
-.book-image{
-  width: 25%;
-  height: 220rpx;
-  float: left;
+
+.item {
+    margin-top: 20px;
+    text-align: center;
 }
-.book-info{
-  width: 75%;
-  float: right;
-  height: 100%;
-  text-align: center;
+
+.list-name {
+    font-size: 20px;
+    line-height: 60rpx;
+    margin: 40px 140px 50px 20px;
+    padding-top: 30px;
 }
-.book-name{
-  height: 50%;
-  line-height: 60rpx;
-  display: block!important;
-  margin-top:10px
+
+.number {
+    font-size: 15px;
+    color: #949494;
+    width: 25%;
+    margin-right: 20px;
 }
-.book-author{
-  height: 50%;
-  line-height: 60rpx;
-  display: block!important;
+
+.describe {
+    font-size: 15px;
+    margin: 20px 20px;
+}
+
+.new {
+    padding:10px 20px 15px 20px;
+    height: 40px;
+    text-align: center;
+    width:250px;
+    margin: 0 auto;
+}
+.logo{
+    height:40px;
+    width:40px;
+    vertical-align: middle; 
 }
