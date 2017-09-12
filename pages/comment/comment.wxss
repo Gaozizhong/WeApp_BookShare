@@ -1,6 +1,7 @@
 .box {
     margin: 10px 15px;
 }
+
 .item {
     font-size: 15px;
     line-height: 40px;
@@ -10,44 +11,40 @@
     /* height: 240rpx; */
     border-radius: 5px;
 }
+
 .txt {
     text-align: center;
     margin-bottom: 5px;
 }
 
-.comment1-description{
+.comment1-description {
     margin-top: 35rpx;
 }
-.comment1-description1{
+
+.comment1-description1 {
     font-family: PingFangSC-Regular;
     font-size: 28rpx;
-    color: #333333;
+    color: #333;
     margin-left: 30rpx;
 }
-.star-pos {
-    width: 60%;
+
+.half {
     position: absolute;
-    right: 0px;
-    margin-right: 40rpx;
-}
-.comment1-description .star-pos .hideStar{
-    z-index: 2;
-    /* background-image: url("http://m.dev.vd.cn/static/xcx/v1/goo/star(灰)@1.5x.png"); */
-    background-image: url('../../images/icon-star-default.png');
-    width: 83rpx;
-    height: 43rpx;
-    background-size: 43rpx 43rpx;
-    background-position: center center;
-    background-repeat: no-repeat;
+    margin-left: 180rpx;
+    margin-top: -55rpx;
 }
 
-.starsM{
-    z-index: 1;
-    width: 83rpx;
-    height: 43rpx;
-      background-image: url("http://m.dev.vd.cn/static/xcx/v1/goo/star@1.5x.png");  
-     /* background-image: url('../../images/icon-star-active.png');  */
-    background-size: 43rpx 43rpx;
-    background-position: center center;
-    background-repeat: no-repeat;
+.star-image {
+    position: absolute;
+    top: 50rpx;
+    width: 80rpx;
+    height: 80rpx;
+    src: "../../images/normal.png";
+}
+
+.item1 {
+    position: absolute;
+    top: 5rpx;
+    width: 40rpx;
+    height: 80rpx;
 }
