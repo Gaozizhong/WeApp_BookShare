@@ -3,13 +3,22 @@
 var app = getApp()
 Page({
     data: {
-        loading:false,
+        loading: false,
         bookInfo: null,
-        disabled:false,
+        disabled: false,
         uploadDays: 10,//默认上传天数
         location: null,//地理名称
         longitude: null,//经度,
         latitude: null,//纬度
+
+        stars: [0, 1, 2, 3, 4],
+        normalSrc: '../../images/normal.png',
+        selectedSrc: '../../images/selected.png',
+        halfSrc: '../../images/half.png',
+        key1: 5,//评分
+
+        array: ['无限制', '0-2岁', '3-7岁', '8-12岁'],
+        index: 0,
     },
     //事件处理函数
     onLoad: function () {
@@ -23,7 +32,7 @@ Page({
     screenISBN: function () {
         var that = this;
         that.setData({
-            loading:true
+            loading: true
         })
         wx.getSetting({
             success(res) {
@@ -52,7 +61,7 @@ Page({
                                             } else {
                                                 that.setData({
                                                     bookInfo: res.data,
-                                                    disabled:true
+                                                    disabled: true
                                                 })
                                                 var bookData = res.data;
                                                 wx.request({
@@ -148,20 +157,20 @@ Page({
                 'content-type': 'application/json'
             },
             success: function (res) {
-                if (res.data == "have shared"){
+                if (res.data == "have shared") {
                     wx.showToast({
                         title: '已经分享过，无需再分享！',
                         icon: 'success',
                         duration: 2000
                     })
-                }else{
+                } else {
                     wx.showToast({
                         title: '分享成功！',
                         icon: 'success',
                         duration: 2000
                     })
                 }
-                
+
             },
             fail: function () {
                 wx.showToast({
@@ -174,7 +183,7 @@ Page({
     },
 
     //继续分享
-    continueShare:function(){
+    continueShare: function () {
         var that = this;
         that.setData({
             loading: false,
@@ -185,5 +194,36 @@ Page({
             longitude: null,//经度,
             latitude: null,//纬度
         })
-    }
+    },
+
+    /**
+    * 书评
+     */
+    selectLeft1: function (e) {
+        var key1 = e.currentTarget.dataset.key
+        if (this.data.key1 == 0.5 && e.currentTarget.dataset.key == 0.5) {
+            //只有一颗星的时候,再次点击,变为0颗
+            key1 = 0;
+        }
+        console.log("得" + key1 + "分")
+        this.setData({
+            key1: key1
+        })
+
+    },
+    //点击左边,整颗星
+    selectRight1: function (e) {
+        var key1 = e.currentTarget.dataset.key
+        console.log("得" + key1 + "分")
+        this.setData({
+            key1: key1
+        })
+    },
+    //选择器
+    bindPickerChange: function (e) {
+        console.log('picker发送选择改变，携带值为', e.detail.value)
+        this.setData({
+            index: e.detail.value
+        })
+    },
 })
