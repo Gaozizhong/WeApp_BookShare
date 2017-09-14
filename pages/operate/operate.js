@@ -119,7 +119,7 @@ Page({
 
     openComment: function () {
       wx.navigateTo({
-        url: '../comment/comment'
+          url: '../editTime/editTime'
       })
     },
 

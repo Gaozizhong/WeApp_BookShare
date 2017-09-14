@@ -1,29 +1,82 @@
 <!--分类 start-->
-<loading hidden="{{ !loading }}">加载中...</loading>
-<scroll-view style="height:100%" id="catewrap" scroll-into-view="c2" scroll-y="true">
-    <view id="cateall" bindtap="cateselect" class="cl_list ">
-        <text class="cl_ico_checked cl_ico"></text> {{bookInfo.book_name}}
+<!-- <loading hidden="{{ !loading }}">加载中...</loading> -->
+
+<view class="container">
+    <view class="h10"></view>
+    <view class="thirdblock">
+        <view class="item">
+            <span>书名:</span>
+            <text class="rightText">{{bookInfo.book_name}}</text>
+        </view>
+        <view class="h1"></view>
+        <view class="item">
+            <span>作者:</span>
+            <text class="rightText">{{bookInfo.writer}}</text>
+        </view>
+        <view class="h1"></view>
+        <view class="item">
+            <span>ISBN:</span>
+            <text class="rightText">{{bookInfo.ISBN13}}</text>
+        </view>
+        <view class="h1"></view>
+        <view class="item">
+            <span>可借天数:</span>
+            <input class='rightText' type="number" value="{{bookInfo.keep_time}}" bindinput="setDays" />
+        </view>
+        <view class="h1"></view>
+        <view class="item" style='display: flex;'>
+            <span>位置：</span>
+            <view class="rightText" style="text-align:center;" bindtap="chooseLocation">
+                <input style='margin-left:30px;padding-top:12px;' placeholder='更改图书所在位置'>{{bookInfo.keep_time}}</input>
+            </view>
+            <view>
+                <image style='height:25px;width:25px;margin-top:10px;margin-right:20px;' src='../../images/location.png'></image>
+            </view>
+        </view>
+        <!-- <view id="cateall" bindtap="cateselect" class="cl_list ">
+            <text style="float:left;width:100px;line-height:47px">位置</text>
+            <text class="rightText" style="width:200px">{{bookInfo.keep_time}}</text>
+        </view> -->
     </view>
-    <view id="cateall" bindtap="cateselect" class="cl_list ">
-        <text style="float:left;width:100px;line-height:47px;">作者</text>
-        <text class="rightText">{{bookInfo.writer}}</text>
+    <!-- 第二块  -->
+    <view class="firstblock">
+        <view class="h1"></view>
+        <view class="item" style='display: flex;'>
+            <view class="section__title">适龄：</view>
+            <view class="section">
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                    <view class="picker">
+                        {{array[index]}}
+                    </view>
+                </picker>
+            </view>
+            <view>
+                <image style='height:15px;width:15px;margin-top:10px;margin-right:20px;' src='../../images/triangle.png'></image>
+            </view>
+        </view>
+        <view class="h1"></view>
+        <view class="item" style="display:flex;flex-direction:row;">
+            <span>书评：</span>
+            <view class='half'>
+                <block wx:for="{{stars}}">
+                    <image class="star-image" style="left: {{item*80}}rpx" src="{{key1 > item ?(key1-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                        <view class="item1" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft1"></view>
+                        <view class="item1" style="left:40rpx" data-key="{{item+1}}" bindtap="selectRight1"></view>
+                    </image>
+                </block>
+            </view>
+        </view>
+        <view class="h1"></view>
+        <view class="comment" style='height:90px;'>
+            <textarea style="line-height:30px;height:80px" type='text' placeholder='请写出您对此书的评价~' />
+        </view>
+        <view class="h1"></view>
+        <view class="item"  style='height:55px;'>
+            <form name='pushMsgFm' report-submit="true" data-canshareid="{{bookInfo.can_share_id}}" bindsubmit="saveKeepTime">
+                <button form-type="submit" style="width:95%;margin:10px 5px 10px 0px;background: #FE552E;color:#fff;bottom:0px" class="btn">
+                    完成编辑
+                </button>
+            </form>
+        </view>
     </view>
-    <view id="cateall" bindtap="cateselect" class="cl_list ">
-        <text style="float:left;width:100px;line-height:47px">ISBN</text>
-        <text class="rightText">{{bookInfo.ISBN13}}</text>
-    </view>
-    <view id="cateall" bindtap="cateselect" class="cl_list ">
-        <text style="float:left;width:100px;line-height:47px">借阅天数</text>
-        <input type="text" value="{{bookInfo.keep_time}}" bindinput="setDays" class="rightText"/>
-    </view>
-    <view id="cateall" bindtap="cateselect" class="cl_list ">
-        <text style="float:left;width:100px;line-height:47px">位置</text>
-        <text class="rightText" style="width:200px">{{bookInfo.keep_time}}</text>
-    </view>
-    <form name='pushMsgFm' report-submit="true" data-canshareid="{{bookInfo.can_share_id}}" bindsubmit="saveKeepTime" >
-        <button form-type="submit" style="width:95%;margin:0 auto;border-radius:5px;height:50px;background: #FE552E;text-align: center;color:#fff;position:fixed;bottom:0px" class="btn">
-            保存修改
-        </button>
-    </form>
-</scroll-view>
-<!--分类 end-->
+</view>

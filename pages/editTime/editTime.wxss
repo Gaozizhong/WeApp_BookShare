@@ -1,0 +1,63 @@
+.container {
+    margin-top: 10px;
+    width: 94%;
+    padding: 2px 2px;
+    margin: 0 auto;
+}
+.firstblock, .secondblock, .thirdblock {
+    background-color: #fff;
+    width:100%;
+}
+/* 设置条目 */
+
+.item {
+    height: 47px;
+    line-height: 47px;
+    padding-left: 15px;
+    background-color: #fff;
+    font-size: 13px;
+}
+
+.h10 {
+    height: 10px;
+    background: #f0f0f0;
+}
+
+.h1 {
+    height: 1px;
+    margin: 0 15px;
+    background: #f0f0f0;
+}
+.comment{
+    padding-top: 10px;
+    padding-left: 15px;
+    height: 60px;
+    font-size: 13px;
+}
+.half {
+    position: absolute;
+    margin-left: 180rpx;
+    margin-top: -45rpx;
+}
+
+.star-image {
+    position: absolute;
+    top: 50rpx;
+    width: 80rpx;
+    height: 80rpx;
+    src: "../../images/normal.png";
+}
+
+.item1 {
+    position: absolute;
+    top: 5rpx;
+    width: 40rpx;
+    height: 80rpx;
+}
+.section{
+    width: 70%;
+    text-align: center;
+}
+.rightText{
+    text-align: center;
+}

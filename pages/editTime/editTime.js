@@ -6,7 +6,16 @@ Page({
         canShareId:null,
         loading:true,
         bookInfo:null,
-        keepTime:null
+        keepTime:null,
+
+        stars: [0, 1, 2, 3, 4],
+        normalSrc: '../../images/normal.png',
+        selectedSrc: '../../images/selected.png',
+        halfSrc: '../../images/half.png',
+        key1: 5,//评分
+
+        array: ['无限制', '0-2岁', '3-7岁', '8-12岁'],
+        index: 0,
     },
     //事件处理函数
     onLoad: function (options) {
@@ -79,7 +88,38 @@ Page({
 
             }
         })
-    }
+    },
+    
+    /**
+    * 书评
+     */
+    selectLeft1: function (e) {
+        var key1 = e.currentTarget.dataset.key
+        if (this.data.key1 == 0.5 && e.currentTarget.dataset.key == 0.5) {
+            //只有一颗星的时候,再次点击,变为0颗
+            key1 = 0;
+        }
+        console.log("得" + key1 + "分")
+        this.setData({
+            key1: key1
+        })
+
+    },
+    //点击左边,整颗星
+    selectRight1: function (e) {
+        var key1 = e.currentTarget.dataset.key
+        console.log("得" + key1 + "分")
+        this.setData({
+            key1: key1
+        })
+    },
+    //选择器
+    bindPickerChange: function (e) {
+        console.log('picker发送选择改变，携带值为', e.detail.value)
+        this.setData({
+            index: e.detail.value
+        })
+    },
 
     
 
