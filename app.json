@@ -32,7 +32,8 @@
     "pages/card/card",
     "pages/cardDetail/cardDetail",
     "pages/comment/comment",
-    "pages/bookListInfo/bookListInfo"
+    "pages/bookListInfo/bookListInfo",
+    "pages/commentBorrower/commentBorrower"
   ],
   "window": {
     "backgroundTextStyle": "light",

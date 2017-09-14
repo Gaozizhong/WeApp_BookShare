@@ -34,5 +34,12 @@ Page({
     },
     onShow:function(){
         
+    },
+
+    openCommentBorrower:function(){
+        var that = this 
+        wx.navigateTo({
+            url: '../commentBorrower/commentBorrower?bookId=25',
+        })
     }
 })

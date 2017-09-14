@@ -41,7 +41,7 @@
                 {{major[majorIndex]}}
             </view>
         </picker> -->
-        <input class="value-right" type="text" bindinput="setMajor" value="{{userInfo.userClass?userInfo.userClass:''}}" placeholder="请输入班级" />
+        <input class="value-right" type="text" bindinput="setMajor" value="{{userInfo.userClass?userInfo.userClass:''}}" placeholder="请输入所在学院" />
     </view>
     <view class="h1"></view>
     <view class="phone item">

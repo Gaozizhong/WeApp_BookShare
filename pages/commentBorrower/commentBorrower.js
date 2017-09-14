@@ -1,13 +1,13 @@
-// pages/comment/comment.js
-var app = getApp()
+var app = getApp();
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        loading:false,
-        disabled:false,
+        loading: false,
+        disabled: false,
         flag1: 5,
         flag2: 5,
         flag3: 5,
@@ -31,7 +31,7 @@ Page({
         that.setData({
             sharingId: sharingId,
             bookId: bookId,
-        }) 
+        })
         wx.request({
             url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookInfo&bookId=' + bookId,
             method: "GET",
@@ -41,7 +41,7 @@ Page({
             success: function (res) {
                 that.setData({
                     bookInfo: res.data[0],
-                    loading:true
+                    loading: true
                 })
             },
             fail: function () {
@@ -55,16 +55,9 @@ Page({
     },
 
     /**
-     * 生命周期函数--监听页面显示
+     * 生命周期函数--监听页面初次渲染完成
      */
-    onShow: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
+    onReady: function () {
 
     },
 
@@ -111,42 +104,22 @@ Page({
             key2: key2
         })
     },
-    /**
-     * 图书内容
-     */
-    selectLeft3: function (e) {
-        var key3 = e.currentTarget.dataset.key
-        if (this.data.key3 == 0.5 && e.currentTarget.dataset.key == 0.5) {
-            //只有一颗星的时候,再次点击,变为0颗
-            key3 = 0;
-        }
-        this.setData({
-            key3: key3
-        })
-
-    },
-    //点击左边,整颗星
-    selectRight3: function (e) {
-        var key3 = e.currentTarget.dataset.key
-        this.setData({
-            key3: key3
-        })
-    },
-
-    setCardContent:function(e){
+    
+    setCardContent: function (e) {
         var that = this;
         that.setData({
             card_content: e.detail.value
         })
     },
 
-    comment:function(){
+    //对借书人评价
+    comment: function () {
         var that = this;
         that.setData({
-            disabled:true
+            disabled: true
         })
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=comment&user_id=' + app.globalData.userId + "&sharingId=" + that.data.sharingId + "&book_id=" + that.data.bookId + "&owner_attitude=" + that.data.key1 + "&book_quality=" + that.data.key2 + "&book_content=" + that.data.key3 + "&card_content=" + that.data.card_content,
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=borrowComment&sharingId=' + that.data.sharingId + "&borrower_attitude=" + that.data.key1 + "&book_protect=" + that.data.key2 + "&borrower_content="  + that.data.card_content,
             method: "GET",
             header: {
                 'content-type': 'application/json'
@@ -159,15 +132,15 @@ Page({
                         duration: 2000
                     })
                     wx.navigateBack({
-                        delta:1
+                        delta: 1
                     })
-                }else if (res.data == "fail") {
+                } else if (res.data == "fail") {
                     wx.showToast({
                         title: '评论失败，请重试！',
                         icon: 'false',
                         duration: 2000
                     })
-                } 
+                }
             },
             fail: function () {
                 wx.showToast({

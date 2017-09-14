@@ -356,7 +356,7 @@
                                 联系书主
                             </button>
                         </form>
-                         <form name='pushMsgFm' report-submit="true" data-sharingid="{{book.sharing_id}}" bindsubmit="screenQRcode">
+                         <form name='pushMsgFm' report-submit="true" data-sharingid="{{book.sharing_id}}" data-bookid="{{book.book_id}}" bindsubmit="screenQRcode">
                             <button form-type="submit" class="agree">
                                 归还
                             </button>

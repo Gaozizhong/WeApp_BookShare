@@ -49,7 +49,8 @@ Page({
     },
 
     //扫码 整体流程完成
-    screenQRcode: function () {
+    screenQRcode: function (e) {
+        var bookId = e.target.dataset.bookid;
         wx.getSetting({
             success(res) {
                 if (res.authSetting['scope.userInfo']) {
@@ -68,11 +69,10 @@ Page({
                                             'content-type': 'application/json'
                                         },
                                         success: function (res) {
-                                            console.log(res.data)
-                                            if (array[1]== res.data["owner_id"]) {
+                                            if (array[1] == res.data["owner_id"]) {
                                                 if (res.data["user_id"] == app.globalData.userId) {
                                                     wx.request({
-                                                        url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=screenReturn&sharingId=' + sharingId,
+                                                        url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=screenReturn&sharingId=' + sharingId + "&user_id=" + app.globalData.userId + " & book_id=" + bookId,
                                                         method: "GET",
                                                         header: {
                                                             'content-type': 'application/json'
@@ -85,10 +85,18 @@ Page({
                                                                     duration: 2000
                                                                 })
                                                             } else if (res.data == "success") {
-                                                                wx.showToast({
+                                                                wx.showModal({
                                                                     title: '归还成功',
-                                                                    icon: 'true',
-                                                                    duration: 2000
+                                                                    content: '评论得积分，是否前往？',
+                                                                    cancelText: "算了",
+                                                                    confirmText:"立即前往",
+                                                                    success: function (res) {
+                                                                        if (res.confirm) {
+                                                                            wx.navigateTo({
+                                                                                url: '../comment/comment?sharingId=' + sharingId + "&bookId=" + bookId,
+                                                                            })
+                                                                        }
+                                                                    }
                                                                 })
                                                             } else if (res.data == "fail") {
                                                                 wx.showToast({
