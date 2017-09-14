@@ -7,7 +7,15 @@ Page({
     data: {
         flag1: 5,
         flag2: 5,
-        flag3: 5
+        flag3: 5,
+
+        stars: [0, 1, 2, 3, 4],
+        normalSrc: '../../images/normal.png',
+        selectedSrc: '../../images/selected.png',
+        halfSrc: '../../images/half.png',
+        key1: 5,//评分
+        key2: 5,//评分
+        key3: 5,//评分
     },
 
     /**
@@ -67,102 +75,72 @@ Page({
     },
 
     /**
-     * 书主态度星级评价
+     * 书主态度
      */
-    changeColor11: function () {
-        var that = this;
-        that.setData({
-            flag1: 1
-        });
+    selectLeft1: function (e) {
+        var key1 = e.currentTarget.dataset.key
+        if (this.data.key1 == 0.5 && e.currentTarget.dataset.key == 0.5) {
+            //只有一颗星的时候,再次点击,变为0颗
+            key1 = 0;
+        }
+        console.log("得" + key1 + "分")
+        this.setData({
+            key1: key1
+        })
+
     },
-    changeColor12: function () {
-        var that = this;
-        that.setData({
-            flag1: 2
-        });
-    },
-    changeColor13: function () {
-        var that = this;
-        that.setData({
-            flag1: 3
-        });
-    },
-    changeColor14: function () {
-        var that = this;
-        that.setData({
-            flag1: 4
-        });
-    },
-    changeColor15: function () {
-        var that = this;
-        that.setData({
-            flag1: 5
-        });
+    //点击左边,整颗星
+    selectRight1: function (e) {
+        var key1 = e.currentTarget.dataset.key
+        console.log("得" + key1 + "分")
+        this.setData({
+            key1: key1
+        })
     },
     /**
-     * 图书质量星级评价
+     * 图书质量
      */
-    changeColor21: function () {
-        var that = this;
-        that.setData({
-            flag2: 1
-        });
+    selectLeft2: function (e) {
+        var key2 = e.currentTarget.dataset.key
+        if (this.data.key2 == 0.5 && e.currentTarget.dataset.key == 0.5) {
+            //只有一颗星的时候,再次点击,变为0颗
+            key2 = 0;
+        }
+        console.log("得" + key2 + "分")
+        this.setData({
+            key2: key2
+        })
+
     },
-    changeColor22: function () {
-        var that = this;
-        that.setData({
-            flag2: 2
-        });
-    },
-    changeColor23: function () {
-        var that = this;
-        that.setData({
-            flag2: 3
-        });
-    },
-    changeColor24: function () {
-        var that = this;
-        that.setData({
-            flag2: 4
-        });
-    },
-    changeColor25: function () {
-        var that = this;
-        that.setData({
-            flag2: 5
-        });
+    //点击左边,整颗星
+    selectRight2: function (e) {
+        var key2 = e.currentTarget.dataset.key
+        console.log("得" + key2 + "分")
+        this.setData({
+            key2: key2
+        })
     },
     /**
-     * 图书内容星级评价
+     * 图书内容
      */
-    changeColor31: function () {
-        var that = this;
-        that.setData({
-            flag3: 1
-        });
+    selectLeft3: function (e) {
+        var key3 = e.currentTarget.dataset.key
+        if (this.data.key3 == 0.5 && e.currentTarget.dataset.key == 0.5) {
+            //只有一颗星的时候,再次点击,变为0颗
+            key3 = 0;
+        }
+        console.log("得" + key3 + "分")
+        this.setData({
+            key3: key3
+        })
+
     },
-    changeColor32: function () {
-        var that = this;
-        that.setData({
-            flag3: 2
-        });
+    //点击左边,整颗星
+    selectRight3: function (e) {
+        var key3 = e.currentTarget.dataset.key
+        console.log("得" + key3 + "分")
+        this.setData({
+            key3: key3
+        })
     },
-    changeColor33: function () {
-        var that = this;
-        that.setData({
-            flag3: 3
-        });
-    },
-    changeColor34: function () {
-        var that = this;
-        that.setData({
-            flag3: 4
-        });
-    },
-    changeColor35: function () {
-        var that = this;
-        that.setData({
-            flag3: 5
-        });
-    }
 })
