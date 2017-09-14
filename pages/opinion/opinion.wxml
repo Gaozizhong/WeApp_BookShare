@@ -1,11 +1,9 @@
-<view style="">
 <view class="font_size" style="width: 100%;margin-left: 0;">
     <form method="post">
         <!-- <text class="feedback" for="feedbackText">意见内容:</text> -->
-        <textarea class="feedbackText" placeholder="请提出您的宝贵意见" bindinput="setContent"></textarea>
+        <textarea class="feedbackText" placeholder="请提出您的宝贵意见!" bindinput="setContent"></textarea>
         <!-- <label for="comPhone" class="comPhone">联系电话：</label>
         <input type="number" class="comPhoneNum" id="comPhone" name="comPhone" /> -->
         <button class="submit" bindtap="submitOpinion">反馈意见</button>
     </form>
-</view>
 </view>
