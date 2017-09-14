@@ -18,7 +18,7 @@
     </view>
     <view class="item">
         <view class="comment1-description" style="display:flex;flex-direction:row;">
-            <view class="comment1-description1">书主态度：</view>
+            <view class="comment1-description1">借书态度：</view>
             <view class='half'>
                 <block wx:for="{{stars}}">
                     <image class="star-image" style="left: {{item*80}}rpx" src="{{key1 > item ?(key1-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
@@ -29,7 +29,7 @@
             </view>
         </view>
         <view class="comment1-description" style="display:flex;flex-direction:row;">
-            <view class="comment1-description1">图书质量：</view>
+            <view class="comment1-description1">图书保护：</view>
             <view class='half'>
                 <block wx:for="{{stars}}">
                     <image class="star-image" style="left: {{item*80}}rpx" src="{{key2 > item ?(key2-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
@@ -40,23 +40,9 @@
             </view>
         </view>
     </view>
-    <view class='txt'>
-        内容评价
-    </view>
     <view class='item'>
-        <view class="comment1-description" style="display:flex;flex-direction:row;">
-            <view class="comment1-description1">图书内容：</view>
-            <view class='half'>
-                <block wx:for="{{stars}}">
-                    <image class="star-image" style="left: {{item*80}}rpx" src="{{key3 > item ?(key3-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
-                        <view class="item1" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft3"></view>
-                        <view class="item1" style="left:40rpx" data-key="{{item+1}}" bindtap="selectRight3"></view>
-                    </image>
-                </block>
-            </view>
-        </view>
         <view class="comment1-description">
-            <textarea class="comment1-description1" maxlength="-1" bindinput="setCardContent" style="line-height:30px;height:80px" type='text' placeholder='请写出您对此书的评价~' />
+            <textarea class="comment1-description1" maxlength="-1" bindinput="setCardContent" style="line-height:30px;height:80px" type='text' placeholder='请写出您对借书人的评价~' />
         </view>
     </view>
     <button type="default" bindtap="comment" style="margin-top:20px;width:80%;color:#fff;height:50px;background: #08bb06;text-align: center;align-items: center;" disabled="{{disabled}}">完成评价</button>
