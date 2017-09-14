@@ -28,3 +28,37 @@
     margin: 0 15px;
     background: #f0f0f0;
 }
+.comment{
+    padding-top: 20px;
+    padding-left: 15px;
+    height: 60px;
+    font-size: 13px;
+}
+.comment1{
+    padding: 10px 15px 10px 15px;
+    font-size: 13px;
+}
+.half {
+    position: absolute;
+    margin-left: 180rpx;
+    margin-top: -45rpx;
+}
+
+.star-image {
+    position: absolute;
+    top: 50rpx;
+    width: 80rpx;
+    height: 80rpx;
+    src: "../../images/normal.png";
+}
+
+.item1 {
+    position: absolute;
+    top: 5rpx;
+    width: 40rpx;
+    height: 80rpx;
+}
+.section{
+    width: 70%;
+    text-align: center;
+}
