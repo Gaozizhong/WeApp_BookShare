@@ -16,10 +16,10 @@
             <view class="clear-both"></view>
         </view>
         <view style="width:96%;margin:0 auto;height:1px;background:#f0f0f0"></view>
-        <textarea auto-focus placeholder="请输入您的感想" maxlength="-1" class="card_content" bindinput="setContent" />
+        <textarea auto-focus placeholder="请输入您的感想" value="{{cardContent.card_content}}" maxlength="-1" class="card_content" bindinput="setContent" />
         <checkbox-group bindchange="setCanSee">
             <label class="checkbox">
-                <checkbox value="1" checked="{{item.checked}}"/>仅对自己可见
+                <checkbox value="1" checked="{{cardContent.can_see==1?true:false}}"/>仅对自己可见
             </label>
         </checkbox-group>
     </view>

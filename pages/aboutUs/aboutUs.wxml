@@ -10,7 +10,7 @@
     </view>
     <view class="name item">
         <text>团队地址</text>
-        <span class="value-right">河北工业大学北辰校区</span>
+        <span class="value-right"  bindtap="openLocation">河北工业大学北辰校区</span>
     </view>
     <view class="h1"></view>
 </view>

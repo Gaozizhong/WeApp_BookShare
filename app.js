@@ -55,6 +55,8 @@ App({
         userId:null,//用户userId
         timer: 30000,//定时器设置时间
         access_token:null,
-        pilotKeepTime:7 //自营点时间
+        pilotKeepTime:7 ,//自营点时间
+        latitude: 39.2349700000,//团队所在纬度
+        longitude: 117.0582000000//团队所在经度
     },
 })

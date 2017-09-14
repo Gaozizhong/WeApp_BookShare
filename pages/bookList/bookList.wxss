@@ -1,18 +1,19 @@
 .list-tmp {
-    padding: 2rpx 15rpx 2rpx 15rpx;
     background: #f4f4f4;
     margin-bottom: 10rpx;
     height: 240rpx;
+    width:97%;
+    margin: 0 auto;
 }
 
 .list-info {
     background: #fff;
     float: left;
     height: 90%;
-    width: 90%;
+    width: 96%;
     text-align: left;
-    margin: 10px 10px;
-    padding: 5px;
+    margin: 5px 2%;
+    border-radius: 3px;
 }
 
 .item {
@@ -37,6 +38,7 @@
 .describe {
     font-size: 15px;
     margin: 20px 20px;
+    text-align: center
 }
 
 .new {

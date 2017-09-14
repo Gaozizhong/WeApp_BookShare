@@ -1,4 +1,4 @@
-<view class="wrapper">       
+<!-- <view class="wrapper">       
     <view class="container">        
         
         <view class="masonry-container">
@@ -20,7 +20,7 @@
                     <view class="filter">
                         
                     </view>
-                </view> <!-- end card -->                    
+                </view>                    
             </view>
             
             <view class="card-box col-md-4 col-sm-6">               
@@ -35,7 +35,7 @@
                          <a href="#" class="btn btn-danger btn-fill btn-round">Read article</a>
                     </view>
                     <view class="filter"></view>
-                </view> <!-- end card -->
+                </view>
             </view>
            
            
@@ -47,7 +47,7 @@
                         <p class="description">- Not A Hipster</p>
                     </view>
                     <view class="filter"></view>
-                </view> <!-- end card -->                
+                </view>          
             </view>
             
             <view class="card-box col-md-4 col-sm-6">  
@@ -66,11 +66,20 @@
                     </view>    
                     
                     <view class="filter filter-blue"></view>                       
-                </view> <!-- end card -->             
+                </view>     
             </view>
             
                               
         </view>
         
     </view> 
+</view> -->
+
+<import src="../templates/templates.wxml" />
+<!--图书列表-->
+<view class="book-list">
+    <view wx:for="{{bookObj}}" wx:for-index="index" wx:for-item="book">
+        <template is="haveSeen" data="{{book}}" />
+    </view>
 </view>
+<!--图书列表 end-->

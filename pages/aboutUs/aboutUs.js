@@ -12,4 +12,13 @@ Page({
     onReady: function () {
 
     },
+
+    openLocation:function(){
+        wx.openLocation({
+            latitude: app.globalData.latitude,
+            longitude: app.globalData.longitude,
+            scale: 15,
+            name:"河北工业大学北辰校区"
+        })
+    }
 })

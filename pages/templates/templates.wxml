@@ -615,3 +615,37 @@
     <!-- 取消模板结束 -->
 
 <!-- 自营点借入页面 -->
+
+<!-- 我看过的 页面 -->
+    <!-- 列表页面 -->
+        <template name="haveSeen">
+            <view class="book-tmp" bindtap="openCardDetail" data-bookId="{{book.book_id}}" data-type="{{book.type}}" data-canShareID ="{{book.can_share_id}}">
+                <image src="{{book.book_image}}" class="book-image"></image>
+                <view class="book-info">
+                    <view class="book-name">{{book.book_name}}</view>
+                    <view class="book-applier">
+                        {{book.writer}}
+                    </view>
+                </view>
+                <view class="clear-both"></view>
+            </view>
+        </template>
+    <!-- 列表页面 -->
+<!-- 我看过的 页面 -->
+
+<!-- 书单列表页面 -->
+    <!-- 书单列表模板 -->
+        <template name="bookListTemplate">
+            <view class="book-tmp" bindtap="detail" data-bookId="{{book.book_id}}" data-type="{{book.type}}" data-canShareID ="{{book.can_share_id}}">
+                <image src="{{book.book_image}}" class="book-image"></image>
+                <view class="book-info">
+                    <view class="book-name">{{book.book_name}}</view>
+                    <view class="book-applier">
+                        {{book.writer}}
+                    </view>
+                </view>
+                <view class="clear-both"></view>
+            </view>
+        </template>
+    <!-- 书单列表模板 -->
+<!-- 书单列表页面 -->

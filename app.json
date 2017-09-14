@@ -31,7 +31,8 @@
     "pages/pilotBorrowIn/pilotBorrowIn",
     "pages/card/card",
     "pages/cardDetail/cardDetail",
-    "pages/comment/comment"
+    "pages/comment/comment",
+    "pages/bookListInfo/bookListInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

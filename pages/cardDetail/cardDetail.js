@@ -7,7 +7,10 @@ Page({
      */
     data: {
         loading: false,
-        card_content: null,
+        cardContent: {
+            "ID":null,
+            card_content:null
+        },
         can_see: 0
     },
 
@@ -17,20 +20,22 @@ Page({
     onLoad: function (options) {
         var that = this;
         that.setData({
-            book_id: options.book_id
+            book_id: options.book_id,
         })
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookInfo&bookId=' + options.book_id,
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getCardDetail&bookId=' + options.book_id + "&userId=" + app.globalData.userId,
             method: "GET",
             header: {
                 'content-type': 'application/json',
             },
             success: function (res) {
+                console.log(res.data)
                 that.setData({
-                    bookInfo: res.data[0],
-                    loading: true
+                    loading: true,
+                    bookInfo: res.data["book_info"],
+                    cardContent: res.data["card_content"],
                 })
-                wx.setNavigationBarTitle({ title: res.data[0].book_name })
+                wx.setNavigationBarTitle({ title: res.data["book_info"].book_name })
             },
             fail: function () {
                 wx.showToast({
@@ -81,7 +86,8 @@ Page({
 
     //上传生成书单
     makeCard: function () {
-        var that = this
+        var that = this;
+        var url, successStr, failStr;
         if (!that.data.card_content) {
             wx.showToast({
                 title: '您没有输入感想！',
@@ -90,62 +96,77 @@ Page({
             })
             return;
         }
+        if (that.data.cardContent=="none") {
+            url = 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=makeCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.card_content + "&can_see=" + that.data.can_see;
+            successStr = "添加成功！";
+            failStr = "添加失败，请重试！"
+            
+        } else {
+            url = 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=editCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.card_content + "&can_see=" + that.data.can_see + "&card_id=" + that.data.cardContent["ID"];
+            successStr = "修改成功！";
+            failStr = "修改失败，请重试！"
+        }
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=makeCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.card_content + "&can_see=" + that.data.can_see,
+            url: url,
             method: "GET",
             header: {
                 'content-type': 'application/json',
             },
             success: function (res) {
                 if (res.data == "haveAdded") {
-                    wx.showModal({
-                        title: '通知',
-                        content: '您已生成该书卡片，是否再次生成',
-                        success: function (res) {
-                            if (res.confirm) {
-                                wx.request({
-                                    url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=makeSecondCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.card_content + "&can_see=" + that.data.can_see,
-                                    method: "GET",
-                                    header: {
-                                        'content-type': 'application/json',
-                                    },
-                                    success: function (res) {
-                                        if (res.data == "success") {
-                                            wx.showToast({
-                                                title: '添加成功！',
-                                                icon: 'false',
-                                                duration: 2000
-                                            })
-                                        } else {
-                                            wx.showToast({
-                                                title: '添加失败，请稍后重试！',
-                                                icon: 'false',
-                                                duration: 2000
-                                            })
-                                        }
-                                    },
-                                    fail: function () {
-                                        wx.showToast({
-                                            title: '添加失败，请稍后重试！',
-                                            icon: 'false',
-                                            duration: 2000
-                                        })
-                                    }
-                                })
-                            } else if (res.cancel) {
-                                
-                            }
-                        }
+                    // wx.showModal({
+                    //     title: '通知',
+                    //     content: '您已生成该书卡片，是否再次生成',
+                    //     success: function (res) {
+                    //         if (res.confirm) {
+                    //             wx.request({
+                    //                 url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=makeSecondCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.card_content + "&can_see=" + that.data.can_see,
+                    //                 method: "GET",
+                    //                 header: {
+                    //                     'content-type': 'application/json',
+                    //                 },
+                    //                 success: function (res) {
+                    //                     if (res.data == "success") {
+                    //                         wx.showToast({
+                    //                             title: '添加成功！',
+                    //                             icon: 'false',
+                    //                             duration: 2000
+                    //                         })
+                    //                     } else {
+                    //                         wx.showToast({
+                    //                             title: '添加失败，请稍后重试！',
+                    //                             icon: 'false',
+                    //                             duration: 2000
+                    //                         })
+                    //                     }
+                    //                 },
+                    //                 fail: function () {
+                    //                     wx.showToast({
+                    //                         title: '添加失败，请稍后重试！',
+                    //                         icon: 'false',
+                    //                         duration: 2000
+                    //                     })
+                    //                 }
+                    //             })
+                    //         } else if (res.cancel) {
+
+                    //         }
+                    //     }
+                    // })
+                    wx.showToast({
+                        title: '您已经生出卡片，无需重复！',
+                        icon: 'false',
+                        duration: 2000
                     })
                 } else if (res.data == "success") {
                     wx.showToast({
-                        title: '添加成功！',
+                        title: successStr,
                         icon: 'false',
                         duration: 2000
                     })
                 } else {
                     wx.showToast({
-                        title: '添加失败，请稍后重试！',
+                        title: failStr,
                         icon: 'false',
                         duration: 2000
                     })
@@ -153,7 +174,7 @@ Page({
             },
             fail: function () {
                 wx.showToast({
-                    title: '添加失败，请稍后重试！',
+                    title: failStr,
                     icon: 'false',
                     duration: 2000
                 })

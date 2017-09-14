@@ -1,0 +1,8 @@
+<import src="../templates/templates.wxml" />
+<!--图书列表-->
+<view class="book-list">
+    <view wx:for="{{bookObj}}" wx:for-index="index" wx:for-item="book">
+        <template is="bookListTemplate" data="{{book}}" />
+    </view>
+</view>
+<!--图书列表 end-->

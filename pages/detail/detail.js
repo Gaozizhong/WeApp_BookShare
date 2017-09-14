@@ -115,7 +115,7 @@ Page({
                             duration: 2000
                         })
                     } else if (res.data[0].result == "success") {
-                        if (book_type == 0){
+                        if (book_type == 0) {
                             wx.showModal({
                                 title: '通知',
                                 content: '书主关闭了借书申请，您可以直接联系他！',
@@ -140,16 +140,16 @@ Page({
                                     }
                                 }
                             })
-                        }else{
+                        } else {
                             //自营点借书成功提示
                             wx.showModal({
                                 title: '通知',
                                 content: '借入成功，你需要前往此自营点借书！',
                                 success: function (res) {
                                     if (res.confirm) {
-                                        
+
                                     } else if (res.cancel) {
-                                        
+
                                     }
                                 }
                             })
@@ -172,7 +172,7 @@ Page({
                 }
             })
         }
-   },
+    },
 
 
 
@@ -229,17 +229,20 @@ Page({
     },
 
     //打开读书卡片页面
-    writeCard:function(){
+    writeCard: function () {
         var that = this
         //添加至public_booklist 我看过的
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=addSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id +"&type=1",
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=addSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id + "&type=1",
             method: "GET",
             header: {
                 'content-type': 'application/json',
             },
             success: function (res) {
                 if (res.data == "success") {
+                    that.setData({
+                        haveRead:1
+                    })
                     wx.navigateTo({
                         url: '../cardDetail/cardDetail?book_id=' + that.data.bookInfo.book_id,
                     })
@@ -248,7 +251,7 @@ Page({
                         icon: 'false',
                         duration: 2000
                     })
-                } else if (res.data == "haveAdded"){
+                } else if (res.data == "haveAdded") {
                     wx.showToast({
                         title: '您也添加过！',
                         icon: 'false',
@@ -266,7 +269,54 @@ Page({
         })
     },
 
-    addLove:function(){
+    //取消我看过的
+    cancelSeen: function () {
+        var that = this
+        wx.showModal({
+            title: '通知',
+            content: '您确定要取消看过吗？',
+            success: function (res) {
+                if (res.confirm) {
+                    wx.request({
+                        url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=cancelSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id + "&type=1",
+                        method: "GET",
+                        header: {
+                            'content-type': 'application/json',
+                        },
+                        success: function (res) {
+                            if (res.data == "success") {
+                                wx.showToast({
+                                    title: '取消成功！',
+                                    icon: 'false',
+                                    duration: 2000
+                                })
+                                that.setData({
+                                    haveRead: 0
+                                })
+                            } else {
+                                wx.showToast({
+                                    title: '取消失败',
+                                    icon: 'false',
+                                    duration: 2000
+                                })
+                            }
+                        },
+                        fail: function () {
+                            wx.showToast({
+                                title: '取消失败，请稍后重试！',
+                                icon: 'false',
+                                duration: 2000
+                            })
+                        }
+                    })
+                }
+            }
+        })
+
+    },
+
+    //添加志public_booklist 我喜欢的
+    addLove: function () {
         var that = this
         //添加至public_booklist 我看过的
         wx.request({
@@ -281,6 +331,9 @@ Page({
                         title: '成功添加至喜欢！',
                         icon: 'false',
                         duration: 2000
+                    })
+                    that.setData({
+                        haveLoved: 1
                     })
                 } else if (res.data == "haveAdded") {
                     wx.showToast({
@@ -298,5 +351,50 @@ Page({
                 })
             }
         })
-    }
+    },
+
+    //取消喜欢
+    cancelLove: function () {
+        var that = this
+        wx.showModal({
+            title: '通知',
+            content: '您确定要取消喜欢吗？（取消可能会错过信息哦）',
+            success: function (res) {
+                if (res.confirm) {
+                    wx.request({
+                        url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=cancelSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id + "&type=2",
+                        method: "GET",
+                        header: {
+                            'content-type': 'application/json',
+                        },
+                        success: function (res) {
+                            if (res.data == "success") {
+                                wx.showToast({
+                                    title: '取消成功！',
+                                    icon: 'false',
+                                    duration: 2000
+                                })
+                                that.setData({
+                                    haveLoved: 0
+                                })
+                            } else {
+                                wx.showToast({
+                                    title: '取消失败',
+                                    icon: 'false',
+                                    duration: 2000
+                                })
+                            }
+                        },
+                        fail: function () {
+                            wx.showToast({
+                                title: '取消失败，请稍后重试！',
+                                icon: 'false',
+                                duration: 2000
+                            })
+                        }
+                    })
+                }
+            }
+        })
+    },
 })

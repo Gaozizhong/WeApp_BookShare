@@ -13,7 +13,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this 
+    wx.request({
+        url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getCardList&userId=' + app.globalData.userId,
+        method: "GET",
+        success: function (res) {
+            that.setData({
+                bookObj: res.data,
+                loading: false
+            })
+        },
+        fail: function () {
+            wx.showToast({
+                title: '获取数据失败，请稍后重试！',
+                icon: 'false',
+                duration: 2000
+            })
+        }
+    })
   },
 
   /**
@@ -66,9 +83,11 @@ Page({
   },
 
   //打开卡片详情
-  openCardDetail:function(){
+  openCardDetail:function(e){
+      var bookId = e.currentTarget.dataset.bookid;;
       wx.navigateTo({
-          url: '../cardDetail/cardDetail',
+          url: '../cardDetail/cardDetail?book_id=' + bookId,
       })
-  }
+  },
+
 })
