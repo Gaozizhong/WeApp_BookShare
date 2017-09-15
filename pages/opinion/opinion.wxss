@@ -4,12 +4,8 @@
 
 .submit {
     background-color: #f60;
-    border-radius: 5px;
     width: 80%;
-    height: 50px;
     color: #f9f9f9;
-    text-align: center;
-    margin: 0 auto;
 }
 
 .feedbackText {

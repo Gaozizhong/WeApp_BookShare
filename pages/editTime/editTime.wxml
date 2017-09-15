@@ -1,5 +1,5 @@
 <!--分类 start-->
-<!-- <loading hidden="{{ !loading }}">加载中...</loading> -->
+ <loading hidden="{{ !loading }}">加载中...</loading> 
 
 <view class="container">
     <view class="h10"></view>
