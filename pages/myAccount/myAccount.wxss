@@ -1,0 +1,36 @@
+.container {
+    margin-top: 10px;
+    width: 96%;
+    padding: 2px 2px;
+    margin: 0 auto;
+}
+.firstblock, .secondblock, .thirdblock {
+    background-color: #fff;
+    width:100%;
+}
+/* 设置条目 */
+
+.item {
+    height: 47px;
+    line-height: 47px;
+    padding-left: 15px;
+    background-color: #fff;
+    font-size: 13px;
+}
+
+.h10 {
+    height: 10px;
+    background: #f0f0f0;
+}
+
+.h1 {
+    height: 1px;
+    margin: 0 15px;
+    background: #f0f0f0;
+}
+.image{
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    margin-right: 15px;
+}

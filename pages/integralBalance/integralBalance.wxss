@@ -1,0 +1,57 @@
+.container {
+    margin-top: 10px;
+    width: 96%;
+    padding: 2px 2px;
+    margin: 0 auto;
+}
+
+.firstblock, .secondblock, .thirdblock {
+    background-color: #fff;
+    width: 100%;
+}
+
+/* 设置条目 */
+
+.item {
+    height: 47px;
+    line-height: 47px;
+    padding-left: 15px;
+    background-color: #fff;
+    font-size: 13px;
+}
+
+.h10 {
+    height: 10px;
+    background: #f0f0f0;
+}
+
+.h1 {
+    height: 1px;
+    margin: 0 15px;
+    background: #f0f0f0;
+}
+
+.integral {
+    font-size: 50px;
+    text-align: center;
+    padding-top: 90px;
+}
+
+.submit {
+    background-color: #09bb07;
+    width: 100%;
+    color: #fff;
+}
+
+.leftText1 {
+    width: 100px;
+    line-height: 12px;
+}
+.leftText2 {
+    height: 20px;
+    width: 100px;
+    line-height: 20px;
+    font-size: 10px;
+    margin-left: -100px;
+    margin-top: 25px;
+}

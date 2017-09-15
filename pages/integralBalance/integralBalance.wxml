@@ -1,0 +1,26 @@
+<!-- 第一块 -->
+<loading hidden="{{ !loading }}">加载中...</loading>
+<view class="container">
+    <view class="firstblock" style="margin-top:10px">
+        <view class="item" style='height:250px;'>
+            <view class='integral'>888</view>
+            <view style='text-align:center;color:#c9c9c9;font-size:20px;'>账户积分（分）</view>
+        </view>
+        <view class='h1'></view>
+        <view class="item" style='padding:5px 5%;'>
+            <button class='submit' bindtap="" type="submit">
+                充值
+            </button>
+        </view>
+    </view>
+    <view style='text-align:center;font-size:15px;margin=top:5px;'>明细</view>
+    <view class="firstblock" style="margin-top:10px">
+        <view class="item" style='display: flex;'>
+                <text class="leftText1">
+                    注册、认证
+                </text>
+                <text class='leftText2'>2017/9/15 20:52</text>
+            <view class='rightText'>+100</view>
+        </view>
+    </view>
+</view>

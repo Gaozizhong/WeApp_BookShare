@@ -14,7 +14,7 @@
 </view>
 <!-- 第一块 -->
 <view class="thirdblock">
- <view class="item" bindtap="openBookList" data-index="1">
+ <view class="item" bindtap="openAccount" data-index="1">
         <image src="../../images/account.png" class="item_ico"></image>
         <span>我的账户</span>
         <image src="../../images/right.png" class="item_arrow"></image>

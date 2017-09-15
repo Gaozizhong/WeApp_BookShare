@@ -75,6 +75,13 @@ Page({
         
     },
 
+    openAccount: function (event) {
+        //打开我的账户
+        wx.navigateTo({
+            url: '../myAccount/myAccount',
+        })
+    },
+
     openBookList:function(event){
         //打开个人中心图书列表
         var index = event.currentTarget.dataset.index;
