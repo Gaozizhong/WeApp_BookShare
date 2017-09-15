@@ -3,6 +3,7 @@
 <view class="container">
     <view class="firstblock" style="margin-top:10px">
         <view class="item">
+            <image class='image' src='../../images/jssq.png'></image>
             <span>借书申请</span>
             <view class="rightText" style="width:200px;height:47px;line-height:47px;">
                 <switch bindchange="changeProtect" checked="{{checked}}"/>

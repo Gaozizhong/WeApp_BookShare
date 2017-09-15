@@ -1,73 +1,74 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/home/index",
-    "pages/logs/logs",
-    "pages/launch/launch",
-    "pages/self/self",
-    "pages/detail/detail",
-    "pages/login/login",
-    "pages/register/register",
-    "pages/selfInfo/selfInfo",
-    "pages/toAuth/toAuth",
-    "pages/bookList/bookList",
-    "pages/opinion/opinion",
-    "pages/aboutUs/aboutUs",
-    "pages/share/share",
-    "pages/operate/operate",
-    "pages/borrowApplication/borrowApplication",
-    "pages/borrowIn/borrowIn",
-    "pages/returnBack/returnBack",
-    "pages/getBook/getBook",
-    "pages/templates/templates",
-    "pages/bookMan/bookMan",
-    "pages/editTime/editTime",
-    "pages/operateShare/operateShare",
-    "pages/setting/setting",
-    "pages/qrcode/qrcode",
-    "pages/pilot/pilot",
-    "pages/uploadPilot/uploadPilot",
-    "pages/cancelReason/cancelReason",
-    "pages/pilotBorrowIn/pilotBorrowIn",
-    "pages/card/card",
-    "pages/cardDetail/cardDetail",
-    "pages/comment/comment",
-    "pages/bookListInfo/bookListInfo",
-    "pages/commentBorrower/commentBorrower"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Bookshare",
-    "navigationBarTextStyle": "black",
-    "backgroundColor": "#f4f4f4"
-  },
-  "tabBar": {
-    "selectedColor": "#00c700",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "images/index.png",
-        "selectedIconPath": "images/index-selected.png"
-      },
-      {
-        "pagePath": "pages/operate/operate",
-        "text": "操作",
-        "iconPath": "images/operate.png",
-        "selectedIconPath": "images/operate-selected.png"
-      },
-      {
-        "pagePath": "pages/self/self",
-        "text": "我的",
-        "iconPath": "images/selfCenter.png",
-        "selectedIconPath": "images/selfCenter-selected.png"
-      }
-    ]
-  },
-  "networkTimeout": {
-    "request": 10000,
-    "downloadFile": 10000
-  },
-  "debug": true
+    "pages": [
+        "pages/index/index",
+        "pages/home/index",
+        "pages/logs/logs",
+        "pages/launch/launch",
+        "pages/self/self",
+        "pages/detail/detail",
+        "pages/login/login",
+        "pages/register/register",
+        "pages/selfInfo/selfInfo",
+        "pages/toAuth/toAuth",
+        "pages/bookList/bookList",
+        "pages/opinion/opinion",
+        "pages/aboutUs/aboutUs",
+        "pages/share/share",
+        "pages/operate/operate",
+        "pages/borrowApplication/borrowApplication",
+        "pages/borrowIn/borrowIn",
+        "pages/returnBack/returnBack",
+        "pages/getBook/getBook",
+        "pages/templates/templates",
+        "pages/bookMan/bookMan",
+        "pages/editTime/editTime",
+        "pages/operateShare/operateShare",
+        "pages/setting/setting",
+        "pages/qrcode/qrcode",
+        "pages/pilot/pilot",
+        "pages/uploadPilot/uploadPilot",
+        "pages/cancelReason/cancelReason",
+        "pages/pilotBorrowIn/pilotBorrowIn",
+        "pages/card/card",
+        "pages/cardDetail/cardDetail",
+        "pages/comment/comment",
+        "pages/bookListInfo/bookListInfo",
+        "pages/commentBorrower/commentBorrower",
+        "pages/joinShare/joinShare"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Bookshare",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f4f4f4"
+    },
+    "tabBar": {
+        "selectedColor": "#00c700",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/index.png",
+                "selectedIconPath": "images/index-selected.png"
+            },
+            {
+                "pagePath": "pages/operate/operate",
+                "text": "操作",
+                "iconPath": "images/operate.png",
+                "selectedIconPath": "images/operate-selected.png"
+            },
+            {
+                "pagePath": "pages/self/self",
+                "text": "我的",
+                "iconPath": "images/selfCenter.png",
+                "selectedIconPath": "images/selfCenter-selected.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "downloadFile": 10000
+    },
+    "debug": true
 }
