@@ -1,70 +1,72 @@
-<view class="bottom">
-    <view class="bottom-box">
-        <view class="list-box" bindtap="screenISBN">
-            <view class="icon-box">
-                <image src="../../images/share.png" style="width:48px;height:48px;margin: 0 auto"></image>
+<view class="item">
+<view class='top'></view>
+    <view class="bottom">
+        <view class="bottom-box">
+            <view class="list-box" bindtap="borrowIn">
+                <view class="icon-box">
+                    <image src="../../images/borrowIn.png" style="width:48px;height:48px;margin: 0 auto"></image>
+                </view>
+                <view class="icon-text">
+                    <span>借入</span>
+                </view>
             </view>
-            <view class="icon-text">
-                <span>分享</span>
+            <view class="list-box" bindtap="screenISBN">
+                <view class="icon-box">
+                    <image src="../../images/share.png" style="width:48px;height:48px;margin: 0 auto"></image>
+                </view>
+                <view class="icon-text">
+                    <span>分享</span>
+                </view>
             </view>
-            
-        </view>
-        <view class="list-box" bindtap="borrowIn">
-           <view class="icon-box">
-                <image src="../../images/borrowIn.png" style="width:48px;height:48px;margin: 0 auto"></image>
+            <view class="list-box" bindtap="pilot">
+                <view class="icon-box">
+                    <image src="../../images/borrowIn.png" style="width:48px;height:48px;margin: 0 auto"></image>
+                </view>
+                <view class="icon-text">
+                    <span>自营点</span>
+                </view>
             </view>
-            <view class="icon-text">
-                <span>借入</span>
-            </view>
-        </view>
-        <view class="list-box" bindtap="borrowApplication">
-            <view class="icon-box">
-                <image src="../../images/borrowOut.png" style="width:48px;height:48px;margin: 0 auto"></image>
-            </view>
-            <view class="icon-text">
-                <span>借出</span>
-            </view>
-        </view>
-        <view class="list-box" bindtap="pilot">
-            <view class="icon-box">
-                <image src="../../images/borrowIn.png" style="width:48px;height:48px;margin: 0 auto"></image>
-            </view>
-            <view class="icon-text">
-                <span>自营点</span>
-            </view>
-        </view>
-    </view>
-    <view class="bottom-box">
-        <view class="list-box" bindtap="returnBack">
-            <view class="icon-box">
-                <image src="../../images/giveBack.png" style="width:48px;height:48px;margin: 0 auto"></image>
-            </view>
-            <view class="icon-text">
-                <span>归还</span>
+            <view class="list-box" bindtap="borrowApplication">
+                <view class="icon-box">
+                    <image src="../../images/borrowOut.png" style="width:48px;height:48px;margin: 0 auto"></image>
+                </view>
+                <view class="icon-text">
+                    <span>借出</span>
+                </view>
             </view>
         </view>
-        <view class="list-box" bindtap="bookMan">
-            <view class="icon-box">
-                <image src="../../images/count.png" style="width:48px;height:48px;margin: 0 auto"></image>
+        <view class="bottom-box">
+            <view class="list-box" bindtap="returnBack">
+                <view class="icon-box">
+                    <image src="../../images/giveBack.png" style="width:48px;height:48px;margin: 0 auto"></image>
+                </view>
+                <view class="icon-text">
+                    <span>归还</span>
+                </view>
             </view>
-            <view class="icon-text">
-                <span>管理</span>
+            <view class="list-box" bindtap="bookMan">
+                <view class="icon-box">
+                    <image src="../../images/count.png" style="width:48px;height:48px;margin: 0 auto"></image>
+                </view>
+                <view class="icon-text">
+                    <span>管理</span>
+                </view>
             </view>
-        </view>
-        <view class="list-box" bindtap="getBook">
-            <view class="icon-box">
-                <image src="../../images/receive.png" style="width:48px;height:48px;margin: 0 auto"></image>
+            <view class="list-box" bindtap="getBook">
+                <view class="icon-box">
+                    <image src="../../images/receive.png" style="width:48px;height:48px;margin: 0 auto"></image>
+                </view>
+                <view class="icon-text">
+                    <span>收书</span>
+                </view>
             </view>
-            <view class="icon-text">
-                <span>收书</span>
-            </view>
-        </view>
-        <view class="list-box" bindtap="openComment">
-            <view class="icon-box">
-                <image src="../../images/borrowOut.png" style="width:48px;height:48px;margin: 0 auto"></image>
-            </view>
-            <view class="icon-text">
-                <span>上自</span>
+            <view class="list-box" bindtap="openComment">
+                <view class="icon-box">
+                    <image src="../../images/borrowOut.png" style="width:48px;height:48px;margin: 0 auto"></image>
+                </view>
+                <view class="icon-text">
+                    <span>上自</span>
+                </view>
             </view>
         </view>
     </view>
