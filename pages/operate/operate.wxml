@@ -20,10 +20,10 @@
             </view>
             <view class="list-box" bindtap="pilot">
                 <view class="icon-box">
-                    <image src="../../images/borrowIn.png" style="width:48px;height:48px;margin: 0 auto"></image>
+                    <image src="../../images/self_support.png" style="width:48px;height:48px;margin: 0 auto"></image>
                 </view>
                 <view class="icon-text">
-                    <span>自营点</span>
+                    <span>自营</span>
                 </view>
             </view>
             <view class="list-box" bindtap="borrowApplication">
@@ -52,20 +52,20 @@
                     <span>管理</span>
                 </view>
             </view>
+            <view class="list-box" bindtap="openComment">
+                <view class="icon-box">
+                    <image src="../../images/book_lists.png" style="width:48px;height:48px;margin: 0 auto"></image>
+                </view>
+                <view class="icon-text">
+                    <span>书单</span>
+                </view>
+            </view>
             <view class="list-box" bindtap="getBook">
                 <view class="icon-box">
                     <image src="../../images/receive.png" style="width:48px;height:48px;margin: 0 auto"></image>
                 </view>
                 <view class="icon-text">
                     <span>收书</span>
-                </view>
-            </view>
-            <view class="list-box" bindtap="openComment">
-                <view class="icon-box">
-                    <image src="../../images/borrowOut.png" style="width:48px;height:48px;margin: 0 auto"></image>
-                </view>
-                <view class="icon-text">
-                    <span>上自</span>
                 </view>
             </view>
         </view>

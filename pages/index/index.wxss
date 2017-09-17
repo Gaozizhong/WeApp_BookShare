@@ -49,10 +49,9 @@
 .search-scanner {
     padding: 12.5rpx 15rpx 12.5rpx 15rpx;
     background: #fff;
-    width: 92%;
     margin: 0 auto;
     border-radius: 5px;
-    height: 20px;
+    height: 21px;
 }
 
 .search-scanner image {
