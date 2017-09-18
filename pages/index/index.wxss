@@ -38,7 +38,7 @@
     position: fixed;
     top: 0px;
     z-index: 99px;
-    background: #e0e0ea;
+    background: #f4f4f4;
 }
 
 .classify {
