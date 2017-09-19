@@ -44,6 +44,10 @@ Page({
 
     },
 
+    onShow: function () {
+        this.onLoad(this.data);
+    },
+
     //扫描图书后的二维码
     screenQRcode: function (e) {
         var that = this

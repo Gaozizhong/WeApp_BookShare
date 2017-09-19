@@ -32,6 +32,10 @@ Page({
         })
     },
 
+    onShow: function () {
+        this.onLoad();
+    },
+
     //进入各书单列表页
     openBookListInfo:function(e){
         var bookListType = e.currentTarget.dataset.type;

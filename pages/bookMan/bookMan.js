@@ -19,20 +19,21 @@ Page({
                     downLineBooks: res.data[0]["data"],
                     onLineBooks: res.data[1]["data"]
                 })
-                console.log(that.data)
+                
             }
         })
         
     },
-    onReady: function () {
-
+    onShow: function () {
+        this.onLoad();
     },
 
     editKeepTime:function(e){
         //编辑
         var canShareId = e.currentTarget.dataset.canshareid;
+        var bookId = e.currentTarget.dataset.bookid;
         wx.navigateTo({
-            url: '../editTime/editTime?canShareId=' + canShareId
+            url: '../editTime/editTime?canShareId=' + canShareId + "&bookId=" + bookId
         })
     },
 
@@ -58,6 +59,8 @@ Page({
                         icon: 'false',
                         duration: 2000
                     })
+                    that.onLoad();
+                    
                 } else if (res.data == "fail"){
                     wx.showToast({
                         title: '下线失败，请稍后重试！',
@@ -92,6 +95,7 @@ Page({
                         icon: 'false',
                         duration: 2000
                     })
+                    that.onLoad();
                 } else if (res.data == "fail") {
                     wx.showToast({
                         title: '上线失败，请稍后重试！',

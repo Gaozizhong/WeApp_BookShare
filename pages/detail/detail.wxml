@@ -1,21 +1,22 @@
 <view class="container" style="padding:0px 0px;background:#f4f4f4">
     <loading hidden="{{ !loading }}">加载中...</loading>
+
     <image class="background" src="{{bookInfo.image_large}}" mode="aspectFill" />
     <image class="poster" src="{{bookInfo.image_large}}" mode="aspectFit" />
-    <view  style="padding:0px 0px">
+    <view style="padding:0px 0px">
         <view class="meta">
             <text class="title">{{bookInfo.book_name}}</text>
             <text class="info">作者： {{bookInfo.writer}} </text>
             <text class="info">ISBN：{{bookInfo.ISBN10}}、{{bookInfo.ISBN13}}</text>
-             <!-- <text class="info">时间：30天</text> -->
+            <!-- <text class="info">时间：30天</text> -->
             <!-- <view class="info">
-                <text style="float:left">书主：</text>
-                <picker bindchange="bindPickerChange" style="width:100px;float:left" value="{{index}}" range="{{owner}}">
-                    <view class="picker">
-                        {{owner[index]}}
-                    </view>
-                </picker>
-            </view> -->
+                        <text style="float:left">书主：</text>
+                        <picker bindchange="bindPickerChange" style="width:100px;float:left" value="{{index}}" range="{{owner}}">
+                            <view class="picker">
+                                {{owner[index]}}
+                            </view>
+                        </picker>
+                    </view> -->
             <text class="info" wx:if="{{book_type == 0}}">书主：{{bookInfo.userName?bookInfo.userName:bookInfo.nickName}}</text>
             <text class="info" wx:elif="{{book_type == 1}}">自营点：{{bookInfo.pilot_name?bookInfo.pilot_name+'自营点':bookInfo.location}}</text>
             <text class="info">出版社：{{bookInfo.book_press}}</text>
@@ -26,24 +27,59 @@
             <text class="content" style="line-height:25px">{{bookInfo.introduction}}</text>
         </view>
     </view>
-    <view class="block" style="width:100%;height:50px;"></view>
-    <view id="footer" style="display:block;bottom:0px;position:fixed;width:100%;height:50px;z-index:1000px;">
-         <button type="submit" bindtap="cancelLove"  wx:if="{{bookInfo.haveLoved ==1 || haveLoved ==1}}"  style="width:20%;height:50px;background: #f7f7f7;text-align: center;float: left;color:#000" class="btn">
-            已喜欢
-        </button>
-        <button type="submit" bindtap="addLove"  wx:elif="{{bookInfo.haveLoved !=1 || haveLoved ==0}}"  style="width:20%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn">
-            喜欢
-        </button>  
-        <button type="submit" bindtap="cancelSeen" wx:if="{{bookInfo.haveRead ==1 || haveRead == 1}}" style="width:30%;height:50px;background: #f7f7f7;text-align: center;float: left;color:#000" class="btn">
-            已看过
-        </button>
-        <button type="submit" bindtap="writeCard" wx:elif="{{bookInfo.haveRead !=1 || haveRead == 0}}" style="width:30%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn">
-            看过
-        </button>
-        <button type="submit" bindtap="borrowBook" style="width:50%;color:#fff;height:50px;background: #75a8f9;text-align: center;float:right;" class="btn">
-            借阅
-        </button>
+</view>
+<view class="comment" style="width：97%;margin: 0 1.5%;" wx:if="{{commentInfo != 'none'}}" wx:for="{{commentInfo}}" wx:for-index="index" wx:for-item="comment">
+    <template is="commentTemp" data="{{comment}}"/>
+    <view class="count_down sp1" style="width:100%">
+        <view style="width:100%">
+            <view class="left" style="width:15%">
+                <image src="{{bookInfo.favicon}}" alt="" style="width:42px;height:42px;border-radius: 20px;margin-top: 5px;margin-left: 8px;"></image>
+            </view>
+            <view class="center" style="float:left;width:85%;padding-top: 0px!important;margin-top: 5px;text-align:left;">
+                <view class="title" style="padding-left: 5px;">2014年</view>
+                <view class="brief" style="padding-left: 5px;font-size:12px;color:#BDBDBD;text-indent: 5px">3分钟前</view>
+            </view>
+        </view>
+        <view class="comment" style="float: left;font-size: 14px;margin: 10px 0 15px 0;text-align: left;">
+            <font color="#aaa">
+                123123123
+            </font>
+        </view>
     </view>
+    <view class="count_down sp1" style="width:100%">
+        <view style="width:100%">
+            <view class="left" style="width:15%">
+                <image src="{{bookInfo.favicon}}" alt="" style="width:42px;height:42px;border-radius: 20px;margin-top: 5px;margin-left: 8px;"></image>
+            </view>
+            <view class="center" style="float:left;width:85%;padding-top: 0px!important;margin-top: 5px;text-align:left;">
+                <view class="title" style="padding-left: 5px;">2014年</view>
+                <view class="brief" style="padding-left: 5px;font-size:12px;color:#BDBDBD;text-indent: 5px">3分钟前</view>
+            </view>
+        </view>
+        <view class="comment" style="float: left;font-size: 14px;margin: 10px 0 15px 0;text-align: left;">
+            <font color="#aaa"></font>
+            123123123
+
+        </view>
+    </view>
+    <view class="block" style="width:100%;height:100px;"></view>
+</view>
+<view id="footer" style="display:block;bottom:0px;position:fixed;width:100%;height:50px;z-index:1000px;">
+    <button type="submit" bindtap="cancelLove" wx:if="{{bookInfo.haveLoved ==1 || haveLoved ==1}}" style="width:20%;height:50px;background: #f7f7f7;text-align: center;float: left;color:#000" class="btn">
+                    已喜欢
+                </button>
+    <button type="submit" bindtap="addLove" wx:elif="{{bookInfo.haveLoved !=1 || haveLoved ==0}}" style="width:20%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn">
+                    喜欢
+                </button>
+    <button type="submit" bindtap="cancelSeen" wx:if="{{bookInfo.haveRead ==1 || haveRead == 1}}" style="width:30%;height:50px;background: #f7f7f7;text-align: center;float: left;color:#000" class="btn">
+                    已看过
+                </button>
+    <button type="submit" bindtap="writeCard" wx:elif="{{bookInfo.haveRead !=1 || haveRead == 0}}" style="width:30%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn">
+                    看过
+                </button>
+    <button type="submit" bindtap="borrowBook" style="width:50%;color:#fff;height:50px;background: #75a8f9;text-align: center;float:right;" class="btn">
+                    借阅
+                </button>
 </view>
 <!--分类 start-->
 <scroll-view style="height:100%" id="catewrap" scroll-into-view="c2" scroll-y="true" hidden="{{!cateisShow}}">
@@ -64,8 +100,8 @@
         <text style="float:left;width:100px;line-height:47px">允许借阅</text>
         <input type="text" value="{{bookInfo.keep_time}}天" bindinput="setBorrowDays" id="uploadDays" style="float:right;width:200px;height:47px;line-height:47px;text-align:right;margin-right:30px" />
     </view>
-    <form name='pushMsgFm' report-submit="true" bindsubmit="affirmBorrowBook" >
-        <button form-type="submit" style="width:95%;margin:0 auto;border-radius:5px;height:50px;background: #FE552E;text-align: center;color:#fff;position:fixed;bottom:0px" class="btn" >
+    <form name='pushMsgFm' report-submit="true" bindsubmit="affirmBorrowBook">
+        <button form-type="submit" style="width:95%;margin:0 auto;border-radius:5px;height:50px;background: #FE552E;text-align: center;color:#fff;position:fixed;bottom:0px" class="btn">
             确认借阅
         </button>
     </form>

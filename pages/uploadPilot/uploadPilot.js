@@ -160,7 +160,7 @@ Page({
                         success: (res) => {
                             if (res.errMsg == "scanCode:ok") {
                                 //扫描成功
-                                var qrcodeId = res.result.substring(10);
+                                var qrcodeId = res.result.substring(72);
                                 wx.request({
                                     url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=insertPilot&user_id=' + app.globalData.userId + "&qrcode_id=" + qrcodeId + "&can_share_id=" + that.data.can_share_id,
                                     method: "GET",

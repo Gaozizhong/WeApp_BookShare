@@ -9,60 +9,6 @@
             </view>
         </view>
         <view class="h1"></view>
-        <view class="item" style='display: flex;'>
-            <span>位置：</span>
-            <view class="rightText" bindtap="chooseLocation">
-                <view>{{location?location:"请选择位置"}}</view>
-            </view>
-            <view>
-                <image style='height:25px;width:25px;margin-top:10px;margin-right:20px;' src='../../images/location.png'></image>
-            </view>
-        </view>
-        <view class="h1"></view>
-        <view class="item">
-            <span>可借天数：</span>
-            <input type="number" class="rightText" value="{{uploadDays}}" bindinput="setDays" />
-        </view>
-        <view class="h1"></view>
-        <view class="item" style='display: flex;'>
-            <!-- <span>适龄：</span> -->
-            <!-- <input type="number" class="rightText" value="{{}}" bindinput="" /> -->
-            <view class="section__title">适龄：</view>
-            <view class="section">
-                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-                    <view class="picker">
-                        {{array[index]}}
-                    </view>
-                </picker>
-            </view>
-            <view>
-                <image style='height:15px;width:15px;margin-top:10px;margin-right:20px;' src='../../images/triangle.png'></image>
-            </view>
-        </view>
-        <view class="h1"></view>
-        <view class="item" style="display:flex;flex-direction:row;">
-            <span>书评：</span>
-            <view class='half'>
-                <block wx:for="{{stars}}">
-                    <image class="star-image" style="left: {{item*80}}rpx" src="{{key1 > item ?(key1-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
-                        <view class="item1" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft1"></view>
-                        <view class="item1" style="left:40rpx" data-key="{{item+1}}" bindtap="selectRight1"></view>
-                    </image>
-                </block>
-            </view>
-        </view>
-        <view class="h1"></view>
-        <view class="comment">
-            <textarea style="line-height:30px;height:80px" type='text' placeholder='请写出您对此书的评价~' />
-        </view>
-        <view class="h1"></view>
-        <view class="comment1">
-            <span>若没有该书数据，请在扫描ISBN码后手动填写书名和作者，我们会尽快完善详细信息。</span>
-        </view>
-    </view>
-    <!-- 第二块 -->
-    <view class="h10"></view>
-    <view class="thirdblock">
         <view class="item">
             <span>书名:</span>
             <input type="text" class="rightText" value="{{bookInfo.title}}" bindinput="setBorrowDays" placeholder="请输入书名" />
@@ -76,6 +22,67 @@
         <view class="item">
             <span>ISBN:</span>
             <input type="number" class="rightText" value="{{bookInfo.isbn13}}" bindinput="setBorrowDays" placeholder="请输入ISBN号" />
+        </view>
+        
+        
+    </view>
+    <!-- 第二块 -->
+    <view class="h10"></view>
+    <view class="thirdblock">
+        <view class="item">
+            <span>位置：</span>
+            <view class="rightText" bindtap="chooseLocation">
+                <view style="height:47px;line-height:47px;margin-left:10px;margin-top:3px;float:right">
+                    <image style='height:20px;width:20px;' src='../../images/location.png'></image>
+                </view>
+                <view>{{location?location:"请选择位置"}}</view>
+            </view>
+        </view>
+        <view class="h1"></view>
+        <view class="item">
+            <span>可借天数：</span>
+            <input type="number" class="rightText" value="{{uploadDays}}" bindinput="setDays" />
+        </view>
+        <view class="h1"></view>
+        <view class="item">
+            <!-- <span>适龄：</span> -->
+            <!-- <input type="number" class="rightText" value="{{}}" bindinput="" /> -->
+            <span>适龄：</span>
+            <view class="section">
+                <view style="height:47px;line-height:47px;margin-left:10px;float:right">
+                    <image style='height:10px;width:10px' src='../../images/triangle.png'></image>
+                </view>
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                    <view class="picker">
+                        {{array[index]}}
+                    </view>
+                </picker>
+            </view>
+            <view>
+                
+            </view>
+        </view>
+        <view class="h1"></view>
+        <view class="item">
+            <span>书评：</span>
+            <view class='half'>
+                <block wx:for="{{stars}}">
+                    <image class="star-image" style="left: {{item*80}}rpx" src="{{key1 > item ?(key1-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                        <view class="item1" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft1"></view>
+                        <view class="item1" style="left:40rpx" data-key="{{item+1}}" bindtap="selectRight1"></view>
+                    </image>
+                    
+                </block>
+                <view style="clear:both"></view>
+            </view>
+        </view>
+        <view class="h1"></view>
+        <view class="comment">
+            <textarea style="line-height:20px;height:80px;width:100%" type='text' bindinput="setContent" placeholder-style="padding-top:10px" maxlength="-1" placeholder='请写出您对此书的评价~' />
+        </view>
+        <view class="h1"></view>
+        <view class="comment1">
+            <span>若没有该书数据，请在扫描ISBN码后手动填写书名和作者，我们会尽快完善详细信息。</span>
         </view>
         <view class="h1"></view>
         <view class="item">
