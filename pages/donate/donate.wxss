@@ -1,0 +1,98 @@
+.list-tmp {
+    background: #f4f4f4;
+    margin-bottom: 10rpx;
+    height: 142rpx;
+    width:97%;
+    margin: 0 auto;
+}
+
+.list-info {
+    background: #fff;
+    float: left;
+    height: 90%;
+    width: 100%;
+    text-align: left;
+    margin-top: 5px;
+    border-radius: 3px;
+}
+
+.list-name {
+    font-size: 20px;
+}
+
+.new {
+    padding:10px 20px 15px 20px;
+    text-align: center;
+}
+.logo{
+    height:40px;
+    width:40px;
+    vertical-align: middle; 
+}
+/**图书列表**/
+.book-list {
+    margin-top: 80px;
+    width: 94%;
+    padding: 2px 2px;
+}
+
+.book-tmp {
+    padding: 2rpx 15rpx 2rpx 15rpx;
+    background: #fff;
+    margin-bottom: 15rpx;
+    height: 220rpx;
+    border-radius: 5px;
+}
+
+.book-image {
+    width: 25%;
+    height: 220rpx;
+    float: left;
+}
+
+.book-info {
+    width: 75%;
+    float: right;
+    height: 100%;
+    text-align: center;
+}
+
+.book-name {
+    height: 50%;
+    line-height: 60rpx;
+    display: block !important;
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.book-author {
+    height: 50%;
+    line-height: 60rpx;
+    display: block !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.book-applier .left {
+    margin-left: 10px;
+    float: left;
+    width: 80px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.book-applier .right {
+    float: right;
+    margin-right: 10px;
+    width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* 图书列表样式结束 */

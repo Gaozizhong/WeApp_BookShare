@@ -2,7 +2,7 @@
 <loading hidden="{{ !loading }}">加载中...</loading>
 <view class="container">
     <view class="firstblock" style="margin-top:10px">
-        <view class="item">
+        <view class="item" bindtap='donate'>
             <image class='image' src='../../images/donate.png'></image>
             <span>图书捐赠</span>
             <view class="rightText" style="width:200px;height:47px;line-height:47px;">

@@ -36,7 +36,8 @@
         "pages/commentBorrower/commentBorrower",
         "pages/joinShare/joinShare",
         "pages/myAccount/myAccount",
-        "pages/integralBalance/integralBalance"
+        "pages/integralBalance/integralBalance",
+        "pages/donate/donate"
     ],
     "window": {
         "backgroundTextStyle": "light",

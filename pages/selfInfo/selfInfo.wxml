@@ -6,13 +6,13 @@
         </view>
     </view>
     <view class="name item">
-        <image src="../../images/myAttention.png" class="item_ico"></image>
+        <image src="../../images/name.png" class="item_ico"></image>
         <text>姓名</text>
         <input class="value-right" type="text" value="{{userInfo.userName?userInfo.userName:''}}" placeholder="请输入真实姓名"/>
     </view>
     <view class="h1"></view>
     <view class="school item">
-        <image src="../../images/myAttention.png" class="item_ico"></image>
+        <image src="../../images/school.png" class="item_ico"></image>
         <text>学校</text>
         <picker bindchange="bindPickerSchoolChange" class="value-right" value="{{schoolIndex}}" range="{{school}}">
             <view class="picker">
@@ -22,7 +22,7 @@
     </view>
     <view class="h1"></view>
     <view class="major item">
-        <image src="../../images/myAttention.png" class="item_ico"></image>
+        <image src="../../images/specialty.png" class="item_ico"></image>
         <text>专业</text>
         <picker bindchange="bindPickerMajorChange" class="value-right" value="{{majorIndex}}" range="{{major}}">
             <view class="picker">
@@ -32,13 +32,13 @@
     </view>
     <view class="h1"></view>
     <view class="phone item">
-        <image src="../../images/myAttention.png" class="item_ico"></image>
+        <image src="../../images/telephone.png" class="item_ico"></image>
         <text>联系方式</text>
         <span class="value-right">13752766442</span>
     </view>
     <view class="h1"></view>
     <view class="status item">
-        <image src="../../images/myAttention.png" class="item_ico"></image>
+        <image src="../../images/status.png" class="item_ico"></image>
         <text>状态</text>
         <span class="value-right">未认证</span>
     </view>

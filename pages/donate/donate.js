@@ -1,10 +1,11 @@
-// pages/joinShare/joinShare.js
+// pages/donate/donate.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+      bookObj: null,
   
   },
 
@@ -62,11 +63,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  donate: function (event) {
-      //打开我的账户
-      wx.navigateTo({
-          url: '../donate/donate',
-      })
-  },
+  }
 })
