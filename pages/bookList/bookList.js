@@ -42,6 +42,12 @@ Page({
         wx.navigateTo({
             url: '../bookListInfo/bookListInfo?bookListType=' + bookListType,
         })
+    },
+    //新建书单
+    newList:function() {
+        wx.navigateTo({
+            url: '../newBookList/newBookList',
+        })
     }
 
 })
