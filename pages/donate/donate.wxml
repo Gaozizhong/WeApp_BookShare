@@ -1,0 +1,29 @@
+<!-- <loading hidden="{{ loading }}">加载中...</loading> -->
+<view class="list-tmp">
+    <view class="list-info" style='height:60px;'>
+        <view class='new'>
+            <image class='logo' src='../../images/join_in.png'></image>
+            <text class="list-name" style='margin:40px 20px 40px 20px'>添加图书</text>
+        </view>
+    </view>
+</view>
+<view class='list-tmp'>
+    <view class="book-tmp" bindtap="detail" data-bookId="{{book.book_id}}" data-type="{{book.type}}" data-canShareID="{{book.can_share_id}}">
+        <image src="{{book.book_image}}" class="book-image"></image>
+        <view class="book-info">
+            <view class="book-name">{{book.book_name}}—{{book.writer}}</view>
+            <view class="book-applier">
+                <view class="left" wx:if="{{book.type == 0}}">
+                    <image src="../../images/applier.png" style="width:15px;height:15px;"></image> {{book.userName?book.userName:'显示失败'}}
+                </view>
+                <view class="left" wx:elif="{{book.type == 1}}">
+                    <image src="../../images/applier.png" style="width:15px;height:15px;"></image> 自营点
+                </view>
+                <view class="right">
+                    <image src="../../images/location.png" style="width:15px;height:15px;"></image> {{book.location}}
+                </view>
+            </view>
+        </view>
+        <view class="clear-both"></view>
+    </view>
+</view>

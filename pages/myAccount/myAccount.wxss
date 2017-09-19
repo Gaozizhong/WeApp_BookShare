@@ -4,12 +4,10 @@
     padding: 2px 2px;
     margin: 0 auto;
 }
-
 .firstblock, .secondblock, .thirdblock {
     background-color: #fff;
-    width: 100%;
+    width:100%;
 }
-
 /* 设置条目 */
 
 .item {
@@ -30,10 +28,9 @@
     margin: 0 15px;
     background: #f0f0f0;
 }
-
-.image {
+.image{
     width: 25px;
     height: 25px;
     vertical-align: middle;
-    margin-right: 10px;
+    margin-right: 15px;
 }

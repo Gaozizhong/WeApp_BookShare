@@ -38,7 +38,7 @@
     position: fixed;
     top: 0px;
     z-index: 99px;
-    background: #e0e0ea;
+    background: #f4f4f4;
 }
 
 .classify {
@@ -49,10 +49,9 @@
 .search-scanner {
     padding: 12.5rpx 15rpx 12.5rpx 15rpx;
     background: #fff;
-    width: 92%;
     margin: 0 auto;
     border-radius: 5px;
-    height: 20px;
+    height: 21px;
 }
 
 .search-scanner image {

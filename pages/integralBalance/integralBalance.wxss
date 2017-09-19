@@ -31,9 +31,27 @@
     background: #f0f0f0;
 }
 
-.image {
-    width: 25px;
-    height: 25px;
-    vertical-align: middle;
-    margin-right: 10px;
+.integral {
+    font-size: 50px;
+    text-align: center;
+    padding-top: 90px;
+}
+
+.submit {
+    background-color: #09bb07;
+    width: 100%;
+    color: #fff;
+}
+
+.leftText1 {
+    width: 100px;
+    line-height: 12px;
+}
+.leftText2 {
+    height: 20px;
+    width: 100px;
+    line-height: 20px;
+    font-size: 10px;
+    margin-left: -100px;
+    margin-top: 25px;
 }

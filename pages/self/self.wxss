@@ -31,6 +31,7 @@ html, body {
 .firstblock, .secondblock, .thirdblock {
     background-color: #fff;
     border: 10px solid #f0f0f0;
+    font-size: 16px;
 }
 
 /* 头部登陆 */

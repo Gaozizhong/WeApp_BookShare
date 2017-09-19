@@ -1,0 +1,22 @@
+<!-- 第一块 -->
+<loading hidden="{{ !loading }}">加载中...</loading>
+<view class="container">
+    <view class="firstblock" bindtap='integralBalance' style="margin-top:10px">
+        <view class="item">
+            <image class='image' src='../../images/balance.png'></image>
+            <span>账户积分</span>
+            <view class="rightText" style="width:200px;height:47px;line-height:47px;">
+                12313分
+                <!-- <switch bindchange="" checked="{{checked}}"/> -->
+            </view>
+        </view>
+        <view class='h1'></view>
+        <!-- <view class="item">
+            <image class='image' src='../../images/agency.png'></image>
+            <span>阅读次数</span>
+            <view class="rightText" style="width:200px;height:47px;line-height:47px;">
+                1212312次
+            </view>
+        </view> -->
+    </view>
+</view>
