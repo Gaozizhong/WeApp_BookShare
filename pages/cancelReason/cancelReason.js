@@ -111,6 +111,9 @@ Page({
                         icon: 'true',
                         duration: 2000
                     })
+                    wx.navigateBack({
+                        delta:1
+                    })
                 } else if (res.data == "fail") {
                     wx.showToast({
                         title: '取消失败，请稍后重试',

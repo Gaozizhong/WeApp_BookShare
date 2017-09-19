@@ -49,8 +49,8 @@ Page({
         
     },
 
-    onReady: function () {
-        
+    onShow: function () {
+        this.onLoad() 
     },
     
     changeTab: function (event) {

@@ -41,6 +41,10 @@ Page({
         })
     },
 
+    onShow: function () {
+        this.onLoad();
+    },
+
     //同意
     agreeApply: function (e) {
         var formId = e.detail.formId;
@@ -97,7 +101,7 @@ Page({
         var sharingId = e.currentTarget.dataset.sharingid;
         var openId = e.currentTarget.dataset.openid;
         var canShareId = e.currentTarget.dataset.canshareid;
-        
+        var that = this
         wx.request({
             url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=refuseApplication&sharingId=' + sharingId + "&canShareId=" + canShareId,
             method: "GET",
@@ -118,6 +122,7 @@ Page({
                         icon: 'true',
                         duration: 2000
                     })
+                    that.onLoad();
                     return;
                 } else if (res.data == "fail") {
                     wx.showToast({

@@ -29,9 +29,9 @@
     background: #f0f0f0;
 }
 .comment{
-    padding-top: 20px;
+    padding-top: 10px; 
     padding-left: 15px;
-    height: 60px;
+    padding-right: 30px;
     font-size: 13px;
 }
 .comment1{
@@ -40,15 +40,15 @@
 }
 .half {
     position: absolute;
-    margin-left: 180rpx;
-    margin-top: -45rpx;
+    margin-left: 240rpx;
+    margin-top: -60px;
 }
 
 .star-image {
     position: absolute;
     top: 50rpx;
-    width: 80rpx;
-    height: 80rpx;
+    width: 50rpx;
+    height: 50rpx;
     src: "../../images/normal.png";
 }
 
@@ -59,6 +59,8 @@
     height: 80rpx;
 }
 .section{
-    width: 70%;
-    text-align: center;
+    width: 60%;
+    text-align: right;
+    float: right;
+    margin-right: 30px
 }

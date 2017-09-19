@@ -473,7 +473,7 @@
                     天数：{{book.keep_time}}
                 </view>
                 <view class="operate-box">
-                    <form name='pushMsgFm' report-submit="true" data-canshareid="{{book.can_share_id}}" bindsubmit="editKeepTime">
+                    <form name='pushMsgFm' report-submit="true" data-bookid="{{book.book_id}}" data-canshareid="{{book.can_share_id}}" bindsubmit="editKeepTime">
                         <button form-type="submit" class="refuse">
                             编辑
                         </button>

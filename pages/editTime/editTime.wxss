@@ -36,15 +36,15 @@
 }
 .half {
     position: absolute;
-    margin-left: 180rpx;
-    margin-top: -45rpx;
+    margin-left: 240rpx;
+    margin-top: -60px;
 }
 
 .star-image {
     position: absolute;
     top: 50rpx;
-    width: 80rpx;
-    height: 80rpx;
+    width: 50rpx;
+    height: 50rpx;
     src: "../../images/normal.png";
 }
 
@@ -55,9 +55,8 @@
     height: 80rpx;
 }
 .section{
-    width: 70%;
-    text-align: center;
-}
-.rightText{
-    text-align: center;
+    width: 60%;
+    text-align: right;
+    float: right;
+    margin-right: 30px
 }

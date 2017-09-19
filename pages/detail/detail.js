@@ -12,7 +12,8 @@ Page({
         cateisShow: false,
         canShareId: null,
         openIds: null,
-        params: null
+        params: null,
+        commentInfo:null
     },
 
     /**
@@ -38,6 +39,7 @@ Page({
             success: function (res) {
                 that.setData({
                     bookInfo: res.data[0],
+                    commentInfo: res.data[0].comment,
                     loading: false
                 })
                 wx.setNavigationBarTitle({ title: res.data[0].book_name })

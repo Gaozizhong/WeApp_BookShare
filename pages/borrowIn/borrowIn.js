@@ -40,6 +40,9 @@ Page({
             }
         })
     },
+    onShow:function(){
+        this.onLoad();
+    },
 
     //联系书主
     callOwner: function (e) {

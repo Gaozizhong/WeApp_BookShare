@@ -18,6 +18,7 @@ Page({
         key1: 5,//评分
 
         array: ['无限制', '0-2岁', '3-7岁', '8-12岁'],
+        arrayValue:['0','1','2','3'],
         index: 0,
     },
     //事件处理函数
@@ -51,7 +52,6 @@ Page({
                                             'content-type': 'json'
                                         },
                                         success: function (res) {
-                                            console.log(res.data)
                                             if (res.data.msg == "book_not_found") {
                                                 wx.showToast({
                                                     title: '没有此图书信息，请至手动添加！',
@@ -142,6 +142,8 @@ Page({
 
     shareBook: function () {
         var that = this;
+        var index = that.data.index;
+        var arrayValue = that.data.arrayValue;
         if (!that.data.location) {
             wx.showToast({
                 title: '您还没有选择地址！',
@@ -151,7 +153,7 @@ Page({
             return;
         }
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=shareBook&ownerId=' + app.globalData.userId + "&bookId=" + that.data.bookId + "&keep_time=" + that.data.uploadDays + "&location=" + that.data.location + "&longitude=" + that.data.longitude + "&latitude=" + that.data.latitude,
+            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=shareBook&ownerId=' + app.globalData.userId + "&bookId=" + that.data.bookId + "&keep_time=" + that.data.uploadDays + "&location=" + that.data.location + "&longitude=" + that.data.longitude + "&latitude=" + that.data.latitude + "&card_content=" + that.data.card_content + "&book_content=" + that.data.key1 + "&age=" + arrayValue[index],
             method: "GET",
             header: {
                 'content-type': 'application/json'
@@ -163,9 +165,15 @@ Page({
                         icon: 'success',
                         duration: 2000
                     })
-                } else {
+                } else if (res.data == "success"){
                     wx.showToast({
                         title: '分享成功！',
+                        icon: 'success',
+                        duration: 2000
+                    })
+                }else{
+                    wx.showToast({
+                        title: '分享失败',
                         icon: 'success',
                         duration: 2000
                     })
@@ -205,7 +213,6 @@ Page({
             //只有一颗星的时候,再次点击,变为0颗
             key1 = 0;
         }
-        console.log("得" + key1 + "分")
         this.setData({
             key1: key1
         })
@@ -214,16 +221,21 @@ Page({
     //点击左边,整颗星
     selectRight1: function (e) {
         var key1 = e.currentTarget.dataset.key
-        console.log("得" + key1 + "分")
         this.setData({
             key1: key1
         })
     },
     //选择器
     bindPickerChange: function (e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({
             index: e.detail.value
         })
     },
+
+    setContent:function(e){
+        var that = this;
+        that.setData({
+            card_content: e.detail.value//书评内容
+        })
+    }
 })
