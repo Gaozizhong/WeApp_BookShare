@@ -58,8 +58,8 @@
         </view>
     </view> -->
     <view class="list-info" style='height:60px;'>
-        <view class='new'>
-            <image class='logo' src='../../images/join_in.png'></image>
+    <view class='new' bindtap='newList'>
+            <image class='logo' src='../../images/join_in.png'></image> 
             <text class="list-name" style='margin:40px 20px 40px 20px'>新建书单</text>
         </view>
     </view>

@@ -37,7 +37,9 @@
         "pages/joinShare/joinShare",
         "pages/myAccount/myAccount",
         "pages/integralBalance/integralBalance",
-        "pages/donate/donate"
+        "pages/donate/donate",
+        "pages/newBookList/newBookList",
+        "pages/addBook/addBook"
     ],
     "window": {
         "backgroundTextStyle": "light",

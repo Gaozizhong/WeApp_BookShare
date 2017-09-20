@@ -1,0 +1,24 @@
+<!-- <loading hidden="{{ loading }}">加载中...</loading> -->
+<view class="list-tmp">
+    <view class="list-info" style='height:50px;margin-top:10px;'>
+        <view class='name'>
+            <view>书单名称：</view>
+            <input style='width:40px;'></input>
+        </view>
+    </view>
+    <view class="list-info" style='height:105px;margin-top:10px;'>
+        <view class='describe'>
+            <view>书单描述：</view>
+            <textarea style='height:60px;font-size:18px' placeholder='清输入书单描述~'></textarea>
+        </view>
+    </view>
+    <view class="list-info" style='height:60px;'>
+        <view class='new' bindtap='addBook'>
+            <image class='logo' src='../../images/join_in.png'></image>
+            <text class="list-name" style='margin:40px 20px 40px 20px'>添加图书</text>
+        </view>
+    </view>
+    <view class="list-info" style='height:60px;'>
+        <button class='submit' type="submit">完成</button>
+    </view>
+</view>

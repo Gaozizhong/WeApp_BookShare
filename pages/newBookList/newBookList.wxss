@@ -1,0 +1,54 @@
+.list-tmp {
+    background: #f4f4f4;
+    margin-bottom: 10rpx;
+    height: 240rpx;
+    width:97%;
+    margin: 0 auto;
+}
+
+.list-info {
+    background: #fff;
+    float: left;
+    height: 90%;
+    width: 96%;
+    text-align: left;
+    margin: 5px 2%;
+    border-radius: 3px;
+}
+
+.list-name {
+    font-size: 20px;
+    line-height: 60rpx;
+    margin: 40px 140px 50px 20px;
+    padding-top: 30px;
+}
+.new {
+    padding:10px 20px 15px 20px;
+    height: 40px;
+    text-align: center;
+    width:250px;
+    margin: 0 auto;
+}
+.logo{
+    height:40px;
+    width:40px;
+    vertical-align: middle; 
+}
+.name{
+    padding:10px 20px 15px 20px;
+    margin: 0 auto;
+    vertical-align: middle;
+    display:flex;
+}
+.describe{
+    padding:10px 20px 15px 20px;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+.submit {
+    background-color: #09bb07;
+    width: 98%;
+    color: #f9f9f9;
+    vertical-align: middle;
+    margin-top: 7px;
+}

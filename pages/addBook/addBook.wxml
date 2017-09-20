@@ -1,0 +1,51 @@
+<view class="container">
+    <view class="search-area">
+        <!-- <view class="classify" style="height:100%">
+            <text bindtap="togglePtype" id="catselectbtn" style="height:36px"></text>
+        </view> -->
+        <view style="width:98%;margin:0 auto;margin-top:3px;">
+            <view class="search-scanner">
+                <icon type="search" size="25" color="#666666" />
+                <input type="text" style='font-size:20px;width:80%;text-align:center;' placeholder="请输入书名或作者" />
+                <image src="../../images/scanner.png" bindtap="screenISBN"></image>
+            </view>
+        </view>
+    </view>
+    <!--头部搜索结束-->
+    <view class="book-list">
+        <view>
+            <view class='list-name'>
+                <checkbox-group bindchange="checkboxChange">
+                    <label class="checkbox">
+                        <checkbox value="" checked="{{item.checked}}" />我分享的
+                    </label>
+                </checkbox-group>
+            </view>
+            <checkbox-group bindchange="checkboxChange">
+                <label class="checkbox" wx:for="{{items}}">
+                    <view class="book-tmp" bindtap="detail" data-bookId="{{book.book_id}}" data-type="{{book.type}}" data-canShareID="{{book.can_share_id}}">
+                        <view style='margin-top:80rpx;'>
+                            <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+                        </view>
+                        <image src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=bb2d1a534e36acaf4ded9eae1db0e675/0824ab18972bd40745388a977e899e510eb309d8.jpg" class="book-image"></image>
+                        <view class="book-info">
+                            <view class="book-name">数据库系统概论—王珊 萨师煊</view>
+                            <view class="book-applier">
+                                <view class="left" wx:if="{{book.type == 0}}">
+                                    <image src="../../images/applier.png" style="width:15px;height:15px;"></image>Lee
+                                </view>
+                                <view class="left" wx:elif="{{book.type == 1}}">
+                                    <image src="../../images/applier.png" style="width:15px;height:15px;"></image> 自营点
+                                </view>
+                                <view class="right">
+                                    <image src="../../images/location.png" style="width:15px;height:15px;"></image> 计算机学院楼
+                                </view>
+                            </view>
+                        </view>
+                        <view class="clear-both"></view>
+                    </view>
+                </label>
+            </checkbox-group>
+        </view>
+    </view>
+</view>

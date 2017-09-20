@@ -12,7 +12,7 @@
 .item_ico {
     float: left;
     width: 27px;
-    height: 20px;
+    height: 27px;
     padding: 13px 15px 10px 0;
 }
 
