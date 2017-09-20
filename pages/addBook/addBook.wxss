@@ -1,0 +1,138 @@
+.container {
+    background: #f4f4f4;
+    width: 94%;
+    margin-left: 3%;
+}
+
+/*search-area :start*/
+
+.search-area {
+    height: 8px;
+    width: 100%;
+    padding: 2px 2px;
+    top: 0px;
+    z-index: 99px;
+    background: #f4f4f4;
+}
+
+.classify {
+    width: 8%;
+    float: left;
+}
+
+.search-scanner {
+    padding: 12.5rpx 15rpx 12.5rpx 15rpx;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.search-scanner image {
+    width: 60rpx;
+    height: 60rpx;
+    display: inline-block;
+    float: right;
+    padding-right: 10rpx;
+}
+
+.search-scanner input {
+    width: 450rpx;
+    height: 20rpx;
+    line-height: 20rpx;
+    display: inline-block;
+    padding-left: 0rpx;
+    font-size: 25rpx;
+}
+
+.search-scanner icon {
+    display: inline-block;
+    float: left;
+    margin-right: 10rpx;
+    margin-top: 2px;
+}
+
+/*search-area :end*/
+
+/**图书列表**/
+
+.book-list {
+    margin-top: 40px;
+    width: 98%;
+    padding: 2px 2px;
+}
+
+.list-name {
+    background: #fff;
+    margin-bottom: 15rpx;
+    height: 25px;
+    padding: 2rpx 15rpx 12rpx 15rpx;
+    vertical-align: middle;
+}
+
+.book-tmp {
+    padding: 2rpx 15rpx 2rpx 15rpx;
+    margin-bottom: 15rpx;
+    height: 220rpx;
+    border-radius: 5px;
+    width: 96%;
+    display: flex;
+}
+
+.book-image {
+    width: 25%;
+    height: 220rpx;
+    float: left;
+}
+
+.book-info {
+    width: 75%;
+    float: right;
+    height: 100%;
+    text-align: center;
+}
+
+.book-name {
+    height: 50%;
+    line-height: 60rpx;
+    display: block !important;
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.book-author {
+    height: 50%;
+    line-height: 60rpx;
+    display: block !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.book-applier .left {
+    margin-left: 10px;
+    float: left;
+    width: 80px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.book-applier .right {
+    float: right;
+    margin-right: 10px;
+    width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* checkbox */
+
+.checkbox {
+    display: flex;
+    vertical-align: middle;
+}

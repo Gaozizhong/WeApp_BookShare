@@ -13,7 +13,7 @@
         </view>
     </view>
     <view class="list-info" style='height:60px;'>
-        <view class='new' bindtap=''>
+        <view class='new' bindtap='addBook'>
             <image class='logo' src='../../images/join_in.png'></image>
             <text class="list-name" style='margin:40px 20px 40px 20px'>添加图书</text>
         </view>

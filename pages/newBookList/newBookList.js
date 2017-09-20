@@ -62,5 +62,12 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+
+  addBook:function () {
+      //打开添加图书
+      wx.navigateTo({
+          url: '../addBook/addBook',
+      })
+  },
 })
