@@ -1,23 +1,53 @@
 <!-- <loading hidden="{{ loading }}">加载中...</loading> -->
 <view class="list-tmp">
-    <view class="list-info" bindtap="openBookListInfo" data-type="3">
-        <view class='item'>
-            <text class="list-name">我分享的</text>
-            <text class='number'>{{shareNum}}本书</text>
-        </view>
-        <view class="describe">
-            书中自有黄金屋 书中自有颜如玉 ——某人
-        </view>
-    </view>
-    <view class="list-info" bindtap="openBookListInfo" data-type="2">
-        <view class='item'>
-            <text class="list-name">我想看的</text>
-            <text class='number'>{{loveNum}}本书</text>
-        </view>
-        <view class="describe">
-            纸上觉来终觉浅 绝知此事要躬行 ——某人
+    <view wx:if="{{shareNum==0}}">
+        <view class="list-info" bindtap="openBookListInfo" data-type="3">
+            <view class='item'>
+                <text class="list-name">我分享的</text>
+                <text class='number'>{{shareNum}}本书</text>
+            </view>
+            <view class="describe">
+                书中自有黄金屋 书中自有颜如玉 ——某人
+            </view>
         </view>
     </view>
+    <view wx:else>
+        <view class="list-info" bindtap="openBookListInfo" data-type="3">
+            <view class='item'>
+                <text class="list-name">我分享的</text>
+                <text class='number'>{{shareNum}}本书</text>
+            </view>
+            <view class="describe">
+                书中自有黄金屋 书中自有颜如玉 ——某人
+            </view>
+        </view>
+    </view>
+
+
+    <view wx:if="{{loveNum==0}}">
+        <view class="list-info" data-type="2">
+            <view class='item'>
+                <text class="list-name">我想看的</text>
+                <text class='number'>{{loveNum}}本书</text>
+            </view>
+            <view class="describe">
+                纸上觉来终觉浅 绝知此事要躬行 ——某人
+            </view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class="list-info" bindtap="openBookListInfo" data-type="2">
+            <view class='item'>
+                <text class="list-name">我想看的</text>
+                <text class='number'>{{loveNum}}本书</text>
+            </view>
+            <view class="describe">
+                纸上觉来终觉浅 绝知此事要躬行 ——某人
+            </view>
+        </view>
+    </view>
+
+
     <!-- <view class="list-info">
         <view class='item'>
             <text class="list-name">我讨厌的</text>
@@ -29,7 +59,7 @@
     </view> -->
     <view class="list-info" style='height:60px;'>
         <view class='new'>
-            <image class='logo' src='../../images/join_in.png'></image> 
+            <image class='logo' src='../../images/join_in.png'></image>
             <text class="list-name" style='margin:40px 20px 40px 20px'>新建书单</text>
         </view>
     </view>

@@ -271,3 +271,25 @@ button {
     background: #fff;
     padding: 12px 12px;
 }
+
+
+.half {
+    position: absolute;
+    /* margin-left: 180rpx; */
+    margin-top: -45rpx;
+}
+
+.star-image {
+    position: absolute;
+    top: 50rpx;
+    width: 50rpx;
+    height: 50rpx;
+    src: "../../images/normal.png";
+}
+
+.item1 {
+    position: absolute;
+    top: 5rpx;
+    width: 40rpx;
+    height: 80rpx;
+}

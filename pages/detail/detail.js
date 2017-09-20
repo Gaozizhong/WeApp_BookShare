@@ -13,7 +13,8 @@ Page({
         canShareId: null,
         openIds: null,
         params: null,
-        commentInfo:null
+        commentInfo:null,
+
     },
 
     /**

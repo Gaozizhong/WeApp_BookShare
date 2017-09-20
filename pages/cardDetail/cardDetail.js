@@ -11,7 +11,13 @@ Page({
             "ID":null,
             card_content:null
         },
-        can_see: 0
+        can_see: 0,
+
+        stars: [0, 1, 2, 3, 4],
+        normalSrc: '../../images/normal.png',
+        selectedSrc: '../../images/selected.png',
+        halfSrc: '../../images/half.png',
+        key3: 5,//评分
     },
 
     /**
@@ -34,6 +40,8 @@ Page({
                     loading: true,
                     bookInfo: res.data["book_info"],
                     cardContent: res.data["card_content"],
+                    cardInfo: res.data["card_content"]["card_content"],
+                    key3: res.data["card_content"]["book_content"]
                 })
                 wx.setNavigationBarTitle({ title: res.data["book_info"].book_name })
             },
@@ -68,11 +76,33 @@ Page({
 
     },
 
+    /**
+     * 图书内容
+     */
+    selectLeft3: function (e) {
+        var key3 = e.currentTarget.dataset.key
+        if (this.data.key3 == 0.5 && e.currentTarget.dataset.key == 0.5) {
+            //只有一颗星的时候,再次点击,变为0颗
+            key3 = 0;
+        }
+        this.setData({
+            key3: key3
+        })
+
+    },
+    //点击左边,整颗星
+    selectRight3: function (e) {
+        var key3 = e.currentTarget.dataset.key
+        this.setData({
+            key3: key3
+        })
+    },
+
     //设置感想内容
     setContent: function (e) {
         var that = this;
         that.setData({
-            card_content: e.detail.value
+            cardInfo: e.detail.value
         })
     },
 
@@ -88,7 +118,7 @@ Page({
     makeCard: function () {
         var that = this;
         var url, successStr, failStr;
-        if (!that.data.card_content) {
+        if (!that.data.cardInfo) {
             wx.showToast({
                 title: '您没有输入感想！',
                 icon: 'false',
@@ -97,12 +127,12 @@ Page({
             return;
         }
         if (that.data.cardContent=="none") {
-            url = 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=makeCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.card_content + "&can_see=" + that.data.can_see;
+            url = 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=makeCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.cardInfo + "&can_see=" + that.data.can_see +"&book_content="+that.data.key3;
             successStr = "添加成功！";
             failStr = "添加失败，请重试！"
             
         } else {
-            url = 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=editCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.card_content + "&can_see=" + that.data.can_see + "&card_id=" + that.data.cardContent["ID"];
+            url = 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=editCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.cardInfo + "&can_see=" + that.data.can_see + "&card_id=" + that.data.cardContent["ID"] + "&book_content=" + that.data.key3;
             successStr = "修改成功！";
             failStr = "修改失败，请重试！"
         }
@@ -163,6 +193,9 @@ Page({
                         title: successStr,
                         icon: 'false',
                         duration: 2000
+                    })
+                    wx.navigateBack({
+                        delta:1
                     })
                 } else {
                     wx.showToast({
