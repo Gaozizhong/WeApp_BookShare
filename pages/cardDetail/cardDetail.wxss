@@ -11,6 +11,7 @@
     font-size: 14px;
     line-height: 30px;
     height: 330px;
+    margin-top:40px
 }
 .operate{
     width:90%;
@@ -18,4 +19,35 @@
     height: 44px;
     background: #fff;
     padding: 12px 12px
+}
+.comment1-description {
+    margin-top: 35rpx;
+}
+
+.comment1-description1 {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #333;
+    margin-left: 30rpx;
+}
+
+.half {
+    position: absolute;
+    /* margin-left: 180rpx; */
+    margin-top: -45rpx;
+}
+
+.star-image {
+    position: absolute;
+    top: 90rpx;
+    width: 50rpx;
+    height: 50rpx;
+    src: "../../images/normal.png";
+}
+
+.item1 {
+    position: absolute;
+    top: 5rpx;
+    width: 24rpx;
+    height: 50rpx;
 }

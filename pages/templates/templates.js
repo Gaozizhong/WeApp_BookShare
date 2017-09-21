@@ -3,7 +3,7 @@
 var app = getApp()
 Page({
     data: {
-        userInfo: {}
+        userInfo: {},
     },
    
     onLoad: function () {

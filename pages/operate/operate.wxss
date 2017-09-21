@@ -1,16 +1,11 @@
-.item{
-    background: #fff;
-    height: 93%;
-    margin: 10px 10px;
-    padding: 5px 5px;
-}
-.top{
-    margin-top: 10px;
-    height: 56%;
-}
+
 .bottom{
     width: 100%;
     margin-bottom: 0px;
+    z-index: 100px;
+    position: fixed;
+    bottom:0px;
+    background: #fff;
 }
 .bottom-box{
     width: 100%;

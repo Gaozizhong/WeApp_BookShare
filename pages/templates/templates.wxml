@@ -649,3 +649,33 @@
         </template>
     <!-- 书单列表模板 -->
 <!-- 书单列表页面 -->
+
+<!-- 评论列表 -->
+    <template name="commentTemp">
+        <view class="count_down sp1" style="width:100%">
+            <view style="width:100%">
+                <view class="left" style="width:15%">
+                    <image src="{{comment.favicon}}" alt="" style="width:42px;height:42px;border-radius: 20px;margin-top: 5px;margin-left: 8px;"></image>
+                </view>
+                <view class="center" style="float:left;width:85%;padding-top: 0px!important;margin-top: 5px;text-align:left;">
+                    <span class="title" style="padding-left: 5px;">{{comment.nickName}}</span>
+                    <span style="float:right;margin-right:30px;font-size:12px">{{comment.book_content}}分</span>
+                    <!-- <view class='half'>
+                        <block wx:for="{{stars}}">
+                            <image class="star-image" style="left: {{item*80}}rpx" src="{{key3 > item ?(key3-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                                <view class="item1" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft3"></view>
+                                <view class="item1" style="left:40rpx" data-key="{{item+1}}" bindtap="selectRight3"></view>
+                            </image>
+                        </block>
+                    </view> -->
+                </view>
+            </view>
+            <view class="comment" style="float: left;font-size: 14px;margin: 10px 0 15px 0;text-align: left;">
+                <font color="#aaa">
+                    {{comment.card_content}}
+                </font>
+            </view>
+        </view>
+    </template>
+    
+<!-- 评论列表 -->

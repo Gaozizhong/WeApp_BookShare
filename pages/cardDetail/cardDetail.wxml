@@ -16,7 +16,18 @@
             <view class="clear-both"></view>
         </view>
         <view style="width:96%;margin:0 auto;height:1px;background:#f0f0f0"></view>
-        <textarea auto-focus placeholder="请输入您的感想" value="{{cardContent.card_content}}" maxlength="-1" class="card_content" bindinput="setContent" />
+         <view class="comment1-description" style="display:flex;flex-direction:row;">
+            <view class="comment1-description1">图书内容：</view>
+            <view class='half'>
+                <block wx:for="{{stars}}" style="margin-left:80px">
+                    <image class="star-image" style="left: {{item*80}}rpx" src="{{key3 > item ?(key3-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                        <view class="item1" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft3"></view>
+                        <view class="item1" style="left:24rpx" data-key="{{item+1}}" bindtap="selectRight3"></view>
+                    </image>
+                </block>
+            </view>
+        </view>
+        <textarea auto-focus placeholder="请输入您的感想" value="{{cardInfo}}" maxlength="-1" class="card_content" bindinput="setContent" />
         <checkbox-group bindchange="setCanSee">
             <label class="checkbox">
                 <checkbox value="1" checked="{{cardContent.can_see==1?true:false}}"/>仅对自己可见

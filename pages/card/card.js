@@ -18,10 +18,19 @@ Page({
         url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getCardList&userId=' + app.globalData.userId,
         method: "GET",
         success: function (res) {
-            that.setData({
-                bookObj: res.data,
-                loading: false
-            })
+            if (res.data == "noCard"){
+                wx.showToast({
+                    title: '您还没有添加过！',
+                    icon: 'false',
+                    duration: 2000
+                })
+            }else{
+                that.setData({
+                    bookObj: res.data,
+                    loading: false
+                })  
+            }
+            
         },
         fail: function () {
             wx.showToast({
