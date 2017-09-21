@@ -39,7 +39,8 @@
         "pages/integralBalance/integralBalance",
         "pages/donate/donate",
         "pages/newBookList/newBookList",
-        "pages/addBook/addBook"
+        "pages/addBook/addBook",
+        "pages/bookInfo/bookInfo"
     ],
     "window": {
         "backgroundTextStyle": "light",
