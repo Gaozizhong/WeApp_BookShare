@@ -11,13 +11,12 @@ Page({
         wx.setNavigationBarTitle({ title: "借出" })
         var that = this;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getApplication&ownerId=' + app.globalData.userId,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=getApplication&ownerId=' + app.globalData.userId,
             method: "GET",
             header: {
                 'content-type': 'application/json'
             },
             success: function (res) {
-                console.log(res.data)
                 if (res.data == "noApplication") {
                     wx.showToast({
                         title: '暂无人借书！',
@@ -51,13 +50,12 @@ Page({
         var sharingId = e.currentTarget.dataset.sharingid;
         var openId = e.currentTarget.dataset.openid;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=agreeApplication&sharingId=' + sharingId,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=agreeApplication&sharingId=' + sharingId,
             method: "GET",
             header: {
                 'content-type': 'application/json'
             },
             success: function (res) {
-                console.log(res.data)
                 if (res.data == "agreed") {
                     wx.showToast({
                         title: '已同意借出，无需重复！',
@@ -103,7 +101,7 @@ Page({
         var canShareId = e.currentTarget.dataset.canshareid;
         var that = this
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=refuseApplication&sharingId=' + sharingId + "&canShareId=" + canShareId,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=refuseApplication&sharingId=' + sharingId + "&canShareId=" + canShareId,
             method: "GET",
             header: {
                 'content-type': 'application/json'
@@ -159,17 +157,17 @@ Page({
                                     var sharingId = array[0];
                                     //根据sharingId获取书主信息 对书主信息进行验证
                                     wx.request({
-                                        url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=checkOwner&sharingId=' + sharingId,
+                                        url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=checkOwner&sharingId=' + sharingId,
                                         method: "GET",
                                         header: {
                                             'content-type': 'application/json'
                                         },
                                         success: function (res) {
-                                            console.log(res.data)
+                                            
                                             if (app.globalData.userId == res.data["owner_id"]){
                                                 if (res.data["user_id"] == array[1]){
                                                     wx.request({
-                                                        url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=screenBorrow&sharingId=' + sharingId,
+                                                        url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=screenBorrow&sharingId=' + sharingId,
                                                         method: "GET",
                                                         header: {
                                                             'content-type': 'application/json'
@@ -246,13 +244,12 @@ Page({
     affirmLoan:function(e){
         var sharingId = e.currentTarget.dataset.sharingid;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=affirmLoan&sharingId=' + sharingId,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=affirmLoan&sharingId=' + sharingId,
             method: "GET",
             header: {
                 'content-type': 'application/json'
             },
             success: function (res) {
-                console.log(res.data)
                 if (res.data == "loaned") {
                     wx.showToast({
                         title: '已确认借出，无需重复！',

@@ -33,7 +33,7 @@ Page({
             bookId: bookId,
         })
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookInfo&bookId=' + bookId,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBookInfo&bookId=' + bookId,
             method: "GET",
             header: {
                 'content-type': 'application/json'
@@ -99,7 +99,6 @@ Page({
     //点击左边,整颗星
     selectRight2: function (e) {
         var key2 = e.currentTarget.dataset.key
-        console.log("得" + key2 + "分")
         this.setData({
             key2: key2
         })
@@ -119,7 +118,7 @@ Page({
             disabled: true
         })
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=borrowComment&sharingId=' + that.data.sharingId + "&borrower_attitude=" + that.data.key1 + "&book_protect=" + that.data.key2 + "&borrower_content="  + that.data.card_content,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=borrowComment&sharingId=' + that.data.sharingId + "&borrower_attitude=" + that.data.key1 + "&book_protect=" + that.data.key2 + "&borrower_content="  + that.data.card_content,
             method: "GET",
             header: {
                 'content-type': 'application/json'

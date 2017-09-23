@@ -5,7 +5,7 @@
         <view class="item">
             <span>图书：</span>
             <view class="rightText" style="width:200px;height:47px;line-height:47px;" bindtap="screenISBN">
-                <button type="primary" style="background:#33ccff;width:90%;float:right;font-size:12px;margin-top:10px"> 扫描要上传的图书 </button>
+                <button type="primary" style="background:#33ccff;width:90%;float:right;font-size:12px;margin-top:10px" disabled="{{disabled2}}"> 扫描要上传的图书 </button>
             </view>
         </view>
         <view class="h1"></view>
@@ -32,11 +32,11 @@
         <view class="item">
             <span>位置：</span>
             <view class="rightText" bindtap="chooseLocation">
-                <view style="height:47px;line-height:47px;margin-left:10px;margin-top:3px;float:right">
+                <view style="padding-right:30px">{{location?location:"请选择位置"}}</view>
+            </view>
+            <view style="height:47px;line-height:47px;width:20px;margin-left:10px;margin-top:3px;float:right">
                     <image style='height:20px;width:20px;' src='../../images/location.png'></image>
                 </view>
-                <view>{{location?location:"请选择位置"}}</view>
-            </view>
         </view>
         <view class="h1"></view>
         <view class="item">

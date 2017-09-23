@@ -10,7 +10,7 @@ Page({
     onLoad: function () {
         var that = this;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookManList&userId=' + app.globalData.userId,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBookManList&userId=' + app.globalData.userId,
             header: {
                 'content-type': 'application/json'
             },
@@ -42,7 +42,7 @@ Page({
         var canShareId = e.currentTarget.dataset.canshareid;
         var that = this;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=downLine&canShareId=' + canShareId,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=downLine&canShareId=' + canShareId,
             header: {
                 'content-type': 'application/json'
             },
@@ -78,7 +78,7 @@ Page({
         var canShareId = e.currentTarget.dataset.canshareid;
         var that = this;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=onLine&canShareId=' + canShareId,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=onLine&canShareId=' + canShareId,
             header: {
                 'content-type': 'application/json'
             },

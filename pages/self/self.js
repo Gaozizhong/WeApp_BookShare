@@ -38,7 +38,7 @@ Page({
                                 url: '../toAuth/toAuth',
                             })
                         } else if (res.cancel) {
-                            console.log('用户点击取消')
+                            
                         }
                     }
                 })
@@ -48,7 +48,6 @@ Page({
     },
     onShow: function () {
         var that = this;
-        console.log(that+"==================")
         utils.checkSettingStatu(that);
     },
     //事件处理函数
@@ -93,7 +92,7 @@ Page({
     //自营点上传图书
     uploadPilot: function () {
         wx.navigateTo({
-            url: '../uploadPilot/uploadPilot'
+            url: '../joinShare/joinShare',
         })
     },
 

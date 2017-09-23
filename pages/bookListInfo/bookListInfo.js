@@ -18,7 +18,7 @@ Page({
             bookListType: options.bookListType
         })
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getSystemBookList&userId=' + app.globalData.userId + "&type=" + options.bookListType,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=getSystemBookList&userId=' + app.globalData.userId + "&type=" + options.bookListType,
             method: "GET",
             header: {
                 'content-type': 'application/json'

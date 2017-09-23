@@ -24,7 +24,7 @@ Page({
     submitOpinion:function(){
         var that = this
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=submitOpinion&opinion=' + that.data.opinion + "&userId=" + app.globalData.userId,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=submitOpinion&opinion=' + that.data.opinion + "&userId=" + app.globalData.userId,
             method: "GET",
             header: {
                 'content-type': 'application/json',

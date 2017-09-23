@@ -9,13 +9,12 @@ Page({
     onLoad: function () {
         var that = this;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBook&ownerId=' + app.globalData.userId,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBook&ownerId=' + app.globalData.userId,
             method: "GET",
             header: {
                 'content-type': 'application/json'
             },
             success: function (res) {
-                console.log(res.data)
                 if (res.data == "noGet") {
                     wx.showToast({
                         title: '暂无人还书！',
@@ -66,7 +65,7 @@ Page({
         var sharingId = e.currentTarget.dataset.sharingid;
         var that = this;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookFun&sharingId=' + sharingId,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBookFun&sharingId=' + sharingId,
             method: "GET",
             header: {
                 'content-type': 'application/json'

@@ -33,7 +33,7 @@ Page({
             bookId: bookId,
         }) 
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookInfo&bookId=' + bookId,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBookInfo&bookId=' + bookId,
             method: "GET",
             header: {
                 'content-type': 'application/json'
@@ -106,7 +106,6 @@ Page({
     //点击左边,整颗星
     selectRight2: function (e) {
         var key2 = e.currentTarget.dataset.key
-        console.log("得" + key2 + "分")
         this.setData({
             key2: key2
         })
@@ -146,7 +145,7 @@ Page({
             disabled:true
         })
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=comment&user_id=' + app.globalData.userId + "&sharingId=" + that.data.sharingId + "&book_id=" + that.data.bookId + "&owner_attitude=" + that.data.key1 + "&book_quality=" + that.data.key2 + "&book_content=" + that.data.key3 + "&card_content=" + that.data.card_content,
+            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=comment&user_id=' + app.globalData.userId + "&sharingId=" + that.data.sharingId + "&book_id=" + that.data.bookId + "&owner_attitude=" + that.data.key1 + "&book_quality=" + that.data.key2 + "&book_content=" + that.data.key3 + "&card_content=" + that.data.card_content,
             method: "GET",
             header: {
                 'content-type': 'application/json'
