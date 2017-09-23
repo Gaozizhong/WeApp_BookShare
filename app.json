@@ -41,7 +41,8 @@
         "pages/newBookList/newBookList",
         "pages/addBook/addBook",
         "pages/bookInfo/bookInfo",
-        "pages/editCardDetail/editCardDetail"
+        "pages/editCardDetail/editCardDetail",
+        "pages/payment/payment"
     ],
     "window": {
         "backgroundTextStyle": "light",
