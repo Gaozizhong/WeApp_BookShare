@@ -1,0 +1,149 @@
+.meta {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50rpx 5rpx;
+}
+.poster {
+    width: 35%;
+    /*height: 800rpx;*/
+    padding-right: 20rpx;
+    float: right;
+}
+.title {
+    font-style: 42rpx;
+    color: #444;
+}
+.info {
+    font-size: 24rpx;
+    color: #888;
+    margin-top: 20rpx;
+    width: 80%;
+    text-align: center;
+}
+.summary {
+    width: 80%;
+    margin: 20rpx auto;
+    display: block;
+}
+.label {
+    color: #888;
+    display: block;
+    font-size: 24rpx;
+    margin-bottom: 10rpx;
+}
+.content {
+    font-size: 14px;
+    padding: 2em;
+}
+/* 评价 */
+
+.count_down {
+    width: 100%;
+    border-top: 1px solid #f7f7f7;
+    border-bottom: 10px solid #f7f7f7;
+}
+
+.count_down {
+    padding-top: 0px;
+    float: left;
+    width: 23%;
+}
+
+.count_down .left img {
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 40px;
+}
+
+.count_down .left {
+    float: left;
+    width: 20%;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.center {
+    padding-top: 12px !important;
+}
+
+.right {
+    float: left;
+    padding-top: 10px !important;
+}
+
+.price {
+    font-weight: bold;
+    margin-top: -10px !important;
+}
+
+
+.psh {
+    height: 100%;
+    width: 92%;
+    margin-top: 10px;
+    margin-left: 4%;
+    margin-right: 4%;
+    float: left;
+    text-align: left;
+    background-color: #fff;
+}
+
+.sp1_3, .sp2_3, .sp1_3_big, .sp1_2, .sp1 {
+    margin-left: 0.75em;
+    float: left;
+}
+
+.sp1 {
+    margin-left: 0px;
+}
+
+.book_list {
+    width: 94%;
+    padding: 2px 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card_content {
+    width: 94%;
+    margin: 0 auto;
+    padding: 2px 2px;
+    font-size: 14px;
+    line-height: 30px;
+    height: 330px;
+}
+
+.operate {
+    width: 90%;
+    margin: 0 auto;
+    height: 44px;
+    background: #fff;
+    padding: 12px 12px;
+}
+/* 星级评价 */
+.half {
+    position: absolute;
+     margin-left: 80rpx; 
+}
+
+.star-image {
+    /* position: absolute; */
+    top: 50rpx;
+    width: 50rpx;
+    height: 50rpx;
+    src: "../../images/normal.png";
+}
+
+.item1 {
+    position: absolute;
+    top: 5rpx;
+    width: 40rpx;
+    height: 80rpx;
+}
+/* footer */
+button {
+    border-radius: 0px;
+}

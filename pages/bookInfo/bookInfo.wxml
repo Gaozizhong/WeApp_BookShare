@@ -1,0 +1,72 @@
+<view class="container" style="margin:10px 10px;background:#fff">
+    <loading hidden="{{ !loading }}">加载中...</loading>
+
+    <view style="padding:0px 0px;display:flex;width:100%;">
+        <view class="meta">
+            <text class="title">软件工程</text>
+            <text class="info">萨默维尔 </text>
+            <text class="info">出版社：机械工业出版社</text>
+            <text class="info">所有人：刘鑫</text>
+            <text class="info">可借：7天</text>
+            <text class="info">状态：可借</text>
+            <text class="info">河北工业大学计算机学院楼</text>
+        </view>
+        <image class="poster" src="https://img1.doubanio.com/lpic/s3564949.jpg" mode="aspectFit" />
+    </view>
+    <view class="summary">
+        <text class="label">内容简介：</text>
+        <text class="content">本书是著名软件工程学家Ian Sommerille系统介绍软件工程理论的经典教材，自1982年初版以来，随着软件工程学科的发展不断更新，培养了一代又一代软件工程人才，对学科本身也产生了重大影响。本版重在论述在开发大型复杂软件系统时可以采用的一些实用方法。全书重新组织为7篇，第1～6篇涵盖了整个软件开发过程各个阶段的内容，从初始的需求导出到设计和开发，再到软件项目管理。最后一篇论述了一些重要的软件工程的新技术。</text>
+    </view>
+</view>
+<view class="container" style="margin:5px 10px;color:#888;font-size:15px;text-align:center;">
+    历史
+</view>
+<view class="comment" style="width：100%;margin:10px 10px;">
+    <view class="count_down sp1" style="background:#fff;width:94%;padding:10px 10px;">
+        <view style="width:100%；">
+            <view class="left" style="width:15%">
+                <image src="../../images/logo.png" alt="" style="width:48px;height:48px;border-radius: 23px;margin-top: 5px;margin-left: 8px;"></image>
+            </view>
+            <view class="center" style="float:left;width:30%;padding-top: 0px!important;margin-top: 12px;text-align:left;">
+                <view class="title" style="padding-left: 20px;">BookShare</view>
+            </view>
+            <view class='right' style="width:55%;">
+                <view class='half'>
+                    <block wx:for="{{stars}}">
+                        <image class="star-image" style="left: {{item*50}}rpx" src="{{key1 > item ?(key1-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                            <view class="item1"></view>
+                            <view class="item1"></view>
+                        </image>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <view style="font-size: 14px;margin: 32px 25px 15px 25px;text-align: left;line-height:25px;">
+            <text color="#aaa">
+                本书是著名软件工程学家Ian Sommerille系统介绍软件工程理论的经典教材，自1982年初版以来，随着软件工程学科的发展不断更新，培养了一代又一代软件工程人才，对学科本身也产生了重大影响。本版重在论述在开发大型复杂软件系统时可以采用的一些实用方法。全书重新组织为7篇，第1～6篇涵盖了整个软件开发过程各个阶段的内容，从初始的需求导出到设计和开发，再到软件项目管理。最后一篇论述了一些重要的软件工程的新技术。</text>
+        </view>
+        <view class="brief" style="padding-left: 20px;padding-bottom:5px;font-size:14px;color:#BDBDBD;text-indent: 5px">From BookShare At 2014/12/25</view>
+    </view>
+</view>
+<view class="container" style='height:50px;width:100%;'></view>
+<view id="footer" style="display:block;bottom:0px;position:fixed;width:100%;height:50px;">
+    <button type="submit" bindtap="cancelLove" wx:if="{{bookInfo.haveLoved ==1 || haveLoved ==1}}" style="width:20%;height:20px;text-align: center;float: left;" class="btn">
+        <image style='width:25px;height:25px;' src='../../images/like.png'></image>
+        <view style='margin-top:-22px;font-size:12px;'>不喜欢</view>
+    </button>
+    <button type="submit" bindtap="addLove" wx:elif="{{bookInfo.haveLoved !=1 || haveLoved ==0}}" style="width:20%;height:50px;text-align: center;float: left;" class="btn">
+        <image style='width:25px;height:25px;' src='../../images/dislike.png'></image>
+        <view style='margin-top:-22px;font-size:12px;'>喜欢</view>
+    </button>
+    <button type="submit" bindtap="cancelSeen" wx:if="{{bookInfo.haveRead ==1 || haveRead == 1}}" style="width:20%;height:50px;text-align: center;float: left;" class="btn">
+        <image style='width:27px;height:27px;' src='../../images/haveseen.png'></image>
+        <view style='margin-top:-22px;font-size:12px;'>没读过</view>
+    </button>
+    <button type="submit" bindtap="writeCard" wx:elif="{{bookInfo.haveRead !=1 || haveRead == 0}}" style="width:20%;height:50px;text-align: center;float: left;" class="btn">
+        <image style='width:27px;height:27px;' src='../../images/notseen.png'></image>
+        <view style='margin-top:-22px;font-size:12px;'>读过</view>
+    </button>
+    <button type="submit" bindtap="borrowBook" style="width:60%;color:#fff;height:50px;background: #f00;text-align: center;float:right;" class="btn">
+        我要借书
+    </button>
+</view>
