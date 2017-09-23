@@ -10,13 +10,12 @@ Page({
     onLoad: function () {
         var that = this;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=User&a=getProtectInfo&userId=' + app.globalData.userId,
+            url: 'https://' + app.globalData.apiUrl + '?m=home&c=User&a=getProtectInfo&userId=' + app.globalData.userId,
             method: "GET",
             header: {
                 'content-type': 'application/json'
             },
             success: function (res) {
-                console.log(res.data)
                 if (res.data == "fail") {
                     wx.showToast({
                         title: '获取失败，请稍后重试！',
@@ -67,7 +66,7 @@ Page({
             protectStatu = 0;
         }
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=User&a=editProtectInfo&userId=' + app.globalData.userId + "&protect=" + protectStatu,
+            url: 'https://' + app.globalData.apiUrl + '?m=home&c=User&a=editProtectInfo&userId=' + app.globalData.userId + "&protect=" + protectStatu,
             method: "GET",
             header: {
                 'content-type': 'application/json'

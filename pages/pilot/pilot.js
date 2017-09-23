@@ -18,7 +18,7 @@ Page({
         //加载自营点数据
         var that = this;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getPilotBorrowIn&userId=' + app.globalData.userId,
+            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getPilotBorrowIn&userId=' + app.globalData.userId,
             method: "GET",
             header: {
                 'content-type': 'application/json'

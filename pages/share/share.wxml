@@ -21,7 +21,7 @@
         <button id="atten" type="submit" bindtap="addBookList" style="width:50%;height:50px;background: #FE552E;text-align: center;float: left;color:#fff" class="btn">
             添加书单
         </button>
-        <button id="signup" type="submit" bindtap="uploadBook" style="width:50%;color:#fff;height:50px;background: #75a8f9;text-align: center;float:right;" class="btn">
+        <button id="signup" type="submit" bindtap="openOperateShare" style="width:50%;color:#fff;height:50px;background: #75a8f9;text-align: center;float:right;" class="btn">  <!-- bindtap="uploadBook" -->
             分享图书
         </button>
     </view>

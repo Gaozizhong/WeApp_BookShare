@@ -2,7 +2,7 @@
   <view class="connect" style="text-align:center;">
     <p style="left: 0%;">足下路 自由骑</p>
   </view>
-  <form action="http://www.jq22.com/demo/jquery-Sharelink20151012/" method="post" id="loginForm" novalidate="novalidate">
+  <form action="https://www.jq22.com/demo/jquery-Sharelink20151012/" method="post" id="loginForm" novalidate="novalidate">
     <view style="width:100%;margin-bottom:30rpx">
       <input type="text" name="username" class="username" placeholder="用户名" style="margin:0 auto"/>
     </view>

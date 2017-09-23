@@ -9,7 +9,7 @@ Page({
     onLoad: function () {
         var that = this;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getBookListCount&userId=' + app.globalData.userId,
+            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBookListCount&userId=' + app.globalData.userId,
             method: "GET",
             header: {
                 'content-type': 'application/json'

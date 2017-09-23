@@ -28,7 +28,7 @@ Page({
             bookId: bookId
         })
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getEditInfo&canShareId=' + canShareId,
+            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getEditInfo&canShareId=' + canShareId,
             header: {
                 'content-type': 'application/json'
             },
@@ -78,7 +78,7 @@ Page({
         var index = that.data.index;
         var arrayValue = that.data.arrayValue;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=editKeepTime&canShareId=' + canShareId + "&keepTime=" + that.data.keepTime + "&book_id=" + that.data.bookId + "&user_id=" + app.globalData.userId +"&book_content=" + that.data.key1 + "&card_content=" + that.data.card_content + "&location=" + that.data.location + "&latitude=" + that.data.latitude + "&longitude=" + that.data.longitude + "&age=" + arrayValue[index],
+            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=editKeepTime&canShareId=' + canShareId + "&keepTime=" + that.data.keepTime + "&book_id=" + that.data.bookId + "&user_id=" + app.globalData.userId +"&book_content=" + that.data.key1 + "&card_content=" + that.data.card_content + "&location=" + that.data.location + "&latitude=" + that.data.latitude + "&longitude=" + that.data.longitude + "&age=" + arrayValue[index],
             header: {
                 'content-type': 'application/json'
             },

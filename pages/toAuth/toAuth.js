@@ -26,7 +26,7 @@ Page({
 
         //等待认证获取详情
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=User&a=getUserInfo&id=' + app.globalData.userId,
+            url: 'https://' + app.globalData.apiUrl + '?m=home&c=User&a=getUserInfo&id=' + app.globalData.userId,
             header: {
                 'content-type': 'application/json'
             },
@@ -34,20 +34,20 @@ Page({
                 app.globalData.userInfo = res.data[0];
                 that.setData({
                     userInfo: res.data[0],
-                    pictureFiles: 'http://'+app.globalData.apiUrl+"/bookshare"+res.data[0]["authPic"],
+                    pictureFiles: 'https://'+app.globalData.apiUrl+"/bookshare"+res.data[0]["authPic"],
                     userName: res.data[0]["userName"],
                     phoneNumber: res.data[0]["phoneNumber"],
                     userSchool: res.data[0]["userSchool"],
                     userClass: res.data[0]["userClass"],
                     studentCard: res.data[0]["studentCard"]
                 })
-                console.log(typeof (that.data.pictureFiles))
+                
 
             }
         })
         
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getSchoolList',
+            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getSchoolList',
             header: {
                 'content-type': 'application/json'
             },
@@ -114,7 +114,7 @@ Page({
         //         console.info("点击图片了");
         //     },
         // })
-        console.log("123")
+        
     },
 
     changePicture: function (e) {
@@ -153,7 +153,7 @@ Page({
                 }
             },
             fail: function (res) {
-                console.log(res.errMsg)
+                
             }
         })
 
@@ -204,7 +204,7 @@ Page({
             'userClass': that.data.userClass,
             "studentCard": that.data.studentCard
         };
-        console.log(formData)
+        
         if (!thatData.userName || !thatData.phoneNumber || !thatData.userClass || !thatData.studentCard){
             wx.showToast({
                 title: '你是不是忘记填了点什么！',
@@ -222,7 +222,7 @@ Page({
             return;
         }
         wx.uploadFile({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare/index.php/Home/User/selfAuth',
+            url: 'https://' + app.globalData.apiUrl + '/bookshare/index.php/Home/User/selfAuth',
             header: {
                 'content-type': "multipart/form-data"
             }, // 设置请求的 header

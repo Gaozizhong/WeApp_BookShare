@@ -13,7 +13,7 @@ Page({
     onLoad: function () {
         var that = this;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=User&a=getUserInfo&id=' + app.globalData.userId,
+            url: 'https://' + app.globalData.apiUrl + '?m=home&c=User&a=getUserInfo&id=' + app.globalData.userId,
             header:{
                 'content-type':'application/json'
             },
@@ -21,7 +21,7 @@ Page({
                 that.setData({
                     userInfo: res.data[0]
                 })
-                console.log(that.data)
+                
             }
         })
         this.setData({
