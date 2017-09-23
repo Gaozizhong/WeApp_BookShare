@@ -57,9 +57,10 @@
 
 .star-image {
     position: absolute;
-    top: 50rpx;
+    top: 24rpx;
     width: 50rpx;
     height: 50rpx;
+    margin-left: 220px;
     src: "../../images/normal.png";
 }
 

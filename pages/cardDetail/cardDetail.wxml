@@ -1,6 +1,6 @@
 <loading hidden="{{ loading }}">加载中...</loading>
 <view class="container">
-    <view class="book_list" style="background:#fff">
+    <view class="book_list" style="background:#fff;margin-bottom:80px;">
         <view class="book-tmp" style=''>
             <image src="{{bookInfo.image_large}}" class="book-image"></image>
             <view class="book-info" style='flex-direction:column;'>

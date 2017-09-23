@@ -30,7 +30,7 @@ Page({
           book_id: options.book_id,
       })
       wx.request({
-          url: 'http://' + app.globalData.apiUrl + '/bookshare?m=home&c=Api&a=getCardDetail&bookId=' + options.book_id + "&userId=" + app.globalData.userId,
+          url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getCardDetail&bookId=' + options.book_id + "&userId=" + app.globalData.userId,
           method: "GET",
           header: {
               'content-type': 'application/json',

@@ -21,7 +21,7 @@
 }
 
 .operate {
-    width: 90%;
+    width: 89%;
     margin: 0 auto;
     height: 44px;
     background: #fff;
