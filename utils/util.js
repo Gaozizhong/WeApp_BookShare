@@ -119,7 +119,7 @@ module.exports = {
                 if (res.code) {
                     //请求access_token
                     wx.request({
-                        url: 'http://' + getApp().globalData.apiUrl + '?m=home&c=User&a=getSessionKey&code=' + res.code,
+                        url: 'https://' + getApp().globalData.apiUrl + '?m=home&c=User&a=getSessionKey&code=' + res.code,
                         success: function (res) {
                             getApp().globalData.session_key = res.data.session_key
                             getApp().globalData.openId = res.data.openid
@@ -129,7 +129,7 @@ module.exports = {
                                     var res = JSON.parse(res.rawData);//eval('(' + res.rawData + ')');
                                     //创建账号到数据库
                                     wx.request({
-                                        url: 'http://' + getApp().globalData.apiUrl + '?m=home&c=User&a=regiser&avatarUrl=' + res.avatarUrl + "&city=" + res.city + "&country=" + res.country + "&gender=" + res.gender + "&nickName=" + res.nickName + "&province=" + res.province + "&openId=" + getApp().globalData.openId,
+                                        url: 'https://' + getApp().globalData.apiUrl + '?m=home&c=User&a=regiser&avatarUrl=' + res.avatarUrl + "&city=" + res.city + "&country=" + res.country + "&gender=" + res.gender + "&nickName=" + res.nickName + "&province=" + res.province + "&openId=" + getApp().globalData.openId,
                                         success: function (res) {
                                             getApp().globalData.userId = res.data[0]["ID"];
                                             getApp().globalData.userInfo = res.data[0];

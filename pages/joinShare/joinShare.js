@@ -16,7 +16,7 @@ Page({
         //加载捐赠和代为运营的数目
         var that = this;
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=getDonateNum&userId=' + app.globalData.userId,
+            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getDonateNum&userId=' + app.globalData.userId,
             method: "GET",
             header: {
                 'content-type': 'application/json'

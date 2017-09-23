@@ -30,7 +30,7 @@ Page({
         utils.getUserData();
         //图书列表数据获取
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=bookList',
+            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=bookList',
             method: "GET",
             success: function (res) {
                 that.setData({

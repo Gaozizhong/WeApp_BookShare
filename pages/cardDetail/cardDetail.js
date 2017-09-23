@@ -29,7 +29,7 @@ Page({
             book_id: options.book_id,
         })
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=getCardDetail&bookId=' + options.book_id + "&userId=" + app.globalData.userId,
+            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getCardDetail&bookId=' + options.book_id + "&userId=" + app.globalData.userId,
             method: "GET",
             header: {
                 'content-type': 'application/json',
@@ -126,12 +126,12 @@ Page({
             return;
         }
         if (that.data.cardContent=="none") {
-            url = 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=makeCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.cardInfo + "&can_see=" + that.data.can_see +"&book_content="+that.data.key3;
+            url = 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=makeCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.cardInfo + "&can_see=" + that.data.can_see +"&book_content="+that.data.key3;
             successStr = "添加成功！";
             failStr = "添加失败，请重试！"
             
         } else {
-            url = 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=editCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.cardInfo + "&can_see=" + that.data.can_see + "&card_id=" + that.data.cardContent["ID"] + "&book_content=" + that.data.key3;
+            url = 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=editCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.cardInfo + "&can_see=" + that.data.can_see + "&card_id=" + that.data.cardContent["ID"] + "&book_content=" + that.data.key3;
             successStr = "修改成功！";
             failStr = "修改失败，请重试！"
         }
@@ -149,7 +149,7 @@ Page({
                     //     success: function (res) {
                     //         if (res.confirm) {
                     //             wx.request({
-                    //                 url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=makeSecondCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.card_content + "&can_see=" + that.data.can_see,
+                    //                 url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=makeSecondCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.card_content + "&can_see=" + that.data.can_see,
                     //                 method: "GET",
                     //                 header: {
                     //                     'content-type': 'application/json',

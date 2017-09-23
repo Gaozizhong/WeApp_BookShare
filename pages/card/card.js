@@ -15,7 +15,7 @@ Page({
   onLoad: function (options) {
     var that = this 
     wx.request({
-        url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=getCardList&userId=' + app.globalData.userId,
+        url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getCardList&userId=' + app.globalData.userId,
         method: "GET",
         success: function (res) {
             if (res.data == "noCard"){

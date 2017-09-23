@@ -22,7 +22,7 @@ Page({
             donateType: donateType
         })
         wx.request({
-            url: 'http://' + app.globalData.apiUrl + '?m=home&c=Api&a=getDonateList&userId=' + app.globalData.userId + "&donateType=" + donateType,
+            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getDonateList&userId=' + app.globalData.userId + "&donateType=" + donateType,
             method: "GET",
             header: {
                 'content-type': 'application/json'
