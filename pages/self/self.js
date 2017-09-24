@@ -91,6 +91,12 @@ Page({
 
     //自营点上传图书
     uploadPilot: function () {
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return;
+        }
         wx.navigateTo({
             url: '../joinShare/joinShare',
         })

@@ -7,7 +7,7 @@
                 请上传校园卡或者教工卡
             </view>
             <block wx:if="{{pictureFiles}}">
-                <image src="{{pictureFiles}}" class="image" mode="aspectFit" bindtap="pictureView" bindlongtap="changePicture"></image>
+                <image src="{{pictureFiles}}" class="image" mode="aspectFit" bindtap="changePicture"></image>
             </block>
 
             <block wx:else>
@@ -59,7 +59,7 @@
         <input class="value-right" type="text" bindinput="setCardId" value="{{userInfo.studentCard?userInfo.studentCard:''}}" placeholder="请输入学号/教职工编号" />
     </view>
     <view class="h1"></view>
-    <view id="footer" style="width:98%;margin:5px 1%;">
+    <view id="footer" style="width:98%;margin:25px 1%;">
     <button bindtap="toAuth" style="color:#fff;height:50px;background: #33CCFF;">
         认证
     </button>

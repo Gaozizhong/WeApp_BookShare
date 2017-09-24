@@ -86,6 +86,12 @@ Page({
     },
 
     borrowBook: function (e) {
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return;
+        }
         //借书
         var that = this;
         var canShareId = that.data.canShareId;
@@ -180,6 +186,12 @@ Page({
 
 
     affirmBorrowBook: function (e) {
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return;
+        }
         var that = this;
         var canShareId = that.data.canShareId;
         var openIds = that.data.openIds;

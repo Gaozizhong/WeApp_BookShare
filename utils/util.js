@@ -131,10 +131,25 @@ module.exports = {
                                     wx.request({
                                         url: 'https://' + getApp().globalData.apiUrl + '?m=home&c=User&a=regiser&avatarUrl=' + res.avatarUrl + "&city=" + res.city + "&country=" + res.country + "&gender=" + res.gender + "&nickName=" + res.nickName + "&province=" + res.province + "&openId=" + getApp().globalData.openId,
                                         success: function (res) {
+                                            if (res.data[0]["certificationOk"] == 0){
+                                                var str = "您还没有认证，请前往个人中心认证!";
+                                                wx.showModal({
+                                                    title: '提醒',
+                                                    content: str,
+                                                    showCancel: false,
+                                                })
+                                            } else if (res.data[0]["certificationOk"] == 3){
+                                                var str = "认证被驳回，请重新上传信息！";
+                                                wx.showModal({
+                                                    title: '提醒',
+                                                    content: str,
+                                                    showCancel: false,
+                                                })
+                                            }
+                                            
                                             getApp().globalData.userId = res.data[0]["ID"];
                                             getApp().globalData.userInfo = res.data[0];
                                             getApp().globalData.certificationOk = res.data[0]["certificationOk"];
-                                            console.log(getApp().globalData)
                                             param.setData({
                                                 userInfo: getApp().globalData.userInfo,
                                                 certificationOk: getApp().globalData.certificationOk,

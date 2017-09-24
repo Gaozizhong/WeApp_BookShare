@@ -1,5 +1,5 @@
 <import src="../templates/templates.wxml"/>
-<import src="../templates/templates.wxss"/>
+
 <!--index.wxml-->
 <!-- <loading hidden="{{ !loading }}">加载中...</loading>  -->
 <view class="container" style="background:#f4f4f4">
