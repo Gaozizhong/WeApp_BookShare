@@ -1,0 +1,30 @@
+<!-- 第一块 -->
+<loading hidden="{{ !loading }}">加载中...</loading>
+<view class="container">
+    <view class="firstblock" style="margin-top:10px">
+        <view class="item" style='height:330px;'>
+            <view class='integral'>
+                <view style='padding-left:30px;font-size:90px;' bindtap='reduce'>-</view>
+                <view style='padding-left:10px;font-size:40px;padding-top:10px;'>￥</view>
+                <input bindtap='bindManual' type='number' maxlength='2' style='height:65px;' value='{{integral}}'></input>
+                <view style='padding-right:30px;font-size:90px;' bindtap='add'>+</view>
+            </view>
+            <view style='text-align:center;color:#c9c9c9;font-size:15px;'>请根据实际情况支付磨损费用或感谢费用</view>
+            <view style='text-align:center;color:#c9c9c9;font-size:15px;'>（可多次点击下方按钮）</view>
+            <view style='display:flex;margin-bottom:10px;'>
+                <button bindtap='add1'>褶皱 +1</button>
+                <button bindtap='add2'>破损 +2</button>
+            </view>
+            <view style='display:flex;'>
+                <button bindtap='add3'>弄脏 +1</button>
+                <button bindtap='add4'>感谢 +1</button>
+            </view>
+        </view>
+        <view class='h1'></view>
+        <view class="item" style='padding:5px 5%;'>
+            <button class='submit' bindtap="" type="submit">
+                支付
+            </button>
+        </view>
+    </view>
+</view>

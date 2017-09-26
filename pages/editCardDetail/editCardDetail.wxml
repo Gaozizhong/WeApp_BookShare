@@ -1,0 +1,41 @@
+<loading hidden="{{ loading }}">加载中...</loading>
+<view class="container">
+    <view class="book_list" style="background:#fff">
+        <view class="book-tmp" style=''>
+            <image src="{{bookInfo.image_large}}" class="book-image"></image>
+            <view class="book-info" style='flex-direction:column;'>
+                <view class="book-name" style='height:30%;margin-top:20px;'>{{bookInfo.book_name}}</view>
+                <view class="book-applier" style='margin-left:0px;margin-top:20px;font-size:18px;'>
+                    {{bookInfo.writer}}
+                </view>
+            </view>
+            <view class="clear-both"></view>
+        </view>
+        <view style="width:96%;margin:0 auto;height:1px;background:#f0f0f0"></view>
+        <textarea auto-focus placeholder="请输入您的感想" value="{{cardInfo}}" maxlength="-1" class="card_content" bindinput="setContent" />
+        <view style='padding-right:20px;margin-top:15px;margin-bottom:40px;'>
+            <text style='font-size:20px;float:right;'>--lee</text>
+        </view>
+        <view class="brief" style="padding-left: 20px;padding-bottom:5px;font-size:14px;color:#BDBDBD;text-indent: 5px">From BookShare At 2014/12/25</view>
+    </view>
+    <view class="comment1-description">
+        <view class="comment1-description1">对此书进行评分</view>
+        <view class='half'>
+            <block wx:for="{{stars}}">
+                <image class="star-image" style="left: {{item*50}}rpx" src="{{key > item ?(key-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                    <view class="item1" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft"></view>
+                    <view class="item1" style="left:25rpx" data-key="{{item+1}}" bindtap="selectRight"></view>
+                </image>
+            </block>
+        </view>
+    </view>
+    <view class="item">
+        <view style='padding-left: 15px;'>是否可以被别人看到</view>
+        <view style="padding-left:46%;">
+            <switch bindchange="changeProtect" checked="{{checked}}" />
+        </view>
+    </view>
+    <view class="operate" style='margin-top:10px;'>
+        <button type="primary" bindtap="makeCard">完成</button>
+    </view>
+</view>

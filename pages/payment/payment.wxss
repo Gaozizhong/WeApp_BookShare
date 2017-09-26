@@ -1,0 +1,41 @@
+.container {
+    margin-top: 10px;
+    width: 96%;
+    padding: 2px 2px;
+    margin: 0 auto;
+}
+
+.firstblock {
+    background-color: #fff;
+    width: 100%;
+}
+
+/* 设置条目 */
+
+.item {
+    height: 47px;
+    line-height: 47px;
+    background-color: #fff;
+    font-size: 13px;
+}
+
+.h1 {
+    height: 1px;
+    margin: 0 15px;
+    background: #f0f0f0;
+}
+
+.integral {
+    font-size: 50px;
+    padding-top: 50px;
+    display: flex;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: center;
+}
+
+.submit {
+    background-color: #09bb07;
+    width: 100%;
+    color: #fff;
+}
