@@ -87,7 +87,7 @@
                                     确认借出
                                 </button>
                             </form> -->
-                            <form name='pushMsgFm' report-submit="true" data-sharingid="{{book.sharing_id}}" data-openid="{{book.openId}}" bindsubmit="screenQRcode">
+                            <form name='pushMsgFm' report-submit="true" data-price="{{book.price}}" data-sharingid="{{book.sharing_id}}" data-openid="{{book.openId}}" bindsubmit="screenQRcode">
                                 <button form-type="submit" class="agree">
                                     扫码确认
                                 </button>

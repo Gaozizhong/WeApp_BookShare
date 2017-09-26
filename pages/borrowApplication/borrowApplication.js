@@ -144,7 +144,8 @@ Page({
     },
 
     //扫码确认借出
-    screenQRcode:function(){
+    screenQRcode:function(e){
+        var price = e.currentTarget.dataset.price;
         wx.getSetting({
             success(res) {
                 if (res.authSetting['scope.userInfo']) {
@@ -167,7 +168,7 @@ Page({
                                             if (app.globalData.userId == res.data["owner_id"]){
                                                 if (res.data["user_id"] == array[1]){
                                                     wx.request({
-                                                        url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=screenBorrow&sharingId=' + sharingId,
+                                                        url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=screenBorrow&sharingId=' + sharingId + "&price=" + price + "&userId=" + app.globalData.userId,
                                                         method: "GET",
                                                         header: {
                                                             'content-type': 'application/json'
