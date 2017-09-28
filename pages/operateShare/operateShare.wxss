@@ -15,7 +15,7 @@
     line-height: 47px;
     padding-left: 15px;
     background-color: #fff;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .h10 {
@@ -55,8 +55,8 @@
 .item1 {
     position: absolute;
     top: 5rpx;
-    width: 40rpx;
-    height: 80rpx;
+    width: 25rpx;
+    height: 50rpx;
 }
 .section{
     width: 60%;
