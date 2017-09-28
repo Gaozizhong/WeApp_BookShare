@@ -1,5 +1,4 @@
 var utils = require('../../utils/util.js');
-
 //index.js
 //获取应用实例
 var screenNum = 3;
@@ -9,7 +8,7 @@ Page({
         cateisShow: false,
         activeNum: 1,
         loading: true,
-        bookObj:null,
+        bookObj: null,
     },
 
     //事件处理函数
@@ -35,7 +34,7 @@ Page({
             success: function (res) {
                 that.setData({
                     bookObj: res.data,
-                    loading:false
+                    loading: false
                 })
             },
             fail: function () {
@@ -46,13 +45,12 @@ Page({
                 })
             }
         })
-        
     },
 
-    onShow: function () {
-        this.onLoad() 
+    onShow: function (){
+        this.onLoad();
     },
-    
+
     changeTab: function (event) {
         //切换筛选tab
         var num = event.target.dataset.id;
@@ -62,6 +60,12 @@ Page({
     },
 
     screenISBN: function () {
+        if (app.globalData.certificationOk != 2){
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return ;
+        }
         wx.getSetting({
             success(res) {
                 if (res.authSetting['scope.userInfo']) {
@@ -88,12 +92,12 @@ Page({
                             }
                         }
                     })
-                }else{
+                } else {
                     utils.checkSettingStatu();
                 }
             }
         })
-        
+
     },
 
     detail: function (event) {
@@ -105,7 +109,7 @@ Page({
             url: '../detail/detail?bookId=' + bookId + "&canShareId=" + canShareId + "&book_type=" + book_type,
         })
     },
-    
+
     togglePtype: function () {
         //显示分类
         this.setData({

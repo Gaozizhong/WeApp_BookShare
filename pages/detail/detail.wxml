@@ -22,6 +22,7 @@
             <text class="info" wx:elif="{{book_type == 1}}">自营点：{{bookInfo.pilot_name?bookInfo.pilot_name+'自营点':bookInfo.location}}</text>
             <text class="info">出版社：{{bookInfo.book_press}}</text>
             <text class="info">出版日期：{{bookInfo.publish_date}}</text>
+            <text class="info">所需积分：{{bookInfo.price}}分</text>
         </view>
         <view class="summary">
             <text class="label">摘要：</text>

@@ -1,9 +1,10 @@
 <!-- 第一块 -->
+<import src="../templates/templates.wxml"/>
 <loading hidden="{{ !loading }}">加载中...</loading>
 <view class="container">
     <view class="firstblock" style="margin-top:10px">
         <view class="item" style='height:250px;'>
-            <view class='integral'>888</view>
+            <view class='integral'>{{integral}}</view>
             <view style='text-align:center;color:#c9c9c9;font-size:20px;'>账户积分（分）</view>
         </view>
         <view class='h1'></view>
@@ -15,12 +16,8 @@
     </view>
     <view style='text-align:center;font-size:15px;margin=top:5px;'>明细</view>
     <view class="firstblock" style="margin-top:10px">
-        <view class="item" style='display: flex;'>
-                <text class="leftText1">
-                    注册、认证
-                </text>
-                <text class='leftText2'>2017/9/15 20:52</text>
-            <view class='rightText'>+100</view>
+        <view wx:for="{{integralRecord}}" wx:for-index="index" wx:for-item="record">
+            <template is="integralRecord" data="{{record}}"/>
         </view>
     </view>
 </view>

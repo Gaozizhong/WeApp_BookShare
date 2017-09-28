@@ -34,7 +34,7 @@ Page({
                 app.globalData.userInfo = res.data[0];
                 that.setData({
                     userInfo: res.data[0],
-                    pictureFiles: 'https://'+app.globalData.apiUrl+"/bookshare"+res.data[0]["authPic"],
+                    pictureFiles: 'https://'+app.globalData.apiUrl+res.data[0]["authPic"],
                     userName: res.data[0]["userName"],
                     phoneNumber: res.data[0]["phoneNumber"],
                     userSchool: res.data[0]["userSchool"],
@@ -222,7 +222,7 @@ Page({
             return;
         }
         wx.uploadFile({
-            url: 'https://' + app.globalData.apiUrl + '/bookshare/index.php/Home/User/selfAuth',
+          url: 'https://' + app.globalData.apiUrl + '/index.php?m=home&c=User&a=selfAuth',
             header: {
                 'content-type': "multipart/form-data"
             }, // 设置请求的 header

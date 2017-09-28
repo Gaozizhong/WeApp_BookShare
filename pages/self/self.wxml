@@ -6,8 +6,17 @@
         <view class="title" id="user_name">
             {{userInfo.nickName?userInfo.nickName:"点击授权登录"}}
         </view>
-        <view class="subtitle" id="shenfen">
-            {{userInfo.certificationOk == 2?"已认证":"未认证"}}
+        <view class="subtitle" id="shenfen" wx:if="{{userInfo.certificationOk == 0}}">
+            未认证
+        </view>
+        <view class="subtitle" id="shenfen" wx:if="{{userInfo.certificationOk == 1}}">
+            认证中
+        </view>
+        <view class="subtitle" id="shenfen" wx:if="{{userInfo.certificationOk == 2}}">
+            已认证
+        </view>
+        <view class="subtitle" id="shenfen" wx:if="{{userInfo.certificationOk == 3}}">
+            被驳回
         </view>
     </view>
     <!--<image src="../../images/personal_icon_arrow.png" class="person_arrow"></image>-->

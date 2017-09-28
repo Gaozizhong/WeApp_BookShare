@@ -4,7 +4,6 @@
         <view class="photo-box" style="margin:0 auto;padding-top:8px;">
              <image src="{{userInfo.favicon==''?'../../images/user_defaulthead@2x.png':userInfo.favicon}}" style="border-radius: 100px" class="personal_logo" id="personal_logo"></image>
         </view>
-        <view style='text-align:center;margin-top:-25px;'>123123</view>
     </view>
     <view class="h1"></view>
     <view class="name item">

@@ -87,7 +87,7 @@
                                     确认借出
                                 </button>
                             </form> -->
-                            <form name='pushMsgFm' report-submit="true" data-sharingid="{{book.sharing_id}}" data-openid="{{book.openId}}" bindsubmit="screenQRcode">
+                            <form name='pushMsgFm' report-submit="true" data-price="{{book.price}}" data-sharingid="{{book.sharing_id}}" data-openid="{{book.openId}}" bindsubmit="screenQRcode">
                                 <button form-type="submit" class="agree">
                                     扫码确认
                                 </button>
@@ -679,3 +679,52 @@
     </template>
     
 <!-- 评论列表 -->
+
+<!-- 积分列表 -->
+    <!-- 积分记录 模板-->
+        <template name="integralRecord">
+            <view class="item" style='display: flex;' wx:if="{{record.type == 1}}">
+                <text class="leftText1">
+                    注册、认证
+                </text>
+                <text class='leftText2'>{{record.add_time}}</text>
+                <view class='rightText'>+{{record.value}}</view>
+            </view>
+            <view class="item" style='display: flex;' wx:if="{{record.type == 2}}">
+                <text class="leftText1">
+                    上传图书
+                </text>
+                <text class='leftText2'>{{record.add_time}}</text>
+                <view class='rightText'>+{{record.value}}</view>
+            </view>
+            <view class="item" style='display: flex;' wx:if="{{record.type == 3}}">
+                <text class="leftText1">
+                    代为运营
+                </text>
+                <text class='leftText2'>{{record.add_time}}</text>
+                <view class='rightText'>+{{record.value}}</view>
+            </view>
+            <view class="item" style='display: flex;' wx:if="{{record.type == 4}}">
+                <text class="leftText1">
+                    捐赠图书
+                </text>
+                <text class='leftText2'>{{record.add_time}}</text>
+                <view class='rightText'>+{{record.value}}</view>
+            </view>
+            <view class="item" style='display: flex;' wx:if="{{record.type == 5}}">
+                <text class="leftText1">
+                    分享
+                </text>
+                <text class='leftText2'>{{record.add_time}}</text>
+                <view class='rightText'>+{{record.value}}</view>
+            </view>
+            <view class="item" style='display: flex;' wx:if="{{record.type == 6}}">
+                <text class="leftText1">
+                    借书
+                </text>
+                <text class='leftText2'>{{record.add_time}}</text>
+                <view class='rightText'>-{{record.value}}</view>
+            </view>
+        </template>
+    <!-- 积分记录 模板-->
+<!-- 积分列表 -->

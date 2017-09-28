@@ -57,6 +57,9 @@ App({
         access_token:null,
         pilotKeepTime:7 ,//自营点时间
         latitude: 39.2349700000,//团队所在纬度
-        longitude: 117.0582000000//团队所在经度
+        longitude: 117.0582000000,//团队所在经度
+
+        
+
     },
 })

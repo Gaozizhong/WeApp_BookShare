@@ -1,5 +1,5 @@
 var utils = require('../../utils/util.js');
-
+var app = getApp()
 // pages/home/index.js
 Page({
 
@@ -70,6 +70,12 @@ Page({
      * 别人的借书申请
      */
     borrowApplication:function(){
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return;
+        }
         wx.navigateTo({
             url: '../borrowApplication/borrowApplication'
         })
@@ -79,6 +85,12 @@ Page({
      * 借入
      */
     borrowIn: function () {
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return;
+        }
         wx.navigateTo({
             url: '../borrowIn/borrowIn'
         })
@@ -86,6 +98,12 @@ Page({
 
     //待归还
     returnBack:function(){
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return;
+        }
         wx.navigateTo({
             url: '../returnBack/returnBack'
         })
@@ -93,6 +111,12 @@ Page({
 
     //收书
     getBook:function(){
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return;
+        }
         wx.navigateTo({
             url: '../getBook/getBook'
         })
@@ -100,24 +124,48 @@ Page({
 
     //图书管理
     bookMan: function () {
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return;
+        }
         wx.navigateTo({
             url: '../bookMan/bookMan'
         })
     },
     
     screenISBN: function () {
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return;
+        }
         wx.navigateTo({
             url: '../operateShare/operateShare'
         })
     },
 
     pilot:function(){
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return;
+        }
         wx.navigateTo({
             url: '../pilot/pilot'
         })
     },
 
     openComment: function () {
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return;
+        }
       wx.navigateTo({
           url: '../joinShare/joinShare'
       })

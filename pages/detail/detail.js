@@ -14,7 +14,7 @@ Page({
         openIds: null,
         params: null,
         commentInfo:null,
-
+        borrowNeed: app.globalData.borrow
     },
 
     /**
@@ -86,6 +86,12 @@ Page({
     },
 
     borrowBook: function (e) {
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return;
+        }
         //借书
         var that = this;
         var canShareId = that.data.canShareId;
@@ -99,13 +105,21 @@ Page({
         } else {
             //判断不能借自己书、是否借出
             wx.request({
-                url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId + "&protect=0",
+                url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId + "&protect=0" + "&price=" + that.data.bookInfo.price,
                 method: "GET",
                 header: {
                     'content-type': 'application/json',
                 },
                 success: function (res) {
-                    if (res.data[0].result == "sharing") {
+                    if (res.data[0].result == "noEnough"){
+                        wx.showToast({
+                            title: '您的积分不够,请通过其他方式获取积分！',
+                            icon: 'false',
+                            duration: 2000
+                        })
+                        return ;
+                    }
+                    else if (res.data[0].result == "sharing") {
                         wx.showToast({
                             title: '图书已被借出！',
                             icon: 'false',
@@ -180,6 +194,12 @@ Page({
 
 
     affirmBorrowBook: function (e) {
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return;
+        }
         var that = this;
         var canShareId = that.data.canShareId;
         var openIds = that.data.openIds;
