@@ -30,7 +30,7 @@
 
 .half {
     position: absolute;
-    /* margin-left: 180rpx; */
+     margin-left: 180rpx; 
     margin-top: -45rpx;
     margin-right: 30px;
 }
@@ -46,6 +46,6 @@
 .item1 {
     position: absolute;
     top: 5rpx;
-    width: 40rpx;
-    height: 80rpx;
+    width: 25rpx;
+    height: 50rpx;
 }

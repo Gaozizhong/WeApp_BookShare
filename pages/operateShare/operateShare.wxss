@@ -15,7 +15,7 @@
     line-height: 47px;
     padding-left: 15px;
     background-color: #fff;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .h10 {
