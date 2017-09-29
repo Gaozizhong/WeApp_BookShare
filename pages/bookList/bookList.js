@@ -19,7 +19,7 @@ Page({
                     readNum: res.data.readNum,
                     loveNum: res.data.loveNum,
                     shareNum: res.data.shareNum,
-                    
+                    booklistObj: res.data.private
                 })
             },
             fail: function () {

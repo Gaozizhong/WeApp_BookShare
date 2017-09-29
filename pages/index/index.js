@@ -27,9 +27,28 @@ Page({
     onLoad: function () {
         var that = this;
         utils.getUserData();
+        that.getBookList();
+    },
+
+    //设置搜索内容
+    setSearchValue: function (e) {
+        var that = this;
+        that.setData({
+            searchValue: e.detail.value
+        })
+    },
+
+    //获取图书列表
+    getBookList:function(){
+        var that = this 
+        var url = 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=bookList&screen=' + that.data.activeNum;
+        if (that.data.searchValue){
+            url += "&value=";
+            url += that.data.searchValue;
+        }
         //图书列表数据获取
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=bookList',
+            url: url,
             method: "GET",
             success: function (res) {
                 that.setData({
@@ -57,6 +76,7 @@ Page({
         this.setData({
             activeNum: num
         })
+        this.getBookList()
     },
 
     screenISBN: function () {

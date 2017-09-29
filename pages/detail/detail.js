@@ -60,6 +60,14 @@ Page({
         utils.checkSettingStatu();
     },
 
+    previewImage: function (e) {
+        var that = this;
+        wx.previewImage({
+            //数据源
+            urls: [that.data.bookInfo.image_large]
+        })
+    },
+
     togglePtype: function () {
         //显示分类
         this.setData({
@@ -105,7 +113,7 @@ Page({
         } else {
             //判断不能借自己书、是否借出
             wx.request({
-                url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId + "&protect=0" + "&price=" + that.data.bookInfo.price,
+                url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId + "&protect=0" + "&price=" + that.data.bookInfo.price + "&bookType=" + book_type,
                 method: "GET",
                 header: {
                     'content-type': 'application/json',
@@ -207,7 +215,7 @@ Page({
 
         //判断不能借自己书、是否借出
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId,
+            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId + "&price=" + that.data.bookInfo.price + "&bookType=" + that.data.book_type,
             method: "GET",
             header: {
                 'content-type': 'application/json',

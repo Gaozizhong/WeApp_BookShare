@@ -94,53 +94,61 @@ Page({
     },
 
     //拒绝
-    refuseApply: function (e) {
-        var formId = e.detail.formId;
-        var sharingId = e.currentTarget.dataset.sharingid;
-        var openId = e.currentTarget.dataset.openid;
-        var canShareId = e.currentTarget.dataset.canshareid;
-        var that = this
-        wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=refuseApplication&sharingId=' + sharingId + "&canShareId=" + canShareId,
-            method: "GET",
-            header: {
-                'content-type': 'application/json'
-            },
-            success: function (res) {
-                if (res.data == "refused") {
-                    wx.showToast({
-                        title: '已拒绝借出，无需重复操作！',
-                        icon: 'true',
-                        duration: 2000
-                    })
-                    return ;
-                } else if (res.data == "success") {
-                    wx.showToast({
-                        title: '拒绝成功',
-                        icon: 'true',
-                        duration: 2000
-                    })
-                    that.onLoad();
-                    return;
-                } else if (res.data == "fail") {
-                    wx.showToast({
-                        title: '拒绝失败，请稍后重试',
-                        icon: 'true',
-                        duration: 2000
-                    })
-                    return;
-                }
-            },
-            fail: function () {
-                wx.showToast({
-                    title: '拒绝失败，请稍后重试',
-                    icon: 'false',
-                    duration: 2000
-                })
-                return;
-            }
-        })
+    // refuseApply: function (e) {
+    //     var formId = e.detail.formId;
+    //     var sharingId = e.currentTarget.dataset.sharingid;
+    //     var openId = e.currentTarget.dataset.openid;
+    //     var canShareId = e.currentTarget.dataset.canshareid;
+    //     var that = this
+    //     wx.request({
+    //         url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=refuseApplication&sharingId=' + sharingId + "&canShareId=" + canShareId,
+    //         method: "GET",
+    //         header: {
+    //             'content-type': 'application/json'
+    //         },
+    //         success: function (res) {
+    //             if (res.data == "refused") {
+    //                 wx.showToast({
+    //                     title: '已拒绝借出，无需重复操作！',
+    //                     icon: 'true',
+    //                     duration: 2000
+    //                 })
+    //                 return ;
+    //             } else if (res.data == "success") {
+    //                 wx.showToast({
+    //                     title: '拒绝成功',
+    //                     icon: 'true',
+    //                     duration: 2000
+    //                 })
+    //                 that.onLoad();
+    //                 return;
+    //             } else if (res.data == "fail") {
+    //                 wx.showToast({
+    //                     title: '拒绝失败，请稍后重试',
+    //                     icon: 'true',
+    //                     duration: 2000
+    //                 })
+    //                 return;
+    //             }
+    //         },
+    //         fail: function () {
+    //             wx.showToast({
+    //                 title: '拒绝失败，请稍后重试',
+    //                 icon: 'false',
+    //                 duration: 2000
+    //             })
+    //             return;
+    //         }
+    //     })
 
+    // },
+
+    refuseApply:function(e){
+        var sharingId = e.currentTarget.dataset.sharingid;
+        var canShareId = e.currentTarget.dataset.canshareid;
+        wx.navigateTo({
+            url: '../cancelReason/cancelReason?sharingId=' + sharingId + "&canShareId=" + canShareId,
+        })
     },
 
     //扫码确认借出

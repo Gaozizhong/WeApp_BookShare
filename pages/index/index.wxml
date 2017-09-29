@@ -18,8 +18,8 @@
         <view style="width:98%;margin:0 auto">
             <view class="search-scanner">
                 <image src="../../images/scanner.png" bindtap="screenISBN"></image>
-                <input type="text" placeholder="请输入书名/ISBN号/作者/关键字" />
-                <icon type="search" size="18" color="#666666" />
+                <input type="text" bindinput='setSearchValue' placeholder="请输入书名/ISBN号/作者/关键字" bindconfirm="getBookList" confirm-type="search" />
+                <icon type="search" size="18" color="#666666" bindtap='getBookList' />
             </view>
         </view>
 

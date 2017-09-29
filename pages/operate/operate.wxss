@@ -5,11 +5,11 @@
     z-index: 100px;
     position: fixed;
     bottom:0px;
-    background: #fff;
+    /* background: #fff; */
 }
 .bottom-box{
     width: 100%;
-    background: #fff;
+    /* background: #fff; */
     text-align: center
 }
 .list-box{

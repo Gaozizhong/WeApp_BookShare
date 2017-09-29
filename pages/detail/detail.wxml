@@ -3,7 +3,7 @@
     <loading hidden="{{ !loading }}">加载中...</loading>
 
     <image class="background" src="{{bookInfo.image_large}}" mode="aspectFill" />
-    <image class="poster" src="{{bookInfo.image_large}}" mode="aspectFit" />
+    <image class="poster" src="{{bookInfo.image_large}}" bindtap='previewImage' mode="aspectFit" />
     <view style="padding:0px 0px">
         <view class="meta">
             <text class="title">{{bookInfo.book_name}}</text>

@@ -46,6 +46,17 @@
             </view>
         </view>
     </view>
+    <view wx:for="{{booklistObj}}" wx:for-index="index" wx:for-item="booklist">
+        <view class="list-info" bindtap="openBookListInfo" data-type="2">
+            <view class='item'>
+                <text class="list-name">{{booklist.name}}</text>
+                <text class='number'>{{loveNum}}本书</text>
+            </view>
+            <view class="describe">
+                {{booklist.description}} ——某人
+            </view>
+        </view>
+    </view>
 
 
     <!-- <view class="list-info">

@@ -3,13 +3,13 @@
     <view class="list-info" style='height:50px;margin-top:10px;'>
         <view class='name'>
             <view>书单名称：</view>
-            <input style='width:40px;'></input>
+            <input style='width:40px;' bindinput='setName'></input>
         </view>
     </view>
     <view class="list-info" style='height:105px;margin-top:10px;'>
         <view class='describe'>
             <view>书单描述：</view>
-            <textarea style='height:60px;font-size:18px' placeholder='清输入书单描述~'></textarea>
+            <textarea style='height:60px;font-size:18px' bindinput='setDescription' placeholder='清输入书单描述~'></textarea>
         </view>
     </view>
     <view class="list-info" style='height:60px;'>
@@ -19,6 +19,6 @@
         </view>
     </view>
     <view class="list-info" style='height:60px;'>
-        <button class='submit' type="submit">完成</button>
+        <button class='submit' type="submit" bindtap='addBookList'>完成</button>
     </view>
 </view>

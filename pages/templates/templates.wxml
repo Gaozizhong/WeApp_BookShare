@@ -725,6 +725,20 @@
                 <text class='leftText2'>{{record.add_time}}</text>
                 <view class='rightText'>-{{record.value}}</view>
             </view>
+            <view class="item" style='display: flex;' wx:if="{{record.type == 7}}">
+                <text class="leftText1">
+                    借书流转
+                </text>
+                <text class='leftText2'>{{record.add_time}}</text>
+                <view class='rightText'>+{{record.value}}</view>
+            </view>
+            <view class="item" style='display: flex;' wx:if="{{record.type == 8}}">
+                <text class="leftText1">
+                    取消借书订单
+                </text>
+                <text class='leftText2'>{{record.add_time}}</text>
+                <view class='rightText'>+{{record.value}}</view>
+            </view>
         </template>
     <!-- 积分记录 模板-->
 <!-- 积分列表 -->

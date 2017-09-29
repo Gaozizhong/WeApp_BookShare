@@ -6,7 +6,7 @@
             <view class='integral'>
                 <view style='padding-left:30px;font-size:90px;' bindtap='reduce'>-</view>
                 <view style='padding-left:10px;font-size:40px;padding-top:10px;'>￥</view>
-                <input bindtap='bindManual' type='number' maxlength='2' style='height:65px;' value='{{integral}}'></input>
+                <input bindinput='bindManual' type='number' maxlength='2' style='height:65px;' value='{{integral}}'></input>
                 <view style='padding-right:30px;font-size:90px;' bindtap='add'>+</view>
             </view>
             <view style='text-align:center;color:#c9c9c9;font-size:15px;'>请根据实际情况支付磨损费用或感谢费用</view>
