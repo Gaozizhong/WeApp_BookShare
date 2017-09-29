@@ -21,9 +21,9 @@
             <view class="comment1-description1">借书态度：</view>
             <view class='half'>
                 <block wx:for="{{stars}}">
-                    <image class="star-image" style="left: {{item*80}}rpx" src="{{key1 > item ?(key1-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                    <image class="star-image" style="left: {{item*60}}rpx" src="{{key1 > item ?(key1-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
                         <view class="item1" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft1"></view>
-                        <view class="item1" style="left:40rpx" data-key="{{item+1}}" bindtap="selectRight1"></view>
+                        <view class="item1" style="left:30rpx" data-key="{{item+1}}" bindtap="selectRight1"></view>
                     </image>
                 </block>
             </view>
@@ -32,9 +32,9 @@
             <view class="comment1-description1">图书保护：</view>
             <view class='half'>
                 <block wx:for="{{stars}}">
-                    <image class="star-image" style="left: {{item*80}}rpx" src="{{key2 > item ?(key2-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                    <image class="star-image" style="left: {{item*60}}rpx" src="{{key2 > item ?(key2-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
                         <view class="item1" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft2"></view>
-                        <view class="item1" style="left:40rpx" data-key="{{item+1}}" bindtap="selectRight2"></view>
+                        <view class="item1" style="left:30rpx" data-key="{{item+1}}" bindtap="selectRight2"></view>
                     </image>
                 </block>
             </view>

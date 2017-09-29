@@ -18,7 +18,6 @@ Page({
         halfSrc: '../../images/half.png',
         key1: 5,//评分
         key2: 5,//评分
-        key3: 5,//评分
     },
 
     /**
@@ -83,7 +82,7 @@ Page({
         })
     },
     /**
-     * 图书质量
+     * 图书保护
      */
     selectLeft2: function (e) {
         var key2 = e.currentTarget.dataset.key

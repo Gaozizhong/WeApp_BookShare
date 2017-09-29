@@ -55,8 +55,8 @@
 .item1 {
     position: absolute;
     top: 5rpx;
-    width: 40rpx;
-    height: 80rpx;
+    width: 25rpx;
+    height: 50rpx;
 }
 .section{
     width: 60%;

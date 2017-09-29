@@ -23,32 +23,34 @@
             <span>ISBN:</span>
             <input type="number" class="rightText" value="{{bookInfo.isbn13}}" bindinput="setBorrowDays" placeholder="请输入ISBN号" />
         </view>
-        
-        
+
+
     </view>
     <!-- 第二块 -->
     <view class="h10"></view>
     <view class="thirdblock">
         <view class="item">
             <span>位置：</span>
-            <view class="rightText" bindtap="chooseLocation">
-                <view style="padding-right:30px">{{location?location:"请选择位置"}}</view>
-            </view>
-            <view style="height:47px;line-height:47px;width:20px;margin-left:10px;margin-top:3px;float:right">
+            <view style='float:right;display:flex;'>
+                <view class="rightText" style='text-align' bindtap="chooseLocation">
+                    <view style="padding-right:30px;">{{location?location:"请选择位置"}}</view>
+                </view>
+                <view style="height:47px;line-height:47px;width:20px;margin-top:3px;margin-right:30px;">
                     <image style='height:20px;width:20px;' src='../../images/location.png'></image>
                 </view>
+            </view>
         </view>
         <view class="h1"></view>
         <view class="item">
-            <span>可借天数：</span>
-            <input type="number" class="rightText" value="{{uploadDays}}" bindinput="setDays" />
+            <view><span style="font-size:10px;">可借天数：</span></view>
+            <input style="margin-top:-46px" type="number" class="rightText" value="{{uploadDays}}" bindinput="setDays" />
         </view>
         <view class="h1"></view>
         <view class="item">
             <!-- <span>适龄：</span> -->
             <!-- <input type="number" class="rightText" value="{{}}" bindinput="" /> -->
             <span>适龄：</span>
-            <view class="section">
+            <view class="section" style="margin-top:-46px">
                 <view style="height:47px;line-height:47px;margin-left:10px;float:right">
                     <image style='height:10px;width:10px' src='../../images/triangle.png'></image>
                 </view>
@@ -58,20 +60,17 @@
                     </view>
                 </picker>
             </view>
-            <view>
-                
-            </view>
         </view>
         <view class="h1"></view>
         <view class="item">
             <span>书评：</span>
             <view class='half'>
                 <block wx:for="{{stars}}">
-                    <image class="star-image" style="left: {{item*80}}rpx" src="{{key1 > item ?(key1-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                    <image class="star-image" style="left: {{item*60}}rpx" src="{{key1 > item ?(key1-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
                         <view class="item1" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft1"></view>
-                        <view class="item1" style="left:40rpx" data-key="{{item+1}}" bindtap="selectRight1"></view>
+                        <view class="item1" style="left:30rpx" data-key="{{item+1}}" bindtap="selectRight1"></view>
                     </image>
-                    
+
                 </block>
                 <view style="clear:both"></view>
             </view>
