@@ -141,7 +141,7 @@
 }
 
 .book-tmp {
-    padding: 2rpx 15rpx 2rpx 15rpx;
+    padding: 2rpx 15rpx 2rpx 0rpx;
     background: #fff;
     margin-bottom: 15rpx;
     height: 220rpx;
@@ -155,10 +155,11 @@
 }
 
 .book-info {
-    width: 75%;
+    width: 73%;
     float: right;
     height: 100%;
     text-align: center;
+    padding-left: 2%;
 }
 
 .book-name {

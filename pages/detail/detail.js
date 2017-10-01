@@ -143,7 +143,7 @@ Page({
                         if (book_type == 0) {
                             wx.showModal({
                                 title: '通知',
-                                content: '书主关闭了借书申请，您可以直接联系他！',
+                                content: '扣除您' + that.data.bookInfo.price+'积分，您可以直接联系书主借书！',
                                 success: function (res) {
                                     if (res.confirm) {
                                         wx.makePhoneCall({
@@ -169,7 +169,7 @@ Page({
                             //自营点借书成功提示
                             wx.showModal({
                                 title: '通知',
-                                content: '借入成功，你需要前往此自营点借书！',
+                                content: '借入成功，扣除' + that.data.bookInfo.price+'积分，你需要前往此自营点借书！',
                                 success: function (res) {
                                     if (res.confirm) {
 

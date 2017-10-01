@@ -540,7 +540,7 @@
                     <view class="book-name" style="height:30%" bindtap="pilotBorrowIn" data-sharingId="{{book.sharing_id}}" data-type="{{book.type}}" data-canShareID ="{{book.can_share_id}}">{{book.book_name}}—{{book.writer}}</view>
                     <view class="book-applier">
                         <view class="left">
-                            <image src="../../images/applier.png" style="width:15px;height:15px;"></image> {{book.pilot_name?book.pilot_name:'显示失败'}}
+                            <image src="../../images/applier.png" style="width:15px;height:15px;"></image> {{book.pilot_name?book.pilot_name:'自营点'}}
                         </view>
                         <view class="right">
                             <image src="../../images/location.png" style="width:15px;height:15px;"></image> {{book.location}}
