@@ -38,25 +38,35 @@
 <view class="block" style="width:100%;height:100px;"></view>
 <view id="footer" style="display:block;bottom:0px;position:fixed;width:100%;height:50px;z-index:1000px;background:#fff">
     <view type="submit" bindtap="cancelLove" wx:if="{{bookInfo.haveLoved ==1 || haveLoved ==1}}" style="width:20%;border-right: 2px solid #f0f0f0;" class="bottom-operate">
-        <image src='../../images/like-active.png' class='like'></image>
-        <text>取消</text>
+        <view>
+            <image src='../../images/like-active.png' class='like'></image>
+        </view>
+        <view>
+            <span>取消</span>
+        </view>
     </view>
     <view type="submit" bindtap="addLove" wx:elif="{{bookInfo.haveLoved !=1 || haveLoved ==0}}" style="width:20%;border-right: 2px solid #f0f0f0;" class="bottom-operate">
-        <image src='../../images/like.png' class='like'></image>
+        <view>
+            <image src='../../images/like.png' class='like'></image>
+        </view>
         <view>
             <span>喜欢</span>
         </view>
     </view>
     <view type="submit" bindtap="cancelSeen" wx:if="{{bookInfo.haveRead ==1 || haveRead == 1}}" style="width:30%;" class="bottom-operate">
-        <image src='../../images/see.png' class='like'></image>
         <view>
-            <span>看过</span>
+            <image src='../../images/see-active.png' class='like'></image>
         </view>
-    </view>
-    <view type="submit" bindtap="writeCard" wx:elif="{{bookInfo.haveRead !=1 || haveRead == 0}}" style="width:30%;color:#fff" class="bottom-operate">
-        <image src='../../images/see-active.png' class='like'></image>
         <view>
             <span>取消</span>
+        </view>
+    </view>
+    <view type="submit" bindtap="writeCard" wx:elif="{{bookInfo.haveRead !=1 || haveRead == 0}}" style="width:30%;color:#000" class="bottom-operate">
+        <view>
+            <image src='../../images/see.png' class='like'></image>
+        </view>
+        <view>
+            <span>看过</span>
         </view>
     </view>
     <view type="submit" bindtap="borrowBook" style="width:48%;background:#75a8f9;float:right;line-height:50px;font-size:15px;padding-top:0px;color:#fff" class="bottom-operate">

@@ -1,4 +1,4 @@
-<loading hidden="{{ !loading }}">加载中...</loading>
+<!-- <loading hidden="{{ !loading }}">加载中...</loading>
 <view style="margin:10px 15px 10px 15px">
     <view class="photo item" style="height:300px;line-height: 24px;">
         <view class="photo-box" style="width:100px;margin:0 auto;padding-top:10px;">
@@ -18,5 +18,33 @@
         <button class='submit' bindtap="toAuth" type="submit">
             联系我们
         </button>
+    </view>
+</view> -->
+
+<import src="../../components/prompt/prompt.wxml"/>
+
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for-items="{{ tabs}}" wx:key="{{ index }}">
+                    <view id="{{ index }}" class="weui-navbar__item {{ activeIndex == index ? 'weui-bar__item_on' : '' }}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{ item }}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{ sliderLeft }}px; transform: translateX({{ sliderOffset }}px); -webkit-transform: translateX({{ sliderOffset }}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{ activeIndex != 0 }}">
+                	<template is="prompt" data="{{ ...$wux.prompt.msg1 }}"/>
+                </view>
+                <view class="weui-tab__content" hidden="{{ activeIndex != 1 }}">
+                	<template is="prompt" data="{{ ...$wux.prompt.msg2 }}"/>
+                </view>
+                <view class="weui-tab__content" hidden="{{ activeIndex != 2 }}">
+                	<template is="prompt" data="{{ ...$wux.prompt.msg3 }}"/>
+                </view>
+            </view>
+        </view>
     </view>
 </view>

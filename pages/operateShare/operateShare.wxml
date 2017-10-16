@@ -32,8 +32,8 @@
         <view class="item">
             <span>位置：</span>
             <view style='float:right;display:flex;'>
-                <view class="rightText" style='text-align' bindtap="chooseLocation">
-                    <view style="padding-right:30px;">{{location?location:"请选择位置"}}</view>
+                <view class="rightText" style='text-align:right;margin-right:0px;' bindtap="chooseLocation">
+                    <view style="padding-right:10px;">{{location?location:"请选择位置"}}</view>
                 </view>
                 <view style="height:47px;line-height:47px;width:20px;margin-top:3px;margin-right:30px;">
                     <image style='height:20px;width:20px;' src='../../images/location.png'></image>

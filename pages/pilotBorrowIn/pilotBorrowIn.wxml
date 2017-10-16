@@ -59,14 +59,14 @@
     </ul>
 </view>
 <view style="width:100%;height:1px;background:#f4f4f4"></view>
-<view class="classname" style="background:#fff;padding:10px 10px">
+<view style="background:#fff;padding:10px 10px;hieght:70px;">
     <view wx:if="{{sharingInfo.if_loan == 0}}">
         <view wx:if="{{step == 1}}">
             <!-- 扫描图书二维码 -->
             <button type="primary" bindtap="screenQRcode" style="margin-left:10px;" data-index="2">扫描二维码</button>
 
         </view>
-        <view wx:if="{{step == 2}}">
+        <view wx:elif="{{step == 2}}">
             <!-- 扫描书架 -->
             <button type="primary" bindtap="bookcase" style="margin-left:10px;" data-index="3">扫描书架</button>
 

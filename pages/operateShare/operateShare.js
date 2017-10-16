@@ -97,11 +97,11 @@ Page({
                         duration: 2000
                     })
                 } else {
+                    var bookData = res.data;
                     that.setData({
                         bookInfo: res.data,
                         disabled: true,
                     })
-                    var bookData = res.data;
                     wx.request({
                         url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=uploadBookInfo&book_name=' + bookData.title + "&writer=" + bookData.author[0] + "&translator=" + bookData.translator[0] + "&introduction=" + bookData.summary + "&book_image=" + bookData.image + "&book_sort=" + bookData.tags[0].count + "&ISBN10=" + bookData.isbn10 + "&book_press=" + bookData.publisher + "&publish_date=" + bookData.pubdate + "&web_url=" + bookData.url + "&rating=" + bookData.rating.average + "&writer_intro=" + bookData.author_intro + "&image_large=" + bookData.images.large + "&image_medium=" + bookData.images.medium + "&image_small=" + bookData.images.small + "&ISBN13=" + bookData.isbn13 + "&pages=" + bookData.pages + "&price=" + parseInt(bookData.price) + "&rating_max=" + bookData.rating.max + "&rating_min=" + bookData.rating.min + "&raters_num=" + bookData.rating.numRaters + "&subtitle=" + bookData.subtitle,
                         method: "GET",
@@ -182,7 +182,7 @@ Page({
                     })
                 } else if (res.data == "success"){
                     wx.showToast({
-                        title: '分享成功！',
+                        title: '分享成功，积分已入账，请查收！',
                         icon: 'success',
                         duration: 2000
                     })

@@ -136,4 +136,8 @@ Page({
             cateisShow: !this.data.cateisShow
         })
     },
+
+    checkDetail:function(){
+        
+    }
 })

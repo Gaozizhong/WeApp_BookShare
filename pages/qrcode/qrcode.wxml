@@ -1,5 +1,5 @@
 <view class="container">
-<image src="{{picUrl}}"></image>
-<label>对借书人评价</label>
-<button bindtap="openCommentBorrower">评价</button>
+    <image src="{{picUrl}}"></image>
+    <label hidden='true'>对借书人评价</label>
+    <button  hidden='true' bindtap="openCommentBorrower">评价</button>
 </view>

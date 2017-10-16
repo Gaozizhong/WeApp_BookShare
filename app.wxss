@@ -1,5 +1,7 @@
 /**app.wxss**/
-
+@import 'components/wux.wxss';
+@import 'assets/styles/weui.wxss';
+@import 'assets/styles/skyvow.wxss';
 page {
     height: 100%;
     width: 100%;
@@ -106,6 +108,10 @@ page {
 
 .book-applier .left {
     float: left;
+    width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .book-applier .right {

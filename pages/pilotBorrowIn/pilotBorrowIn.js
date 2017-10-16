@@ -29,9 +29,11 @@ Page({
                 'content-type': 'application/json'
             },
             success: function (res) {
+                console.log(res.data)
                 that.setData({
                     sharingInfo: res.data[0]
                 })
+                console.log(that.data)
             },
             fail: function () {
                 wx.showToast({
@@ -45,7 +47,7 @@ Page({
     },
 
     onShow: function () {
-        this.onLoad(this.data);
+        // this.onLoad(this.data);
     },
 
     //扫描图书后的二维码
@@ -60,7 +62,8 @@ Page({
                             if (res.errMsg == "scanCode:ok") {
                                 //扫描成功
                                 if (res.scanType == "QR_CODE") {
-                                    var qrcode = res.result.substring(72);
+                                    console.log(res.result)
+                                    var qrcode = res.result.substring(69);
                                     wx.request({
                                         url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getSharingByQRcode&qrcode=' + qrcode,
                                         method: "GET",
@@ -118,14 +121,19 @@ Page({
                             if (res.errMsg == "scanCode:ok") {
                                 //扫描成功
                                 if (res.scanType == "QR_CODE") {
-                                    var qrcode = res.result.substring(10);
+                                    console.log(res.result)
+                                    // var qrcode = res.result.substring(10);
+                                    var qrcode = res.result;
+                                    var url = 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=screenBookCaseFinish&canShareId=' + that.data.canShareId + '&sharingId=' + that.data.sharingId +'&bookCaseQRcode=' + qrcode;
+                                    console.log(url)
                                     wx.request({
-                                        url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=screenBookCaseFinish&bookCaseQRcode=' + qrcode + "&canShareId=" + that.data.canShareId + "&sharingId=" + that.data.sharingId,
+                                        url: url,
                                         method: "GET",
                                         header: {
                                             'content-type': 'application/json'
                                         },
                                         success: function (res) {
+                                            console.log(res.data);
                                             if (res.data == "loaned") {
                                                 wx.showToast({
                                                     title: '您已成功借出，无需重复！',
@@ -140,6 +148,12 @@ Page({
                                                 })
                                                 that.setData({
                                                     step: e.target.dataset.index
+                                                })
+                                            }else{
+                                                wx.showToast({
+                                                    title: '借书失败，请重试！',
+                                                    icon: 'false',
+                                                    duration: 2000
                                                 })
                                             }
                                         },
@@ -232,9 +246,12 @@ Page({
                             if (res.errMsg == "scanCode:ok") {
                                 //扫描成功
                                 if (res.scanType == "QR_CODE") {
-                                    var qrcode = res.result.substring(10);
+                                    // var qrcode = res.result.substring(10);
+                                    var qrcode = res.result;
+                                    var url = 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=returnBackPilot&canShareId=' + that.data.canShareId + "&sharingId=" + that.data.sharingId + '&locationQRcode=' + qrcode;
+                                    console.log(url)
                                     wx.request({
-                                        url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=returnBackPilot&locationQRcode=' + qrcode + "&canShareId=" + that.data.canShareId + "&sharingId=" + that.data.sharingId,
+                                        url: url,
                                         method: "GET",
                                         header: {
                                             'content-type': 'application/json'

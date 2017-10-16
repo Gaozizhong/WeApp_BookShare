@@ -1,3 +1,6 @@
+import { $wuxPrompt } from '../../components/wux'
+const sliderWidth = 96
+
 //index.js
 //获取应用实例
 var app = getApp()
@@ -17,11 +20,10 @@ Page({
             },
             success: function (res) {
                 if (res.data == "noBorrowIn") {
-                    wx.showToast({
-                        title: '您还没有借过书！',
-                        icon: 'false',
-                        duration: 2000
-                    })
+                    $wuxPrompt.init('msg1', {
+                        title: '空空如也',
+                        text: '暂时没有相关数据',
+                    }).show()
                 } else {
                     that.setData({
                         borrowIn: res.data[0],

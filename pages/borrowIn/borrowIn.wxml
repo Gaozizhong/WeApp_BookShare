@@ -1,31 +1,34 @@
 <import src="../templates/templates.wxml" />
+<import src="../../components/prompt/prompt.wxml"/>
+<view>
+    <template is="prompt" data="{{ ...$wux.prompt.msg1 }}"/>
+    <!--图书列表-->
+    <view class="book-list">
+        <view wx:for="{{borrowIn}}" wx:for-index="index" wx:for-item="book">
+            <!-- 等待响应模板 -->
+            <template is="borrowInLoading" data="{{book}}"></template>
 
-<!--图书列表-->
-<view class="book-list">
-    <view wx:for="{{borrowIn}}" wx:for-index="index" wx:for-item="book">
-        <!-- 等待响应模板 -->
-        <template is="borrowInLoading" data="{{book}}"></template>
+            <!-- 同意模板 书主未借出 联系书主-->
+            <template is="contactOwner" data="{{book}}"></template>
 
-        <!-- 同意模板 书主未借出 联系书主-->
-        <template is="contactOwner" data="{{book}}"></template>
-
-        <!-- 同意模板 书主借出 确认收到书-->
-        <template is="affirmGetBook" data="{{book}}"></template>
-        
+            <!-- 同意模板 书主借出 确认收到书-->
+            <template is="affirmGetBook" data="{{book}}"></template>
+            
+        </view>
     </view>
-</view>
-<!--图书列表 end-->
+    <!--图书列表 end-->
 
 
-<view class="book-list">
-    <view wx:for="{{borrowInRecord}}" wx:for-index="index" wx:for-item="book">
-        <!-- 拒绝模板  -->
-        <template is="refuseBorrowIn" data="{{book}}"></template>
-        
-        <!-- 完成模板  -->
-        <template is="finishBorrowIn" data="{{book}}"></template>
-        
-        <view class="clear-both"></view>
+    <view class="book-list">
+        <view wx:for="{{borrowInRecord}}" wx:for-index="index" wx:for-item="book">
+            <!-- 拒绝模板  -->
+            <template is="refuseBorrowIn" data="{{book}}"></template>
+            
+            <!-- 完成模板  -->
+            <template is="finishBorrowIn" data="{{book}}"></template>
+            
+            <view class="clear-both"></view>
 
+        </view>
     </view>
 </view>

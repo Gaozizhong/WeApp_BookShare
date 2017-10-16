@@ -40,7 +40,7 @@
 }
 .half {
     position: absolute;
-    margin-left: 240rpx;
+    margin-left: 300rpx;
     margin-top: -60px;
 }
 

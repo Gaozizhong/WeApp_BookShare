@@ -1,6 +1,6 @@
 <!-- 首页 -->
 <template name="indexList">
-    <view class="book-tmp" bindtap="detail" data-bookId="{{book.book_id}}" data-type="{{book.type}}" data-canShareID ="{{book.can_share_id}}">
+    <view class="book-tmp" bindtap="detail" bindlongtap='checkDetail' data-bookId="{{book.book_id}}" data-type="{{book.type}}" data-canShareID ="{{book.can_share_id}}">
         <image src="{{book.book_image}}" class="book-image"></image>
         <view class="book-info">
             <view class="book-name">{{book.book_name}}—{{book.writer}}</view>
@@ -216,9 +216,9 @@
                 <view class="book-info">
                     <view class="book-apply-name">
                         {{book.book_name}}
-                        <view class="subtitle">
+                        <!-- <view class="subtitle">
                             已同意
-                        </view>
+                        </view> -->
                     </view>
                     <view class="book-applier">
                         <view class="left">

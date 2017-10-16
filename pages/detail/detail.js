@@ -316,13 +316,14 @@ Page({
                         },
                         success: function (res) {
                             if (res.data == "success") {
+                                that.setData({
+                                    haveRead: 0
+                                })
+                                console.log(that.data)
                                 wx.showToast({
                                     title: '取消成功！',
                                     icon: 'false',
                                     duration: 2000
-                                })
-                                that.setData({
-                                    haveRead: 0
                                 })
                             } else {
                                 wx.showToast({

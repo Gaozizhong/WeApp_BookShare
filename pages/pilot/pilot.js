@@ -67,7 +67,7 @@ Page({
         var sharingId = e.currentTarget.dataset.sharingid;
         var canShareId = e.currentTarget.dataset.canshareid;
         wx.navigateTo({
-            url: '../pilotBorrowIn/pilotBorrowIn?sharingId= '+sharingId + "&canShareId=" + canShareId,
+            url: '../pilotBorrowIn/pilotBorrowIn?sharingId='+sharingId + "&canShareId=" + canShareId,
         })
     }
 
