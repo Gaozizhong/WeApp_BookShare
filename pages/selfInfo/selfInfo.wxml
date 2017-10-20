@@ -15,33 +15,43 @@
     <view class="school item">
         <image src="../../images/school.png" class="item_ico"></image>
         <text>学校</text>
-        <picker bindchange="bindPickerSchoolChange" class="value-right" value="{{schoolIndex}}" range="{{school}}">
+        <!-- <picker bindchange="bindPickerSchoolChange" class="value-right" value="{{schoolIndex}}" range="{{school}}">
             <view class="picker">
                 {{school[schoolIndex]}}
             </view>
-        </picker>
+        </picker> -->
+        <text class="value-right">{{userInfo.userSchool}} </text>
     </view>
     <view class="h1"></view>
     <view class="major item">
         <image src="../../images/specialty.png" class="item_ico"></image>
         <text>专业</text>
-        <picker bindchange="bindPickerMajorChange" class="value-right" value="{{majorIndex}}" range="{{major}}">
+        <!-- <picker bindchange="bindPickerMajorChange" class="value-right" value="{{majorIndex}}" range="{{major}}">
             <view class="picker">
                 {{major[majorIndex]}}
             </view>
-        </picker>
+        </picker> -->
+        <text class="value-right">{{userInfo.userClass}} </text>
     </view>
     <view class="h1"></view>
     <view class="phone item">
         <image src="../../images/telephone.png" class="item_ico"></image>
         <text>联系方式</text>
-        <span class="value-right">13752766442</span>
+        <span class="value-right">{{userInfo.phoneNumber}}</span>
+    </view>
+    <view class="phone item">
+        <image src="../../images/telephone.png" class="item_ico"></image>
+        <text>邮箱</text>
+        <span class="value-right">{{userInfo.eMail}}</span>
     </view>
     <view class="h1"></view>
     <view class="status item">
         <image src="../../images/status.png" class="item_ico"></image>
         <text>状态</text>
-        <span class="value-right">未认证</span>
+        <span class="value-right" wx:if="{{userInfo.certificationOk == 0}}">未认证</span>
+        <span class="value-right" wx:if="{{userInfo.certificationOk == 1}}">正在认证</span>
+        <span class="value-right" wx:if="{{userInfo.certificationOk == 2}}">已认证</span>
+        <span class="value-right" wx:if="{{userInfo.certificationOk == 3}}">被驳回</span>
     </view>
     <view class="h1"></view>
     <view class="block" style="width:100%;height:50px;"></view>

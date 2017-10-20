@@ -1,0 +1,13 @@
+/* pages/invite/invite.wxss */
+
+.invite {
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 5px;
+    height: 50px;
+    background: #fe552e;
+    text-align: center;
+    color: #fff;
+    position: fixed;
+    bottom: 0px;
+}

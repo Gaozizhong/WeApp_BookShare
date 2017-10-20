@@ -1,3 +1,5 @@
+import { $wuxCountUp } from '../../components/wux'
+
 var app = getApp()
 // pages/integralBalance/integralBalance.js
 Page({
@@ -26,8 +28,14 @@ Page({
                     integral: res.data[0]["integral"],
                     integralRecord: res.data[1]["record"]
                 })
-                console.log(that.data)
-
+                this.integral = new $wuxCountUp(1, res.data[0]["integral"], 0, 2, {
+                    printValue(value) {
+                        this.setData({
+                            integral: value,
+                        })
+                    }
+                })
+                this.integral.start()
             },
             fail: function () {
                 wx.showToast({
@@ -36,6 +44,14 @@ Page({
                     duration: 2000
                 })
             }
+        })
+        
+    },
+    start() {
+        this.c3.start(() => {
+            wx.showToast({
+                title: '已完成',
+            })
         })
     },
 

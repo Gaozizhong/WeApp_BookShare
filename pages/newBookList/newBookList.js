@@ -91,6 +91,10 @@ Page({
     //添加图书书单
     addBookList: function () {
         var that = this;
+        if (!that.data.name || !that.data.description){
+            alert("您还有信息没有输入！");
+            return ;
+        }
         wx.request({
             url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=createPrivateBookList&user_id=' + app.globalData.userId + "&name=" + that.data.name + "&description=" + that.data.description,
             method: "GET",

@@ -1,3 +1,5 @@
+import { $wuxNotification } from '../../components/wux'
+
 var utils = require('../../utils/util.js');
 //index.js
 //获取应用实例
@@ -26,7 +28,7 @@ Page({
 
     onLoad: function () {
         var that = this;
-        utils.getUserData();
+        utils.getUserData(that);
         that.getBookList();
     },
 
@@ -35,6 +37,26 @@ Page({
         var that = this;
         that.setData({
             searchValue: e.detail.value
+        })
+    },
+
+    showNotification:function(image,title,text) {
+        this.closeNotification = $wuxNotification.show({
+            image: image ? image:'http://light7.org/assets/img/i-wechat.png',
+            title: title ? title:'通知',
+            text: text ? text:'通知消息',
+            data: {
+                message: '逗你玩的!!!'
+            },
+            time: 3000,
+            onClick(data) {
+                wx.navigateTo({
+                    url: '../toAuth/toAuth',
+                })
+            },
+            onClose(data) {
+                console.log(data)
+            },
         })
     },
 

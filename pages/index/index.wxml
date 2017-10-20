@@ -1,4 +1,7 @@
 <import src="../templates/templates.wxml"/>
+<import src="../../components/notification/notification.wxml"/>
+
+<template is="notification" data="{{ ...$wux.notification }}"/>
 
 <!--index.wxml-->
 <!-- <loading hidden="{{ !loading }}">加载中...</loading>  -->

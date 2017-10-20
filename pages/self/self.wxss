@@ -101,7 +101,7 @@ html, body {
 .item_arrow {
     float: right;
     height: 26px;
-    width: auto;
+    width: 26px;
     margin: 11px 20px;
 }
 

@@ -68,10 +68,10 @@
             书山有路勤为径 学海无涯苦作舟 ——某人
         </view>
     </view> -->
-    <view class="list-info" style='height:60px;'>
+    <!-- <view class="list-info" style='height:60px;'>
     <view class='new' bindtap='newList'>
             <image class='logo' src='../../images/join_in.png'></image> 
             <text class="list-name" style='margin:40px 20px 40px 20px'>新建书单</text>
         </view>
-    </view>
+    </view> -->
 </view>

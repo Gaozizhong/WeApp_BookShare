@@ -1,5 +1,8 @@
 <view class="container">
     <image src="{{picUrl}}"></image>
+    <view class="weui-cells__tips">提示：二维码无法出现的可联系管理员:13752766442</view>
     <label hidden='true'>对借书人评价</label>
     <button  hidden='true' bindtap="openCommentBorrower">评价</button>
 </view>
+
+

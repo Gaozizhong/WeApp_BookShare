@@ -1,3 +1,8 @@
+<import src="../../components/notification/notification.wxml"/>
+
+<template is="notification" data="{{ ...$wux.notification }}"/>
+
+
 <view class="all">
 <view class="login" style="height:200px;" bindtap="login">
     <image src="../../images/backGround.jpg" style="height: 200px" class="loginbg"></image>
@@ -60,6 +65,12 @@
         <image src="../../images/join_in.png" class="item_ico"></image>
         <span>加入共享</span>
         <image src="../../images/right.png" class="item_arrow"></image>
+    </view>
+    <view class="h1"></view>
+    <view class="item" bindtap="billBoard">
+        <image src="../../images/join_in.png" class="item_ico"></image>
+        <span>邀请朋友</span>
+        <image src="../../images/hot.png" class="item_arrow"></image>
     </view>
     <view class="h1"></view>
     <view class="item" bindtap="openSetting">

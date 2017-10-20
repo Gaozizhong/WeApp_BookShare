@@ -39,7 +39,8 @@ Page({
                     phoneNumber: res.data[0]["phoneNumber"],
                     userSchool: res.data[0]["userSchool"],
                     userClass: res.data[0]["userClass"],
-                    studentCard: res.data[0]["studentCard"]
+                    studentCard: res.data[0]["studentCard"],
+                    eMail: res.data[0]["eMail"]
                 })
                 
 
@@ -130,7 +131,7 @@ Page({
                         success: function (res) {
                             if (res.errMsg == "chooseImage:ok") {
                                 that.setData({
-                                    pictureFiles: res.tempFilePaths,
+                                    pictureFiles: res.tempFilePaths[0],
                                     hidden: true,
                                     changePic:true,//切换了图片
                                 })
@@ -182,6 +183,13 @@ Page({
             phoneNumber: e.detail.value
         })
     },
+    setEMail: function (e) {
+        //联系方式
+        var that = this;
+        that.setData({
+            eMail: e.detail.value
+        })
+    },
 
     setCardId: function (e) {
         //学号
@@ -202,10 +210,11 @@ Page({
             'phoneNumber': that.data.phoneNumber,
             'userSchool': that.data.school[schoolIndex],
             'userClass': that.data.userClass,
-            "studentCard": that.data.studentCard
+            "studentCard": that.data.studentCard,
+            "eMail": that.data.eMail
         };
         
-        if (!thatData.userName || !thatData.phoneNumber || !thatData.userClass || !thatData.studentCard){
+        if (!thatData.userName || !thatData.phoneNumber || !thatData.userClass || !thatData.studentCard || !thatData.eMail){
             wx.showToast({
                 title: '你是不是忘记填了点什么！',
                 icon: 'false',
@@ -234,7 +243,8 @@ Page({
                 'phoneNumber': that.data.phoneNumber,
                 'userSchool': that.data.school[schoolIndex],
                 'userClass': that.data.userClass,
-                "studentCard": that.data.studentCard
+                "studentCard": that.data.studentCard,
+                "eMail": that.data.eMail
             },
             
             success: function (res) {

@@ -11,6 +11,27 @@ function formatTime(date) {
     return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
+//date类型转 2017/09/22
+function formatTimeToDay(date) {
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+
+    var hour = date.getHours()
+    var minute = date.getMinutes()
+    var second = date.getSeconds()
+
+
+    return [year, month, day].map(formatNumber).join('/') + ' '
+}
+
+//时间字符串转date类型
+function getDate(strDate) {
+    var date = eval('new Date(' + strDate.replace(/\d+(?=-[^-]+$)/,
+        function (a) { return parseInt(a, 10) - 1; }).match(/\d+/g) + ')');
+    return date;
+}
+
 function formatNumber(n) {
     n = n.toString()
     return n[1] ? n : '0' + n
@@ -33,7 +54,8 @@ function formatLocation(longitude, latitude) {
 
 module.exports = {
     formatTime: formatTime,
-    
+    formatTimeToDay: formatTimeToDay,
+    getDate: getDate,
     // 是否为空对象
     isEmptyObject: function (e) {
 
@@ -132,19 +154,21 @@ module.exports = {
                                         url: 'https://' + getApp().globalData.apiUrl + '?m=home&c=User&a=regiser&avatarUrl=' + res.avatarUrl + "&city=" + res.city + "&country=" + res.country + "&gender=" + res.gender + "&nickName=" + res.nickName + "&province=" + res.province + "&openId=" + getApp().globalData.openId,
                                         success: function (res) {
                                             if (res.data[0]["certificationOk"] == 0){
-                                                var str = "您还没有认证，请前往个人中心认证!";
-                                                wx.showModal({
-                                                    title: '提醒',
-                                                    content: str,
-                                                    showCancel: false,
-                                                })
+                                                // var str = "您还没有认证，请前往个人中心认证!";
+                                                // wx.showModal({
+                                                //     title: '提醒',
+                                                //     content: str,
+                                                //     showCancel: false,
+                                                // })
+                                                param.showNotification('', '', "您还没有认证，请前往个人中心认证!");
                                             } else if (res.data[0]["certificationOk"] == 3){
-                                                var str = "认证被驳回，请重新上传信息！";
-                                                wx.showModal({
-                                                    title: '提醒',
-                                                    content: str,
-                                                    showCancel: false,
-                                                })
+                                                // var str = "";
+                                                // wx.showModal({
+                                                //     title: '提醒',
+                                                //     content: str,
+                                                //     showCancel: false,
+                                                // })
+                                                param.showNotification('', '', "认证被驳回，请重新上传信息！");
                                             }
                                             
                                             getApp().globalData.userId = res.data[0]["ID"];

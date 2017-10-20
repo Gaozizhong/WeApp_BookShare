@@ -14,7 +14,7 @@
         <view style="width:96%;margin:0 auto;height:1px;background:#f0f0f0"></view>
         <textarea auto-focus placeholder="请输入您的感想" value="{{cardInfo}}" maxlength="-1" class="card_content" bindinput="setContent" />
         <view style='padding-right:20px;margin-top:15px;margin-bottom:40px;'>
-            <text style='font-size:20px;float:right;'>--lee</text>
+            <text style='font-size:20px;float:right;'>--{{name}}</text>
         </view>
         <view class="brief" style="padding-left: 20px;padding-bottom:5px;font-size:14px;color:#BDBDBD;text-indent: 5px">From BookShare At 2014/12/25</view>
     </view>

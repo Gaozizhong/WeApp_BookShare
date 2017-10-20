@@ -3,7 +3,7 @@
     <view class="list-info" style='height:50px;margin-top:10px;'>
         <view class='name'>
             <view>书单名称：</view>
-            <input style='width:40px;' bindinput='setName'></input>
+            <input style='width:240px;' bindinput='setName'></input>
         </view>
     </view>
     <view class="list-info" style='height:105px;margin-top:10px;'>

@@ -34,6 +34,7 @@
     <view wx:if="{{commentInfo != 'none'}}" wx:for="{{commentInfo}}" wx:for-index="index" wx:for-item="comment">
         <template is="commentTemp" data="{{comment}}" />
     </view>
+    <view style='height:100px;width:100%'></view>
 </view>
 <view class="block" style="width:100%;height:100px;"></view>
 <view id="footer" style="display:block;bottom:0px;position:fixed;width:100%;height:50px;z-index:1000px;background:#fff">

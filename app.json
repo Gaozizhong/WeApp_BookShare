@@ -42,7 +42,9 @@
         "pages/addBook/addBook",
         "pages/bookInfo/bookInfo",
         "pages/editCardDetail/editCardDetail",
-        "pages/payment/payment"
+        "pages/payment/payment",
+        "pages/billBoard/billBoard",
+        "pages/invite/invite"
     ],
     "window": {
         "backgroundTextStyle": "light",

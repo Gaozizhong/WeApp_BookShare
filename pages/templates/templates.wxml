@@ -670,7 +670,7 @@
                     </view> -->
                 </view>
             </view>
-            <view class="comment" style="float: left;font-size: 14px;margin: 10px 0 15px 0;text-align: left;">
+            <view class="comment" style="float: left;font-size: 14px;margin: 10px 5px 15px 10px;text-align: left;">
                 <font color="#aaa">
                     {{comment.card_content}}
                 </font>
@@ -738,6 +738,21 @@
                 </text>
                 <text class='leftText2'>{{record.add_time}}</text>
                 <view class='rightText'>+{{record.value}}</view>
+            </view>
+
+            <view class="item" style='display: flex;' wx:if="{{record.type == 91}}">
+                <text class="leftText1">
+                    其他原因
+                </text>
+                <text class='leftText2'>{{record.add_time}}</text>
+                <view class='rightText'>+{{record.value}}</view>
+            </view>
+            <view class="item" style='display: flex;' wx:if="{{record.type == 92}}">
+                <text class="leftText1">
+                    其他原因
+                </text>
+                <text class='leftText2'>{{record.add_time}}</text>
+                <view class='rightText'>-{{record.value}}</view>
             </view>
         </template>
     <!-- 积分记录 模板-->

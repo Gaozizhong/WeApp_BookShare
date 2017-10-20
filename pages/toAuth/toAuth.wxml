@@ -2,7 +2,7 @@
 <view style="width:98%;margin:10px 1%">
     <view class="page-section">
         <view class="page-body-info">
-
+            <view class="weui-cells__tips">提示：请上传正确的用户信息，才能通过认证！！！</view>
             <view style='font-size:15px;margin-top:5px;'>
                 请上传校园卡或者教工卡
             </view>
@@ -53,9 +53,15 @@
         <input class="value-right" type="text" bindinput="setPhone" value="{{userInfo.phoneNumber?userInfo.phoneNumber:''}}" placeholder="请输入联系方式" />
     </view>
     <view class="h1"></view>
+    <view class="phone item">
+        <image src="../../images/telephone.png" class="item_ico"></image>
+        <text>邮箱</text>
+        <input class="value-right" type="text" bindinput="setEMail" value="{{userInfo.eMail?userInfo.eMail:''}}" placeholder="请输入邮箱" />
+    </view>
+    <view class="h1"></view>
     <view class="status item">
         <image src="../../images/status.png" class="item_ico"></image>
-        <text>学号</text>
+        <text>学号/工号</text>
         <input class="value-right" type="text" bindinput="setCardId" value="{{userInfo.studentCard?userInfo.studentCard:''}}" placeholder="请输入学号/教职工编号" />
     </view>
     <view class="h1"></view>

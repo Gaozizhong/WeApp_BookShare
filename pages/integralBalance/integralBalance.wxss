@@ -1,3 +1,8 @@
+.countup {
+	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    font-size: 5.2em;
+    color: #04BE02;
+}
 .container {
     margin-top: 10px;
     width: 96%;
@@ -42,16 +47,15 @@
     width: 100%;
     color: #fff;
 }
-
 .leftText1 {
-    width: 100px;
+    width: 50%;
     line-height: 12px;
 }
 .leftText2 {
     height: 20px;
-    width: 100px;
+    width: 50%;
     line-height: 20px;
     font-size: 10px;
-    margin-left: -100px;
     margin-top: 25px;
+    margin-left: -45%;
 }

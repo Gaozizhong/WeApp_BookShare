@@ -4,7 +4,7 @@
 <view class="container">
     <view class="firstblock" style="margin-top:10px">
         <view class="item" style='height:250px;'>
-            <view class='integral'>{{integral}}</view>
+            <view class="countup integral">{{ integral }}</view>
             <view style='text-align:center;color:#c9c9c9;font-size:20px;'>账户积分（分）</view>
         </view>
         <view class='h1'></view>

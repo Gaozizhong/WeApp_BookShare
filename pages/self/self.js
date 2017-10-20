@@ -1,4 +1,6 @@
 var utils = require('../../utils/util.js');
+import { $wuxNotification } from '../../components/wux'
+
 //self.js 个人中心首页
 //获取应用实例
 var app = getApp()
@@ -15,7 +17,7 @@ Page({
     
     onLoad: function (options) {
         var that = this;
-        utils.getUserData();  
+        utils.getUserData(that);  
         that.setData({
             userInfo: app.globalData.userInfo,
             certificationOk: app.globalData.certificationOk,
@@ -50,6 +52,27 @@ Page({
         var that = this;
         utils.checkSettingStatu(that);
     },
+
+    showNotification: function (image, title, text) {
+        this.closeNotification = $wuxNotification.show({
+            image: image ? image : 'http://light7.org/assets/img/i-wechat.png',
+            title: title ? title : '通知',
+            text: text ? text : '通知消息',
+            data: {
+                message: '逗你玩的!!!'
+            },
+            time: 3000,
+            onClick(data) {
+                wx.navigateTo({
+                    url: '../toAuth/toAuth',
+                })
+            },
+            onClose(data) {
+                console.log(data)
+            },
+        })
+    },
+
     //事件处理函数
     bindViewTap: function () {
         wx.navigateTo({
@@ -99,6 +122,19 @@ Page({
         }
         wx.navigateTo({
             url: '../joinShare/joinShare',
+        })
+    },
+
+    billBoard:function(){
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+            })
+            return;
+        }
+        //打开邀请页面
+        wx.navigateTo({
+            url: '../billBoard/billBoard',
         })
     },
 

@@ -1,0 +1,462 @@
+/*
+*  author: AUI
+*  base.css
+*  http://azenui.com/
+*  http://www.a-ui.cn/
+*/
+::-moz-placeholder {
+	color: #999999;
+}
+
+::-webkit-input-placeholder {
+	color: #999999;
+}
+
+:-ms-input-placeholder {
+	color: #999999;
+}
+
+html {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	color: #333;
+}
+
+input[placeholder], [placeholder]{
+	color: #999999 !important;
+}
+
+html,body {
+	margin: 0;
+	height: 100%;
+	font-family: core, "Avenir Next", "Helvetica Neue", Helvetica, Arial, "Source Han Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi MicroHei", sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+
+a {
+	text-decoration: none;
+	color: #000;
+	outline: none;
+}
+
+hr {
+	height: 1px;
+	background: #ccc;
+	width: 100%;
+	border: none;
+	margin: 0;
+	padding: 0;
+	margin-top: 10px;
+}
+
+image {
+	border: 0;
+}
+
+html, body, div, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, button, fieldset, form, input, legend, textarea, th, td {
+	margin: 0;
+	padding: 0;
+}
+
+article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+audio,canvas,progress,video {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+a {
+	text-decoration: none;
+	color: #08acee;
+}
+
+a:active,a:hover {
+	outline: 0;
+}
+
+mark {
+	color: #000;
+	background: #ff0;
+}
+
+small {
+	font-size: 80%;
+}
+
+image {
+	border: 0;
+}
+
+button,input,optgroup,select,textarea {
+	margin: 0;
+	font: inherit;
+	color: inherit;
+}
+
+li {
+	list-style: none;
+}
+
+i {
+	font-style: normal;
+}
+
+a {
+	color: #666;
+}
+
+a:hover {
+	color: #333;
+}
+
+em {
+	font-style: normal;
+}
+
+h1, h2, h3 {
+	font-weight: 400;
+}
+
+.clearfix::after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.clearfix {
+}
+
+.in-body {
+	width: 100%;
+	position: relative;
+	background: url("../../images/invite/body.png") no-repeat;
+	background-size: 100%;
+	
+}
+
+#header {
+	position: relative;
+}
+
+#in-self {
+	width: 100%;
+	height: 300px;
+}
+
+/* 弹窗 */
+.modal {
+	cursor: pointer;
+	display: none;
+	/* 默认隐藏 */
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.4);
+	-webkit-animation-name: fadeIn;
+	-webkit-animation-duration: 0.4s;
+	animation-name: fadeIn;
+	animation-duration: 0.4s;
+	z-index: 9999;
+}
+
+/* 弹窗内容 */
+.modal-content {
+	cursor: pointer;
+	position: fixed;
+	bottom: 0;
+	/*background-color: #fefefe;*/
+	width: 100%;
+	-webkit-animation-name: slideIn;
+	-webkit-animation-duration: 0.4s;
+	animation-name: slideIn;
+	animation-duration: 0.4s;
+	z-index: 1000;
+}
+
+/* 关闭按钮 */
+.close {
+	height: 482px;
+	/*background:rgba(0,0,0,0.4);*/
+	width: 100%;
+	display: block;
+}
+
+.close:hover, .close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.modal-header {
+}
+
+.modal-body {
+	padding: 2px 16px;
+}
+
+.modal-footer {
+	padding: 2px 16px;
+	background-color: #5cb85c;
+	color: white;
+}
+
+/* 添加动画 */
+@-webkit-keyframes slideIn {
+	from {
+		bottom: -300px;
+		opacity: 0
+	}
+
+	to {
+		bottom: 0;
+		opacity: 1
+	}
+}
+
+@keyframes slideIn {
+	from {
+		bottom: -300px;
+		opacity: 0
+	}
+
+	to {
+		bottom: 0;
+		opacity: 1
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0
+	}
+
+	to {
+		opacity: 1
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0
+	}
+
+	to {
+		opacity: 1
+	}
+}
+
+:focus {
+	-moz-outline-style: none
+}
+
+.clear {
+	clear: both;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.hidden, .hide {
+	display: none
+}
+
+.block, .show {
+	display: block
+}
+
+.fl {
+	float: left
+}
+
+.fr {
+	float: right
+}
+
+.fline {
+	float: left;
+	display: inline
+}
+
+.clearfix:after {
+	clear: both;
+	content: ".";
+	height: 0;
+	display: block;
+	visibility: hidden
+}
+
+/*弹出层 CSS*/
+.gb_resLay {
+	background: #FFFFFF;
+	height: auto;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 10px 0 20px 0
+}
+
+.gb_res_t {
+	line-height: 48px;
+	height: 48px;
+	position: relative;
+	font-size: 18px;
+	text-align: center;
+}
+
+.gb_res_t i {
+	background: #FFEC94;
+	height: 1px;
+	overflow: hidden;
+	left: 32px;
+	top: 23px;
+	right: 32px;
+	position: absolute;
+}
+
+.gb_res_t span {
+	background: #FFF;
+	display: inline-block;
+	padding: 0px 6px;
+	position: relative;
+	z-index: 2;
+}
+
+.gb_resItms {
+	margin: 0px 4%;
+}
+
+.gb_resItms li {
+	text-align: center;
+	float: left;
+	width: 16.66%;
+	padding-bottom: 10px;
+	font-size: 12px;
+}
+
+.gb_resA image {
+	height: auto;
+	width: 60px;
+	margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+	.gb_resA image {
+		width: 45px;
+		margin-top: 5px;
+	}
+}
+
+@media only screen and (max-width: 470px) {
+	.gb_resItms li {
+		width: 33.333%;
+	}
+
+	.gb_resLay {
+		height: auto;
+	}
+
+	.gb_resA image {
+		width: 60px;
+		margin-top: 0
+	}
+}
+
+.bdsharebuttonbox a {
+	width: 60px!important;
+	height: 60px!important;
+	margin: 0 auto 1px!important;
+	float: none!important;
+	padding: 0!important;
+	display: block;
+}
+
+.bdsharebuttonbox a image {
+	width: 60px;
+	height: 60px;
+}
+
+.bdsharebuttonbox .bds_tsina {
+	background: url(../../images/invite/gbRes_6.png) no-repeat center center/40px 40px;
+}
+
+.bdsharebuttonbox .bds_qzone {
+	background: url(../../images/invite/gbRes_4.png) no-repeat center center/40px 40px;
+}
+
+.bdsharebuttonbox .bds_tqq {
+	background: url(../../images/invite/gbRes_5.png) no-repeat center center/40px 40px;
+}
+
+.bdsharebuttonbox .bds_weixin {
+	background: url(../../images/invite/gbRes_2.png) no-repeat center center/40px 40px;
+}
+
+.bdsharebuttonbox .bds_sqq {
+	background: url(../../images/invite/gbRes_3.png) no-repeat center center/40px 40px;
+}
+
+.bdsharebuttonbox .bds_renren {
+	background: url(../../images/invite/gbRes_1.png) no-repeat center center/40px 40px;
+}
+
+.bd_weixin_popup .bd_weixin_popup_foot {
+	position: relative;
+	top: -12px;
+}
+
+/* 弹窗 (background) */
+.pop {
+	display: none;
+	/* 默认隐藏 */
+	position: fixed;
+	/* 固定定位 */
+	z-index: 1;
+	/* 设置在顶层 */
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.4);
+}
+
+/* 弹窗内容 */
+.in-modal-content {
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+}
+
+/* 关闭按钮 */
+.in-close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.in-close:hover, .in-close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.default {
+	color: #999999;
+}

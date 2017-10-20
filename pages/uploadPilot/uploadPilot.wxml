@@ -11,7 +11,12 @@
             </view>
         </li>
         <li>
-            <i class="aui-iconfont aui-icon-home aui-bg-warning">2</i>
+            <view wx:if="{{hidden>=2}}">
+                <i class="aui-iconfont aui-icon-home aui-bg-info">2</i>
+            </view>
+            <view wx:else>
+                <i class="aui-iconfont aui-icon-home aui-bg-warning">2</i>
+            </view>
             <view class="aui-timeline-item">
                 <!-- <text class="aui-timeline-header"></text> -->
                 <view class="aui-timeline-body">扫描要贴的二维码</view>
@@ -21,7 +26,12 @@
             </view>
         </li>
         <li>
-            <i class="aui-iconfont aui-icon-home aui-bg-warning">3</i>
+            <view wx:if="{{hidden>=3}}">
+                <i class="aui-iconfont aui-icon-home aui-bg-info">3</i>
+            </view>
+            <view wx:else>
+                <i class="aui-iconfont aui-icon-home aui-bg-warning">3</i>
+            </view>
             <view class="aui-timeline-item">
                 <!-- <text class="aui-timeline-header"></text> -->
                 <view class="aui-timeline-body">把二维码贴到相应的书后</view>
@@ -31,7 +41,12 @@
             </view>
         </li>
         <li>
-            <i class="aui-iconfont aui-icon-home aui-bg-warning">4</i>
+            <view wx:if="{{hidden>=4}}">
+                <i class="aui-iconfont aui-icon-home aui-bg-info">4</i>
+            </view>
+            <view wx:else>
+                <i class="aui-iconfont aui-icon-home aui-bg-warning">4</i>
+            </view>
             <view class="aui-timeline-item">
                 <!-- <text class="aui-timeline-header"></text> -->
                 <view class="aui-timeline-body">扫描书架二维码</view>
@@ -41,7 +56,12 @@
             </view>
         </li>
         <li>
-            <i class="aui-iconfont aui-icon-home aui-bg-warning">5</i>
+            <view wx:if="{{hidden>=5}}">
+                <i class="aui-iconfont aui-icon-home aui-bg-info">5</i>
+            </view>
+            <view wx:else>
+                <i class="aui-iconfont aui-icon-home aui-bg-warning">5</i>
+            </view>
             <view class="aui-timeline-item">
                 <!-- <text class="aui-timeline-header"></text> -->
                 <view class="aui-timeline-body">把书放入相应的书架</view>
