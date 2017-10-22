@@ -88,11 +88,13 @@ Page({
                               } else {
                                   wx.showToast({
                                       title: '条形码有误！',
+                                      image: '../../images/fail.png',
                                   })
                               }
                           } else {
                               wx.showToast({
                                   title: '获取数据失败，请稍后重试！',
+                                  image: '../../images/fail.png',
                               })
                           }
                       }

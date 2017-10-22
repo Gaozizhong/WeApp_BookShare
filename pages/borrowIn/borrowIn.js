@@ -25,6 +25,12 @@ Page({
                         text: '暂时没有相关数据',
                     }).show()
                 } else {
+                    if (res.data[0] == '' && res.data[1] == ''){
+                        $wuxPrompt.init('msg1', {
+                            title: '空空如也',
+                            text: '暂时没有相关数据',
+                        }).show()
+                    }
                     that.setData({
                         borrowIn: res.data[0],
                         borrowInRecord: res.data[1]
@@ -34,7 +40,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '获取数据失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
@@ -77,19 +83,19 @@ Page({
                 if (res.data == "finished") {
                     wx.showToast({
                         title: '您已确认借书，无需重复操作',
-                        icon: 'false',
+                        image: '../../images/warning.png',
                         duration: 2000
                     })
                 } else if (res.data == "success"){
                     wx.showToast({
                         title: '确认借书成功',
-                        icon: 'false',
+                        icon: 'success',
                         duration: 2000
                     })
                 } else if (res.data == "fail"){
                     wx.showToast({
                         title: '确认借书失败',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
@@ -97,7 +103,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '确认借书失败',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }

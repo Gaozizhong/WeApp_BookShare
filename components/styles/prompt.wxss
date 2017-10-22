@@ -13,6 +13,7 @@
 }
 
 .prompt-message .prompt-icon {
+    margin-top: 40px;
     width: 64px;
     height: 64px;
 }

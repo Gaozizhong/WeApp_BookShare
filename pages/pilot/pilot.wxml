@@ -1,7 +1,9 @@
 <import src="../templates/templates.wxml" />
+<import src="../../components/prompt/prompt.wxml"/>
 <loading hidden="{{ !loading }}">加载中...</loading>
 <!--图书列表-->
 <view class="book-list">
+<template is="prompt" data="{{ ...$wux.prompt.msg1 }}"/>
     <view wx:for="{{borrowIn}}" wx:for-index="index" wx:for-item="book">
         <!-- 借出模板 -->
         <template is="pilotBorrowIn" data="{{book}}"></template>      

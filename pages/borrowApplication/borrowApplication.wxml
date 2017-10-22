@@ -1,6 +1,8 @@
 <import src="../templates/templates.wxml" />
+<import src="../../components/prompt/prompt.wxml"/>
 <!--图书列表-->
 <view class="book-list">
+<template is="prompt" data="{{ ...$wux.prompt.msg1 }}"/>
     <view wx:for="{{application}}" wx:for-index="index" wx:for-item="book">
         <!-- 等待响应 -->
         <template is="borrowApplyLoading" data="{{book}}"></template>

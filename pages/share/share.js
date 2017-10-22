@@ -59,7 +59,7 @@ Page({
                 })
                 wx.showToast({
                     title: '信息加载失败，请重试',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
@@ -104,7 +104,7 @@ Page({
                 fail: function () {
                     wx.showToast({
                         title: '分享失败，请稍后重试！',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
@@ -163,7 +163,7 @@ Page({
         if (!that.data.location){
             wx.showToast({
                 title: '您还没有选择地址！',
-                icon: 'success',
+                image: '../../images/warning.png',
                 duration: 2000
             })
             return ;
@@ -193,7 +193,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '分享失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }

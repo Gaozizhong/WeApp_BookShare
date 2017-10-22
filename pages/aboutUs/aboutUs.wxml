@@ -1,11 +1,11 @@
-<!-- <loading hidden="{{ !loading }}">加载中...</loading>
+ <loading hidden="{{ !loading }}">加载中...</loading>
 <view style="margin:10px 15px 10px 15px">
     <view class="photo item" style="height:300px;line-height: 24px;">
         <view class="photo-box" style="width:100px;margin:0 auto;padding-top:10px;">
             <image src="../../images/logo.png" style="border-radius: 100px" class="personal_logo" id="personal_logo"></image>
         </view>
         <view class="feedbackText">
-            <text>BookShare主要为大学生积压的实体书籍的流通与再利用创造机会，为喜欢读书并喜欢分享的大学生提供一个良好的图书共享平台，不仅可以帮助大学生分享出已经阅读完的书籍，还能够帮助大学生找到自己喜欢的书籍。在此平台中，大学生可以分享自己阅读过的好书，也可以通过平台找到自己感兴趣的书籍，以较方便的方式得到高质量的书籍，满足自己的读书需求。</text>
+            <text>阅享平台是首款基于社区的儿童读物的共享借阅类平台，以盘活闲置图书资源为己任，提倡循环阅读、环保阅读，通过图书循环经济制度创新继续实现闲散图书资源的价值，降低有阅读需求的孩子的读书成本。同时，我们希望通过共享软件的聚合功能，搭建一个学习交流平台，让有相同兴趣的孩子组成书友会，引导儿童多读书、读好书。</text>
         </view>
     </view>
     <view class="h1"></view>
@@ -15,13 +15,13 @@
     </view>
     <view class="h1"></view>
     <view class="item" style='padding:5px 5%;'>
-        <button class='submit' bindtap="toAuth" type="submit">
+        <button class='submit' bindtap="contractMe" type="submit">
             联系我们
         </button>
     </view>
-</view> -->
-
-<import src="../../components/prompt/prompt.wxml"/>
+</view> 
+<view class="weui-cells__tips" style="position:fixed;bottom:10px;text-align:center;width:100%">提示：如有问题可以通过意见反馈或者电话联系我们！</view>
+<!-- <import src="../../components/prompt/prompt.wxml"/>
 
 <view class="page">
     <view class="page__bd">
@@ -47,4 +47,4 @@
             </view>
         </view>
     </view>
-</view>
+</view> -->

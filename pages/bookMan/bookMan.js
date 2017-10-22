@@ -50,13 +50,13 @@ Page({
                 if(res.data == "downLined"){
                     wx.showToast({
                         title: '您已下线该图书，无需重复！',
-                        icon: 'false',
+                        image: '../../images/warning.png',
                         duration: 2000
                     })
                 } else if (res.data == "success"){
                     wx.showToast({
                         title: '下线成功！',
-                        icon: 'false',
+                        icon: 'success',
                         duration: 2000
                     })
                     that.onLoad();
@@ -64,7 +64,7 @@ Page({
                 } else if (res.data == "fail"){
                     wx.showToast({
                         title: '下线失败，请稍后重试！',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
@@ -86,20 +86,20 @@ Page({
                 if (res.data == "onLined") {
                     wx.showToast({
                         title: '您已上线该图书，无需重复！',
-                        icon: 'false',
+                        image: '../../images/warning.png',
                         duration: 2000
                     })
                 } else if (res.data == "success") {
                     wx.showToast({
                         title: '上线成功！',
-                        icon: 'false',
+                        icon: 'success',
                         duration: 2000
                     })
                     that.onLoad();
                 } else if (res.data == "fail") {
                     wx.showToast({
                         title: '上线失败，请稍后重试！',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }

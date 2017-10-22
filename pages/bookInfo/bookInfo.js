@@ -93,12 +93,14 @@ Page({
                       wx.showToast({
                           title: '图书已被借出！',
                           icon: 'false',
+                          image: '../../images/warning.png',
                           duration: 2000
                       })
                   } else if (res.data[0].result == "fail") {
                       wx.showToast({
                           title: '借书失败，请稍后重试！',
                           icon: 'false',
+                          image: '../../images/fail.png',
                           duration: 2000
                       })
                   } else if (res.data[0].result == "success") {
@@ -145,7 +147,7 @@ Page({
                   } else if (res.data[0].result == "mine") {
                       wx.showToast({
                           title: '您不能借自己的书！',
-                          icon: 'false',
+                          image: '../../images/warning.png',
                           duration: 2000
                       })
                   }
@@ -153,7 +155,7 @@ Page({
               fail: function () {
                   wx.showToast({
                       title: '借书失败，请稍后重试！',
-                      icon: 'false',
+                      image: '../../images/fail.png',
                       duration: 2000
                   })
               }

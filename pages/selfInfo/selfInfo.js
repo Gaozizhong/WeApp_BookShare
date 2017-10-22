@@ -29,6 +29,10 @@ Page({
         })
     },
 
+    onShow:function(){
+        this.onLoad();
+    },
+
     bindPickerSchoolChange:function(e){
         //学校切换
         this.setData({

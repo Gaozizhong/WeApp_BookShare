@@ -54,13 +54,12 @@ Page({
     submitInvite:function(){
         var that = this;
         if (that.data.id == that.data.userInfo.ID){
-            
             wx.showModal({
                 title: '警告',
                 content: '不能邀请自己',
                 showCancel: "false",
             })
-            return;
+            return ;
         }
         if (!that.data.invite || !that.data.userInfo.ID){
             wx.showModal({
@@ -91,7 +90,7 @@ Page({
                     }else if(res.data == "invited"){
                         wx.showToast({
                             title: '您已经被邀请过了',
-                            icon: 'success',
+                            image: '../../images/fail.png',
                             duration: 2000
                         })
                     }
@@ -99,7 +98,7 @@ Page({
                 } else {
                     wx.showToast({
                         title: '获取数据失败，请重试！',
-                        icon: 'success',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }

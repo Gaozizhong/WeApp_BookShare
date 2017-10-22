@@ -25,7 +25,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '获取数据失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }

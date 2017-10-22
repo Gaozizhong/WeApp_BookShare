@@ -11,13 +11,9 @@ Page({
         activeNum: 1,
         loading: true,
         bookObj: null,
-    },
-
-    //事件处理函数
-    bindViewTap: function () {
-        wx.navigateTo({
-            url: '../logs/logs'
-        })
+        ageIndex: 0,
+        age: ['请选择','全部', '0-2岁', '3-7岁', '8-12岁'],
+        ageValue:[null,0,1,2,3]
     },
 
     onPullDownRefresh: function () {
@@ -27,9 +23,13 @@ Page({
     },
 
     onLoad: function () {
+        wx.showLoading({
+            title: '加载中',
+        })
         var that = this;
         utils.getUserData(that);
         that.getBookList();
+        wx.hideLoading()
     },
 
     //设置搜索内容
@@ -38,6 +38,16 @@ Page({
         that.setData({
             searchValue: e.detail.value
         })
+    },
+
+    //选择器
+    bindPickerChange: function(e) {
+        var that = this
+        that.setData({
+            ageIndex: e.detail.value,
+            activeNum: that.data.activeNum
+        })
+        that.getBookList()
     },
 
     showNotification:function(image,title,text) {
@@ -68,6 +78,14 @@ Page({
             url += "&value=";
             url += that.data.searchValue;
         }
+        if (that.data.ageIndex !=0) {
+            console.log(that.data.ageIndex)
+            var ageArray = that.data.ageValue
+            var ageIndex = that.data.ageIndex
+            url += "&age=";
+            url += ageArray[ageIndex];
+
+        }
         //图书列表数据获取
         wx.request({
             url: url,
@@ -81,7 +99,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '获取数据失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
@@ -125,11 +143,13 @@ Page({
                                 } else {
                                     wx.showToast({
                                         title: '条形码有误！',
+                                        image: '../../images/fail.png',
                                     })
                                 }
                             } else {
                                 wx.showToast({
                                     title: '获取数据失败，请稍后重试！',
+                                    image: '../../images/fail.png',
                                 })
                             }
                         }

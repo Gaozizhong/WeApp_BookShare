@@ -9,13 +9,14 @@
         </view>
         <view class='h1'></view>
         <view class="item" style='padding:5px 5%;'>
-            <button class='submit' bindtap="" type="submit">
-                充值
+            <button class='submit' bindtap="" type="submit" disable>
+                <!-- 充值 -->
+                您可以通过上传图书获得积分
             </button>
         </view>
     </view>
     <view style='text-align:center;font-size:15px;margin=top:5px;'>明细</view>
-    <view class="firstblock" style="margin-top:10px">
+    <view class="firstblock" style="margin-top:10px;background:transparent">
         <view wx:for="{{integralRecord}}" wx:for-index="index" wx:for-item="record">
             <template is="integralRecord" data="{{record}}"/>
         </view>

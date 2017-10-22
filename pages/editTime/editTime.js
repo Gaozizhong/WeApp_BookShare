@@ -49,7 +49,7 @@ Page({
                 }else{
                     wx.showToast({
                         title: '获取数据失败，请重试！',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
@@ -86,7 +86,7 @@ Page({
                 if (res.data == "success") {
                     wx.showToast({
                         title: '修改成功！',
-                        icon: 'false',
+                        icon: 'success',
                         duration: 4000,
                         success:function(){
                             wx.navigateBack({
@@ -98,7 +98,7 @@ Page({
                 } else {
                     wx.showToast({
                         title: '修改失败，请重试！',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }

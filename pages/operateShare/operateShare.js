@@ -55,16 +55,19 @@ Page({
                                 if (res.scanType == "EAN_13") {
                                     //条形码
                                     var isbnCode = res.result;
+                                    console.log(isbnCode)
                                     that.getDouBanApi(isbnCode);
 
                                 } else {
                                     wx.showToast({
                                         title: '条形码有误！',
+                                        image: '../../images/fail.png',
                                     })
                                 }
                             } else {
                                 wx.showToast({
                                     title: '获取数据失败，请稍后重试！',
+                                    image: '../../images/fail.png',
                                 })
                             }
                         }
@@ -93,7 +96,7 @@ Page({
                 if (res.data.msg == "book_not_found") {
                     wx.showToast({
                         title: '没有此图书信息，请至手动添加！',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 } else {
@@ -102,8 +105,13 @@ Page({
                         bookInfo: res.data,
                         disabled: true,
                     })
+                    bookData.author = bookData.author[0] ? bookData.author[0]:'未知';
+                    bookData.translator = bookData.translator[0] ? bookData.author[0] : '未知';
+                    bookData.tags = JSON.stringify(bookData.tags)
+                    var price = bookData.price;
+                    price = price.replace(/[^0-9|.]/ig, "")
                     wx.request({
-                        url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=uploadBookInfo&book_name=' + bookData.title + "&writer=" + bookData.author[0] + "&translator=" + bookData.translator[0] + "&introduction=" + bookData.summary + "&book_image=" + bookData.image + "&book_sort=" + bookData.tags[0].count + "&ISBN10=" + bookData.isbn10 + "&book_press=" + bookData.publisher + "&publish_date=" + bookData.pubdate + "&web_url=" + bookData.url + "&rating=" + bookData.rating.average + "&writer_intro=" + bookData.author_intro + "&image_large=" + bookData.images.large + "&image_medium=" + bookData.images.medium + "&image_small=" + bookData.images.small + "&ISBN13=" + bookData.isbn13 + "&pages=" + bookData.pages + "&price=" + parseInt(bookData.price) + "&rating_max=" + bookData.rating.max + "&rating_min=" + bookData.rating.min + "&raters_num=" + bookData.rating.numRaters + "&subtitle=" + bookData.subtitle,
+                        url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=uploadBookInfo&book_name=' + bookData.title + "&writer=" + bookData.author + "&translator=" + bookData.translator + "&introduction=" + (bookData.summary)+ "&book_image=" + bookData.image + "&book_sort=" + (bookData.tags) + "&ISBN10=" + bookData.isbn10 + "&book_press=" + bookData.publisher + "&publish_date=" + bookData.pubdate + "&web_url=" + bookData.url + "&rating=" + bookData.rating.average + "&writer_intro=" + bookData.author_intro + "&image_large=" + bookData.images.large + "&image_medium=" + bookData.images.medium + "&image_small=" + bookData.images.small + "&ISBN13=" + bookData.isbn13 + "&pages=" + bookData.pages + "&price=" + parseInt(price) + "&rating_max=" + bookData.rating.max + "&rating_min=" + bookData.rating.min + "&raters_num=" + bookData.rating.numRaters + "&subtitle=" + bookData.subtitle,
                         method: "GET",
                         header: {
                             'content-type': 'application/json'
@@ -116,7 +124,7 @@ Page({
                         fail: function () {
                             wx.showToast({
                                 title: '上传失败，请稍后重试！',
-                                icon: 'false',
+                                image: '../../images/fail.png',
                                 duration: 2000
                             })
                         }
@@ -126,7 +134,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '信息加载失败，请重试',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
@@ -162,7 +170,7 @@ Page({
         if (!that.data.location) {
             wx.showToast({
                 title: '您还没有选择地址！',
-                icon: 'success',
+                image: '../../images/warning.png',
                 duration: 2000
             })
             return;
@@ -177,7 +185,7 @@ Page({
                 if (res.data == "have shared") {
                     wx.showToast({
                         title: '已经分享过，无需再分享！',
-                        icon: 'success',
+                        image: '../../images/warning.png',
                         duration: 2000
                     })
                 } else if (res.data == "success"){
@@ -189,7 +197,7 @@ Page({
                 }else{
                     wx.showToast({
                         title: '分享失败',
-                        icon: 'success',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
@@ -198,7 +206,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '分享失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }

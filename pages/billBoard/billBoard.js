@@ -31,7 +31,7 @@ Page({
                 } else {
                     wx.showToast({
                         title: '获取数据失败，请重试！',
-                        icon: 'success',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
@@ -73,7 +73,7 @@ Page({
                 } else {
                     wx.showToast({
                         title: '生成失败，请重试！',
-                        icon: 'success',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }

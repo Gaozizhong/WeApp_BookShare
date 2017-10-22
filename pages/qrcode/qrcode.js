@@ -24,7 +24,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '生成二维码失败，请重试',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }

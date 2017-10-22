@@ -1,4 +1,6 @@
 var utils = require('../../utils/util.js');
+import { $wuxPrompt } from '../../components/wux'
+const sliderWidth = 96
 
 var app = getApp();
 // pages/home/index.js
@@ -25,12 +27,17 @@ Page({
             },
             success: function (res) {
                 if (res.data == "noBorrowIn") {
-                    wx.showToast({
-                        title: '您还没有借过书！',
-                        icon: 'false',
-                        duration: 2000
-                    })
+                    $wuxPrompt.init('msg1', {
+                        title: '空空如也',
+                        text: '暂时没有相关数据',
+                    }).show()
                 } else {
+                    if (res.data[0] == '' && res.data[1] == '') {
+                        $wuxPrompt.init('msg1', {
+                            title: '空空如也',
+                            text: '暂时没有相关数据',
+                        }).show()
+                    }
                     that.setData({
                         borrowIn: res.data[0],
                         borrowInRecord: res.data[1]
@@ -40,7 +47,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '获取数据失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }

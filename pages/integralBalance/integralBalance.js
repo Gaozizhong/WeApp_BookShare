@@ -28,7 +28,7 @@ Page({
                     integral: res.data[0]["integral"],
                     integralRecord: res.data[1]["record"]
                 })
-                this.integral = new $wuxCountUp(1, res.data[0]["integral"], 0, 2, {
+                this.integral = new $wuxCountUp(1, res.data[0]["integral"], 0, 10, {
                     printValue(value) {
                         this.setData({
                             integral: value,
@@ -40,7 +40,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '获取数据失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
