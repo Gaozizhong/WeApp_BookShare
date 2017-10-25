@@ -1,0 +1,113 @@
+/*分割线样式*/
+
+.divLine {
+    background: #f4f4f4;
+    width: 100%;
+    height: 16rpx;
+}
+
+.slide-image {
+    text-align: center;
+    /* width: 46%; */
+    height: 500rpx;
+    /* margin: 0 27%; */
+}
+
+.title {
+    line-height: 20px;
+    margin: 15px 10px;
+    margin-bottom: 14px;
+}
+
+.price {
+    display: inline;
+    margin-left: 20px;
+    line-height: 23px;
+    font-size: 23px;
+    font-family: Helvetica;
+    color: #f23030;
+    font-weight: 700;
+}
+
+.big-price {
+    display: inline-block;
+    font-size: 23px;
+    line-height: 23px;
+}
+
+.small-price {
+    display: inline-block;
+    font-size: 17px;
+    line-height: 17px;
+}
+
+.location {
+    float: right;
+}
+
+.location_pic {
+    height: 20px;
+    width: 20px;
+}
+
+.address {
+    font-size: 13px;
+    color: #81838e;
+    margin-left: 16rpx;
+    margin-right: 11px;
+}
+
+.abstract {
+    background: #fff;
+    padding: 5px 10px;
+    margin: 0 1.5%;
+}
+
+.abstract_title {
+    font-size: 17px;
+}
+
+.abstract_text {
+    font-size: 14px;
+    text-indent: 2em;
+    margin: 24rpx 24rpx 12rpx 24rpx;
+}
+
+.comment {
+    background: #fff;
+}
+
+.user_img {
+    width: 42px;
+    height: 42px;
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-left: 8px;    
+    float: left;
+}
+
+.user_name {
+    padding-left: 5px;
+    line-height: 42px;
+}
+
+.user_score {
+    float: right;
+    margin-right: 30px;
+    font-size: 12px;
+    line-height: 42px;
+}
+
+.comment_text {
+    font-size: 14px;
+    text-indent: 2em;
+    margin-top: 24rpx;
+    margin-left: 24rpx;
+    margin-right: 24rpx;
+}
+.comment_time{
+    font-size: 13px;
+    color: #81838e;
+    margin-top: 12rpx;
+    margin-left: 380rpx;
+}
