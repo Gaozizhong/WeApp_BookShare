@@ -44,7 +44,8 @@
         "pages/editCardDetail/editCardDetail",
         "pages/payment/payment",
         "pages/billBoard/billBoard",
-        "pages/invitePeople/invite"
+        "pages/invitePeople/invite",
+        "pages/detail1/detail1"
     ],
     "window": {
         "backgroundTextStyle": "light",

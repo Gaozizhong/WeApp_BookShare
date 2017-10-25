@@ -12,13 +12,13 @@
 	"projectname": "bookshare",
 	"condition": {
 		"weapp": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
-					"name": "tiaoshi",
-					"pathName": "pages/editCardDetail/editCardDetail",
-					"query": "book_id=30"
+					"name": "detail1",
+					"pathName": "pages/detail1/detail1",
+					"query": ""
 				},
 				{
 					"id": 1,
