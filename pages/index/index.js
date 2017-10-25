@@ -12,8 +12,9 @@ Page({
         loading: true,
         bookObj: null,
         ageIndex: 0,
-        age: ['请选择','全部', '0-2岁', '3-7岁', '8-12岁'],
-        ageValue:[null,0,1,2,3]
+        age: ["请选择",'无限制', '3-5岁', '6-9岁', '10-12岁'],
+        ageValue:[null,0,1,2,3],
+        sortIndex:0
     },
 
     onPullDownRefresh: function () {
@@ -29,7 +30,40 @@ Page({
         var that = this;
         utils.getUserData(that);
         that.getBookList();
+        that.getSorts();
         wx.hideLoading()
+    },
+
+    getSorts:function(){
+        var that = this
+        var url = ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getSorts').replace(/\s+/g, "")
+        wx.request({
+            url: url,
+            method: "GET",
+            dataType: "json",
+            success: function (res) {
+                if (res.data == "none") {
+                    wx.showToast({
+                        title: '暂无分类',
+                        image: '../../images/warning.png',
+                        duration: 2000
+                    })
+                } else {
+                    that.setData({
+                        sortsArray: res.data["fullData"]
+                    })
+                }
+            }
+        })
+    },
+
+    selectSort:function(e){
+        var that = this;
+        that.setData({
+            sortIndex: e.currentTarget.dataset.index
+        })
+        that.getBookList()
+        that.togglePtype();
     },
 
     //设置搜索内容
@@ -78,12 +112,17 @@ Page({
             url += "&value=";
             url += that.data.searchValue;
         }
-        if (that.data.ageIndex !=0) {
+        if (that.data.ageIndex != 0) {
             console.log(that.data.ageIndex)
             var ageArray = that.data.ageValue
             var ageIndex = that.data.ageIndex
             url += "&age=";
             url += ageArray[ageIndex];
+
+        }
+        if (that.data.sortIndex != null) {
+            url += "&sort=";
+            url += that.data.sortIndex;
 
         }
         //图书列表数据获取

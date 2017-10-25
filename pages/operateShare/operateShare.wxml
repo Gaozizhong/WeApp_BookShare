@@ -42,6 +42,15 @@
         </view>
         <view class="h1"></view>
         <view class="item">
+            <view><span>类别：</span></view>
+            <picker bindchange="bindSortsChange" style="width:100px;float:right;margin-top:-46px" class='rightText' value="{{sortsIndex}}" range="{{sortsNameArray}}">
+            <view class="picker">
+                {{sortsNameArray[sortsIndex]}}
+            </view>
+        </picker>
+        </view>
+        <view class="h1"></view>
+        <view class="item">
             <view><span style="font-size:10px;">可借天数：</span></view>
             <input style="margin-top:-46px" type="number" class="rightText" value="{{uploadDays}}" bindinput="setDays" />
         </view>

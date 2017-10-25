@@ -88,4 +88,61 @@
     </view>
 </view>
 
-<view class="weui-cells__tips" style="margin-top:40px"><text style="color:red">提示：</text>代为运营中途不可以退出上传的呦！否则会出现已经上传过错误</view>
+<view class="weui-cells__tips" style="margin-top:40px">
+    <text style="color:red">提示：</text>代为运营中途不可以退出上传的呦！否则会出现已经上传过错误
+</view>
+
+<!--分类 start-->
+<scroll-view style="height:100%" id="catewrap" scroll-into-view="c2" scroll-y="true" hidden="{{!cateisShow}}">
+    <view class="close" bindtap="togglePtype" id="closecatelist"></view>
+    <!-- <view id="cateall" bindtap="cateselect" class="cl_list ">
+        <text class="cl_ico_checked cl_ico"></text> {{bookInfo.book_name}}
+    </view> -->
+    <view id="cateall" bindtap="cateselect" class="cl_list ">
+        <text style="float:left;width:100px;line-height:47px">适龄</text>
+        <picker bindchange="bindAgeChange" style="width:100px;float:right" value="{{index}}" range="{{array}}">
+            <view class="picker">
+                {{array[ageIndex]}}
+            </view>
+        </picker>
+        <text class="rightText">{{bookInfo.title}}</text>
+    </view>
+    <view id="cateall" bindtap="cateselect" class="cl_list ">
+        <text style="float:left;width:100px;line-height:47px">分类</text>
+        <picker bindchange="bindSortsChange" style="width:100px;float:right" value="{{sortsIndex}}" range="{{sortsNameArray}}">
+            <view class="picker">
+                {{sortsNameArray[sortsIndex]}}
+            </view>
+        </picker>
+    </view>
+    <textarea placeholder="请输入您的感想,填写书评可能会给您带来更多的积分呦" value="{{cardInfo}}" maxlength="-1" class="card_content" bindinput="setContent" />
+    <view class="weui-cells">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <view class="weui-uploader">
+                <view class="weui-uploader__hd">
+                  <view class="weui-uploader__title">点击可预览选好的图片</view>
+                  <view class="weui-uploader__info">{{imageList.length}}/{{count[countIndex]}}</view>
+                </view>
+                <view class="weui-uploader__bd">
+                  <view class="weui-uploader__files">
+                    <block wx:for="{{imageList}}" wx:for-item="image">
+                      <view class="weui-uploader__file">
+                        <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                      </view>
+                    </block>
+                  </view>
+                  <view class="weui-uploader__input-box">
+                    <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+    <button form-type="submit" style="width:95%;margin:0 auto;border-radius:5px;height:50px;background: #FE552E;text-align: center;color:#fff;position:fixed;bottom:0px" bindtap='completeInfo' class="btn">
+        确定
+    </button>
+
+</scroll-view>
+<!--分类 end-->
