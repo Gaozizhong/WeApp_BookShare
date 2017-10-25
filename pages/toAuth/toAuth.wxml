@@ -1,7 +1,7 @@
 <loading hidden="{{ !loading }}">加载中...</loading>
 <view style="width:98%;margin:10px 1%">
-    <view class="page-section">
-        <view class="page-body-info">
+    <view class="page-section userinfo">
+        <!-- <view class="page-body-info">
             <view class="weui-cells__tips">提示：请上传正确的用户信息，才能通过认证！！！</view>
             <view style='font-size:15px;margin-top:5px;'>
                 请上传校园卡或者教工卡
@@ -18,7 +18,8 @@
                 <view class="image-plus-text">选择图片</view>
             </block>
 
-        </view>
+        </view> -->
+        <image class="userinfo-avatar" src="{{userInfo.favicon}}" background-size="cover"></image>
     </view>
     <view class="name item">
         <image src="../../images/name.png" class="item_ico"></image>
@@ -26,7 +27,7 @@
         <input class="value-right" type="text" bindinput="setName" value="{{userInfo.userName?userInfo.userName:''}}" placeholder="请输入真实姓名" />
     </view>
     <view class="h1"></view>
-    <view class="school item">
+    <!-- <view class="school item">
         <image src="../../images/school.png" class="item_ico"></image>
         <text>学校</text>
         <picker bindchange="bindPickerSchoolChange" class="value-right" value="{{schoolIndex}}" range="{{school}}">
@@ -39,14 +40,9 @@
     <view class="major item">
         <image src="../../images/specialty.png" class="item_ico"></image>
         <text>专业</text>
-        <!-- <picker bindchange="bindPickerMajorChange" class="value-right" value="{{majorIndex}}" range="{{major}}">
-            <view class="picker">
-                {{major[majorIndex]}}
-            </view>
-        </picker> -->
         <input class="value-right" type="text" bindinput="setMajor" value="{{userInfo.userClass?userInfo.userClass:''}}" placeholder="请输入所在学院" />
     </view>
-    <view class="h1"></view>
+    <view class="h1"></view> -->
     <view class="phone item">
         <image src="../../images/telephone.png" class="item_ico"></image>
         <text>联系方式</text>
@@ -59,12 +55,12 @@
         <input class="value-right" type="text" bindinput="setEMail" value="{{userInfo.eMail?userInfo.eMail:''}}" placeholder="请输入邮箱" />
     </view>
     <view class="h1"></view>
-    <view class="status item">
+    <!-- <view class="status item">
         <image src="../../images/status.png" class="item_ico"></image>
         <text>学号/工号</text>
         <input class="value-right" type="text" bindinput="setCardId" value="{{userInfo.studentCard?userInfo.studentCard:''}}" placeholder="请输入学号/教职工编号" />
     </view>
-    <view class="h1"></view>
+    <view class="h1"></view> -->
     <view id="footer" style="width:98%;margin:25px 1%;">
     <button bindtap="toAuth" style="color:#fff;height:50px;background: #33CCFF;">
         认证

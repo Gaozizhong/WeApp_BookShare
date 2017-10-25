@@ -73,6 +73,7 @@ Page({
         if (app.globalData.certificationOk != 2) {
             wx.showToast({
                 title: '您还没有进行信息认证！',
+                image: '../../images/warning.png',
             })
             return;
         }
@@ -88,6 +89,7 @@ Page({
         if (app.globalData.certificationOk != 2) {
             wx.showToast({
                 title: '您还没有进行信息认证！',
+                image: '../../images/warning.png',
             })
             return;
         }
@@ -101,6 +103,7 @@ Page({
         if (app.globalData.certificationOk != 2) {
             wx.showToast({
                 title: '您还没有进行信息认证！',
+                image: '../../images/warning.png',
             })
             return;
         }
@@ -114,6 +117,7 @@ Page({
         if (app.globalData.certificationOk != 2) {
             wx.showToast({
                 title: '您还没有进行信息认证！',
+                image: '../../images/warning.png',
             })
             return;
         }
@@ -127,6 +131,7 @@ Page({
         if (app.globalData.certificationOk != 2) {
             wx.showToast({
                 title: '您还没有进行信息认证！',
+                image: '../../images/warning.png',
             })
             return;
         }
@@ -139,11 +144,13 @@ Page({
         if (app.globalData.certificationOk != 2) {
             wx.showToast({
                 title: '您还没有进行信息认证！',
+                image: '../../images/warning.png',
             })
             return;
         }
         wx.navigateTo({
-            url: '../operateShare/operateShare'
+            url: '../operateShare/operateShare',
+            image: '../../images/warning.png',
         })
     },
 
@@ -151,6 +158,7 @@ Page({
         if (app.globalData.certificationOk != 2) {
             wx.showToast({
                 title: '您还没有进行信息认证！',
+                image: '../../images/warning.png',
             })
             return;
         }
@@ -163,11 +171,12 @@ Page({
         if (app.globalData.certificationOk != 2) {
             wx.showToast({
                 title: '您还没有进行信息认证！',
+                image: '../../images/warning.png',
             })
             return;
         }
       wx.navigateTo({
-          url: '../joinShare/joinShare'
+          url: '../bookList/bookList'
       })
     },
 

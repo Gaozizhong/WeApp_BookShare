@@ -21,7 +21,7 @@ Page({
             if (res.data == "noCard"){
                 wx.showToast({
                     title: '您还没有添加过！',
-                    icon: 'false',
+                    image: '../../images/warning.png',
                     duration: 2000
                 })
             }else{
@@ -35,7 +35,7 @@ Page({
         fail: function () {
             wx.showToast({
                 title: '获取数据失败，请稍后重试！',
-                icon: 'false',
+                image: '../../images/fail.png',
                 duration: 2000
             })
         }

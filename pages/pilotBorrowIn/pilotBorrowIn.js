@@ -38,7 +38,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '获取数据失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
@@ -80,7 +80,7 @@ Page({
                                         fail: function () {
                                             wx.showToast({
                                                 title: '获取数据失败，请稍后重试！',
-                                                icon: 'false',
+                                                image: '../../images/fail.png',
                                                 duration: 2000
                                             })
                                         }
@@ -89,7 +89,7 @@ Page({
                                 } else {
                                     wx.showToast({
                                         title: '二维码类型错误',
-                                        icon: 'false',
+                                        image: '../../images/fail.png',
                                         duration: 2000
                                     })
                                 }
@@ -97,6 +97,7 @@ Page({
                             } else {
                                 wx.showToast({
                                     title: '获取数据失败，请稍后重试！',
+                                    image: '../../images/fail.png',
                                 })
                             }
                         }
@@ -137,13 +138,13 @@ Page({
                                             if (res.data == "loaned") {
                                                 wx.showToast({
                                                     title: '您已成功借出，无需重复！',
-                                                    icon: 'false',
+                                                    image: '../../images/warning.png',
                                                     duration: 2000
                                                 })
                                             } else if (res.data == "success") {
                                                 wx.showToast({
                                                     title: '借书成功！',
-                                                    icon: 'false',
+                                                    icon: 'success',
                                                     duration: 2000
                                                 })
                                                 that.setData({
@@ -152,7 +153,7 @@ Page({
                                             }else{
                                                 wx.showToast({
                                                     title: '借书失败，请重试！',
-                                                    icon: 'false',
+                                                    image: '../../images/fail.png',
                                                     duration: 2000
                                                 })
                                             }
@@ -160,7 +161,7 @@ Page({
                                         fail: function () {
                                             wx.showToast({
                                                 title: '借书失败，请稍后重试！',
-                                                icon: 'false',
+                                                image: '../../images/fail.png',
                                                 duration: 2000
                                             })
                                         }
@@ -169,7 +170,7 @@ Page({
                                 } else {
                                     wx.showToast({
                                         title: '二维码类型错误',
-                                        icon: 'false',
+                                        image: '../../images/fail.png',
                                         duration: 2000
                                     })
                                 }
@@ -177,6 +178,7 @@ Page({
                             } else {
                                 wx.showToast({
                                     title: '借书失败，请稍后重试！',
+                                    image: '../../images/fail.png',
                                 })
                             }
                         }
@@ -206,13 +208,13 @@ Page({
                             if (res.data == "finished") {
                                 wx.showToast({
                                     title: '您已确认读书完成，无需重复！',
-                                    icon: 'false',
+                                    image: '../../images/warning.png',
                                     duration: 2000
                                 })
                             } else if (res.data == "success") {
                                 wx.showToast({
                                     title: '确认成功！',
-                                    icon: 'false',
+                                    icon: 'success',
                                     duration: 2000
                                 })
                                 that.setData({
@@ -223,7 +225,7 @@ Page({
                         fail: function () {
                             wx.showToast({
                                 title: '确认失败，请稍后重试！',
-                                icon: 'false',
+                                image: '../../images/fail.png',
                                 duration: 2000
                             })
                         }
@@ -260,13 +262,13 @@ Page({
                                             if (res.data == "returned") {
                                                 wx.showToast({
                                                     title: '您已成功还书，无需重复！',
-                                                    icon: 'false',
+                                                    image: '../../images/warning.png',
                                                     duration: 2000
                                                 })
                                             } else if (res.data == "success") {
                                                 wx.showToast({
                                                     title: '还书成功！',
-                                                    icon: 'false',
+                                                    icon: 'success',
                                                     duration: 2000
                                                 })
                                                 that.setData({
@@ -277,7 +279,7 @@ Page({
                                         fail: function () {
                                             wx.showToast({
                                                 title: '还书失败，请稍后重试！',
-                                                icon: 'false',
+                                                image: '../../images/fail.png',
                                                 duration: 2000
                                             })
                                         }
@@ -286,7 +288,7 @@ Page({
                                 } else {
                                     wx.showToast({
                                         title: '二维码类型错误',
-                                        icon: 'false',
+                                        image: '../../images/fail.png',
                                         duration: 2000
                                     })
                                 }
@@ -294,6 +296,7 @@ Page({
                             } else {
                                 wx.showToast({
                                     title: '还书失败，请稍后重试！',
+                                    image: '../../images/fail.png',
                                 })
                             }
                         }

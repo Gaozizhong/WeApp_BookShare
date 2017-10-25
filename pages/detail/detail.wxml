@@ -4,7 +4,7 @@
 
     <image class="background" src="{{bookInfo.image_large}}" mode="aspectFill" />
     <image class="poster" src="{{bookInfo.image_large}}" bindtap='previewImage' mode="aspectFit" />
-    <view style="padding:0px 0px">
+    <view style="padding:0px 0px;width:95%;margin:0 auto">
         <view class="meta">
             <text class="title">{{bookInfo.book_name}}</text>
             <text class="info">作者： {{bookInfo.writer}} </text>
@@ -26,7 +26,7 @@
         </view>
         <view class="summary">
             <text class="label">摘要：</text>
-            <text class="content" style="line-height:25px">{{bookInfo.introduction}}</text>
+            <text class="content" style="line-height:25px;width:80%;margin:0 auto">{{bookInfo.introduction}}</text>
         </view>
     </view>
 </view>

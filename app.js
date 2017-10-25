@@ -58,7 +58,7 @@ App({
         pilotKeepTime:7 ,//自营点时间
         latitude: 39.2349700000,//团队所在纬度
         longitude: 117.0582000000,//团队所在经度
-
+        contractPhone:'13752766442',//联系我们的联系方式
         
 
     },

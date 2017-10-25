@@ -1,6 +1,9 @@
 //index.js
 //获取应用实例
 var app = getApp()
+import { $wuxPrompt } from '../../components/wux'
+const sliderWidth = 96
+
 Page({
     data: {
         application: null,
@@ -18,12 +21,17 @@ Page({
             },
             success: function (res) {
                 if (res.data == "noApplication") {
-                    wx.showToast({
-                        title: '暂无人借书！',
-                        icon: 'false',
-                        duration: 2000
-                    })
+                    $wuxPrompt.init('msg1', {
+                        title: '空空如也',
+                        text: '暂时没有相关数据',
+                    }).show()
                 } else {
+                    if (res.data[0] == '' && res.data[1] == '') {
+                        $wuxPrompt.init('msg1', {
+                            title: '空空如也',
+                            text: '暂时没有相关数据',
+                        }).show()
+                    }
                     that.setData({
                         application: res.data[0],
                         record: res.data[1]
@@ -33,7 +41,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '获取数据失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
@@ -59,25 +67,25 @@ Page({
                 if (res.data == "agreed") {
                     wx.showToast({
                         title: '已同意借出，无需重复！',
-                        icon: 'false',
+                        image: '../../images/warning.png',
                         duration: 2000
                     })
                 } else if (res.data == "refused") {
                     wx.showToast({
                         title: '已拒绝借出，无需重复操作！',
-                        icon: 'true',
+                        image: '../../images/warning.png',
                         duration: 2000
                     })
                 } else if (res.data == "success") {
                     wx.showToast({
                         title: '借出成功',
-                        icon: 'true',
+                        icon: 'success',
                         duration: 2000
                     })
                 } else if (res.data == "fail") {
                     wx.showToast({
                         title: '同意失败，请稍后重试',
-                        icon: 'true',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
@@ -85,7 +93,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '同意失败，请稍后重试',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
@@ -185,19 +193,19 @@ Page({
                                                             if (res.data == "finished") {
                                                                 wx.showToast({
                                                                     title: '已确认借出，无需重复！',
-                                                                    icon: 'false',
+                                                                    image: '../../images/warning.png',
                                                                     duration: 2000
                                                                 })
                                                             } else if (res.data == "success") {
                                                                 wx.showToast({
                                                                     title: '借出成功',
-                                                                    icon: 'true',
+                                                                    icon: 'success',
                                                                     duration: 2000
                                                                 })
                                                             } else if (res.data == "fail") {
                                                                 wx.showToast({
                                                                     title: '借出失败，请稍后重试',
-                                                                    icon: 'true',
+                                                                    image: '../../images/fail.png',
                                                                     duration: 2000
                                                                 })
                                                             }
@@ -205,7 +213,7 @@ Page({
                                                         fail: function () {
                                                             wx.showToast({
                                                                 title: '借出失败，请稍后重试',
-                                                                icon: 'false',
+                                                                image: '../../images/fail.png',
                                                                 duration: 2000
                                                             })
                                                         }
@@ -229,7 +237,7 @@ Page({
                                         fail: function () {
                                             wx.showToast({
                                                 title: '获取数据失败，请稍后重试！',
-                                                icon: 'false',
+                                                image: '../../images/fail.png',
                                                 duration: 2000
                                             })
                                         }
@@ -238,6 +246,7 @@ Page({
                             } else {
                                 wx.showToast({
                                     title: '获取数据失败，请稍后重试！',
+                                    image: '../../images/fail.png',
                                 })
                             }
                         }
@@ -262,19 +271,19 @@ Page({
                 if (res.data == "loaned") {
                     wx.showToast({
                         title: '已确认借出，无需重复！',
-                        icon: 'false',
+                        image: '../../images/warning.png',
                         duration: 2000
                     })
                 }else if (res.data == "success") {
                     wx.showToast({
                         title: '借出成功',
-                        icon: 'true',
+                        icon: 'success',
                         duration: 2000
                     })
                 } else if (res.data == "fail") {
                     wx.showToast({
                         title: '借出失败，请稍后重试',
-                        icon: 'true',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
@@ -282,7 +291,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '借出失败，请稍后重试',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }

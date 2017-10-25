@@ -39,8 +39,6 @@ Page({
                             wx.navigateTo({
                                 url: '../toAuth/toAuth',
                             })
-                        } else if (res.cancel) {
-                            
                         }
                     }
                 })
@@ -51,6 +49,7 @@ Page({
     onShow: function () {
         var that = this;
         utils.checkSettingStatu(that);
+        that.onLoad();
     },
 
     showNotification: function (image, title, text) {
@@ -117,6 +116,7 @@ Page({
         if (app.globalData.certificationOk != 2) {
             wx.showToast({
                 title: '您还没有进行信息认证！',
+                image: '../../images/warning.png',
             })
             return;
         }
@@ -129,6 +129,7 @@ Page({
         if (app.globalData.certificationOk != 2) {
             wx.showToast({
                 title: '您还没有进行信息认证！',
+                image: '../../images/warning.png',
             })
             return;
         }

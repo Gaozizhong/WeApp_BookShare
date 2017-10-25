@@ -94,7 +94,7 @@ Page({
                 } else {
                     wx.showToast({
                         title: '选择照片失败，请重试',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
@@ -138,7 +138,7 @@ Page({
                             } else {
                                 wx.showToast({
                                     title: '选择照片失败，请重试',
-                                    icon: 'false',
+                                    image: '../../images/fail.png',
                                     duration: 2000
                                 })
                             }
@@ -198,81 +198,134 @@ Page({
             studentCard: e.detail.value
         })
     },
+    /*****************************详细认证方法 **********************************/
+    // toAuth: function () {
+    //     //提交信息
+    //     var that = this;
+    //     var thatData = that.data;
+    //     var schoolIndex = that.data.schoolIndex;
+    //     var formData = {
+    //         "ID": app.globalData.userId,
+    //         'userName': that.data.userName,
+    //         'phoneNumber': that.data.phoneNumber,
+    //         'userSchool': that.data.school[schoolIndex],
+    //         'userClass': that.data.userClass,
+    //         "studentCard": that.data.studentCard,
+    //         "eMail": that.data.eMail
+    //     };
+        
+    //     if (!thatData.userName || !thatData.phoneNumber || !thatData.userClass || !thatData.studentCard || !thatData.eMail){
+    //         wx.showToast({
+    //             title: '你是不是忘记填了点什么！',
+    //             image: '../../images/warning.png',
+    //             duration: 2000
+    //         })
+    //         return ;
+    //     }
+    //     if (!thatData.pictureFiles){
+    //         wx.showToast({
+    //             title: '你是不是忘记选择照片了！',
+    //             image: '../../images/warning.png',
+    //             duration: 2000
+    //         })
+    //         return;
+    //     }
+    //     wx.uploadFile({
+    //       url: 'https://' + app.globalData.apiUrl + '/index.php?m=home&c=User&a=selfAuth',
+    //         header: {
+    //             'content-type': "multipart/form-data"
+    //         }, // 设置请求的 header
+    //         filePath: that.data.pictureFiles,
+    //         name: 'authPic',//app.globalData.userId+
+    //         formData: {
+    //             "ID": app.globalData.userId,
+    //             'userName': that.data.userName,
+    //             'phoneNumber': that.data.phoneNumber,
+    //             'userSchool': that.data.school[schoolIndex],
+    //             'userClass': that.data.userClass,
+    //             "studentCard": that.data.studentCard,
+    //             "eMail": that.data.eMail
+    //         },
+            
+    //         success: function (res) {
+    //             var data = res.data
+    //             if (data == "success"){
+    //                 wx.showToast({
+    //                     title: '等待管理员审核！',
+    //                     icon: 'success',
+    //                     duration: 2000
+    //                 })
+    //                 wx.navigateBack({
+    //                     delta: 1
+    //                 })
+    //             }else if(data == "fail"){
+    //                 wx.showToast({
+    //                     title: '申请失败,请稍后重试！',
+    //                     image: '../../images/fail.png',
+    //                     duration: 2000
+    //                 })
+    //             } else {
+    //                 wx.showToast({
+    //                     title: "提交信息失败,请重试！",
+    //                     image: '../../images/fail.png',
+    //                     duration: 2000
+    //                 })
+    //             }
+    //         }
+    //     })
+    // }
 
+    /**************************************简化后的认证方法 ***********************************/
     toAuth: function () {
         //提交信息
         var that = this;
         var thatData = that.data;
-        var schoolIndex = that.data.schoolIndex;
-        var formData = {
-            "ID": app.globalData.userId,
-            'userName': that.data.userName,
-            'phoneNumber': that.data.phoneNumber,
-            'userSchool': that.data.school[schoolIndex],
-            'userClass': that.data.userClass,
-            "studentCard": that.data.studentCard,
-            "eMail": that.data.eMail
-        };
         
-        if (!thatData.userName || !thatData.phoneNumber || !thatData.userClass || !thatData.studentCard || !thatData.eMail){
+        if (!thatData.userName || !thatData.phoneNumber || !thatData.eMail) {
             wx.showToast({
                 title: '你是不是忘记填了点什么！',
-                icon: 'false',
-                duration: 2000
-            })
-            return ;
-        }
-        if (!thatData.pictureFiles){
-            wx.showToast({
-                title: '你是不是忘记选择照片了！',
-                icon: 'false',
+                image: '../../images/warning.png',
                 duration: 2000
             })
             return;
         }
-        wx.uploadFile({
-          url: 'https://' + app.globalData.apiUrl + '/index.php?m=home&c=User&a=selfAuth',
-            header: {
-                'content-type': "multipart/form-data"
-            }, // 设置请求的 header
-            filePath: that.data.pictureFiles,
-            name: 'authPic',//app.globalData.userId+
-            formData: {
-                "ID": app.globalData.userId,
-                'userName': that.data.userName,
-                'phoneNumber': that.data.phoneNumber,
-                'userSchool': that.data.school[schoolIndex],
-                'userClass': that.data.userClass,
-                "studentCard": that.data.studentCard,
-                "eMail": that.data.eMail
-            },
-            
+
+        wx.request({
+            url: 'https://' + app.globalData.apiUrl + '/index.php?m=home&c=User&a=selfAuth&ID=' + app.globalData.userId + "&userName=" + that.data.userName + "&userSchool=河北工业大学&userClass=河北工业大学计算机学院&studentCard=000000&eMail=" + that.data.eMail + "&phoneNumber=" + that.data.phoneNumber,
+            method: "get",
+            dataType: "json",
             success: function (res) {
                 var data = res.data
-                if (data == "success"){
-                    wx.showToast({
-                        title: '等待管理员审核！',
-                        icon: 'false',
-                        duration: 2000
+                console.log(res.data)
+                if (data == "success") {
+                    wx.showModal({
+                        title: '通知',
+                        content: '审核通过',
+                        showCancel:false,
+                        success: function (res) {
+                            if (res.confirm) {
+                                app.globalData.certificationOk=2;
+                                wx.navigateBack({
+                                    delta: 1
+                                })
+                            }
+                        }
                     })
-                    wx.navigateBack({
-                        delta: 1
-                    })
-                }else if(data == "fail"){
+                } else if (data == "fail") {
                     wx.showToast({
                         title: '申请失败,请稍后重试！',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 } else {
                     wx.showToast({
-                        title: data,
-                        icon: 'false',
+                        title: "提交信息失败,请重试！",
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
             }
         })
+        
     }
-
 })

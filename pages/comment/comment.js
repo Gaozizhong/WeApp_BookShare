@@ -47,7 +47,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '获取数据失败，请重试',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
@@ -154,7 +154,7 @@ Page({
                 if (res.data == "success") {
                     wx.showToast({
                         title: '评论成功',
-                        icon: 'false',
+                        icon: 'success',
                         duration: 2000
                     })
                     wx.navigateBack({
@@ -163,7 +163,7 @@ Page({
                 }else if (res.data == "fail") {
                     wx.showToast({
                         title: '评论失败，请重试！',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 } 
@@ -171,7 +171,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '获取数据失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }

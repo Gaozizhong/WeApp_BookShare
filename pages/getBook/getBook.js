@@ -1,6 +1,9 @@
 //index.js
 //获取应用实例
 var app = getApp()
+import { $wuxPrompt } from '../../components/wux'
+const sliderWidth = 96
+
 Page({
     data: {
         returnBack: null
@@ -16,12 +19,17 @@ Page({
             },
             success: function (res) {
                 if (res.data == "noGet") {
-                    wx.showToast({
-                        title: '暂无人还书！',
-                        icon: 'false',
-                        duration: 2000
-                    })
+                    $wuxPrompt.init('msg1', {
+                        title: '空空如也',
+                        text: '暂时没有人还书',
+                    }).show()
                 } else {
+                    if (res.data[0] == '' && res.data[1] == '') {
+                        $wuxPrompt.init('msg1', {
+                            title: '空空如也',
+                            text: '暂时没有人还书',
+                        }).show()
+                    }
                     that.setData({
                         returnBack: res.data
                     })
@@ -30,7 +38,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '获取数据失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
@@ -74,19 +82,19 @@ Page({
                 if (res.data == "affirmed") {
                     wx.showToast({
                         title: '您已确认还书，无需重复操作',
-                        icon: 'false',
+                        image: '../../images/warning.png',
                         duration: 2000
                     })
                 } else if (res.data == "success") {
                     wx.showToast({
                         title: '确认成功',
-                        icon: 'false',
+                        icon: 'success',
                         duration: 2000
                     })
                 } else if (res.data == "fail") {
                     wx.showToast({
                         title: '确认失败',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
@@ -94,7 +102,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '确认失败',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }

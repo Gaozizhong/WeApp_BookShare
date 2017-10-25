@@ -33,7 +33,7 @@ Page({
           fail: function () {
             wx.showToast({
               title: '取消失败，请稍后重试',
-              icon: 'false',
+              image: '../../images/fail.png',
               duration: 2000
             })
           }
@@ -102,13 +102,13 @@ Page({
                 if (res.data == "canceled") {
                     wx.showToast({
                         title: '已取消借书，无需重复！',
-                        icon: 'false',
+                        image: '../../images/warning.png',
                         duration: 2000
                     })
                 } else if (res.data == "success") {
                     wx.showToast({
                         title: '取消成功',
-                        icon: 'true',
+                        icon: 'success',
                         duration: 2000
                     })
                     wx.navigateBack({
@@ -117,7 +117,7 @@ Page({
                 } else if (res.data == "fail") {
                     wx.showToast({
                         title: '取消失败，请稍后重试',
-                        icon: 'true',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
@@ -125,7 +125,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '取消失败，请稍后重试',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }

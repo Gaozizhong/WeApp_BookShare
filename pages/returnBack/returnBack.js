@@ -1,6 +1,8 @@
 //index.js
 //获取应用实例
 var app = getApp()
+import { $wuxPrompt } from '../../components/wux'
+const sliderWidth = 96
 Page({
     data: {
         returnBack: null
@@ -17,11 +19,10 @@ Page({
             success: function (res) {
                 console.log(res.data)
                 if (res.data == "noReturn") {
-                    wx.showToast({
-                        title: '您还没有待还书！',
-                        icon: 'false',
-                        duration: 2000
-                    })
+                    $wuxPrompt.init('msg1', {
+                        title: '空空如也',
+                        text: '您还不需要还书！',
+                    }).show()
                 } else {
                     that.setData({
                         returnBack: res.data
@@ -31,7 +32,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '获取数据失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
@@ -85,7 +86,7 @@ Page({
                                                             if (res.data == "finished") {
                                                                 wx.showToast({
                                                                     title: '已归还，无需重复！',
-                                                                    icon: 'false',
+                                                                    image: '../../images/warning.png',
                                                                     duration: 2000
                                                                 })
                                                             } else if (res.data == "success") {
@@ -105,7 +106,7 @@ Page({
                                                             } else if (res.data == "fail") {
                                                                 wx.showToast({
                                                                     title: '归还失败，请稍后重试',
-                                                                    icon: 'true',
+                                                                    image: '../../images/fail.png',
                                                                     duration: 2000
                                                                 })
                                                             }
@@ -113,7 +114,7 @@ Page({
                                                         fail: function () {
                                                             wx.showToast({
                                                                 title: '归还失败，请稍后重试',
-                                                                icon: 'false',
+                                                                image: '../../images/fail.png',
                                                                 duration: 2000
                                                             })
                                                         }
@@ -137,7 +138,7 @@ Page({
                                         fail: function () {
                                             wx.showToast({
                                                 title: '获取数据失败，请稍后重试！',
-                                                icon: 'false',
+                                                image: '../../images/fail.png',
                                                 duration: 2000
                                             })
                                         }
@@ -146,6 +147,7 @@ Page({
                             } else {
                                 wx.showToast({
                                     title: '获取数据失败，请稍后重试！',
+                                    image: '../../images/fail.png',
                                 })
                             }
                         }
@@ -172,19 +174,19 @@ Page({
                 if (res.data == "returned") {
                     wx.showToast({
                         title: '已确认归还，无需重复操作',
-                        icon: 'false',
+                        image: '../../images/warning.png',
                         duration: 2000
                     })
                 } else if (res.data == "success") {
                     wx.showToast({
                         title: '确认成功',
-                        icon: 'false',
+                        icon: 'success',
                         duration: 2000
                     })
                 } else if (res.data == "fail") {
                     wx.showToast({
                         title: '确认失败',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
@@ -192,7 +194,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '确认失败',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }

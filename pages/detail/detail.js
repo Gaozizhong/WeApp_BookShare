@@ -48,7 +48,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '获取数据失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
@@ -122,7 +122,7 @@ Page({
                     if (res.data[0].result == "noEnough"){
                         wx.showToast({
                             title: '您的积分不够,请通过其他方式获取积分！',
-                            icon: 'false',
+                            image: '../../images/warning.png',
                             duration: 2000
                         })
                         return ;
@@ -130,13 +130,13 @@ Page({
                     else if (res.data[0].result == "sharing") {
                         wx.showToast({
                             title: '图书已被借出！',
-                            icon: 'false',
+                            image: '../../images/warning.png',
                             duration: 2000
                         })
                     } else if (res.data[0].result == "fail") {
                         wx.showToast({
                             title: '借书失败，请稍后重试！',
-                            icon: 'false',
+                            image: '../../images/fail.png',
                             duration: 2000
                         })
                     } else if (res.data[0].result == "success") {
@@ -183,7 +183,7 @@ Page({
                     } else if (res.data[0].result == "mine") {
                         wx.showToast({
                             title: '您不能借自己的书！',
-                            icon: 'false',
+                            image: '../../images/waning.png',
                             duration: 2000
                         })
                     }
@@ -191,7 +191,7 @@ Page({
                 fail: function () {
                     wx.showToast({
                         title: '借书失败，请稍后重试！',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
@@ -205,6 +205,7 @@ Page({
         if (app.globalData.certificationOk != 2) {
             wx.showToast({
                 title: '您还没有进行信息认证！',
+                image: '../../images/warning.png',
             })
             return;
         }
@@ -225,26 +226,26 @@ Page({
 
                     wx.showToast({
                         title: '图书已被借出！',
-                        icon: 'false',
+                        image: '../../images/warning.png',
                         duration: 2000
                     })
                 } else if (res.data[0].result == "fail") {
                     wx.showToast({
                         title: '借书失败，请稍后重试！',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 } else if (res.data[0].result == "success") {
                     wx.showToast({
                         title: '申请成功，等书主确认！',
-                        icon: 'false',
+                        icon: 'success',
                         duration: 2000
                     })
 
                 } else if (res.data[0].result == "mine") {
                     wx.showToast({
                         title: '您不能借自己的书！',
-                        icon: 'false',
+                        image: '../../images/warning.png',
                         duration: 2000
                     })
                 }
@@ -252,7 +253,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '借书失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
@@ -279,13 +280,13 @@ Page({
                     })
                     wx.showToast({
                         title: '添加成功！',
-                        icon: 'false',
+                        icon: 'success',
                         duration: 2000
                     })
                 } else if (res.data == "haveAdded") {
                     wx.showToast({
-                        title: '您也添加过！',
-                        icon: 'false',
+                        title: '您已添加过！',
+                        image: '../../images/warning.png',
                         duration: 2000
                     })
                 }
@@ -293,7 +294,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '添加失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
@@ -316,19 +317,19 @@ Page({
                         },
                         success: function (res) {
                             if (res.data == "success") {
-                                that.setData({
-                                    haveRead: 0
-                                })
                                 console.log(that.data)
                                 wx.showToast({
                                     title: '取消成功！',
-                                    icon: 'false',
+                                    icon: 'success',
                                     duration: 2000
+                                })
+                                that.setData({
+                                    haveRead: 0
                                 })
                             } else {
                                 wx.showToast({
                                     title: '取消失败',
-                                    icon: 'false',
+                                    image: '../../images/fail.png',
                                     duration: 2000
                                 })
                             }
@@ -336,7 +337,7 @@ Page({
                         fail: function () {
                             wx.showToast({
                                 title: '取消失败，请稍后重试！',
-                                icon: 'false',
+                                image: '../../images/fail.png',
                                 duration: 2000
                             })
                         }
@@ -361,7 +362,7 @@ Page({
                 if (res.data == "success") {
                     wx.showToast({
                         title: '成功添加至喜欢！',
-                        icon: 'false',
+                        icon: 'success',
                         duration: 2000
                     })
                     that.setData({
@@ -370,7 +371,7 @@ Page({
                 } else if (res.data == "haveAdded") {
                     wx.showToast({
                         title: '您已添加过！',
-                        icon: 'false',
+                        image: '../../images/warning.png',
                         duration: 2000
                     })
                 }
@@ -378,7 +379,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '添加失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }
@@ -403,7 +404,7 @@ Page({
                             if (res.data == "success") {
                                 wx.showToast({
                                     title: '取消成功！',
-                                    icon: 'false',
+                                    icon: 'success',
                                     duration: 2000
                                 })
                                 that.setData({
@@ -412,7 +413,7 @@ Page({
                             } else {
                                 wx.showToast({
                                     title: '取消失败',
-                                    icon: 'false',
+                                    image: '../../images/fail.png',
                                     duration: 2000
                                 })
                             }
@@ -420,7 +421,7 @@ Page({
                         fail: function () {
                             wx.showToast({
                                 title: '取消失败，请稍后重试！',
-                                icon: 'false',
+                                image: '../../images/fail.png',
                                 duration: 2000
                             })
                         }

@@ -1,3 +1,7 @@
+.item{
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
 .countup {
 	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
     font-size: 5.2em;

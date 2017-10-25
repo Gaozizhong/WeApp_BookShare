@@ -19,7 +19,7 @@ Page({
                 if (res.data == "fail") {
                     wx.showToast({
                         title: '获取失败，请稍后重试！',
-                        icon: 'success',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 } else {
@@ -39,7 +39,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '获取失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             },
@@ -75,7 +75,7 @@ Page({
                 if (res.data == "fail") {
                     wx.showToast({
                         title: '修改失败，请稍后重试！',
-                        icon: 'success',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 } else {
@@ -90,7 +90,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '修改失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }

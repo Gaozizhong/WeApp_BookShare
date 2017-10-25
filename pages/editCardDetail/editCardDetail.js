@@ -50,7 +50,7 @@ Page({
           fail: function () {
               wx.showToast({
                   title: '获取数据失败，请稍后重试！',
-                  icon: 'false',
+                  image: '../../images/fail.png',
                   duration: 2000
               })
           }
@@ -216,13 +216,13 @@ Page({
                   // })
                   wx.showToast({
                       title: '您已经生出卡片，无需重复！',
-                      icon: 'false',
+                      image: '../../images/warning.png',
                       duration: 2000
                   })
               } else if (res.data == "success") {
                   wx.showToast({
                       title: successStr,
-                      icon: 'false',
+                      icon: 'success',
                       duration: 2000
                   })
                   wx.navigateBack({
@@ -231,7 +231,7 @@ Page({
               } else {
                   wx.showToast({
                       title: failStr,
-                      icon: 'false',
+                      image: '../../images/fail.png',
                       duration: 2000
                   })
               }
@@ -239,7 +239,7 @@ Page({
           fail: function () {
               wx.showToast({
                   title: failStr,
-                  icon: 'false',
+                  image: '../../images/fail.png',
                   duration: 2000
               })
           }

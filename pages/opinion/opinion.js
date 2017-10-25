@@ -23,6 +23,14 @@ Page({
 
     submitOpinion:function(){
         var that = this
+        if (!that.data.opinion){
+            wx.showToast({
+                title: '未填写意见！',
+                image: '../../images/warning.png',
+                duration: 2000
+            })
+            return ;
+        }
         wx.request({
             url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=submitOpinion&opinion=' + that.data.opinion + "&userId=" + app.globalData.userId,
             method: "GET",
@@ -47,7 +55,7 @@ Page({
                 }else{
                     wx.showToast({
                         title: '反馈失败，请稍后重试！',
-                        icon: 'false',
+                        image: '../../images/fail.png',
                         duration: 2000
                     })
                 }
@@ -55,7 +63,7 @@ Page({
             fail: function () {
                 wx.showToast({
                     title: '反馈失败，请稍后重试！',
-                    icon: 'false',
+                    image: '../../images/fail.png',
                     duration: 2000
                 })
             }

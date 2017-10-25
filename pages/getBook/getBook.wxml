@@ -1,10 +1,12 @@
 <import src="../templates/templates.wxml" />
+<import src="../../components/prompt/prompt.wxml" />
 
 <!--图书列表-->
 <view class="book-list">
+    <template is="prompt" data="{{ ...$wux.prompt.msg1 }}" />
     <view wx:for="{{returnBack}}" wx:for-index="index" wx:for-item="book">
         <!-- 书主确认归还模板 -->
         <template is="owerAffirmGet" data="{{book}}"></template>
-    </view> 
+    </view>
 </view>
 <!--图书列表 end-->

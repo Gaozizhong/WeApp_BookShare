@@ -33,7 +33,12 @@
         <view class="screen {{activeNum==1?'active':''}}" id="screen1" bindtap="changeTab" data-id="1">综合</view>
         <view class="screen {{activeNum==2?'active':''}}" id="scanner2" bindtap="changeTab" data-id="2">最新</view>
         <view class="screen {{activeNum==3?'active':''}}" id="scanner3" bindtap="changeTab" data-id="3">最热</view>
-        <view class="screen {{activeNum==4?'active':''}}" id="scanner4" bindtap="changeTab" data-id="4">距离</view>
+        <!-- <view class="screen {{activeNum==4?'active':''}}" id="scanner4" bindtap="changeTab" data-id="4">距离</view> -->
+        <picker bindchange="bindPickerChange" id="scanner5"  bindtap="changeTab" data-id="5" class=" screen {{activeNum==5?'active':''}}" value="{{ageIndex}}" range="{{age}}">
+            <view class="picker">
+                {{age[ageIndex]}}
+            </view>
+        </picker>
         <view class="clear-both"></view>
     </view>
     <!--筛选结束-->

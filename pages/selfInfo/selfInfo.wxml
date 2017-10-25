@@ -39,6 +39,7 @@
         <text>联系方式</text>
         <span class="value-right">{{userInfo.phoneNumber}}</span>
     </view>
+    <view class="h1"></view>
     <view class="phone item">
         <image src="../../images/telephone.png" class="item_ico"></image>
         <text>邮箱</text>

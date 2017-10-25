@@ -67,4 +67,10 @@ Page({
             activeIndex: e.currentTarget.id,
         })
     },
+
+    contractMe:function(){
+        wx.makePhoneCall({
+            phoneNumber: app.globalData.contractPhone //仅为示例，并非真实的电话号码
+        })
+    }
 })

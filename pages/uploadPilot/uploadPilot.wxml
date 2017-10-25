@@ -87,3 +87,5 @@
         <button type="primary" bindtap="bookcase" wx:elif="{{hidden == 3}}">扫描书架</button>
     </view>
 </view>
+
+<view class="weui-cells__tips" style="margin-top:40px"><text style="color:red">提示：</text>代为运营中途不可以退出上传的呦！否则会出现已经上传过错误</view>

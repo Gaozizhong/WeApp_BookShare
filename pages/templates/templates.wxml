@@ -536,8 +536,8 @@
         <template name="pilotBorrowIn">
             <view class="book-tmp" bindtap="detail">
                 <image src="{{book.book_image}}" class="book-image"></image>
-                <view class="book-info">
-                    <view class="book-name" style="height:30%" bindtap="pilotBorrowIn" data-sharingId="{{book.sharing_id}}" data-type="{{book.type}}" data-canShareID ="{{book.can_share_id}}">{{book.book_name}}—{{book.writer}}</view>
+                <view class="book-info"  bindtap="pilotBorrowIn" data-sharingId="{{book.sharing_id}}" data-type="{{book.type}}" data-canShareID ="{{book.can_share_id}}">
+                    <view class="book-name" style="height:30%">{{book.book_name}}—{{book.writer}}</view>
                     <view class="book-applier">
                         <view class="left">
                             <image src="../../images/applier.png" style="width:15px;height:15px;"></image> {{book.pilot_name?book.pilot_name:'自营点'}}
