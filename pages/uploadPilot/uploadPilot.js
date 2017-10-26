@@ -452,13 +452,13 @@ Page({
             }
         })
         // console.log(that.data.imageList);
-        // app.uploadimg({
-        //     url: 'https://' + app.globalData.apiUrl + '/index.php?m=home&c=Api&a=uploadBookDetailPic',//这里是你图片上传的接口
-        //     path: that.data.imageList,//这里是选取的图片的地址数组,
-        //     formData: {
-        //         'can_share_id': 12//that.data.can_share_id
-        //     },
-        // });
+        app.uploadimg({
+            url: 'https://' + app.globalData.apiUrl + '/index.php?m=home&c=Api&a=uploadBookDetailPic',//这里是你图片上传的接口
+            path: that.data.imageList,//这里是选取的图片的地址数组,
+            formData: {
+                'can_share_id': that.data.can_share_id
+            },
+        });
         //上传多张照片
         // for (var i in that.data.imageList){
         //     console.log(that.data.imageList[i]);
