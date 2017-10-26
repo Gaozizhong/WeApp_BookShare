@@ -4,7 +4,7 @@
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style='height:500rpx; background:#FFF;'>
             <block wx:for="{{imgUrls}}">
                 <swiper-item>
-                    <image src="{{item}}" bindload='imageLoad' class="slide-image" width="355" height="150" data-index="{{ index }}" bindtap="delete" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;margin-left:{{ images[index].marginLeftWidth }}rpx;"
+                    <image src="{{bookInfo.image_large}}" bindload='imageLoad' class="slide-image" width="355" height="150" data-index="{{ index }}" bindtap="delete" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;margin-left:{{ images[index].marginLeftWidth }}rpx;"
                     />
                 </swiper-item>
             </block>
@@ -14,45 +14,50 @@
     <!-- 书籍信息 -->
     <view style='background:#fff;margin: 0 1.5%;'>
         <view class='meta' style='padding: 2rpx 5rpx;'>
-            <view class='title'>小牛顿科学馆 台湾牛顿出版公司———贵州教育出版社（ISBN：7545600835、9787545600834）</view>
+            <view class='title'>{{bookInfo.book_name}} {{bookInfo.writer}}———{{bookInfo.book_press}}（ISBN：{{bookInfo.ISBN10}}、{{bookInfo.ISBN13}}）</view>
             <view class='price'>
-                <text class='big-price'>998</text>
+                <text class='big-price'>{{bookInfo.price}}</text>
                 <text class='small-price'>积分</text>
             </view>
             <view class='location'>
                 <image class='location_pic' src='../../images/location.png'></image>
-                <text class='address'>计算机学院楼自营点</text>
+                <text class="address" wx:if="{{book_type == 0}}">书主：{{bookInfo.userName?bookInfo.userName:bookInfo.nickName}}</text>
+                <text class="address" wx:elif="{{book_type == 1}}">自营点：{{bookInfo.pilot_name?bookInfo.pilot_name+'自营点':bookInfo.location}}</text>
+
             </view>
         </view>
     </view>
     <!--书籍信息结束  -->
     <view class='divLine'></view>
     <!--摘要  -->
-    <view class='abstract'>
+    <view class='abstract' wx:if="{{bookInfo.introduction}}">
         <view class='abstract_title'>摘要：</view>
-        <view class='abstract_text'>《小牛顿科学馆(分册百科)(1-6)(套装共6册)》主要内容：《小牛顿》为华语世界最有影响力的原创科普品牌，创刊二十余年来，获得过台湾二十六个出版奖项，三度荣获台湾出版最高奖——金鼎奖；一直是台湾地区最畅销、最有影响力的儿童科普读物。在两千多万人口的台湾，创造了累计发行超过1000万册的奇迹！此次60册的简体字版《小牛顿科学馆》，是从所有240期《小牛顿》杂志精选而成。本辑收录了第1辑—第6辑的内容。</view>
+        <view class='abstract_text'>{{bookInfo.introduction}}</view>
     </view>
     <!--摘要结束  -->
     <view class='divLine'></view>
     <!--评论  -->
-    <view class="comment" style="width：97%;margin: 0 1.5%;margin-bottom:60px;padding: 5px 10px;">
-        <view style="width:100%;">
-            <view class="left" style="width:15%;display:inline;">
-                <image class='user_img' src="https://img3.doubanio.com/lpic/s26657870.jpg"></image>
+    <view wx:if="{{commentInfo != 'none'}}" wx:for="{{commentInfo}}" wx:for-index="index" wx:for-item="comment">
+        <view class="comment" style="width：97%;margin: 0 1.5%;margin-bottom:10px;padding: 5px 10px;">
+            <view style="width:100%;">
+                <view class="left" style="width:15%;display:inline;">
+                    <image class='user_img' src="{{comment.favicon}}"></image>
+                </view>
+                <view class="center" style="float:left;width:85%;padding-top: 0px!important;margin-top: 5px;text-align:left;">
+                    <span class="user_name">{{comment.nickName}}</span>
+                    <span class="user_score">{{comment.book_content?comment.book_content:2.5}}分</span>
+                </view>
             </view>
-            <view class="center" style="float:left;width:85%;padding-top: 0px!important;margin-top: 5px;text-align:left;">
-                <span class="user_name">Lee</span>
-                <span class="user_score">4.5分</span>
+            <view class="comment_text">
+                {{comment.card_content}}
             </view>
+            <view class='comment_time'>————{{comment.create_at}}</view>
         </view>
-        <view class="comment_text">
-            《小牛顿科学馆(分册百科)(1-6)(套装共6册)》主要内容：《小牛顿》为华语世界最有影响力的原创科普品牌，创刊二十余年来，获得过台湾二十六个出版奖项，三度荣获台湾出版最高奖——金鼎奖；一直是台湾地区最畅销、最有影响力的儿童科普读物。在两千多万人口的台湾，创造了累计发行超过1000万册的奇迹！此次60册的简体字版《小牛顿科学馆》，是从所有240期《小牛顿》杂志精选而成。本辑收录了第1辑—第6辑的内容。
-        </view>
-        <view class='comment_time'>————2017.10,24 21:04</view>
     </view>
+
     <!--评论结束  -->
 </view>
- <view id="footer" style="display:block;bottom:0px;position:fixed;width:100%;height:50px;z-index:1000px;background:#fff">
+<view id="footer" style="display:block;bottom:0px;position:fixed;width:100%;height:50px;z-index:1000px;background:#fff">
     <view type="submit" bindtap="cancelLove" wx:if="{{bookInfo.haveLoved ==1 || haveLoved ==1}}" style="width:20%;border-right: 2px solid #f0f0f0;" class="bottom-operate">
         <view>
             <image src='../../images/like-active.png' class='like'></image>
@@ -88,7 +93,7 @@
     <view type="submit" bindtap="borrowBook" style="width:48%;background:#75a8f9;float:right;line-height:50px;font-size:15px;padding-top:0px;color:#fff" class="bottom-operate">
         借阅
     </view>
-</view> 
+</view>
 <!-- 弹出框 -->
 <scroll-view style="height:100%" id="catewrap" scroll-into-view="c2" scroll-y="true" hidden="{{!cateisShow}}">
     <view class="close" bindtap="togglePtype" id="closecatelist"></view>

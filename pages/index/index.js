@@ -1,5 +1,5 @@
 import { $wuxNotification } from '../../components/wux'
-
+import { $wuxBackdrop } from '../../components/wux'
 var utils = require('../../utils/util.js');
 //index.js
 //获取应用实例
@@ -12,10 +12,15 @@ Page({
         loading: true,
         bookObj: null,
         ageIndex: 0,
-        age: ['请选择','全部', '0-2岁', '3-7岁', '8-12岁'],
-        ageValue:[null,0,1,2,3]
+        age: ["请选择",'无限制', '3-5岁', '6-9岁', '10-12岁'],
+        ageValue:[null,0,1,2,3],
+        sortIndex:0,
+
+        //页面引导
+        locks: 0, 
     },
 
+    
     onPullDownRefresh: function () {
         //监听页面刷新
         this.onLoad()
@@ -29,7 +34,57 @@ Page({
         var that = this;
         utils.getUserData(that);
         that.getBookList();
+        that.getSorts();
         wx.hideLoading()
+        that.$wuxBackdrop = $wuxBackdrop.init();
+        that.retain()
+    },
+
+    //引导页面开始
+    retain() {
+        this.$wuxBackdrop.retain()
+        this.setData({
+            locks: this.$wuxBackdrop.backdropHolds
+        })
+    },
+    release() {
+        this.$wuxBackdrop.release()
+        this.setData({
+            locks: this.$wuxBackdrop.backdropHolds
+        })
+    },
+    //引导页面结束
+
+    getSorts:function(){
+        var that = this
+        var url = ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getSorts').replace(/\s+/g, "")
+        wx.request({
+            url: url,
+            method: "GET",
+            dataType: "json",
+            success: function (res) {
+                if (res.data == "none") {
+                    wx.showToast({
+                        title: '暂无分类',
+                        image: '../../images/warning.png',
+                        duration: 2000
+                    })
+                } else {
+                    that.setData({
+                        sortsArray: res.data["fullData"]
+                    })
+                }
+            }
+        })
+    },
+
+    selectSort:function(e){
+        var that = this;
+        that.setData({
+            sortIndex: e.currentTarget.dataset.index
+        })
+        that.getBookList()
+        that.togglePtype();
     },
 
     //设置搜索内容
@@ -78,12 +133,17 @@ Page({
             url += "&value=";
             url += that.data.searchValue;
         }
-        if (that.data.ageIndex !=0) {
+        if (that.data.ageIndex != 0) {
             console.log(that.data.ageIndex)
             var ageArray = that.data.ageValue
             var ageIndex = that.data.ageIndex
             url += "&age=";
             url += ageArray[ageIndex];
+
+        }
+        if (that.data.sortIndex != null) {
+            url += "&sort=";
+            url += that.data.sortIndex;
 
         }
         //图书列表数据获取
@@ -167,8 +227,14 @@ Page({
         var canShareId = event.currentTarget.dataset.canshareid;
         var book_type = event.currentTarget.dataset.type;//type 为1时自营点 为0时C2C
         //打开详情页
+        //旧页面
+        // wx.navigateTo({
+        //     url: '../detail/detail?bookId=' + bookId + "&canShareId=" + canShareId + "&book_type=" + book_type,
+        // })
+        
+        //新页面
         wx.navigateTo({
-            url: '../detail/detail?bookId=' + bookId + "&canShareId=" + canShareId + "&book_type=" + book_type,
+            url: '../detail1/detail1?bookId=' + bookId + "&canShareId=" + canShareId + "&book_type=" + book_type,
         })
     },
 
@@ -181,5 +247,11 @@ Page({
 
     checkDetail:function(){
         
+    },
+    nextStep: function () {
+        var that = this;
+        that.setData({
+            step: that.data.step + 1
+        })
     }
 })

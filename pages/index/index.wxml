@@ -1,8 +1,11 @@
 <import src="../templates/templates.wxml"/>
+<!-- 提醒框 -->
 <import src="../../components/notification/notification.wxml"/>
-
 <template is="notification" data="{{ ...$wux.notification }}"/>
 
+<!-- 背景遮罩层 -->
+<import src="../../components/backdrop/backdrop.wxml"/>
+<!-- <template is="backdrop" data="{{ ...$wux.backdrop }}"/> -->
 <!--index.wxml-->
 <!-- <loading hidden="{{ !loading }}">加载中...</loading>  -->
 <view class="container" style="background:#f4f4f4">
@@ -15,9 +18,9 @@
   </view>-->
     <!--头部搜索-->
     <view class="search-area">
-        <!-- <view class="classify" style="height:100%">
-            <text bindtap="togglePtype" id="catselectbtn" style="height:36px"></text>
-        </view> -->
+         <view class="classify" style="height:100%">
+            <text bindtap="togglePtype" id="catselectbtn" style="height:36px;background-image: url('../../images/sort.png');"></text>
+        </view> 
         <view style="width:98%;margin:0 auto">
             <view class="search-scanner">
                 <image src="../../images/scanner.png" bindtap="screenISBN"></image>
@@ -53,17 +56,14 @@
     <scroll-view style="height:100%" id="catewrap" scroll-into-view="c2" scroll-y="true" hidden="{{!cateisShow}}">
         <view class="close" bindtap="togglePtype" id="closecatelist"></view>
         <view id="cateall" bindtap="cateselect" class="cl_list ">
-            <text class="cl_ico_checked cl_ico"></text>当前选择：战争</view>
+            <text class="cl_ico_checked cl_ico"></text>当前选择：{{sortsArray[sortIndex].sort_name}}</view>
         <view class="catelist">
-            <!--id="c{{idx}}" wx:key="{{item}}" wx:for-items="{{catelist.res.categories}}" wx:for-index="idx"-->
-            <view class="cl_list cl_ico">
-                <image src="../../images/cm2_discover_icn_0@2x.png"></image>
-                <text>小说</text>
+            <view wx:for="{{sortsArray}}" wx:for-index="index" wx:for-item="book">
+                <view class="cl_list cl_ico" data-id="{{book.ID}}" data-index="{{index}}" bindtap="selectSort">
+                    <image src="http://139.199.171.106{{book.sort_image}}"></image>
+                    <text>{{book.sort_name}}</text>
+                </view>
             </view>
-            <!--<view class="cl_list {{catelist.checked.name==re.name?'checked':''}} " wx:if="{{re.category==idx}}" bindtap="cateselect" data-catype="{{re}}" data-catname="{{re.name}}" wx:for-items="{{catelist.res.sub}}" wx:key="{{item.name}}" wx:for-item="re">
-        <text class="cl_ico_hot cl_ico" wx:if="{{re.hot}}"></text>
-        <text class="cl_ico_checked cl_ico" wx:if="{{catelist.checked.name==re.name}}"></text>
-        {{re.name}}</view>-->
         </view>
     </scroll-view>
     <!--分类 end-->

@@ -1,3 +1,4 @@
+@import '../../assets/styles/weui.wxss'
 /*基本容器*/
 .aui-content {
 	-webkit-overflow-scrolling: touch;
@@ -151,4 +152,11 @@ aui-timeline {
 
 .aui-bg-info {
 	background-color: #3498db !important;
+}
+
+.card_content {
+    font-size: 16px;
+    margin: 20px auto;
+    width: 95%;
+    min-height: 200px;
 }

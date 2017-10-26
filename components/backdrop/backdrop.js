@@ -8,6 +8,7 @@ export default {
 		const options = {
             animateCss: undefined, 
             visible: !1, 
+            step:1
         }
 
 		// 实例化组件
@@ -43,4 +44,6 @@ export default {
 
     	return component 	
 	},
+
+    
 }

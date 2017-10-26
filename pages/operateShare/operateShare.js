@@ -18,7 +18,8 @@ Page({
         halfSrc: '../../images/half.png',
         key1: 5,//评分
 
-        array: ['无限制', '0-2岁', '3-7岁', '8-12岁'],
+        sortsIndex:0,
+        array: ['无限制', '3-5岁', '6-9岁', '10-12岁'],
         arrayValue:['0','1','2','3'],
         index: 0,
     },
@@ -32,6 +33,26 @@ Page({
                 disabled2:true
             })
         }
+        var url = ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getSorts').replace(/\s+/g, "")
+        wx.request({
+            url: url,
+            method: "GET",
+            dataType: "json",
+            success: function (res) {
+                if (res.data == "none") {
+                    wx.showToast({
+                        title: '暂无分类',
+                        image: '../../images/warning.png',
+                        duration: 2000
+                    })
+                } else {
+                    that.setData({
+                        sortsIDArray: res.data["ID"],
+                        sortsNameArray: res.data["sort_name"]
+                    })
+                }
+            }
+        })
         
     },
     onReady: function () {
@@ -111,7 +132,7 @@ Page({
                     var price = bookData.price;
                     price = price.replace(/[^0-9|.]/ig, "")
                     wx.request({
-                        url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=uploadBookInfo&book_name=' + bookData.title + "&writer=" + bookData.author + "&translator=" + bookData.translator + "&introduction=" + (bookData.summary)+ "&book_image=" + bookData.image + "&book_sort=" + (bookData.tags) + "&ISBN10=" + bookData.isbn10 + "&book_press=" + bookData.publisher + "&publish_date=" + bookData.pubdate + "&web_url=" + bookData.url + "&rating=" + bookData.rating.average + "&writer_intro=" + bookData.author_intro + "&image_large=" + bookData.images.large + "&image_medium=" + bookData.images.medium + "&image_small=" + bookData.images.small + "&ISBN13=" + bookData.isbn13 + "&pages=" + bookData.pages + "&price=" + parseInt(price) + "&rating_max=" + bookData.rating.max + "&rating_min=" + bookData.rating.min + "&raters_num=" + bookData.rating.numRaters + "&subtitle=" + bookData.subtitle,
+                        url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=uploadBookInfo&book_name=' + bookData.title + "&writer=" + bookData.author + "&translator=" + bookData.translator + "&introduction=" + (bookData.summary) + "&book_image=" + bookData.image + "&book_sort=" + (bookData.tags) + "&ISBN10=" + bookData.isbn10 + "&book_press=" + bookData.publisher + "&publish_date=" + bookData.pubdate + "&web_url=" + bookData.url + "&rating=" + bookData.rating.average + "&writer_intro=" + bookData.author_intro + "&image_large=" + bookData.images.large + "&image_medium=" + bookData.images.medium + "&image_small=" + bookData.images.small + "&ISBN13=" + bookData.isbn13 + "&pages=" + bookData.pages + "&price=" + parseInt(price) + "&rating_max=" + bookData.rating.max + "&rating_min=" + bookData.rating.min + "&raters_num=" + bookData.rating.numRaters + "&subtitle=" + bookData.subtitle).replace(/\s+/g, ""),
                         method: "GET",
                         header: {
                             'content-type': 'application/json'
@@ -141,6 +162,13 @@ Page({
         })
     },
 
+    //选择分类
+    bindSortsChange: function (e) {
+        this.setData({
+            sortsIndex: e.detail.value
+        })
+    },
+
     //设置借出时间
     setDays: function (e) {
         var that = this;
@@ -167,6 +195,8 @@ Page({
         var that = this;
         var index = that.data.index;
         var arrayValue = that.data.arrayValue;
+        var sortsIndex = that.data.sortsIndex;
+        
         if (!that.data.location) {
             wx.showToast({
                 title: '您还没有选择地址！',
@@ -176,7 +206,7 @@ Page({
             return;
         }
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=shareBook&ownerId=' + app.globalData.userId + "&bookId=" + that.data.bookId + "&keep_time=" + that.data.uploadDays + "&location=" + that.data.location + "&longitude=" + that.data.longitude + "&latitude=" + that.data.latitude + "&card_content=" + that.data.card_content + "&book_content=" + that.data.key1 + "&age=" + arrayValue[index] + "&price=" + parseInt(that.data.bookInfo.price),
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=shareBook&ownerId=' + app.globalData.userId + "&bookId=" + that.data.bookId + "&keep_time=" + that.data.uploadDays + "&location=" + that.data.location + "&longitude=" + that.data.longitude + "&latitude=" + that.data.latitude + "&card_content=" + that.data.card_content + "&book_content=" + that.data.key1 + "&age=" + arrayValue[index] + "&price=" + parseInt(that.data.bookInfo.price) + "&sort=" + that.data.sortsIDArray[sortsIndex]).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'
