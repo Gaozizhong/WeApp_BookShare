@@ -459,35 +459,6 @@ Page({
                 'can_share_id': that.data.can_share_id
             },
         });
-        //上传多张照片
-        // for (var i in that.data.imageList){
-        //     console.log(that.data.imageList[i]);
-        //     //上传详细图片
-        //     wx.uploadFile({
-        //         url: 'https://' + app.globalData.apiUrl + '/index.php?m=home&c=Api&a=uploadBookDetailPic',
-        //         formData: {
-        //             'can_share_id': that.data.can_share_id
-        //         },
-        //         header: {
-        //             'content-type': "multipart/form-data"
-        //         }, // 设置请求的 header
-        //         filePath: that.data.imageList[i],
-        //         name: 'bookPic',
-        //         success: function (res) {
-        //             console.log(res.data);
-        //             var data = res.data
-        //             if (data == "success") {
-                        
-        //             } else if (data == "fail") {
-        //                 wx.showToast({
-        //                     title: '上传失败！',
-        //                     image: '../../images/fail.png',
-        //                     duration: 2000
-        //                 })
-        //             }
-        //         }
-        //     })
-        // }
         
     }
 })
