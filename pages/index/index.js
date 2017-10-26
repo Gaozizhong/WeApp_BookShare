@@ -36,8 +36,8 @@ Page({
         that.getBookList();
         that.getSorts();
         wx.hideLoading()
-        that.$wuxBackdrop = $wuxBackdrop.init();
-        that.retain()
+        // that.$wuxBackdrop = $wuxBackdrop.init();
+        // that.retain()
     },
 
     //引导页面开始

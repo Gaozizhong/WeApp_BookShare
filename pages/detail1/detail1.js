@@ -30,7 +30,8 @@ Page({
         openIds: null,
         params: null,
         commentInfo: null,
-        borrowNeed: app.globalData.borrow        
+        borrowNeed: app.globalData.borrow,
+        morePic:null        
     },
 
 
@@ -58,7 +59,8 @@ Page({
                 that.setData({
                     bookInfo: res.data[0],
                     commentInfo: res.data[0].comment,
-                    loading: false
+                    loading: false,
+                    morePic: res.data[0]["morePic"]
                 })
                 console.log(that.data)
                 wx.setNavigationBarTitle({ title: res.data[0].book_name })
