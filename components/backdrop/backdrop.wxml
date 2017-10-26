@@ -1,3 +1,31 @@
 <template name="backdrop">
-	<view class="weui-mask {{ animateCss }}" hidden="{{ !visible }}"></view>
+	<view class="weui-mask {{ animateCss }}" hidden="{{ !visible }}" style="color:#FFF;">
+        <view wx:if="{{step==1}}" style='margin-left:50px'>
+            <view>
+                <image src='../../images/arrow.png' style='width:80px;height:80px;margin-top:10px;margin-left:-30px'></image>
+                <text style='height:30px;line-height:30px'>
+                    分类筛选在这里
+                </text>
+            </view>
+            <view>
+                <image src='../../images/know.png' bindtap='nextStep' style='width:100px;height:40px'></image>
+            </view>
+        </view>
+        <view style='position:fixed;bottom:30px;margin-left:100px'>
+            <view>
+                <image src='../../images/know.png' bindtap='nextStep' style='width:100px;height:40px'></image>
+            </view>
+            <view>
+                <text>
+                    分类筛选在这里
+                </text>
+                <image src='../../images/arrow.png' style='width:60px;height:60px;'></image>
+            </view>
+        </view>
+        <view wx:if="{{step==3}}">
+            <image src='../../images/firstStep.png' style='width:30px;height:30px;margin-top:80px;margin-left:30px'></image>
+            分类筛选
+            <image src='../../images/know.png' bindtap='nextStep' style='width:120px;height:50px'></image>
+        </view>
+    </view>
 </template>

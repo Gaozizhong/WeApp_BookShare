@@ -1,8 +1,11 @@
 <import src="../templates/templates.wxml"/>
+<!-- 提醒框 -->
 <import src="../../components/notification/notification.wxml"/>
-
 <template is="notification" data="{{ ...$wux.notification }}"/>
 
+<!-- 背景遮罩层 -->
+<import src="../../components/backdrop/backdrop.wxml"/>
+<!-- <template is="backdrop" data="{{ ...$wux.backdrop }}"/> -->
 <!--index.wxml-->
 <!-- <loading hidden="{{ !loading }}">加载中...</loading>  -->
 <view class="container" style="background:#f4f4f4">

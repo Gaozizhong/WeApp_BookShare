@@ -8,7 +8,7 @@ Page({
         bookInfo:null,
         hidden:1,
         step:1,
-        cateisShow: true,
+        cateisShow: false,
         array: ['无限制', '3-5岁', '6-9岁', '10-12岁'],
         arrayValue: ['0', '1', '2', '3'],
         ageIndex: 0,
@@ -111,7 +111,7 @@ Page({
                                                 that.setData({
                                                     price: price
                                                 })
-                                                var data = ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=uploadBookInfo&book_name=' + bookData.title + "&writer=" + bookData.author + "&translator=" + bookData.translator + "&introduction=" + (bookData.summary) + "&book_image=" + bookData.image + "&book_sort=" + (bookData.tags).substring(0, 300) + "&ISBN10=" + bookData.isbn10 + "&book_press=" + bookData.publisher + "&publish_date=" + bookData.pubdate + "&web_url=" + bookData.url + "&rating=" + bookData.rating.average + "&writer_intro=123" + "&image_large=" + bookData.images.large + "&image_medium=" + bookData.images.medium + "&image_small=" + bookData.images.small + "&ISBN13=" + bookData.isbn13 + "&pages=" + bookData.pages + "&price=&rating_max=" + bookData.rating.max + "&rating_min=" + bookData.rating.min + "&raters_num=" + bookData.rating.numRaters + "&subtitle=" + bookData.subtitle).replace(/\s+/g, "");
+                                                var data = ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=uploadBookInfo&book_name=' + bookData.title + "&writer=" + bookData.author + "&translator=" + bookData.translator + "&introduction=" + (bookData.summary) + "&book_image=" + bookData.image + "&book_sort=" + (bookData.tags).substring(0, 300) + "&ISBN10=" + bookData.isbn10 + "&book_press=" + bookData.publisher + "&publish_date=" + bookData.pubdate + "&web_url=" + bookData.url + "&rating=" + bookData.rating.average + "&writer_intro=123" + "&image_large=" + bookData.images.large + "&image_medium=" + bookData.images.medium + "&image_small=" + bookData.images.small + "&ISBN13=" + bookData.isbn13 + "&pages=" + bookData.pages + "&price=" + price+"&rating_max=" + bookData.rating.max + "&rating_min=" + bookData.rating.min + "&raters_num=" + bookData.rating.numRaters + "&subtitle=" + bookData.subtitle).replace(/\s+/g, "");
 
                                                 wx.request({
                                                     url: data,
@@ -398,67 +398,67 @@ Page({
     completeInfo: function () {
         //提交信息
         var that = this;
-        // var thatData = that.data;
-        // var ageIndex = that.data.ageIndex; 
-        // var sortsIndex = that.data.sortsIndex;
-        // if (!thatData.cardContent){
-        //     wx.showModal({
-        //         title: '提醒',
-        //         content: '您还没有填写书评，填写书评可能会给您带来更多的积分呦',
-        //         confirmText:"填写",
-        //         cancelText:"算了",
-        //         success: function (res) {
-        //             if (res.confirm) {
-        //                 return ;
-        //             } else if (res.cancel) {
-        //                 console.log('用户点击取消')
-        //             }
-        //         }
-        //     })
-        // }
+        var thatData = that.data;
+        var ageIndex = that.data.ageIndex; 
+        var sortsIndex = that.data.sortsIndex;
+        if (!thatData.cardContent){
+            wx.showModal({
+                title: '提醒',
+                content: '您还没有填写书评，填写书评可能会给您带来更多的积分呦',
+                confirmText:"填写",
+                cancelText:"算了",
+                success: function (res) {
+                    if (res.confirm) {
+                        return ;
+                    } else if (res.cancel) {
+                        console.log('用户点击取消')
+                    }
+                }
+            })
+        }
 
-        // wx.request({
-        //     url: ('https://' + app.globalData.apiUrl + '/index.php?m=home&c=Api&a=changeAgeSorts&can_share_id=' + thatData.can_share_id + "&book_id=" + thatData.bookId+"&user_id=" + app.globalData.userId + "&age=" + thatData.arrayValue[ageIndex] + "&sort=" + thatData.sortsIDArray[sortsIndex] + "&card_content=" + thatData.cardContent+"&book_content=5").replace(/\s+/g, ""),
-        //     method: "GET",
-        //     dataType:"text",
-        //     success: function (res) {
-        //         if (res.data == "success") {
-        //             wx.showModal({
-        //                 title: '提醒',
-        //                 content: '更新图书信息成功!',
-        //                 showCancel: false,
-        //                 success: function (res) {
-        //                     if (res.confirm) {
-        //                         wx.navigateBack({
-        //                         delta: 1
-        //                     })
-        //                     }
-        //                 }
-        //             })
-        //         } else {
-        //             wx.showToast({
-        //                 title: '更新图书信息失败！',
-        //                 image: '../../images/fail.png',
-        //                 duration: 2000
-        //             })
-        //         }
-        //     },
-        //     fail: function () {
-        //         wx.showToast({
-        //             title: '扫描书柜失败！',
-        //             image: '../../images/fail.png',
-        //             duration: 2000
-        //         })
-        //     }
-        // })
-        // console.log(that.data.imageList);
-        app.uploadimg({
-            url: 'https://' + app.globalData.apiUrl + '/index.php?m=home&c=Api&a=uploadBookDetailPic',//这里是你图片上传的接口
-            path: that.data.imageList,//这里是选取的图片的地址数组,
-            formData: {
-                'can_share_id': 12//that.data.can_share_id
+        wx.request({
+            url: ('https://' + app.globalData.apiUrl + '/index.php?m=home&c=Api&a=changeAgeSorts&can_share_id=' + thatData.can_share_id + "&book_id=" + thatData.bookId+"&user_id=" + app.globalData.userId + "&age=" + thatData.arrayValue[ageIndex] + "&sort=" + thatData.sortsIDArray[sortsIndex] + "&card_content=" + thatData.cardContent+"&book_content=5").replace(/\s+/g, ""),
+            method: "GET",
+            dataType:"text",
+            success: function (res) {
+                if (res.data == "success") {
+                    wx.showModal({
+                        title: '提醒',
+                        content: '更新图书信息成功!',
+                        showCancel: false,
+                        success: function (res) {
+                            if (res.confirm) {
+                                wx.navigateBack({
+                                delta: 1
+                            })
+                            }
+                        }
+                    })
+                } else {
+                    wx.showToast({
+                        title: '更新图书信息失败！',
+                        image: '../../images/fail.png',
+                        duration: 2000
+                    })
+                }
             },
-        });
+            fail: function () {
+                wx.showToast({
+                    title: '扫描书柜失败！',
+                    image: '../../images/fail.png',
+                    duration: 2000
+                })
+            }
+        })
+        // console.log(that.data.imageList);
+        // app.uploadimg({
+        //     url: 'https://' + app.globalData.apiUrl + '/index.php?m=home&c=Api&a=uploadBookDetailPic',//这里是你图片上传的接口
+        //     path: that.data.imageList,//这里是选取的图片的地址数组,
+        //     formData: {
+        //         'can_share_id': 12//that.data.can_share_id
+        //     },
+        // });
         //上传多张照片
         // for (var i in that.data.imageList){
         //     console.log(that.data.imageList[i]);
