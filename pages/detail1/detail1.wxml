@@ -1,4 +1,5 @@
 <view style='background:#f4f4f4;'>
+<loading hidden="{{ !loading }}">加载中...</loading>
     <!-- 轮播图 -->
     <view style='margin: 0 1.5%;margin-top:1.5%;'>
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style='height:500rpx; background:#FFF;'>
@@ -20,7 +21,8 @@
                 <text class='small-price'>积分</text>
             </view>
             <view class='location'>
-                <image class='location_pic' src='../../images/location.png'></image>
+                <image class='location_pic' wx:if="{{book_type == 0}}" src='../../images/applier.png'></image>
+                <image class='location_pic' wx:if="{{book_type == 1}}" src='../../images/location.png'></image>
                 <text class="address" wx:if="{{book_type == 0}}">书主：{{bookInfo.userName?bookInfo.userName:bookInfo.nickName}}</text>
                 <text class="address" wx:elif="{{book_type == 1}}">自营点：{{bookInfo.pilot_name?bookInfo.pilot_name+'自营点':bookInfo.location}}</text>
 
@@ -51,7 +53,7 @@
             <view class="comment_text">
                 {{comment.card_content}}
             </view>
-            <view class='comment_time'>————{{comment.create_at}}</view>
+            <view class='comment_time'>——{{comment.create_at}}</view>
         </view>
     </view>
 
