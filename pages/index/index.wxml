@@ -5,7 +5,7 @@
 
 <!-- 背景遮罩层 -->
 <import src="../../components/backdrop/backdrop.wxml"/>
-<!-- <template is="backdrop" data="{{ ...$wux.backdrop }}"/> -->
+ <!-- <template is="backdrop" data="{{ ...$wux.backdrop }}"/>  -->
 <!--index.wxml-->
 <!-- <loading hidden="{{ !loading }}">加载中...</loading>  -->
 <view class="container" style="background:#f4f4f4">
@@ -19,7 +19,7 @@
     <!--头部搜索-->
     <view class="search-area">
          <view class="classify" style="height:100%">
-            <text bindtap="togglePtype" id="catselectbtn" style="height:36px;background-image: url('../../images/sort.png');"></text>
+            <text bindtap="togglePtype" id="catselectbtn" style="height:36px;"></text>
         </view> 
         <view style="width:98%;margin:0 auto">
             <view class="search-scanner">

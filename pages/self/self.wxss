@@ -9,7 +9,6 @@ html, body {
 }
 
 .h10 {
-   
     background: #f0f0f0;
 }
 
@@ -28,6 +27,7 @@ html, body {
     font-size: 11px;
     margin-right: 5px;
 }
+
 .firstblock, .secondblock, .thirdblock {
     background-color: #fff;
     border: 10px solid #f0f0f0;
@@ -41,9 +41,11 @@ html, body {
     -webkit-filter: blur(2px);
     filter: blur(2px);
 }
-.login{
-   border: 10px solid #f0f0f0;
+
+.login {
+    border: 10px solid #f0f0f0;
 }
+
 .login .personal_logo {
     position: absolute;
     left: 0;
@@ -113,3 +115,21 @@ html, body {
     font-size: 16px;
     color: #333;
 }
+
+/*待还书 CSS*/
+.bottom-box{
+    width: 100%;
+    /* background: #fff; */
+    text-align: center
+}
+.list-box{
+    width: 31%;
+    margin: 5px 1% 5px 1%;
+    float: left;
+}
+.icon-text{
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px
+}
+

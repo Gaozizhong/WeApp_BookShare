@@ -36,8 +36,8 @@ Page({
         that.getBookList();
         that.getSorts();
         wx.hideLoading()
-        // that.$wuxBackdrop = $wuxBackdrop.init();
-        // that.retain()
+        that.$wuxBackdrop = $wuxBackdrop.init();
+        that.retain()
     },
 
     //引导页面开始
@@ -81,7 +81,7 @@ Page({
     selectSort:function(e){
         var that = this;
         that.setData({
-            sortIndex: e.currentTarget.dataset.index
+            sortIndex: e.currentTarget.dataset.id
         })
         that.getBookList()
         that.togglePtype();
@@ -141,7 +141,7 @@ Page({
             url += ageArray[ageIndex];
 
         }
-        if (that.data.sortIndex != null) {
+        if (that.data.sortIndex != 1) {
             url += "&sort=";
             url += that.data.sortIndex;
 

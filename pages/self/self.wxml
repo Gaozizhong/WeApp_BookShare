@@ -1,83 +1,109 @@
-<import src="../../components/notification/notification.wxml"/>
+<import src="../../components/notification/notification.wxml" />
 
-<template is="notification" data="{{ ...$wux.notification }}"/>
+<template is="notification" data="{{ ...$wux.notification }}" />
 
 
 <view class="all">
-<view class="login" style="height:200px;" bindtap="login">
-    <image src="../../images/backGround.jpg" style="height: 200px" class="loginbg"></image>
-    <image src="{{userInfo.favicon?userInfo.favicon:'../../images/user_defaulthead@2x.png'}}" style="border-radius: 100px" class="personal_logo" id="personal_logo"></image>
-    <view class="userinfo">
-        <view class="title" id="user_name">
-            {{userInfo.nickName?userInfo.nickName:"点击授权登录"}}
+    <view class="login" style="height:200px;">
+        <image src="../../images/backGround.jpg" style="height: 200px" class="loginbg"></image>
+        <image src="{{userInfo.favicon?userInfo.favicon:'../../images/user_defaulthead@2x.png'}}" style="border-radius: 100px" class="personal_logo" id="personal_logo"  bindtap="login"></image>
+        <view class="userinfo">
+            <view class="title" id="user_name">
+                {{userInfo.nickName?userInfo.nickName:"点击授权登录"}}
+            </view>
+            <view class="subtitle" id="shenfen" wx:if="{{userInfo.certificationOk == 0}}">
+                未认证
+            </view>
+            <view class="subtitle" id="shenfen" wx:if="{{userInfo.certificationOk == 1}}">
+                认证中
+            </view>
+            <view class="subtitle" id="shenfen" wx:if="{{userInfo.certificationOk == 2}}">
+                已认证
+            </view>
+            <view class="subtitle" id="shenfen" wx:if="{{userInfo.certificationOk == 3}}">
+                被驳回
+            </view>
         </view>
-        <view class="subtitle" id="shenfen" wx:if="{{userInfo.certificationOk == 0}}">
-            未认证
+        <view style='background-color: #fff;' class='bottom-box'>
+        <view class="list-box" bindtap="returnBack">
+            <view class="icon-box">
+                <image src="../../images/giveBack.png" style="width:36px;height:36px;margin: 0 auto"></image>
+            </view>
+            <view class="icon-text">
+                <span>待归还</span>
+            </view>
         </view>
-        <view class="subtitle" id="shenfen" wx:if="{{userInfo.certificationOk == 1}}">
-            认证中
+        <view class="list-box" bindtap="getBook">
+            <view class="icon-box">
+                <image src="../../images/receive.png" style="width:36px;height:36px;margin: 0 auto"></image>
+            </view>
+            <view class="icon-text">
+                <span>待收回</span>
+            </view>
         </view>
-        <view class="subtitle" id="shenfen" wx:if="{{userInfo.certificationOk == 2}}">
-            已认证
+        <view class="list-box" bindtap="borrowIn">
+            <view class="icon-box">
+                <image src="../../images/borrowIn.png" style="width:36px;height:36px;margin: 0 auto"></image>
+            </view>
+            <view class="icon-text">
+                <span>借入</span>
+            </view>
         </view>
-        <view class="subtitle" id="shenfen" wx:if="{{userInfo.certificationOk == 3}}">
-            被驳回
+        <view style='clear:both'></view>
         </view>
     </view>
-    <!--<image src="../../images/personal_icon_arrow.png" class="person_arrow"></image>-->
-</view>
-<!-- 第一块 -->
-<view class="thirdblock">
- <view class="item" bindtap="openAccount" data-index="1">
-        <image src="../../images/account.png" class="item_ico"></image>
-        <span>我的账户</span>
-        <image src="../../images/right.png" class="item_arrow"></image>
+    <!-- 第一块 -->
+    <view class="thirdblock" style='margin-top:70px;'>
+        <view class="item" bindtap="openAccount" data-index="1">
+            <image src="../../images/account.png" class="item_ico"></image>
+            <span>我的账户</span>
+            <image src="../../images/right.png" class="item_arrow"></image>
+        </view>
+        <view class="h1"></view>
+        <view class="item" bindtap="openBookList" bindtap="openCards">
+            <image src="../../images/looked.png" class="item_ico"></image>
+            <span>我看过的</span>
+            <image src="../../images/right.png" class="item_arrow"></image>
+        </view>
+        <view class="h1"></view>
+        <view class="item" bindtap="openBookList" data-index="2">
+            <image src="../../images/booklist.png" class="item_ico"></image>
+            <span>我的书单</span>
+            <image src="../../images/right.png" class="item_arrow"></image>
+        </view>
     </view>
-    <view class="h1"></view>
-    <view class="item" bindtap="openBookList" bindtap="openCards">
-        <image src="../../images/looked.png" class="item_ico"></image>
-        <span>我看过的</span>
-        <image src="../../images/right.png" class="item_arrow"></image>
-    </view>
-    <view class="h1"></view>
-    <view class="item" bindtap="openBookList" data-index="2">
-        <image src="../../images/booklist.png" class="item_ico"></image>
-        <span>我的书单</span>
-        <image src="../../images/right.png" class="item_arrow"></image>
-    </view>
-</view>
-<!-- 第三块 -->
-<view class="h10"></view>
-<view class="thirdblock">
-    <view class="item" bindtap="openBookList" data-index="5" bindtap="openOpinion">
-        <image src="../../images/suggest.png" class="item_ico"></image>
-        <span>意见反馈</span>
-        <image src="../../images/right.png" class="item_arrow"></image>
-    </view>
-    <view class="h1"></view>
-    <view class="item" bindtap="aboutUs" data-index="4">
-        <image src="../../images/about.png" class="item_ico"></image>
-        <span>关于我们</span>
-        <image src="../../images/right.png" class="item_arrow"></image>
-    </view>
-    <view class="h1"></view>
-    <view class="item" bindtap="uploadPilot">
+    <!-- 第三块 -->
+    <view class="h10"></view>
+    <view class="thirdblock">
+        <view class="item" bindtap="openBookList" data-index="5" bindtap="openOpinion">
+            <image src="../../images/suggest.png" class="item_ico"></image>
+            <span>意见反馈</span>
+            <image src="../../images/right.png" class="item_arrow"></image>
+        </view>
+        <view class="h1"></view>
+        <view class="item" bindtap="aboutUs" data-index="4">
+            <image src="../../images/about.png" class="item_ico"></image>
+            <span>关于我们</span>
+            <image src="../../images/right.png" class="item_arrow"></image>
+        </view>
+        <view class="h1"></view>
+        <!-- <view class="item" bindtap="uploadPilot">
         <image src="../../images/join_in.png" class="item_ico"></image>
         <span>加入共享</span>
         <image src="../../images/right.png" class="item_arrow"></image>
     </view>
-    <view class="h1"></view>
-    <view class="item" bindtap="billBoard">
-        <image src="../../images/join_in.png" class="item_ico"></image>
-        <span>邀请朋友</span>
-        <image src="../../images/hot.png" class="item_arrow"></image>
+    <view class="h1"></view> -->
+        <view class="item" bindtap="billBoard">
+            <image src="../../images/join_in.png" class="item_ico"></image>
+            <span>邀请朋友</span>
+            <image src="../../images/hot.png" class="item_arrow"></image>
+        </view>
+        <view class="h1"></view>
+        <view class="item" bindtap="openSetting">
+            <image src="../../images/setting.png" class="item_ico"></image>
+            <span>设置</span>
+        </view>
     </view>
-    <view class="h1"></view>
-    <view class="item" bindtap="openSetting">
-        <image src="../../images/setting.png" class="item_ico"></image>
-        <span>设置</span>
-    </view>
-</view>
-<view class="h10"></view>
-<view class="h10"></view>
+    <view class="h10"></view>
+    <view class="h10"></view>
 </view>

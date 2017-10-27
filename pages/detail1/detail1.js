@@ -80,13 +80,13 @@ Page({
         utils.checkSettingStatu();
     },
 
-    previewImage: function (e) {
-        var that = this;
-        wx.previewImage({
-            //数据源
-            urls: [that.data.imgUrls]
-        })
-    },
+    // previewImage: function (e) {
+    //     var that = this;
+    //     wx.previewImage({
+    //         //数据源
+    //         urls: [that.data.imgUrls]
+    //     })
+    // },
 
     togglePtype: function () {
         //显示分类
@@ -219,7 +219,17 @@ Page({
         }
     },
 
-
+    previewImage: function (e) {
+        console.log("!23")
+    },
+    delete:function(e){
+        var that = this;
+        wx.previewImage({
+            //数据源
+            current: that.data.morePic[e.currentTarget.dataset.index],
+            urls: that.data.morePic
+        })
+    },
 
     affirmBorrowBook: function (e) {
         if (app.globalData.certificationOk != 2) {

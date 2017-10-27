@@ -5,7 +5,7 @@
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style='height:500rpx; background:#FFF;'>
             <block wx:for="{{morePic}}">
                 <swiper-item>
-                    <image src="{{item}}" bindload='imageLoad' class="slide-image" width="355" height="150" data-index="{{ index }}" bindtap="delete" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;margin-left:{{ images[index].marginLeftWidth }}rpx;"
+                    <image src="{{item}}" bindload='imageLoad' bindtap='previewImage' class="slide-image" width="355" height="150" data-index="{{ index }}" bindtap="delete" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;margin-left:{{ images[index].marginLeftWidth }}rpx;"
                     />
                 </swiper-item>
             </block>

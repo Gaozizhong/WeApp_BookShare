@@ -160,7 +160,7 @@
 
 .speed-dial-bottom-right.speed-dial {
     right: 15px;
-    bottom: 15px;
+    bottom: 55px;
 }
 
 .speed-dial-top-left .speed-dial-button[data-label]:after, 

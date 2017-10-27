@@ -1,13 +1,12 @@
+<view class="weui-cells__tips" style="font-size: 12px;">
+    <text style="color:red;">提示：</text>代为运营中途不可以退出！否则会出现已经上传过错误
+</view>
 <view class="aui-content">
     <ul class="aui-timeline">
         <li>
             <view class="aui-iconfont aui-bg-info">1</view>
             <view class="aui-timeline-item">
-                <!-- <text class="aui-timeline-header"></text> -->
                 <view class="aui-timeline-body">扫描相应图书</view>
-                <!-- <view class="aui-timeline-footer">
-					
-				</view> -->
             </view>
         </li>
         <li>
@@ -18,11 +17,8 @@
                 <i class="aui-iconfont aui-icon-home aui-bg-warning">2</i>
             </view>
             <view class="aui-timeline-item">
-                <!-- <text class="aui-timeline-header"></text> -->
                 <view class="aui-timeline-body">扫描要贴的二维码</view>
-                <!-- <view class="aui-timeline-footer">
-					
-				</view> -->
+                
             </view>
         </li>
         <li>
@@ -33,11 +29,9 @@
                 <i class="aui-iconfont aui-icon-home aui-bg-warning">3</i>
             </view>
             <view class="aui-timeline-item">
-                <!-- <text class="aui-timeline-header"></text> -->
+                
                 <view class="aui-timeline-body">把二维码贴到相应的书后</view>
-                <!-- <view class="aui-timeline-footer">
-					
-				</view>  -->
+                
             </view>
         </li>
         <li>
@@ -48,11 +42,9 @@
                 <i class="aui-iconfont aui-icon-home aui-bg-warning">4</i>
             </view>
             <view class="aui-timeline-item">
-                <!-- <text class="aui-timeline-header"></text> -->
+                
                 <view class="aui-timeline-body">扫描书架二维码</view>
-                <!-- <view class="aui-timeline-footer">
-					
-				</view>  -->
+                
             </view>
         </li>
         <li>
@@ -63,11 +55,9 @@
                 <i class="aui-iconfont aui-icon-home aui-bg-warning">5</i>
             </view>
             <view class="aui-timeline-item">
-                <!-- <text class="aui-timeline-header"></text> -->
+                
                 <view class="aui-timeline-body">把书放入相应的书架</view>
-                <!-- <view class="aui-timeline-footer">
-					
-				</view>  -->
+                
             </view>
         </li>
 
@@ -88,13 +78,11 @@
     </view>
 </view>
 
-<view class="weui-cells__tips" style="margin-top:40px">
-    <text style="color:red">提示：</text>代为运营中途不可以退出上传的呦！否则会出现已经上传过错误
-</view>
+
 
 <!--分类 start-->
 <scroll-view style="height:100%" id="catewrap" scroll-into-view="c2" scroll-y="true" hidden="{{!cateisShow}}">
-    <view class="close" bindtap="togglePtype" id="closecatelist"></view>
+    <!-- <view class="close" bindtap="togglePtype" id="closecatelist"></view> -->
     <!-- <view id="cateall" bindtap="cateselect" class="cl_list ">
         <text class="cl_ico_checked cl_ico"></text> {{bookInfo.book_name}}
     </view> -->

@@ -164,5 +164,33 @@ Page({
         wx.navigateTo({
             url: '../card/card',
         })
-    }
+    },
+
+    /*****仿淘宝布局******/
+    //待归还
+    returnBack: function () {
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+                image: '../../images/warning.png',
+            })
+            return;
+        }
+        wx.navigateTo({
+            url: '../returnBack/returnBack'
+        })
+    },
+    //收书
+    getBook: function () {
+        if (app.globalData.certificationOk != 2) {
+            wx.showToast({
+                title: '您还没有进行信息认证！',
+                image: '../../images/warning.png',
+            })
+            return;
+        }
+        wx.navigateTo({
+            url: '../getBook/getBook'
+        })
+    },
 })

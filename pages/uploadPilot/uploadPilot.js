@@ -25,8 +25,8 @@ Page({
         sizeTypeIndex: 2,
         sizeType: ['压缩', '原图', '压缩或原图'],
 
-        countIndex: 8,
-        count: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        countIndex: 3,
+        count: [1, 2, 3, 4]
     },
     //事件处理函数
     onLoad: function (options) {
@@ -121,6 +121,9 @@ Page({
                                                             bookId: res.data.id,
                                                             hidden: 2
                                                         })
+                                                        wx.showToast({
+                                                            title: '上传图书成功！'
+                                                        })
                                                     },
                                                     fail: function () {
                                                         wx.showToast({
@@ -211,6 +214,9 @@ Page({
                                                     } else if (res.data == "success") {
                                                         that.setData({
                                                             hidden: 3
+                                                        })
+                                                        wx.showToast({
+                                                            title: '扫描贴码成功！'
                                                         })
                                                     } else {
                                                         wx.showToast({

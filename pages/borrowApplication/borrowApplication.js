@@ -11,7 +11,7 @@ Page({
     },
 
     onLoad: function () {
-        wx.setNavigationBarTitle({ title: "借出" })
+        wx.setNavigationBarTitle({ title: "收书柜" })
         var that = this;
         wx.request({
             url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getApplication&ownerId=' + app.globalData.userId,

@@ -3,7 +3,6 @@
 .aui-content {
 	-webkit-overflow-scrolling: touch;
 	margin-bottom: 15px;
-    margin-top: 20px;
     background:#fff;
     padding:30px 0;
 }
