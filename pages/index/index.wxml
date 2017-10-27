@@ -1,10 +1,10 @@
-<import src="../templates/templates.wxml"/>
+<import src="../templates/templates.wxml" />
 <!-- 提醒框 -->
-<import src="../../components/notification/notification.wxml"/>
-<template is="notification" data="{{ ...$wux.notification }}"/>
+<import src="../../components/notification/notification.wxml" />
+<template is="notification" data="{{ ...$wux.notification }}" />
 
 <!-- 背景遮罩层 -->
-<import src="../../components/backdrop/backdrop.wxml"/>
+<import src="../../components/backdrop/backdrop.wxml" />
 <!-- <template is="backdrop" data="{{ ...$wux.backdrop }}"/> -->
 <!--index.wxml-->
 <!-- <loading hidden="{{ !loading }}">加载中...</loading>  -->
@@ -18,17 +18,14 @@
   </view>-->
     <!--头部搜索-->
     <view class="search-area">
-         <view class="classify" style="height:100%">
-            <text bindtap="togglePtype" id="catselectbtn" style="height:36px;background-image: url('../../images/sort.png');"></text>
-        </view> 
-        <view style="width:98%;margin:0 auto">
-            <view class="search-scanner">
-                <image src="../../images/scanner.png" bindtap="screenISBN"></image>
-                <input type="text" bindinput='setSearchValue' placeholder="请输入书名/ISBN号/作者/关键字" bindconfirm="getBookList" confirm-type="search" />
-                <icon type="search" size="18" color="#666666" bindtap='getBookList' />
-            </view>
+        <view class="classify" style="height:100%">
+            <text bindtap="togglePtype" id="catselectbtn" style="height:72rpx;background-image: url('../../images/sort.png');"></text>
         </view>
-
+        <view class="search-scanner">
+            <image src="../../images/scanner.png" bindtap="screenISBN"></image>
+            <input type="text" class='width:720rpx !important;' bindinput='setSearchValue' placeholder="请输入书名/ISBN号/作者/关键字" bindconfirm="getBookList" confirm-type="search" />
+            <icon type="search" size="18" color="#666666" bindtap='getBookList' />
+        </view>
     </view>
     <!--头部搜索结束-->
     <!--筛选开始-->
@@ -37,7 +34,7 @@
         <view class="screen {{activeNum==2?'active':''}}" id="scanner2" bindtap="changeTab" data-id="2">最新</view>
         <view class="screen {{activeNum==3?'active':''}}" id="scanner3" bindtap="changeTab" data-id="3">最热</view>
         <!-- <view class="screen {{activeNum==4?'active':''}}" id="scanner4" bindtap="changeTab" data-id="4">距离</view> -->
-        <picker bindchange="bindPickerChange" id="scanner5"  bindtap="changeTab" data-id="5" class=" screen {{activeNum==5?'active':''}}" value="{{ageIndex}}" range="{{age}}">
+        <picker bindchange="bindPickerChange" id="scanner5" bindtap="changeTab" data-id="5" class=" screen {{activeNum==5?'active':''}}" value="{{ageIndex}}" range="{{age}}">
             <view class="picker">
                 {{age[ageIndex]}}
             </view>
@@ -48,7 +45,7 @@
     <!--图书列表-->
     <view class="book-list">
         <view wx:for="{{bookObj}}" wx:for-index="index" wx:for-item="book">
-            <template is="indexList" data="{{book}}"/>
+            <template is="indexList" data="{{book}}" />
         </view>
     </view>
     <!--图书列表 end-->
