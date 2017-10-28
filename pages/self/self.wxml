@@ -27,7 +27,7 @@
         <view style='background-color: #fff;' class='bottom-box'>
         <view class="list-box" bindtap="returnBack">
             <view class="icon-box">
-                <image src="../../images/giveBack.png" style="width:36px;height:36px;margin: 0 auto"></image>
+                <image src="../../images/giveBack2.png" style="width:36px;height:36px;margin: 0 auto"></image>
             </view>
             <view class="icon-text">
                 <span>待归还</span>
@@ -35,20 +35,20 @@
         </view>
         <view class="list-box" bindtap="getBook">
             <view class="icon-box">
-                <image src="../../images/receive.png" style="width:36px;height:36px;margin: 0 auto"></image>
+                <image src="../../images/receive2.png" style="width:36px;height:36px;margin: 0 auto"></image>
             </view>
             <view class="icon-text">
                 <span>待收回</span>
             </view>
         </view>
-        <view class="list-box" bindtap="borrowIn">
+        <!-- <view class="list-box" bindtap="borrowIn">
             <view class="icon-box">
-                <image src="../../images/borrowIn.png" style="width:36px;height:36px;margin: 0 auto"></image>
+                <image src="../../images/receive2.png" style="width:36px;height:36px;margin: 0 auto"></image>
             </view>
             <view class="icon-text">
                 <span>借入</span>
             </view>
-        </view>
+        </view> -->
         <view style='clear:both'></view>
         </view>
     </view>

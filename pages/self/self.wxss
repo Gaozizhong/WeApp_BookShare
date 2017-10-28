@@ -123,7 +123,7 @@ html, body {
     text-align: center
 }
 .list-box{
-    width: 31%;
+    width: 48%;
     margin: 5px 1% 5px 1%;
     float: left;
 }

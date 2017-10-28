@@ -6,7 +6,8 @@
     height: 50px;
     border-radius: 50%;
     z-index: 1500;
-    background-color: #E40A5D;
+    /* background-color: #E40A5D; */
+    background-color: gray;
     color: #fff;
     overflow: hidden;
     -webkit-transition-duration: .3s;
@@ -20,7 +21,7 @@
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     justify-content: center;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+    /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28); */
 }
 
 .speed-dial .speed-dial-icon {
@@ -159,8 +160,8 @@
 }
 
 .speed-dial-bottom-right.speed-dial {
-    right: 15px;
-    bottom: 55px;
+    right: 65px;
+    bottom: 45px;
 }
 
 .speed-dial-top-left .speed-dial-button[data-label]:after, 
