@@ -8,6 +8,7 @@
 	width: 110px;
 	height: 110px;
 	margin: 0 auto;
+    border-radius: 50%
 }
 
 .in-header image {

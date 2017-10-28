@@ -16,7 +16,7 @@
     </view>
 </view> -->
 
-<view class="in-body" style='background:url("../../images/invite/body.png");background-size: 100%;'>
+<view class="in-body" style='background-size: 100%;'>
     <view id="in-self" class="in-self"></view>
     <!-- header begin -->
     <header id="header">
@@ -49,7 +49,7 @@
                     </view>
                 </view>
                 <view class="in-content-links">
-                    <a href="http://www.17sucai.com//preview/10221/2017-09-27/invitation/page.html">
+                    
                         <view class="in-content-hd">
                             <image src="{{userInfo.favicon}}" class='headPhoto' alt=""></image>
                         </view>
@@ -63,7 +63,6 @@
                                 人
                             </p>
                         </view>
-                    </a>
                     <view class="in-line-left in-content-left">
                         <image src="../../images/invite/icon-line.png" alt=""></image>
                     </view>

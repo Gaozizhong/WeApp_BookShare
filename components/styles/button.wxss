@@ -2,8 +2,8 @@
     position: absolute;
     right: 15px;
     bottom: 15px;
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     z-index: 1500;
     /* background-color: #E40A5D; */
@@ -65,8 +65,10 @@
 .speed-dial-buttons {
     position: absolute;
     width: 40px;
-    left: 50%;
-    margin-left: -20px;
+    /* left: 50%; */
+    /* margin-left: -20px; */
+    left: 100%;
+    margin-left: 20px;
     bottom: 100%;
     margin-bottom: 16px;
     display: -webkit-box;
@@ -160,7 +162,7 @@
 }
 
 .speed-dial-bottom-right.speed-dial {
-    right: 65px;
+    right: 63px;
     bottom: 45px;
 }
 
