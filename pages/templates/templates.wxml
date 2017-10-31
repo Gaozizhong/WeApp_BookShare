@@ -1,4 +1,5 @@
 <!-- 首页 -->
+<!-- 列表形式的页面 -->
 <template name="indexList">
     <view class="book-tmp" bindtap="detail" bindlongtap='checkDetail' data-bookId="{{book.book_id}}" data-type="{{book.type}}" data-canShareID ="{{book.can_share_id}}">
         <image src="{{book.book_image}}" class="book-image"></image>
@@ -17,6 +18,18 @@
             </view>
         </view>
         <view class="clear-both"></view>
+    </view>
+</template>
+
+<!-- 块状形式的页面 -->
+<template name="indexListNew">
+    <view bindtap="detail" bindlongtap='checkDetail' data-bookId="{{book.book_id}}" data-type="{{book.type}}" data-canShareID ="{{book.can_share_id}}">
+        <view style='margin: 0 auto'>
+                <view>
+                    <image src='{{book.book_image}}' style="width:100%;margin: 0 auto" mode='widthFix'></image>
+                </view>
+                <view style='width:100%;height:30px;line-height:30px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size:12px;text-align:center'>{{book.book_name}}</view>
+            </view>
     </view>
 </template>
 <!-- 首页 -->

@@ -25,6 +25,9 @@ App({
             })
         }, that.globalData.timer);
 
+        //获取手机的宽度和高度
+        that.globalData.phoneInfo = wx.getSystemInfoSync()
+        
 
     },
 

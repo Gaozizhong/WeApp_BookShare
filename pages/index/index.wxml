@@ -2,20 +2,13 @@
 <!-- 提醒框 -->
 <import src="../../components/notification/notification.wxml" />
 <template is="notification" data="{{ ...$wux.notification }}" />
-
 <!-- 背景遮罩层 -->
 <import src="../../components/backdrop/backdrop.wxml" />
 <!-- <template is="backdrop" data="{{ ...$wux.backdrop }}"/> -->
+
 <!--index.wxml-->
-<!-- <loading hidden="{{ !loading }}">加载中...</loading>  -->
-<view class="container" style="background:#f4f4f4">
-    <!--<view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>-->
+ <loading hidden="{{ !loading }}">加载中...</loading>  
+<view class="container" style="background:#ffffff!important">
     <!--头部搜索-->
     <view class="search-area">
         <!-- <view class="classify" style="height:100%">
@@ -40,11 +33,13 @@
     </view>
     <!--筛选结束-->
     <!--图书列表-->
-    <view class="book-list">
-        <view wx:for="{{bookObj}}" wx:for-index="index" wx:for-item="book">
-            <template is="indexList" data="{{book}}" />
+    <scroll-view class="book-list" scroll-y style='min-height:{{ phoneInfo.windowHeight}}px;' bindscroll="scroll" >
+        <view wx:for="{{bookObj}}" wx:for-index="index" wx:for-item="book" style='display:inline-block;width:{{ phoneInfo.windowWidth*0.32 }}px;margin:1px 0.5%'>
+            <!-- <template is="indexList" data="{{book}}" /> -->
+            <template is="indexListNew" data="{{book}}" />
         </view>
-    </view>
+        <view style='clear:both'></view>
+    </scroll-view>
     <!--图书列表 end-->
     <!--分类 start-->
     <scroll-view style="height:100%" id="catewrap" scroll-into-view="c2" hidden="{{!cateisShow}}">

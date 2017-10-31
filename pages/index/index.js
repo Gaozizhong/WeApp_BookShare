@@ -15,6 +15,8 @@ Page({
         age: ["请选择",'无限制', '3-5岁', '6-9岁', '10-12岁'],
         ageValue:[null,0,1,2,3],
         sortIndex:0,
+        //当前设备信息
+        phoneInfo: app.globalData.phoneInfo,
 
         //页面引导
         locks: 0, 
@@ -36,8 +38,14 @@ Page({
         that.getBookList();
         that.getSorts();
         wx.hideLoading()
-        that.$wuxBackdrop = $wuxBackdrop.init();
-        that.retain()
+        // that.$wuxBackdrop = $wuxBackdrop.init();
+        // that.retain()
+        
+    },
+
+    //下滑到px时搜索取消
+    scroll: function (e) {
+        console.log(e)
     },
 
     //引导页面开始
@@ -55,6 +63,7 @@ Page({
     },
     //引导页面结束
 
+    //获取分类
     getSorts:function(){
         var that = this
         var url = ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getSorts').replace(/\s+/g, "")
@@ -78,6 +87,7 @@ Page({
         })
     },
 
+    //选中分类
     selectSort:function(e){
         var that = this;
         that.setData({
@@ -105,6 +115,7 @@ Page({
         that.getBookList()
     },
 
+    //信息展示
     showNotification:function(image,title,text) {
         this.closeNotification = $wuxNotification.show({
             image: image ? image:'http://light7.org/assets/img/i-wechat.png',

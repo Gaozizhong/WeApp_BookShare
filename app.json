@@ -50,7 +50,7 @@
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
+        "navigationBarBackgroundColor": "#f4f4f4",
         "navigationBarTitleText": "阅享",
         "navigationBarTextStyle": "black",
         "backgroundColor": "#f4f4f4"
