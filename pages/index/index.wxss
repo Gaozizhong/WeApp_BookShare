@@ -85,10 +85,9 @@
 .screen-box {
     width: 100%;
     position: fixed;
-    top: 37px;
-    z-index: 99px;
-    height: 30px;
-    padding-top: 7px;
+    top: 74rpx;
+    height: 60rpx;
+    line-height: 60rpx;
     background: #fff;
 }
 
@@ -99,7 +98,6 @@
     /*background: #f7f7f7;*/
     text-align: center;
     height: 25px;
-    line-height: 25px;
     font-size: 15px;
     border-radius: 5px;
 }
@@ -119,33 +117,32 @@
     color: #ff5f00;
 }
 
-.screen-box .active::after {
+
+/* .screen-box .active::after {
     border: 5px solid transparent;
     border-top: 5px solid #ff5f00;
-    width: 0;
-    height: 0;
+    line-height: 72rpx;
     position: absolute;
     margin-left: 6px;
-    margin-top: 10px;
+    margin-top: 24rpx;
     content: '';
-}
+} */
 
 /*screen-end*/
 
 /**图书列表**/
 
 .book-list {
-    margin-top: 80px;
-    width: 94%;
-    padding: 2px 2px;
+    /* width: 94%; */
+    margin: 134rpx 0 4rpx 0;    
+    padding: 4rpx 0;
 }
 
 .book-tmp {
-    padding: 2rpx 15rpx 2rpx 0rpx;
+    padding: 1rpx 48rpx 1rpx 48rpx;
     background: #fff;
-    margin-bottom: 15rpx;
+    /* margin-bottom: 20rpx; */
     height: 220rpx;
-    border-radius: 5px;
 }
 
 .book-image {
@@ -159,7 +156,7 @@
     float: right;
     height: 100%;
     text-align: center;
-    padding-left: 2%;
+    /* padding-left: 2%; */
 }
 
 .book-name {
@@ -194,7 +191,6 @@
 }
 .book-applier .right {
     float: right;
-    margin-right: 10px;
     width: 120px;
     overflow: hidden;
     text-overflow: ellipsis;

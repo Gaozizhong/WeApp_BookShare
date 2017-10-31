@@ -20,17 +20,16 @@ page {
 
 .book-list {
     margin-top: 10px;
-    width: 94%;
-    padding: 2px 2px;
+    width: 100%;
+    padding: 4rpx 0;
     margin: 0 auto;
 }
 
 .book-tmp {
-    padding: 2rpx 15rpx 2rpx 15rpx;
+    padding: 2rpx 0 2rpx 0;
     background: #fff;
-    margin-bottom: 15rpx;
+    margin-bottom: 4rpx;
     height: 240rpx;
-    border-radius: 5px;
 }
 
 .book-image {
@@ -116,7 +115,6 @@ page {
 
 .book-applier .right {
     float: right;
-    margin-right: 10px;
 }
 
 .operate-box {
