@@ -739,6 +739,13 @@
                 <text class='leftText2'>{{record.add_time}}</text>
                 <view class='rightText'>+{{record.value}}</view>
             </view>
+            <view class="item" style='display: flex;' wx:if="{{record.type == 9}}">
+                <text class="leftText1">
+                    邀请好友注册
+                </text>
+                <text class='leftText2'>{{record.add_time}}</text>
+                <view class='rightText'>+{{record.value}}</view>
+            </view>
 
             <view class="item" style='display: flex;' wx:if="{{record.type == 91}}">
                 <text class="leftText1">

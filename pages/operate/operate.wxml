@@ -72,16 +72,23 @@
     </view>
 
 </view> -->
-<import src="../../components/button/button.wxml"/>
+<import src="../../components/button/button.wxml" />
 
-<template is="button" data="{{ ...$wux.button.br }}"/>
-<view style='width:100%;'>
-<image src='https://35978598.1949science.cn/Public/images/background.png' style='width:80%;margin-left:10%' mode='aspectFit'></image>
-</view>
-<view class="bottom">
+    <template is="button" data="{{ ...$wux.button.br }}" />
+    <view style='width:100%;'>
+        <!-- <image src='https://35978598.1949science.cn/Public/images/background.png' style='width:80%;margin-left:10%' mode='aspectFit'></image> -->
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style='width:100%;height:200px;background:#fff'>
+            <block wx:for="{{imgUrls}}">
+                <swiper-item>
+                    <image src="{{item}}" class="slide-image" style='width:100%;height:200px' />
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="bottom">
 
-    <view class="bottom-box">
-        <!-- <view class="list-box" bindtap="borrowIn">
+        <view class="bottom-box">
+            <!-- <view class="list-box" bindtap="borrowIn">
             <view class="icon-box">
                 <image src="../../images/borrowIn.png" style="width:48px;height:48px;margin: 0 auto"></image>
             </view>
@@ -89,43 +96,43 @@
                 <span>上传分享</span>
             </view>
         </view> -->
-        <view class="list-box" bindtap="uploadBook">
-            <view class="icon-box">
-                <image src="../../images/share1.png" style="width:56px;height:56px;margin: 0 auto"></image>
+            <view class="list-box" bindtap="uploadBook">
+                <view class="icon-box">
+                    <image src="../../images/share1.png" style="width:75px;height:75px;margin: 0 auto"></image>
+                </view>
+                <view class="icon-text">
+                    <span>上传分享</span>
+                </view>
             </view>
-            <view class="icon-text">
-                <span>上传分享</span>
+            <view class="list-box" bindtap="borrowBasket">
+                <view class="icon-box">
+                    <image src="../../images/self_support1.png" style="width:65px;height:75px;margin: 0 auto"></image>
+                </view>
+                <view class="icon-text">
+                    <span>借书篮</span>
+                </view>
             </view>
+            <view style="clear:both"></view>
         </view>
-        <view class="list-box" bindtap="borrowBasket">
-            <view class="icon-box">
-                <image src="../../images/self_support1.png" style="width:56px;height:56px;margin: 0 auto"></image>
+        <view class="bottom-box">
+            <view class="list-box" bindtap="borrowApplication">
+                <view class="icon-box">
+                    <image src="../../images/borrowOut1.png" style="width:75px;height:75px;margin: 0 auto"></image>
+                </view>
+                <view class="icon-text">
+                    <span>收书筐</span>
+                </view>
             </view>
-            <view class="icon-text">
-                <span>借书篮</span>
+            <template is="button" data="{{ ...$wux.button.br }}" />
+            <view class="list-box" bindtap="borrowApplication">
+                <view class="icon-box">
+                    <view style="width:82px;height:82px;margin: 0 auto"></view>
+                </view>
+                <view class="icon-text">
+                    <span>更多</span>
+                </view>
             </view>
+
+            <view style="clear:both"></view>
         </view>
-        <view style="clear:both"></view>
     </view>
-    <view class="bottom-box">
-    <view class="list-box" bindtap="borrowApplication">
-            <view class="icon-box">
-                <image src="../../images/borrowOut1.png" style="width:56px;height:56px;margin: 0 auto"></image>
-            </view>
-            <view class="icon-text">
-                <span>收书筐</span>
-            </view>
-        </view>
-        <template is="button" data="{{ ...$wux.button.br }}"/>
-        <view class="list-box" bindtap="borrowApplication">
-            <view class="icon-box">
-                <view style="width:64px;height:64px;margin: 0 auto"></view>
-            </view>
-            <view class="icon-text">
-                <span>更多</span>
-            </view>
-        </view>
-        
-        <view style="clear:both"></view>
-    </view>
-</view>
