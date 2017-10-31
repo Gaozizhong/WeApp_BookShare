@@ -7,7 +7,7 @@
     border-radius: 50%;
     z-index: 1500;
     /* background-color: #E40A5D; */
-    background-color: gray;
+    background-color: #E77478;
     color: #fff;
     overflow: hidden;
     -webkit-transition-duration: .3s;
@@ -163,7 +163,7 @@
 
 .speed-dial-bottom-right.speed-dial {
     right: 63px;
-    bottom: 45px;
+    bottom: 70px;
 }
 
 .speed-dial-top-left .speed-dial-button[data-label]:after, 

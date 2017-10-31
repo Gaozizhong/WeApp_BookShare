@@ -127,7 +127,7 @@
     position: absolute;
     margin-left: 6px;
     margin-top: 10px;
-    content: '';
+    /* content: ''; */
 }
 
 /*screen-end*/
