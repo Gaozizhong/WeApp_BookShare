@@ -1,4 +1,4 @@
-<!-- <loading hidden="{{ loading }}">加载中...</loading> -->
+ <loading hidden="{{ loading }}">加载中...</loading> 
 <view class="list-tmp">
     <view wx:if="{{shareNum==0}}">
         <view class="list-info" bindtap="openBookListInfo" data-type="3">

@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+      loading: true,
   },
 
   /**
@@ -30,7 +30,9 @@ Page({
                     loading: false
                 })  
             }
-            
+            that.setData({
+                loading: false,
+            })
         },
         fail: function () {
             wx.showToast({

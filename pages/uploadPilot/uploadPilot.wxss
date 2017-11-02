@@ -159,3 +159,6 @@ aui-timeline {
     width: 95%;
     min-height: 200px;
 }
+.operateButton{
+    width: 120px;
+}

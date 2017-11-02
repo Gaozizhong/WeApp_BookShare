@@ -14,7 +14,7 @@ html, body {
 
 .h1 {
     height: 1px;
-    margin: 0 15px;
+    margin-left:50px;
     background: #f0f0f0;
 }
 
@@ -30,7 +30,7 @@ html, body {
 
 .firstblock, .secondblock, .thirdblock {
     background-color: #fff;
-    border: 10px solid #f0f0f0;
+    /* border: 10px solid #f0f0f0; */
     font-size: 16px;
 }
 
@@ -43,7 +43,7 @@ html, body {
 }
 
 .login {
-    border: 10px solid #f0f0f0;
+    /* border: 10px solid #f0f0f0; */
 }
 
 .login .personal_logo {

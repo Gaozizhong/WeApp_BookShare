@@ -66,15 +66,15 @@
 <view class="classname">
     <!-- 扫描ISBN -->
     <view class="container">
-        <button type="primary" bindtap="screenBook" wx:if="{{hidden == 1}}">扫描ISBN</button>
+        <button class='operateButton' type="primary" bindtap="screenBook" wx:if="{{hidden == 1}}">扫描ISBN</button>
 
         <!-- 扫描图书二维码 -->
-        <button type="primary" bindtap="screenQRcode" wx:elif="{{hidden == 2}}">扫描二维码</button>
+        <button class='operateButton' type="primary" bindtap="screenQRcode" wx:elif="{{hidden == 2}}">扫描二维码</button>
 
 
         <!-- 扫描书架 -->
 
-        <button type="primary" bindtap="bookcase" wx:elif="{{hidden == 3}}">扫描书架</button>
+        <button class='operateButton' type="primary" bindtap="bookcase" wx:elif="{{hidden == 3}}">扫描书架</button>
     </view>
 </view>
 

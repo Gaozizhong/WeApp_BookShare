@@ -161,3 +161,66 @@ image {
   border-radius: 4px;
 }
 
+@import "../../assets/styles/weui.wxss";
+ 
+.container {
+  box-sizing: border-box;
+  padding: 0 0 0 0;
+}
+ 
+ 
+ 
+.record {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width:100%;
+    height: 120rpx;
+  position: absolute;
+  justify-content: space-between;
+  background-color: #fff;
+}
+ 
+.record .right{
+  margin-right: 30rpx;
+     color: #888888;
+}
+.record .left{
+  margin-left: 30rpx;
+    display: flex;
+    flex-direction: column;
+  justify-content: space-between;
+}
+ 
+.record .left .summary{
+    color: #aaa;
+  font-size: 30rpx;
+  line-height: 30rpx;
+ 
+}
+ 
+.record-box{
+  height: 120rpx;
+  width: 100%;
+  border-bottom: 1rpx solid #ddd;
+  background-color: #fff;
+}
+ 
+.delete-box{
+  background-color: #e64340;
+  color: #ffffff;
+  float: right;
+  height: 100%;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.record-box:last-child {
+  border-bottom: 0;
+}
+ 
+.record .r-item {
+   
+}

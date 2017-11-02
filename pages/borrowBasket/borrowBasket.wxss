@@ -1,0 +1,6 @@
+.weui-navbar__item{
+    padding:10px 0;
+}
+.weui-navbar__slider {
+    width:4.1em
+}

@@ -53,24 +53,25 @@
         </view>
     </view>
     <!-- 第一块 -->
-    <view class="thirdblock" style='margin-top:70px;'>
+    <view class="thirdblock" style='margin-top:75px;'>
         <view class="item" bindtap="openAccount" data-index="1">
             <image src="../../images/account.png" class="item_ico"></image>
             <span>我的账户</span>
-            <image src="../../images/right.png" class="item_arrow"></image>
+            <!-- <image src="../../images/right.png" class="item_arrow"></image> -->
         </view>
         <view class="h1"></view>
         <view class="item" bindtap="openBookList" bindtap="openCards">
             <image src="../../images/looked.png" class="item_ico"></image>
             <span>我看过的</span>
-            <image src="../../images/right.png" class="item_arrow"></image>
+            <!-- <image src="../../images/right.png" class="item_arrow"></image> -->
         </view>
         <view class="h1"></view>
         <view class="item" bindtap="openBookList" data-index="2">
             <image src="../../images/booklist.png" class="item_ico"></image>
             <span>我的书单</span>
-            <image src="../../images/right.png" class="item_arrow"></image>
+            <!-- <image src="../../images/right.png" class="item_arrow"></image> -->
         </view>
+        <view class="h1"></view>
     </view>
     <!-- 第三块 -->
     <view class="h10"></view>
@@ -78,13 +79,13 @@
         <view class="item" bindtap="openBookList" data-index="5" bindtap="openOpinion">
             <image src="../../images/suggest.png" class="item_ico"></image>
             <span>意见反馈</span>
-            <image src="../../images/right.png" class="item_arrow"></image>
+            <!-- <image src="../../images/right.png" class="item_arrow"></image> -->
         </view>
         <view class="h1"></view>
         <view class="item" bindtap="aboutUs" data-index="4">
             <image src="../../images/about.png" class="item_ico"></image>
             <span>关于我们</span>
-            <image src="../../images/right.png" class="item_arrow"></image>
+            <!-- <image src="../../images/right.png" class="item_arrow"></image> -->
         </view>
         <view class="h1"></view>
         <!-- <view class="item" bindtap="uploadPilot">

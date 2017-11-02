@@ -1,12 +1,17 @@
 page{
     
 }
+.speed-dial{
+    position: absolute;
+    left:10px!important;
+    top:25px!important;
+}
 .bottom{
     width: 100%;
     margin-bottom: 0px;
     z-index: 100px;
     position: fixed;
-    bottom:30px;
+    /* bottom:30px; */
     /* background: #fff; */
     
 }
@@ -19,7 +24,7 @@ page{
     width: 48%;
     margin: 15px 1% 15px 1%;
     float: left;
-    height: 90px;
+    /* height: 90px; */
 }
 .icon-text{
     height: 20px;

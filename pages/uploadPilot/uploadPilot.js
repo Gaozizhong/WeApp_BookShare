@@ -54,7 +54,60 @@ Page({
                 }
             }
         })
+        var can_share_id = wx.getStorageSync('can_share_id')
+        var qrcodeId     = wx.getStorageSync('qrcodeId')
+        var price        = wx.getStorageSync('price')
+        var bookInfo     = wx.getStorageSync('bookInfo')
+        var hidden       = wx.getStorageSync('hidden')
+        if (qrcodeId){
+            wx.showModal({
+                title: '提醒',
+                content: '您上一次上传的' + bookInfo.title+'还未扫描书柜，是否继续？',
+                cancelText:"残忍拒绝",
+                cancelColor:"#E21918",
+                confirmText:"现在就去",
+                success: function (res){
+                    if(res.confirm){
+                        that.setData({ 
+                            hidden: hidden,
+                            price:price,
+                            qrcodeId:qrcodeId,
+                            bookInfo: bookInfo,
+                            can_share_id: can_share_id
+                        })
+                    }else{
+                        //根据qrcodeId删除之前上传的
+
+
+                    }
+                }
+            })
+        } else if (can_share_id){
+            wx.showModal({
+                title: '提醒',
+                content: '您上一次上传的' + bookInfo.title + '还未扫描书后二维码，是否继续？',
+                cancelText: "残忍拒绝",
+                cancelColor: "#E21918",
+                confirmText: "现在就去",
+                success: function (res) {
+                    if (res.confirm) {
+                        that.setData({
+                            hidden: hidden,
+                            price: price,
+                            qrcodeId: qrcodeId,
+                            bookInfo: bookInfo,
+                            can_share_id: can_share_id
+                        })
+                    } else {
+                        //根据can_share_id删除之前上传的
+
+
+                    }
+                }
+            })
+        }
     },
+
     togglePtype: function () {
         //显示分类
         this.setData({
@@ -111,6 +164,7 @@ Page({
                                                 that.setData({
                                                     price: price
                                                 })
+                                                wx.setStorageSync("bookInfo", res.data)
                                                 var data = ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=uploadBookInfo&book_name=' + bookData.title + "&writer=" + bookData.author + "&translator=" + bookData.translator + "&introduction=" + (bookData.summary) + "&book_image=" + bookData.image + "&book_sort=" + (bookData.tags).substring(0, 300) + "&ISBN10=" + bookData.isbn10 + "&book_press=" + bookData.publisher + "&publish_date=" + bookData.pubdate + "&web_url=" + bookData.url + "&rating=" + bookData.rating.average + "&writer_intro=123" + "&image_large=" + bookData.images.large + "&image_medium=" + bookData.images.medium + "&image_small=" + bookData.images.small + "&ISBN13=" + bookData.isbn13 + "&pages=" + bookData.pages + "&price=" + price+"&rating_max=" + bookData.rating.max + "&rating_min=" + bookData.rating.min + "&raters_num=" + bookData.rating.numRaters + "&subtitle=" + bookData.subtitle).replace(/\s+/g, "");
 
                                                 wx.request({
@@ -124,6 +178,7 @@ Page({
                                                         wx.showToast({
                                                             title: '上传图书成功！'
                                                         })
+                                                        
                                                     },
                                                     fail: function () {
                                                         wx.showToast({
@@ -197,6 +252,10 @@ Page({
                                             that.setData({
                                                 can_share_id: res.data[0]["can_share_id"],
                                             })
+                                            //暂时存在storage里！！！！！！！！！！！！！！！！！！！！！
+                                            wx.setStorageSync("can_share_id", that.data.can_share_id)
+                                            wx.setStorageSync("price", that.data.price)
+                                            wx.setStorageSync("hidden", 2)
                                             var url2 = ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=insertPilot&user_id=' + app.globalData.userId + "&qrcode_id=" + qrcodeId + "&can_share_id=" + that.data.can_share_id + "&donateType=" + that.data.donateType).replace(/\s+/g, "")
                                             wx.request({
                                                 url: url2,
@@ -215,6 +274,9 @@ Page({
                                                         that.setData({
                                                             hidden: 3
                                                         })
+                                                        //暂时存在storage里！！！！！！！！！！！！！！！！！！！！！
+                                                        wx.setStorageSync("qrcodeId", qrcodeId);
+                                                        wx.setStorageSync("hidden", 3)
                                                         wx.showToast({
                                                             title: '扫描贴码成功！'
                                                         })
@@ -297,6 +359,13 @@ Page({
                                     },
                                     success: function (res) {
                                         if (res.data == "success") {
+                                            //清除缓存
+                                            wx.removeStorageSync('can_share_id');
+                                            wx.removeStorageSync('qrcodeId');
+                                            wx.removeStorageSync('price');
+                                            wx.removeStorageSync('bookInfo');
+                                            wx.removeStorageSync('hidden');
+                                            
                                             wx.showModal({
                                                 title: '提醒',
                                                 content: '扫描书架成功!',
@@ -304,6 +373,7 @@ Page({
                                                 success:function(res){
                                                     if (res.confirm) {
                                                         that.togglePtype();
+
                                                     }
                                                 }
                                             })

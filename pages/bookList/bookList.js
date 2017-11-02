@@ -3,7 +3,7 @@
 var app = getApp()
 Page({
     data: {
-        
+        loading: false,
     },
 
     onLoad: function () {
@@ -16,10 +16,11 @@ Page({
             },
             success: function (res) {
                 that.setData({
+                    loading: true,
                     readNum: res.data.readNum,
                     loveNum: res.data.loveNum,
                     shareNum: res.data.shareNum,
-                    booklistObj: res.data.private
+                    booklistObj: res.data.private,
                 })
             },
             fail: function () {

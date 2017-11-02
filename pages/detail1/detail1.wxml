@@ -42,8 +42,9 @@
     <view wx:if="{{commentInfo != 'none'}}" wx:for="{{commentInfo}}" wx:for-index="index" wx:for-item="comment">
         <view class="comment" style="width：97%;margin: 0 1.5%;margin-bottom:7px;padding: 5px 10px;">
             <view style="width:100%;">
-                <view class="left" style="width:15%;display:inline;">
+                <view class="left" style="width:15%;float:left;">
                     <image class='user_img' src="{{comment.favicon}}"></image>
+                    <!-- <view style='clear:both'></view> -->
                 </view>
                 <view class="center" style="float:left;width:85%;padding-top: 0px!important;margin-top: 5px;text-align:left;">
                     <span class="user_name">{{comment.nickName}}</span>

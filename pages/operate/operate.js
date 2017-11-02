@@ -46,6 +46,7 @@ Page({
         utils.checkSettingStatu();
     },
 
+
     /**
      * 别人的借书申请
      */

@@ -1,5 +1,5 @@
 import { $wuxPrompt } from '../../components/wux'
-const sliderWidth = 96
+const sliderWidth = 70
 var app = getApp()
 Page({
 

@@ -1,4 +1,4 @@
-<view class="login-container container">
+<!-- <view class="login-container container">
   <view class="connect" style="text-align:center;">
     <p style="left: 0%;">足下路 自由骑</p>
   </view>
@@ -15,4 +15,21 @@
     <button type="button" class="register-tis">还有没有账号？</button>
   </a>
   
+</view> -->
+
+<view class="container">
+  <view class="record-box" data-datetime="{{record.datetime}}" wx:for="{{detailList}}" wx:for-item="record">
+    <view class="record" style="left:{{record.offsetX}}px" bindtouchstart="recordStart" catchtouchmove="recordMove" bindtouchend="recordEnd">
+      <view class="left">
+        <view>{{record.type}} {{record.count+record.unit}}</view>
+        <view class="summary">{{record.remark}}</view>
+      </view>
+      <view class="right">
+        {{record.datetime}}
+      </view>
+    </view>
+    <view class="delete-box">
+      <view>删除</view>
+    </view>
+  </view>
 </view>

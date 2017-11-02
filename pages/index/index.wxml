@@ -26,14 +26,17 @@
         <view class="screen {{activeNum==1?'active':''}}" id="screen1" bindtap="changeTab" data-id="1">综合</view>
         <view class="screen {{activeNum==2?'active':''}}" id="scanner2" bindtap="changeTab" data-id="2">最新</view>
         <view class="screen {{activeNum==3?'active':''}}" id="scanner3" bindtap="changeTab" data-id="3">最热</view>
-        <view class="screen {{sortIndex>1 || ageIndex!=0?'active':''}}" id="scanner4" bindtap="togglePtype" data-id="4">筛选
-            <image wx:if="{{sortIndex>1 || ageIndex!=0}}" src='../../images/screen-active.png' style='width:16px;height:16px;'></image>
+        <view class="screen {{sortIndex>1 || ageIndex!=0?'active':''}}" style="position:relative" id="scanner4" bindtap="togglePtype" data-id="4">
+            <text>筛选</text>
+            <view style='position:absolute;right:12px;top:3px'>
+                <image wx:if="{{sortIndex>1 || ageIndex!=0}}" src='../../images/screen-active.png' style='width:16px;height:16px;'></image>
             <image wx:else src='../../images/screen.png' style='width:16px;height:16px;'></image>
+            </view>
         </view>
     </view>
     <!--筛选结束-->
     <!--图书列表-->
-    <scroll-view class="book-list" scroll-y style='min-height:{{ phoneInfo.windowHeight}}px;' bindscroll="scroll" >
+    <scroll-view class="book-list" scroll-y="false" style='height:{{ phoneInfo.screenHeight-185}}px' bindscrolltoupper="scroll">
         <view wx:for="{{bookObj}}" wx:for-index="index" wx:for-item="book" style='display:inline-block;width:{{ phoneInfo.windowWidth*0.32 }}px;margin:1px 0.5%'>
             <!-- <template is="indexList" data="{{book}}" /> -->
             <template is="indexListNew" data="{{book}}" />

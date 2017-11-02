@@ -32,7 +32,7 @@
 /*search-area :start*/
 
 .search-area {
-    height: 36px;
+    height: 35px;
     width: 100%;
     padding: 2px 2px;
     position: fixed;
@@ -47,23 +47,23 @@
 }
 
 .search-scanner {
-    padding: 12rpx 16rpx 12rpx 16rpx;
+    padding: 12.5rpx 15rpx 12.5rpx 15rpx;
     background: #fff;
     margin: 0 auto;
     border-radius: 5px;
-    height: 42rpx;
+    height: 21px;
 }
 
 .search-scanner image {
-    width: 42rpx;
-    height: 42rpx;
+    width: 45rpx;
+    height: 45rpx;
     display: inline-block;
-    padding-right: 12rpx;
-    padding-bottom: 6rpx;
+    float: left;
+    padding-right: 10rpx;
 }
 
 .search-scanner input {
-    width: 560rpx;
+    width: 450rpx;
     height: 20rpx;
     line-height: 20rpx;
     display: inline-block;
@@ -89,6 +89,7 @@
     height: 60rpx;
     line-height: 60rpx;
     background: #fff;
+    border-bottom: 2px solid #f4f4f4;
 }
 
 .screen {

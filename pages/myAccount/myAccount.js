@@ -6,6 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        loading:true,
         integral:0,
         integralRecord:null,
     },
@@ -24,7 +25,8 @@ Page({
             success: function (res) {
                 that.setData({
                     integral: res.data[0]["integral"],
-                    integralRecord: res.data[1]["record"]
+                    integralRecord: res.data[1]["record"],
+                    loading:false
                 })
             },
             fail: function () {

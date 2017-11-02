@@ -50,10 +50,10 @@
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#f4f4f4",
+        "navigationBarBackgroundColor": "#000000",
         "navigationBarTitleText": "阅享",
-        "navigationBarTextStyle": "black",
-        "backgroundColor": "#f4f4f4"
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#ffffff"
     },
     "tabBar": {
         "selectedColor": "#00c700",

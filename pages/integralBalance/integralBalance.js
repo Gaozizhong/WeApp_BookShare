@@ -10,6 +10,7 @@ Page({
     data: {
         integral: 0,
         integralRecord: null,
+        loading: true,
     },
 
     /**
@@ -26,7 +27,8 @@ Page({
             success: function (res) {
                 that.setData({
                     integral: res.data[0]["integral"],
-                    integralRecord: res.data[1]["record"]
+                    integralRecord: res.data[1]["record"],
+                    loading: false,
                 })
                 this.integral = new $wuxCountUp(1, res.data[0]["integral"], 0, 10, {
                     printValue(value) {
