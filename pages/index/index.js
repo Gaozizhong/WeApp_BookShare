@@ -30,6 +30,7 @@ Page({
     },
 
     onLoad: function () {
+        console.log(app.globalData.openId)
         wx.showLoading({
             title: '加载中',
         })

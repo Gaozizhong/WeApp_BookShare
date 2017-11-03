@@ -143,6 +143,7 @@ module.exports = {
                     wx.request({
                         url: 'https://' + getApp().globalData.apiUrl + '?m=home&c=User&a=getSessionKey&code=' + res.code,
                         success: function (res) {
+                            var resData = res;
                             getApp().globalData.session_key = res.data.session_key
                             getApp().globalData.openId = res.data.openid
                             //获取个人信息
@@ -150,8 +151,9 @@ module.exports = {
                                 success: function (res) {
                                     var res = JSON.parse(res.rawData);//eval('(' + res.rawData + ')');
                                     //创建账号到数据库
+                                    var url = ('https://' + getApp().globalData.apiUrl + '?m=home&c=User&a=regiser&avatarUrl=' + res.avatarUrl + "&city=" + res.city + "&country=" + res.country + "&gender=" + res.gender + "&nickName=" + res.nickName + "&province=" + res.province + "&openId=" + resData.data.openid).replace(/\s+/g, "");
                                     wx.request({
-                                        url: 'https://' + getApp().globalData.apiUrl + '?m=home&c=User&a=regiser&avatarUrl=' + res.avatarUrl + "&city=" + res.city + "&country=" + res.country + "&gender=" + res.gender + "&nickName=" + res.nickName + "&province=" + res.province + "&openId=" + getApp().globalData.openId,
+                                        url: url,
                                         success: function (res) {
                                             if (res.data[0]["certificationOk"] == 0){
                                                 // var str = "您还没有认证，请前往个人中心认证!";

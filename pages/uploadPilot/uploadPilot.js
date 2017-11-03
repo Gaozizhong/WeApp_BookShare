@@ -58,7 +58,8 @@ Page({
         var qrcodeId     = wx.getStorageSync('qrcodeId')
         var price        = wx.getStorageSync('price')
         var bookInfo     = wx.getStorageSync('bookInfo')
-        var hidden       = wx.getStorageSync('hidden')
+        var hidden = wx.getStorageSync('hidden')
+        var bookId = wx.getStorageSync('bookId')
         if (qrcodeId){
             wx.showModal({
                 title: '提醒',
@@ -77,12 +78,26 @@ Page({
                         })
                     }else{
                         //根据qrcodeId删除之前上传的
+                        var url3 = ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=deleteByQrcodeId&qrcodeId=' + qrcodeId).replace(/\s+/g, "");
 
+                        wx.request({
+                            url: url3,
+                            method: "GET",
+                            success: function (res) {
+                                if (res.data == "success") {
+                                    that.clearStorageSelf();
+                                    wx.navigateBack({
+                                        delta:1
+                                    })
+                                }
+                            }
+                        })
 
                     }
                 }
             })
         } else if (can_share_id){
+            var that = this;
             wx.showModal({
                 title: '提醒',
                 content: '您上一次上传的' + bookInfo.title + '还未扫描书后二维码，是否继续？',
@@ -96,16 +111,53 @@ Page({
                             price: price,
                             qrcodeId: qrcodeId,
                             bookInfo: bookInfo,
-                            can_share_id: can_share_id
+                            can_share_id: can_share_id,
+                            bookId: bookId
                         })
+                        that.deleteByCanShareId()
                     } else {
+                        that.setData({
+                            can_share_id: can_share_id,
+                        })
                         //根据can_share_id删除之前上传的
-
-
+                        that.deleteByCanShareId();
+                        that.clearStorageSelf();
+                        wx.navigateBack({
+                            delta: 1
+                        })
                     }
                 }
             })
         }
+    },
+    
+    //清除缓存
+    clearStorageSelf:function(){
+        //清除缓存
+        wx.removeStorageSync('can_share_id');
+        wx.removeStorageSync('qrcodeId');
+        wx.removeStorageSync('price');
+        wx.removeStorageSync('bookInfo');
+        wx.removeStorageSync('hidden'); 
+        wx.removeStorageSync('bookId');
+    },
+
+    //根据can_share_id删除can_share表中的信息
+    deleteByCanShareId:function(){
+        var that = this
+        var url = ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=deleteByCanShareId&can_share_id=' + that.data.can_share_id).replace(/\s+/g, "");
+        wx.request({
+            url: url,
+            method: "GET",
+            success: function (res) {
+                if (res.data == "fail") {
+                    wx.showToast({
+                        title: '操作失败，请重试',
+                    })
+                    return ;
+                }
+            }
+        })
     },
 
     togglePtype: function () {
@@ -253,6 +305,7 @@ Page({
                                                 can_share_id: res.data[0]["can_share_id"],
                                             })
                                             //暂时存在storage里！！！！！！！！！！！！！！！！！！！！！
+                                            wx.setStorageSync("bookId", that.data.bookId)
                                             wx.setStorageSync("can_share_id", that.data.can_share_id)
                                             wx.setStorageSync("price", that.data.price)
                                             wx.setStorageSync("hidden", 2)
@@ -360,11 +413,7 @@ Page({
                                     success: function (res) {
                                         if (res.data == "success") {
                                             //清除缓存
-                                            wx.removeStorageSync('can_share_id');
-                                            wx.removeStorageSync('qrcodeId');
-                                            wx.removeStorageSync('price');
-                                            wx.removeStorageSync('bookInfo');
-                                            wx.removeStorageSync('hidden');
+                                            that.clearStorageSelf();
                                             
                                             wx.showModal({
                                                 title: '提醒',
