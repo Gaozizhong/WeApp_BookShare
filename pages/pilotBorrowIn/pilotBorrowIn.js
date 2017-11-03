@@ -23,7 +23,7 @@ Page({
             title: '自营点借书流程',
         })
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBookStatusBySharingId&sharingId=' + options.sharingId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBookStatusBySharingId&sharingId=' + options.sharingId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'
@@ -65,7 +65,7 @@ Page({
                                     console.log(res.result)
                                     var qrcode = res.result.substring(69);
                                     wx.request({
-                                        url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getSharingByQRcode&qrcode=' + qrcode,
+                                        url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getSharingByQRcode&qrcode=' + qrcode).replace(/\s+/g, ""),
                                         method: "GET",
                                         header: {
                                             'content-type': 'application/json'
@@ -125,7 +125,7 @@ Page({
                                     console.log(res.result)
                                     // var qrcode = res.result.substring(10);
                                     var qrcode = res.result;
-                                    var url = 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=screenBookCaseFinish&canShareId=' + that.data.canShareId + '&sharingId=' + that.data.sharingId +'&bookCaseQRcode=' + qrcode;
+                                    var url = ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=screenBookCaseFinish&canShareId=' + that.data.canShareId + '&sharingId=' + that.data.sharingId + '&bookCaseQRcode=' + qrcode).replace(/\s+/g, "");
                                     console.log(url)
                                     wx.request({
                                         url: url,
@@ -199,7 +199,7 @@ Page({
             success: function (res) {
                 if (res.confirm) {
                     wx.request({
-                        url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=finishRead&sharingId=' + that.data.sharingId,
+                        url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=finishRead&sharingId=' + that.data.sharingId).replace(/\s+/g, ""),
                         method: "GET",
                         header: {
                             'content-type': 'application/json'
@@ -250,7 +250,7 @@ Page({
                                 if (res.scanType == "QR_CODE") {
                                     // var qrcode = res.result.substring(10);
                                     var qrcode = res.result;
-                                    var url = 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=returnBackPilot&canShareId=' + that.data.canShareId + "&sharingId=" + that.data.sharingId + '&locationQRcode=' + qrcode;
+                                    var url = ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=returnBackPilot&canShareId=' + that.data.canShareId + "&sharingId=" + that.data.sharingId + '&locationQRcode=' + qrcode).replace(/\s+/g, "");
                                     console.log(url)
                                     wx.request({
                                         url: url,

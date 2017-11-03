@@ -182,7 +182,7 @@ Page({
                                     //条形码
                                     var isbnCode = res.result;
                                     wx.request({
-                                        url: 'https://api.douban.com/v2/book/isbn/' + isbnCode,
+                                        url: ('https://api.douban.com/v2/book/isbn/' + isbnCode).replace(/\s+/g, ""),
                                         header: {
                                             'content-type': 'json'
                                         },

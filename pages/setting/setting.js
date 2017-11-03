@@ -10,7 +10,7 @@ Page({
     onLoad: function () {
         var that = this;
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=User&a=getProtectInfo&userId=' + app.globalData.userId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=User&a=getProtectInfo&userId=' + app.globalData.userId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'
@@ -66,7 +66,7 @@ Page({
             protectStatu = 0;
         }
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=User&a=editProtectInfo&userId=' + app.globalData.userId + "&protect=" + protectStatu,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=User&a=editProtectInfo&userId=' + app.globalData.userId + "&protect=" + protectStatu).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'

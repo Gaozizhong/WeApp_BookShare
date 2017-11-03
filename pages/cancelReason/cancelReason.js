@@ -20,7 +20,7 @@ Page({
             canShareId: options.canShareId
         })
         wx.request({
-          url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBorrowCancelReason',
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBorrowCancelReason').replace(/\s+/g, ""),
           method: "GET",
           header: {
             'content-type': 'application/json'
@@ -93,7 +93,7 @@ Page({
     cancelBorrow: function () {
         var that = this;
         wx.request({
-          url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=cancelBorrow&sharingId=' + that.data.sharingId + "&canShareId=" + that.data.canShareId + "&refuse_reason=" + that.data.refuse_reason+"&refuse_content="+that.data.refuse_content,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=cancelBorrow&sharingId=' + that.data.sharingId + "&canShareId=" + that.data.canShareId + "&refuse_reason=" + that.data.refuse_reason + "&refuse_content=" + that.data.refuse_content).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'

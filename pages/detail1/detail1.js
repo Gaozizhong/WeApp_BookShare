@@ -50,7 +50,7 @@ Page({
             bookId: bookId
         })
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBookInfoByCanShareId&canShareId=' + canShareId + "&book_type=" + book_type + "&userId=" + app.globalData.userId + "&bookId=" + that.data.bookId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBookInfoByCanShareId&canShareId=' + canShareId + "&book_type=" + book_type + "&userId=" + app.globalData.userId + "&bookId=" + that.data.bookId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json',
@@ -133,7 +133,7 @@ Page({
         } else {
             //判断不能借自己书、是否借出
             wx.request({
-                url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId + "&protect=0" + "&price=" + that.data.bookInfo.price + "&bookType=" + book_type,
+                url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId + "&protect=0" + "&price=" + that.data.bookInfo.price + "&bookType=" + book_type).replace(/\s+/g, ""),
                 method: "GET",
                 header: {
                     'content-type': 'application/json',
@@ -246,7 +246,7 @@ Page({
 
         //判断不能借自己书、是否借出
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId + "&price=" + that.data.bookInfo.price + "&bookType=" + that.data.book_type,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=affirmBorrowBook&canShareId=' + canShareId + '&user_id=' + app.globalData.userId + "&price=" + that.data.bookInfo.price + "&bookType=" + that.data.book_type).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json',
@@ -295,7 +295,7 @@ Page({
         var that = this
         //添加至public_booklist 我看过的
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=addSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id + "&type=1",
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=addSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id + "&type=1").replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json',
@@ -340,7 +340,7 @@ Page({
             success: function (res) {
                 if (res.confirm) {
                     wx.request({
-                        url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=cancelSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id + "&type=1",
+                        url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=cancelSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id + "&type=1").replace(/\s+/g, ""),
                         method: "GET",
                         header: {
                             'content-type': 'application/json',
@@ -383,7 +383,7 @@ Page({
         var that = this
         //添加至public_booklist 我看过的
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=addSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id + "&type=2",
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=addSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id + "&type=2").replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json',
@@ -425,7 +425,7 @@ Page({
             success: function (res) {
                 if (res.confirm) {
                     wx.request({
-                        url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=cancelSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id + "&type=2",
+                        url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=cancelSeenBook&user_id=' + app.globalData.userId + "&book_id=" + that.data.bookInfo.book_id + "&type=2").replace(/\s+/g, ""),
                         method: "GET",
                         header: {
                             'content-type': 'application/json',

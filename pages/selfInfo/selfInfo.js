@@ -13,7 +13,7 @@ Page({
     onLoad: function () {
         var that = this;
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=User&a=getUserInfo&id=' + app.globalData.userId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=User&a=getUserInfo&id=' + app.globalData.userId).replace(/\s+/g, ""),
             header:{
                 'content-type':'application/json'
             },

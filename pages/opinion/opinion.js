@@ -32,7 +32,7 @@ Page({
             return ;
         }
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=submitOpinion&opinion=' + that.data.opinion + "&userId=" + app.globalData.userId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=submitOpinion&opinion=' + that.data.opinion + "&userId=" + app.globalData.userId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json',

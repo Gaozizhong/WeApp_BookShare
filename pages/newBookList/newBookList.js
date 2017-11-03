@@ -96,7 +96,7 @@ Page({
             return ;
         }
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=createPrivateBookList&user_id=' + app.globalData.userId + "&name=" + that.data.name + "&description=" + that.data.description,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=createPrivateBookList&user_id=' + app.globalData.userId + "&name=" + that.data.name + "&description=" + that.data.description).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json',

@@ -30,7 +30,7 @@ Page({
           book_id: options.book_id,
       })
       wx.request({
-          url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getCardDetail&bookId=' + options.book_id + "&userId=" + app.globalData.userId,
+          url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getCardDetail&bookId=' + options.book_id + "&userId=" + app.globalData.userId).replace(/\s+/g, ""),
           method: "GET",
           header: {
               'content-type': 'application/json',
@@ -158,12 +158,12 @@ Page({
           return;
       }
       if (that.data.cardContent == "none") {
-          url = 'https://' + app.globalData.apiUrl + '/index.php?m=home&c=Api&a=makeCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.cardInfo + "&can_see=" + that.data.can_see + "&book_content=" + that.data.key;
+          url = ('https://' + app.globalData.apiUrl + '/index.php?m=home&c=Api&a=makeCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.cardInfo + "&can_see=" + that.data.can_see + "&book_content=" + that.data.key).replace(/\s+/g, "");
           successStr = "添加成功！";
           failStr = "添加失败，请重试！"
 
       } else {
-          url = 'https://' + app.globalData.apiUrl + '/index.php?m=home&c=Api&a=editCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.cardInfo + "&can_see=" + that.data.can_see + "&card_id=" + that.data.cardContent["ID"] + "&book_content=" + that.data.key;
+          url = ('https://' + app.globalData.apiUrl + '/index.php?m=home&c=Api&a=editCard&user_id=' + app.globalData.userId + "&book_id=" + that.data.book_id + "&card_content=" + that.data.cardInfo + "&can_see=" + that.data.can_see + "&card_id=" + that.data.cardContent["ID"] + "&book_content=" + that.data.key).replace(/\s+/g, "");
           successStr = "修改成功！";
           failStr = "修改失败，请重试！"
       }

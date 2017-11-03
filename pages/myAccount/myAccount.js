@@ -17,7 +17,7 @@ Page({
     onLoad: function (options) {
         var that = this;
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=User&a=getIntegral&userId=' + app.globalData.userId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=User&a=getIntegral&userId=' + app.globalData.userId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'

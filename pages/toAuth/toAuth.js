@@ -26,7 +26,7 @@ Page({
 
         //等待认证获取详情
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=User&a=getUserInfo&id=' + app.globalData.userId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=User&a=getUserInfo&id=' + app.globalData.userId).replace(/\s+/g, ""),
             header: {
                 'content-type': 'application/json'
             },
@@ -48,7 +48,7 @@ Page({
         })
         
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getSchoolList',
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getSchoolList').replace(/\s+/g, ""),
             header: {
                 'content-type': 'application/json'
             },
@@ -291,7 +291,7 @@ Page({
         }
 
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '/index.php?m=home&c=User&a=selfAuth&ID=' + app.globalData.userId + "&userName=" + that.data.userName + "&userSchool=河北工业大学&userClass=河北工业大学计算机学院&studentCard=000000&eMail=" + that.data.eMail + "&phoneNumber=" + that.data.phoneNumber,
+            url: ('https://' + app.globalData.apiUrl + '/index.php?m=home&c=User&a=selfAuth&ID=' + app.globalData.userId + "&userName=" + that.data.userName + "&userSchool=河北工业大学&userClass=河北工业大学计算机学院&studentCard=000000&eMail=" + that.data.eMail + "&phoneNumber=" + that.data.phoneNumber).replace(/\s+/g, ""),
             method: "get",
             dataType: "json",
             success: function (res) {

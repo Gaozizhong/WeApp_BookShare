@@ -10,7 +10,7 @@ Page({
         var sharingId = options.sharingId + "@" + app.globalData.userId;//添加 userId 防止漏洞
         var that = this;
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=createQRcode&sharingId=' + sharingId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=createQRcode&sharingId=' + sharingId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'

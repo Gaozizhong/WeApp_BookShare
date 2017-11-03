@@ -20,7 +20,7 @@ Page({
         //加载自营点数据
         var that = this;
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getPilotBorrowIn&userId=' + app.globalData.userId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getPilotBorrowIn&userId=' + app.globalData.userId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'

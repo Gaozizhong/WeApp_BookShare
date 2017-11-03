@@ -12,7 +12,7 @@ Page({
     onLoad: function () {
         var that = this;
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBook&ownerId=' + app.globalData.userId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBook&ownerId=' + app.globalData.userId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'
@@ -73,7 +73,7 @@ Page({
         var sharingId = e.currentTarget.dataset.sharingid;
         var that = this;
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBookFun&sharingId=' + sharingId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBookFun&sharingId=' + sharingId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'

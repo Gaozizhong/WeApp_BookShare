@@ -16,7 +16,7 @@ Page({
         })
         
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=User&a=getTopInvite&id=' + app.globalData.userId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=User&a=getTopInvite&id=' + app.globalData.userId).replace(/\s+/g, ""),
             method: "GET",
             dataType: "json",
             success: function (res) {
@@ -62,7 +62,7 @@ Page({
     getInviteCode:function(){
         var that = this;
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=User&a=createInvite&id=' + app.globalData.userId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=User&a=createInvite&id=' + app.globalData.userId).replace(/\s+/g, ""),
             method: "GET",
             dataType: "text",
             success: function (res) {

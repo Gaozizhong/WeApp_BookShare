@@ -11,7 +11,7 @@ Page({
     onLoad: function () {
         var that = this;
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getReturnBack&userId=' + app.globalData.userId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getReturnBack&userId=' + app.globalData.userId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'
@@ -68,7 +68,7 @@ Page({
                                     var sharingId = array[0];
                                     //根据sharingId获取书主 借书人信息 对书主 借书人信息进行验证
                                     wx.request({
-                                        url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=checkOwner&sharingId=' + sharingId,
+                                        url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=checkOwner&sharingId=' + sharingId).replace(/\s+/g, ""),
                                         method: "GET",
                                         header: {
                                             'content-type': 'application/json'
@@ -77,7 +77,7 @@ Page({
                                             if (array[1] == res.data["owner_id"]) {
                                                 if (res.data["user_id"] == app.globalData.userId) {
                                                     wx.request({
-                                                        url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=screenReturn&sharingId=' + sharingId + "&user_id=" + app.globalData.userId + " & book_id=" + bookId,
+                                                        url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=screenReturn&sharingId=' + sharingId + "&user_id=" + app.globalData.userId + " & book_id=" + bookId).replace(/\s+/g, ""),
                                                         method: "GET",
                                                         header: {
                                                             'content-type': 'application/json'
@@ -165,7 +165,7 @@ Page({
         var canShareId = e.currentTarget.dataset.canshareid;
         var that = this;
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=returnBack&sharingId=' + sharingId + "&canShareId=" + canShareId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=returnBack&sharingId=' + sharingId + "&canShareId=" + canShareId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'

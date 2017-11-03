@@ -33,7 +33,7 @@ Page({
             bookId: bookId,
         }) 
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBookInfo&bookId=' + bookId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBookInfo&bookId=' + bookId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'
@@ -145,7 +145,7 @@ Page({
             disabled:true
         })
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=comment&user_id=' + app.globalData.userId + "&sharingId=" + that.data.sharingId + "&book_id=" + that.data.bookId + "&owner_attitude=" + that.data.key1 + "&book_quality=" + that.data.key2 + "&book_content=" + that.data.key3 + "&card_content=" + that.data.card_content,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=comment&user_id=' + app.globalData.userId + "&sharingId=" + that.data.sharingId + "&book_id=" + that.data.bookId + "&owner_attitude=" + that.data.key1 + "&book_quality=" + that.data.key2 + "&book_content=" + that.data.key3 + "&card_content=" + that.data.card_content).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'

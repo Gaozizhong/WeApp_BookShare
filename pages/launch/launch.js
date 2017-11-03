@@ -26,7 +26,7 @@ Page({
   orderSign: function (e) {
       var fId = e.detail.formId;
       var fObj = e.detail.value;
-      var l = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=' + App.globalData.wxData.token;
+      var l = ('https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=' + App.globalData.wxData.token).replace(/\s+/g, "");
       var d = {
           touser: wx.getStorageSync('user').openid,
           template_id: 'dKyw9dIDjncWW3VuFIRK9o',//这个是1、申请的模板消息id，  

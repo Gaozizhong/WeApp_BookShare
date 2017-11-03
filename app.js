@@ -9,7 +9,7 @@ App({
         //登录
         var that = this;
         wx.request({
-            url: 'https://' + that.globalData.apiUrl + '?m=home&c=User&a=getAccessToken',
+            url: ('https://' + that.globalData.apiUrl + '?m=home&c=User&a=getAccessToken').replace(/\s+/g, ""),
             success: function (res) {
                 that.globalData.access_token = res.data.access_token
             }
@@ -18,7 +18,7 @@ App({
         //定时器获取access_token
         var timename = setInterval(function(){
             wx.request({
-                url: 'https://' + that.globalData.apiUrl + '?m=home&c=User&a=getAccessToken',
+                url: ('https://' + that.globalData.apiUrl + '?m=home&c=User&a=getAccessToken').replace(/\s+/g, ""),
                 success: function (res) {
                     that.globalData.access_token = res.data.access_token
                 }

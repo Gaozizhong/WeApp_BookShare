@@ -20,7 +20,7 @@ Page({
         wx.setNavigationBarTitle({ title: "借书篮" })
         var that = this;
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBorrowIn&userId=' + app.globalData.userId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getBorrowIn&userId=' + app.globalData.userId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'
@@ -54,7 +54,7 @@ Page({
         })
 
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getPilotBorrowIn&userId=' + app.globalData.userId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=getPilotBorrowIn&userId=' + app.globalData.userId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'
@@ -162,7 +162,7 @@ Page({
         var sharingId = e.currentTarget.dataset.sharingid;
         var that = this;
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=Api&a=finishBorrow&sharingId=' + sharingId,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=Api&a=finishBorrow&sharingId=' + sharingId).replace(/\s+/g, ""),
             method: "GET",
             header: {
                 'content-type': 'application/json'

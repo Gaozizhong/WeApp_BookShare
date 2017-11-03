@@ -70,7 +70,7 @@ Page({
             return ;
         }
         wx.request({
-            url: 'https://' + app.globalData.apiUrl + '?m=home&c=User&a=setInvite&id=' + that.data.userInfo.ID + "&invited=" + that.data.invite + "&inviteId=" + that.data.id,
+            url: ('https://' + app.globalData.apiUrl + '?m=home&c=User&a=setInvite&id=' + that.data.userInfo.ID + "&invited=" + that.data.invite + "&inviteId=" + that.data.id).replace(/\s+/g, ""),
             method: "GET",
             dataType: "json",
             success: function (res) {
